@@ -468,6 +468,15 @@
     line-height: 1;
   }
 
+  .stat-value-range {
+    color: var(--text-primary);
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
   /* ─── Model fluency chips (STYLE_GUIDE §2.9) ─────── */
 
   .model-chip {

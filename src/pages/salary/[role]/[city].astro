@@ -49,11 +49,11 @@ const path = `/salary/${role.slug}/${city.slug}`;
   <section class="border-y border-[var(--line)] bg-[var(--bg-elevated)]">
     <div class="container grid gap-6 py-12 md:grid-cols-3">
       <div>
-        <p class="stat-value">{salaryRangeFor(role, city)}</p>
+        <p class="stat-value-range">{salaryRangeFor(role, city)}</p>
         <p class="mt-2 text-sm text-[var(--muted)]">permanent salary range</p>
       </div>
       <div>
-        <p class="stat-value">{contractRangeFor(role, city)}</p>
+        <p class="stat-value-range">{contractRangeFor(role, city)}</p>
         <p class="mt-2 text-sm text-[var(--muted)]">contract benchmark before loading</p>
       </div>
       <div>
