@@ -1,6 +1,6 @@
 # tenX Website — Continuous Improvement Queue
 
-Last updated: 2026-05-12
+Last updated: 2026-05-12 (cycle 2)
 
 ## Completed
 - [x] Initial Astro scaffold (2026-05-11)
@@ -27,5 +27,10 @@ Last updated: 2026-05-12
 - [ ] Blog: "The 14 sandbox tests every tenX engineer passes" — detailed breakdown of each test task, specific criteria, maps to badge areas; builds authority on the vetting mechanism
 - [x] Blog: "Why 'top 1%' stopped meaning anything in AI hiring" — contrarian take on Toptal/Turing's percentile claims vs evidence-based badge verification; links to /vs/toptal and /vs/turing (2026-05-12)
 - [ ] Blog: "Agent engineer vs AI engineer — scope, skills, salary" — follows same format as RAG piece; high search value for emerging role category
-- [ ] /vetting page — standalone page detailing the full test rubric with badge areas, pass criteria, and cooldown/retry policy; becomes the primary internal link target from all articles and role hubs
+- [x] /vetting page — standalone page detailing the full test rubric with badge areas, pass criteria, and cooldown/retry policy; becomes the primary internal link target from all articles and role hubs (2026-05-12)
 - [ ] Salary guide pages /salary/[role]/[city] — target "LLM engineer salary Auckland" and similar queries; noindex until data is real, then flip
+
+## New ideas (added 2026-05-12)
+- [ ] Link /vetting from role hub pages (/hire/[role]) — each role hub should have a "vetting for this role" section that names the specific badges required and links to the relevant /vetting#[badge-slug] anchor
+- [ ] Blog: "The 14 sandbox tests every tenX engineer passes" — deep-dive companion piece to /vetting, follows each badge in detail, explains failure modes seen in the platform; primary internal link from /vetting page; strong GEO target ("how to pass tenX vetting")
+- [ ] /vs pages: add "vetting depth" row to comparison table — shows that tenX publishes a full rubric at /vetting while competitors describe vetting only in marketing language; link the rubric from each /vs page
