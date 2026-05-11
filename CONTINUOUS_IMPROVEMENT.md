@@ -1,6 +1,6 @@
 # tenX Website — Continuous Improvement Queue
 
-Last updated: 2026-05-11 (cycle 6)
+Last updated: 2026-05-12 (cycle 7)
 
 ## Completed
 - [x] Initial Astro scaffold (2026-05-11)
@@ -40,7 +40,7 @@ Last updated: 2026-05-11 (cycle 6)
 
 ## New ideas (added 2026-05-12, cycle 5)
 - [x] /hire/[industry] pages missing from nav — Hire dropdown added to header with 8 role hubs + 4 industry hubs; mobile uses a details expander (2026-05-11, cycle 6)
-- [ ] Internal link from apply page to /vetting — candidates should be able to see the test rubric before applying; add a "See what we test for" link near the feature cards
+- [x] Internal link from apply page to /vetting — "See what we test for →" link added below feature cards, using href() helper (2026-05-12, cycle 7)
 - [ ] Blog: "The forward-deployed engineer — what the role actually is and why every AI company is hiring one" — definitional piece, strong search value, links to /hire/forward-deployed-engineer
 
 ## New ideas (added 2026-05-11, cycle 4)
@@ -49,6 +49,11 @@ Last updated: 2026-05-11 (cycle 6)
 - [ ] /salary/[role] pages (non-noindex) — start with ai-engineer and llm-engineer since real data ranges exist in roles.json; these are the highest-traffic salary queries for NZ/AUS
 
 ## New ideas (added 2026-05-11, cycle 6)
-- [ ] Internal link from apply page to /vetting — "See what we test for" link below the feature cards sends candidates to the rubric before they apply; small copy addition, high trust signal
+- [x] Internal link from apply page to /vetting — done cycle 7
 - [ ] /hire/[role] pages: add "vetting for this role" block — each role hub currently lacks a section linking to the specific /vetting#[badge-slug] anchors; adds depth and internal link equity
 - [ ] /salary/[role] pages (non-noindex) — start with ai-engineer and llm-engineer since real salary band data exists in roles.json; highest-traffic NZ/AUS salary queries and the pages are already templated
+
+## New ideas (added 2026-05-12, cycle 7)
+- [ ] /hire/[role] vetting block — each of the 8 role hubs (/hire/llm-engineer, /hire/ai-engineer, etc.) should end with a short "What tenX tests for this role" section, naming the specific badge areas and linking to /vetting#[badge-slug] anchors; builds trust and adds internal link equity
+- [ ] /vs pages vetting row — the comparison table on /vs/toptal, /vs/turing, etc. lacks a "vetting depth" row; adding it with a link to the published /vetting rubric would sharpen the differentiation vs competitors who describe vetting only in marketing language
+- [ ] Blog: "The 14 sandbox tests every tenX engineer passes" — deep-dive companion to /vetting, covers each badge area in detail with failure modes seen in real assessments; high-intent GEO target for "how to pass tenX vetting" and "what does tenX test for"
