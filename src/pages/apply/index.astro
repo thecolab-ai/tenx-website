@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { jobPostingSchema } from "../../lib/seo";
+import { href } from "../../lib/href";
 
 const skills = [
   "Claude fluency",
@@ -61,7 +62,7 @@ const features = [
         ))}
       </div>
       <p class="mt-5 text-sm text-[var(--muted)]">
-        <a href={`${import.meta.env.BASE_URL}vetting`} class="underline underline-offset-2 hover:text-[var(--ink)]">See what we test for →</a>
+        <a href={href("/vetting")} class="underline underline-offset-2 hover:text-[var(--ink)]">See what we test for →</a>
       </p>
     </div>
 
