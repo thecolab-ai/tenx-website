@@ -1,5 +1,7 @@
 ---
 import { href } from "../lib/href";
+import rolesData from "../data/roles.json";
+import industriesData from "../data/industries.json";
 
 const navItems = [
   { path: "/how-it-works", label: "How it works" },
@@ -16,29 +18,84 @@ const navItems = [
       ten<span class="logo-x">X</span>
     </a>
 
-    <!-- Desktop nav — body-sm weight 500, text-secondary → text-primary on hover -->
+    <!-- Desktop nav -->
     <nav class="hidden items-center gap-6 md:flex" aria-label="Primary navigation">
       {navItems.map((item) => (
         <a href={href(item.path)} class="nav-link">{item.label}</a>
       ))}
+
+      <!-- Hire dropdown trigger -->
+      <div class="hire-wrap">
+        <button class="nav-link hire-trigger" type="button" aria-haspopup="menu">
+          Hire
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true" class="hire-chevron">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div class="hire-menu" role="menu" aria-label="Hire by role or industry">
+          <div class="hire-menu-inner">
+            <div class="hire-col">
+              <p class="hire-col-label">By role</p>
+              {rolesData.map((role) => (
+                <a href={href(`/hire/${role.slug}/`)} class="hire-link" role="menuitem">{role.title}</a>
+              ))}
+            </div>
+            <div class="hire-col">
+              <p class="hire-col-label">By industry</p>
+              {industriesData.map((industry) => (
+                <a href={href(`/hire/${industry.slug}/`)} class="hire-link" role="menuitem">{industry.title}</a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
 
-    <!-- CTA buttons — theme toggle removed from header, moved to footer -->
+    <!-- CTA buttons — keep existing Hire CTA + Apply -->
     <div class="flex items-center gap-2">
       <a class="button button-secondary" href={href("/hire")} id="hire-btn" style="min-height: 40px; padding: 8px 14px; font-size: 0.875rem; display: none;">Hire</a>
       <a class="button button-primary" href={href("/apply")} style="min-height: 40px; padding: 8px 14px; font-size: 0.875rem;">Apply</a>
     </div>
   </div>
 
-  <!-- Mobile nav -->
+  <!-- Mobile nav scroll -->
   <nav class="container flex gap-5 overflow-x-auto pb-3 pt-0 md:hidden" aria-label="Mobile navigation">
     {navItems.map((item) => (
       <a href={href(item.path)} class="nav-link" style="white-space: nowrap; flex-shrink: 0;">{item.label}</a>
     ))}
+    <a href={href("/hire")} class="nav-link" style="white-space: nowrap; flex-shrink: 0;">Hire</a>
   </nav>
+
+  <!-- Mobile hire hubs — expandable below scroll nav -->
+  <details class="mobile-hire md:hidden">
+    <summary class="mobile-hire-summary container">
+      <span>Hire by role or industry</span>
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true" class="mobile-hire-chevron">
+        <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </summary>
+    <div class="mobile-hire-body container">
+      <div class="mobile-hire-cols">
+        <div class="mobile-hire-col">
+          <p class="mobile-hire-label">By role</p>
+          {rolesData.map((role) => (
+            <a href={href(`/hire/${role.slug}/`)} class="mobile-hire-link">{role.title}</a>
+          ))}
+        </div>
+        <div class="mobile-hire-col">
+          <p class="mobile-hire-label">By industry</p>
+          {industriesData.map((industry) => (
+            <a href={href(`/hire/${industry.slug}/`)} class="mobile-hire-link">{industry.title}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </details>
 </header>
 
 <style>
+  /* ── Base header ────────────────────────────────── */
   .header-sticky {
     position: sticky;
     top: 0;
@@ -83,5 +140,192 @@ const navItems = [
     #hire-btn {
       display: inline-flex !important;
     }
+  }
+
+  /* ── Desktop hire dropdown ──────────────────────── */
+  .hire-wrap {
+    position: relative;
+  }
+
+  .hire-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .hire-chevron {
+    flex-shrink: 0;
+    color: var(--text-muted);
+    transition: transform 150ms ease, color 120ms;
+  }
+
+  .hire-wrap:hover .hire-chevron,
+  .hire-wrap:focus-within .hire-chevron {
+    transform: rotate(180deg);
+    color: var(--text-secondary);
+  }
+
+  .hire-menu {
+    position: absolute;
+    top: calc(100% + 14px);
+    right: 0;
+    width: 440px;
+    background: rgba(17, 17, 17, 0.97);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    padding: 20px 24px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity 120ms ease, transform 120ms ease;
+  }
+
+  [data-theme="light"] .hire-menu {
+    background: rgba(255, 255, 255, 0.97);
+  }
+
+  .hire-wrap:hover .hire-menu,
+  .hire-wrap:focus-within .hire-menu {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+
+  .hire-menu-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 24px;
+  }
+
+  .hire-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hire-col-label {
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 10px 0;
+  }
+
+  .hire-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 5px 6px;
+    margin: 0 -6px;
+    border-radius: 4px;
+    transition: color 100ms, background 100ms;
+    display: block;
+  }
+
+  .hire-link:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  [data-theme="light"] .hire-link:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .hire-link:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--bg-base), 0 0 0 4px var(--accent);
+  }
+
+  /* ── Mobile hire section ────────────────────────── */
+  .mobile-hire {
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .mobile-hire-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    padding: 10px 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .mobile-hire-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-hire-summary::marker {
+    display: none;
+  }
+
+  .mobile-hire-chevron {
+    flex-shrink: 0;
+    color: var(--text-muted);
+    transition: transform 150ms ease;
+  }
+
+  .mobile-hire[open] .mobile-hire-chevron {
+    transform: rotate(180deg);
+  }
+
+  .mobile-hire-body {
+    padding-bottom: 16px;
+  }
+
+  .mobile-hire-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 16px;
+  }
+
+  .mobile-hire-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-hire-label {
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 8px 0;
+  }
+
+  .mobile-hire-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-subtle);
+    transition: color 100ms;
+  }
+
+  .mobile-hire-link:hover,
+  .mobile-hire-link:focus-visible {
+    color: var(--text-primary);
+  }
+
+  .mobile-hire-link:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--bg-base), 0 0 0 4px var(--accent);
   }
 </style>
