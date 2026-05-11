@@ -4,22 +4,22 @@ import { collectionPageSchema } from "../lib/seo";
 
 const candidateSteps = [
   ["Apply", "Submit your profile, AI skill focus, LinkedIn, and NZ contact details."],
-  ["Verify", "Take model and stack sandboxes. Pass tests to earn reusable tenX badges."],
+  ["Verify", "Take practical model and stack tests. Pass tests to earn reusable tenX badges."],
   ["Prioritise", "More relevant badges increase match priority when employer demand opens."],
   ["Match", "Review opportunities where your verified skills map to the hiring brief."]
 ];
 
 const employerSteps = [
-  ["Brief", "Share role, location, budget, model stack, and the problems the engineer needs to own."],
+  ["Brief", "Share role, location, budget, tools, and the problems the engineer needs to own."],
   ["Shortlist", "tenX filters by badge evidence, availability, geography, and salary expectations."],
-  ["Interview", "Talk to engineers who already cleared relevant sandboxes. Spend time on fit and scope."],
+  ["Interview", "Talk to engineers who already passed relevant tests. Spend time on fit and scope."],
   ["Hire", "Use published 10% permanent or 20% contractor pricing. No hidden marketplace spread."]
 ];
 ---
 
 <BaseLayout
   title="How tenX works"
-  description="How engineers earn AI verification badges and how employers hire model-fluent engineers through tenX."
+  description="How engineers earn AI verification badges and how employers hire verified AI engineers through tenX."
   path="/how-it-works"
   breadcrumbs={[{ name: "Home", path: "/" }, { name: "How it works", path: "/how-it-works" }]}
   schema={collectionPageSchema({
@@ -34,7 +34,7 @@ const employerSteps = [
       <h1 class="mt-4 text-5xl font-medium leading-tight md:text-6xl">Verification first. Matching second.</h1>
       <p class="mt-6 text-xl leading-8 text-[var(--muted)]">
         tenX starts with candidates because the network needs verified supply before employer demand opens.
-        The platform tests practical AI work across models, stacks, and production patterns.
+        The platform tests practical AI work across provider tools, engineering skills, and production patterns.
       </p>
     </div>
   </section>
@@ -73,16 +73,16 @@ const employerSteps = [
   <section class="container section">
     <div class="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
       <div>
-        <p class="eyebrow">Sandbox tests</p>
+        <p class="eyebrow">Practical tests</p>
         <h2 class="mt-4 text-4xl font-medium">The badges are the product.</h2>
       </div>
       <div class="prose-tenx max-w-none">
         <p>
-          A tenX badge means the engineer passed a platform task in a bounded environment. Tests are stack and model specific:
+          A tenX badge means the engineer passed a practical platform task in a controlled environment. Tests are stack and provider specific:
           Claude fluency, OpenAI fluency, Google fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI.
         </p>
         <p>
-          The result is scalable verification. No founder call can evaluate 100 engineers with consistent criteria. A sandbox can.
+          The result is consistent verification. The same test can evaluate 100 engineers against the same criteria.
           That matters for candidates because skill signal compounds, and it matters for employers because shortlists start closer to reality.
         </p>
       </div>

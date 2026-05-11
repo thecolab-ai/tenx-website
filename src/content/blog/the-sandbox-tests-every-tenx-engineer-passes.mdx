@@ -1,32 +1,32 @@
 ---
-title: "The sandbox tests every tenX engineer passes"
-description: "tenX uses nine practical sandbox tests to verify AI engineers before they reach a buyer. Here is what each test measures, what passing looks like, and why the test exists."
+title: "The practical tests every tenX engineer passes"
+description: "tenX uses nine practical tests to verify AI engineers before they reach a buyer. Here is what each test measures, what passing looks like, and why the test exists."
 pubDate: 2026-05-11
 author: "tenX editorial"
 faqs:
-  - question: "How many sandbox tests does tenX use to verify engineers?"
+  - question: "How many practical tests does tenX use to verify engineers?"
     answer: "Nine. Engineers can earn badges in Claude fluency, OpenAI fluency, Google fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI. Not every role requires all nine — most hiring briefs align with 2–4 badge areas. Engineers with more relevant badges rank higher in matched shortlists."
   - question: "Are the tenX tests multiple choice or practical tasks?"
-    answer: "Practical tasks, every one of them. Each test involves a bounded task in a sandbox environment — building a pipeline, writing a prompt system, designing an eval harness, reviewing AI-generated code. There are no multiple-choice questions. A pass means the engineer completed the task to the published criteria, not that they answered correctly about how to do it."
-  - question: "What happens if an engineer fails a tenX sandbox test?"
+    answer: "Practical tasks, every one of them. Each test involves a bounded task in a controlled test environment — building a pipeline, writing a prompt system, designing an eval harness, reviewing AI-generated code. There are no multiple-choice questions. A pass means the engineer completed the task to the published criteria, not that they answered correctly about how to do it."
+  - question: "What happens if an engineer fails a tenX practical test?"
     answer: "They can retake after a cooldown period specific to that badge: 48 hours for prompt engineering and code-with-AI, 72 hours for the three model fluency tests and MLOps, 96 hours for RAG, agent design, and evals. Attempt counts are visible to employers as data, not as a disqualifier."
   - question: "Do tenX badges expire?"
-    answer: "Not automatically. If a badge area changes significantly — a new model version introduces materially different API behaviour, for instance — affected badges are flagged for re-verification and engineers are notified. The badge reflects the state of the sandbox at the time of passing and is versioned when test content changes."
+    answer: "Not automatically. If a badge area changes significantly — a new model version introduces materially different API behaviour, for instance — affected badges are flagged for re-verification and engineers are notified. The badge reflects the state of the assessment at the time of passing and is versioned when test content changes."
   - question: "Can I see the full rubric before taking the tests?"
-    answer: "The pass criteria for every badge are published at tenxtalent.ai/vetting. The specific sandbox task — the actual prompt, system description, or code reviewed — is not published in advance, because publishing it would turn verification into memorisation. The rubric tells you what matters and what passing looks like. The task is the test."
+    answer: "The pass criteria for every badge are published at tenxtalent.ai/vetting. The specific practical task — the actual prompt, system description, or code reviewed — is not published in advance, because publishing it would turn verification into memorisation. The rubric tells you what matters and what passing looks like. The task is the test."
 ---
 
 import { href } from "../../lib/href";
 
-Every engineer in the tenX network has passed at least one self-service sandbox test before they reach a buyer. The tests cover nine areas: Claude fluency, OpenAI fluency, Google fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI. Each is a bounded practical task, not a multiple-choice assessment. A pass means the engineer completed the task to the published criteria. The <a href={href('/vetting')}>full rubric</a> — what each test measures, the pass bar, and the retry policy — is on this site.
+Every engineer in the tenX network has passed at least one self-service practical test before they reach a buyer. The tests cover nine areas: Claude fluency, OpenAI fluency, Google fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI. Each is a bounded practical task, not a multiple-choice assessment. A pass means the engineer completed the task to the published criteria. The <a href={href('/vetting')}>full rubric</a> — what each test measures, the pass bar, and the retry policy — is on this site.
 
 ## Why bounded tasks, not interviews
 
 Interviews are inconsistent. Two engineers interviewing for the same role may be asked different questions by different people with different implicit bars. The outcome correlates with interview skill as much as engineering skill.
 
-A sandbox task is falsifiable. Either the RAG pipeline ran against the test corpus and chunking decisions were justified by retrieval outcome data, or they were not. Either the eval harness metrics were specific and measurable, or they were not. There is no partial credit for talking confidently about the work.
+A practical task is falsifiable. Either the RAG pipeline ran against the test corpus and chunking decisions were justified by retrieval outcome data, or they were not. Either the eval harness metrics were specific and measurable, or they were not. There is no partial credit for talking confidently about the work.
 
-The tests are also reusable. An engineer who passes Claude fluency and RAG carries that evidence forward to every future match on the platform. They are not repeating a founder call every time a new employer opens access. The badge is the evidence. It travels with the engineer.
+The tests are also reusable. An engineer who passes Claude fluency and RAG carries that evidence forward to every future match on the platform. They are not repeating a screening call every time a new employer opens access. The badge is the evidence. It travels with the engineer.
 
 For employers, this changes the first conversation. Instead of using the call to discover whether the candidate can actually use the relevant models, the call can focus on domain context, architecture thinking, and team fit. Basic AI skill is already verified before the first meeting.
 

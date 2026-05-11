@@ -18,12 +18,12 @@ const features = [
   {
     eyebrow: "How it works",
     title: "Platform skill tests",
-    body: "Each badge area has a bounded sandbox task — a real deliverable, not multiple choice. You run code, evaluate outputs, or design a system within a time limit. Results are platform-scored; no human gatekeeping."
+    body: "Each badge area has a practical task with a real deliverable, not multiple choice. You run code, evaluate outputs, or design a system within a time limit."
   },
   {
     eyebrow: "What you earn",
     title: "Badges across Claude, OpenAI, Google, RAG, agents, evals, MLOps",
-    body: "Pass a sandbox task and you earn the badge for that area. Badges are permanent, visible on your profile, and searchable by employers. More verified areas, more visibility in the network."
+    body: "Pass a practical test and you earn the badge for that area. Badges are permanent, visible on your profile, and searchable by employers."
   },
   {
     eyebrow: "How matching works",
@@ -40,16 +40,16 @@ const features = [
   breadcrumbs={[{ name: "Home", path: "/" }, { name: "Apply", path: "/apply" }]}
   schema={jobPostingSchema({
     title: "AI-verified engineer network application",
-    description: "Apply to join the tenX network and verify AI engineering skills through model and stack sandboxes.",
+    description: "Apply to join the tenX network and verify AI engineering skills through practical model and stack tests.",
     path: "/apply"
   })}
 >
   <section class="container grid gap-10 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:py-24">
     <div>
       <p class="eyebrow">Candidate intake open</p>
-      <h1 class="mt-4 text-5xl font-medium leading-tight md:text-6xl">Apply once. Verify in the sandbox. Get prioritised by proof.</h1>
+      <h1 class="mt-4 text-5xl font-medium leading-tight md:text-6xl">Apply once. Prove your skills. Get prioritised by evidence.</h1>
       <p class="mt-6 text-xl leading-8 text-[var(--muted)]">
-        The NZ-first network of sandbox-tested AI engineers. No recruiter calls, no screening interviews. Take the tests, earn badges, get matched to employers by evidence.
+        The NZ-first network of AI engineers verified through practical tests. Take the tests, earn badges, get matched to employers by evidence.
       </p>
       <div class="mt-8 grid gap-3">
         {features.map((f) => (
@@ -82,7 +82,7 @@ const features = [
       </label>
       <label class="label">
         Current role
-        <input class="input" name="current_role" placeholder="Senior software engineer, ML engineer, founder..." required />
+        <input class="input" name="current_role" placeholder="Senior software engineer, ML engineer, contractor..." required />
       </label>
       <label class="label">
         Primary AI skill
@@ -93,7 +93,7 @@ const features = [
       </label>
       <button class="button button-primary" type="submit">Apply as an engineer</button>
       <p class="text-sm leading-6 text-[var(--faint)]">
-        Next step after applying: take a sandbox test at app.tenxtalent.ai. Intake is open now for NZ engineers; AUS opens June 2026.
+        Next step after applying: take a practical skills assessment at app.tenxtalent.ai. Intake is open now for NZ engineers; AUS opens June 2026.
       </p>
     </form>
   </section>

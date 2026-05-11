@@ -18,7 +18,7 @@ export function getStaticPaths() {
 const { industry } = Astro.props;
 const path = `/hire/${industry.slug}`;
 const title = `Hire AI engineers for ${industry.title} | tenX`;
-const description = `Hire AI-verified engineers for ${industry.shortTitle}. tenX maps ${industry.useCases.slice(0, 3).join(", ")} work to sandbox badges, role fit, and shortlists across Claude, OpenAI, and Google.`;
+const description = `Hire AI-verified engineers for ${industry.shortTitle}. tenX maps ${industry.useCases.slice(0, 3).join(", ")} work to practical badges, role fit, and shortlists across Claude, OpenAI, and Google.`;
 const heroIndustry = industry.slug === "saas" ? "SaaS" : industry.slug;
 const roles = industry.relevantRoles.map((roleSlug) => getRole(roleSlug));
 const breadcrumbs = [
@@ -57,7 +57,7 @@ function rolePath(role: Role): string {
         <p class="eyebrow">Industry hiring</p>
         <h1 class="mt-4 text-5xl font-medium leading-tight md:text-6xl">Hire AI-verified engineers for {heroIndustry}.</h1>
         <p class="mt-6 text-xl leading-8 text-[var(--text-secondary)]">
-          {industry.summary} tenX filters for sandbox evidence, model fluency, and role fit before engineers reach an employer shortlist.
+          {industry.summary} tenX filters for practical test evidence, AI tool experience, and role fit before engineers reach an employer shortlist.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a class="button button-primary" href={href("/hire")}>Join waitlist</a>
@@ -99,7 +99,7 @@ function rolePath(role: Role): string {
       <p class="eyebrow">Badge signals</p>
       <p class="stat-value mt-3">{industry.relevantBadges.length}</p>
       <p class="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
-        Sandbox signals to inspect before a candidate reaches interview.
+        Practical signals to inspect before a candidate reaches interview.
       </p>
     </div>
   </section>
@@ -134,7 +134,7 @@ function rolePath(role: Role): string {
       <p class="eyebrow">Badge fit</p>
       <h2 class="mt-3 text-3xl font-medium">Signals to check for {industry.title} work.</h2>
       <p class="mt-4 leading-7 text-[var(--text-secondary)]">
-        Badges are earned in sandbox tests. For {industry.shortTitle}, these signals are the fastest way to separate demo fluency from engineers who can ship with Claude, OpenAI, Google, retrieval, evals, and production controls.
+        Badges are earned in practical tests. For {industry.shortTitle}, these signals are the fastest way to separate demo familiarity from engineers who can ship with Claude, OpenAI, Google, retrieval, evals, and production controls.
       </p>
       <div class="mt-6 flex flex-wrap gap-3">
         {industry.relevantBadges.map((badge) => (

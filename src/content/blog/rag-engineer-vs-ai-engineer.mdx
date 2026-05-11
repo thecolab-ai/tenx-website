@@ -13,7 +13,7 @@ faqs:
   - question: "Do RAG engineers and AI engineers earn similar salaries in NZ and Australia?"
     answer: "Yes. RAG specialisation does not command a consistent salary premium over general AI engineering in New Zealand or Australia in 2026. Senior AI engineers with strong RAG skills in Auckland and Wellington earn NZD 140,000–200,000 on permanents. In Sydney and Melbourne, the equivalent range is AUD 150,000–220,000. The main driver of where in the band a candidate lands is depth of production experience, not the specific skill label."
   - question: "How does tenX verify RAG engineering skills?"
-    answer: "tenX uses sandbox tests reviewed against a rubric. Engineers complete a structured evaluation covering chunking strategy, embedding model selection, retrieval quality assessment, answer grounding, and eval design. Responses are reviewed by someone who has built RAG systems in production — not auto-scored. Engineers who pass earn the RAG badge, which is visible to employers and filters into role searches."
+    answer: "tenX uses practical tests reviewed against a rubric. Engineers complete a structured evaluation covering chunking strategy, embedding model selection, retrieval quality assessment, answer grounding, and eval design. Responses are reviewed by someone who has built RAG systems in production — not auto-scored. Engineers who pass earn the RAG badge, which is visible to employers and filters into role searches."
   - question: "What makes a RAG system fail in production?"
     answer: "The most common failure modes are: chunk boundaries that split context mid-concept so retrieval returns fragments; embedding models mismatched to the domain vocabulary; retrieval returning plausible-but-wrong passages; and no evaluation layer to detect when answer quality degrades. A RAG engineer's first job is building the eval infrastructure to catch these failures before users do."
 ---
@@ -81,7 +81,7 @@ The failure cases that only appear in production are often the most instructive.
 
 ## How tenX verifies RAG skills
 
-tenX runs sandbox tests for RAG engineering, reviewed against a rubric. The evaluation covers:
+tenX runs practical tests for RAG engineering, reviewed against a rubric. The evaluation covers:
 
 - **Chunking strategy**: candidates are given a sample corpus and asked to specify and justify a chunking approach for the domain.
 - **Embedding model selection**: candidates choose and explain an embedding model for a defined retrieval task, including why the choice fits and what would cause them to change it.
@@ -115,6 +115,6 @@ If you need RAG depth, structure your assessment around production questions:
 
 A candidate who answers these with specifics — corpus type, metrics, tooling, failure modes encountered — has real RAG depth. Generic answers indicate surface familiarity.
 
-For employers who want to skip the sourcing step: the <a href={href("/hire/llm-engineer")}>tenX LLM engineer hub</a> lists AI engineers with sandbox-verified badge profiles. Filter by RAG badge, geography, and availability. The network includes 100 AI-verified engineers across NZ and Australia as of May 2026.
+For employers who want to skip the sourcing step: the <a href={href("/hire/llm-engineer")}>tenX LLM engineer hub</a> lists AI engineers with practical-test verified badge profiles. Filter by RAG badge, geography, and availability. The network includes 100 AI-verified engineers across NZ and Australia as of May 2026.
 
-For engineers: the path in is the same as every other skill in the catalogue. <a href={href("/apply")}>Apply to the network</a>, take the RAG sandbox test, and earn the badge. A verified RAG badge on a tenX profile is a specific, reviewable credential — not a self-reported skill claim — and it surfaces in employer searches for exactly this kind of work across Auckland, Wellington, Sydney, Melbourne, and the rest of the network.
+For engineers: the path in is the same as every other skill in the catalogue. <a href={href("/apply")}>Apply to the network</a>, take the RAG practical test, and earn the badge. A verified RAG badge on a tenX profile is a specific, reviewable credential — not a self-reported skill claim — and it surfaces in employer searches for exactly this kind of work across Auckland, Wellington, Sydney, Melbourne, and the rest of the network.

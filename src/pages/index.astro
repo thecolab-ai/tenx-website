@@ -8,14 +8,14 @@ const stats = [
   { value: "100", label: "AI-VERIFIED ENGINEERS AT LAUNCH" },
   { value: "10%", label: "PERMANENT PLACEMENT FEE" },
   { value: "20%", label: "CONTRACTOR LOADING" },
-  { value: "0", label: "FOUNDER CALLS REQUIRED" }
+  { value: "June", label: "EMPLOYER ACCESS OPENS" }
 ];
 
 const badges = [
   "Claude fluency",
   "OpenAI fluency",
   "Google fluency",
-  "Prompt engineering",
+  "Prompt design",
   "RAG",
   "Agent design",
   "Evals",
@@ -27,16 +27,16 @@ const valueProps = [
   {
     eyebrow: "// 01 — VETTING",
     title: "Verification happens in the platform",
-    body: "Engineers earn badges through self-service sandboxes. The signal is observable work, not a warm intro or a founder gut check."
+    body: "Engineers earn badges through practical skills assessments. Employers see what they passed, what it proves, and where they fit."
   },
   {
-    eyebrow: "// 02 — MODEL FLUENCY",
-    title: "Model fluency, not model religion",
-    body: "Claude, OpenAI, and Google all have different failure modes. tenX ranks engineers who can choose, compare, and ship across them."
+    eyebrow: "// 02 — AI TOOLS",
+    title: "Engineers who choose the right tool",
+    body: "Claude, OpenAI, and Google all behave differently. tenX highlights engineers who can compare options and ship reliable work."
   },
   {
     eyebrow: "// 03 — PRICING",
-    title: "Published margins from day one",
+    title: "Published fees from day one",
     body: "Permanent placements are 10% of first-year salary. Contractors carry a 20% loading on monthly billings. No hidden spread."
   }
 ];
@@ -46,7 +46,7 @@ const modelChips = ["Claude", "OpenAI", "Google"];
 
 <BaseLayout
   title="AI-verified engineers. Fluent across Claude, OpenAI, Google."
-  description="tenX is the NZ-first AI engineering network. Platform-verified engineers, published margins, and hiring in days."
+  description="tenX is the NZ-first AI engineering network. Verified engineers, published fees, and hiring in days."
   path="/"
   schema={collectionPageSchema({
     title: "tenX AI engineering network",
@@ -66,7 +66,7 @@ const modelChips = ["Claude", "OpenAI", "Google"];
       </h1>
 
       <p class="hero-subline">
-        Every engineer is platform-verified through skill sandboxes. No founder gatekeeping. No 50% margins.
+        Every engineer is verified with practical skills assessments. Published fees. No hidden marketplace spread.
       </p>
 
       <div class="hero-cta-row">
@@ -102,7 +102,7 @@ const modelChips = ["Claude", "OpenAI", "Google"];
   <section class="section">
     <div class="container">
       <p class="eyebrow">// VERIFICATION MATRIX</p>
-      <h2 class="section-h2" style="margin-top: 1rem;">Badges earned per stack and per model.</h2>
+      <h2 class="section-h2" style="margin-top: 1rem;">Badges earned for practical AI work.</h2>
       <div class="badge-grid" style="margin-top: 2.5rem;">
         {badges.map((badge, index) => (
           <div class="card">
@@ -118,7 +118,7 @@ const modelChips = ["Claude", "OpenAI", "Google"];
   <section class="section section-border-top">
     <div class="container">
       <p class="eyebrow">// HIRE BY ROLE</p>
-      <h2 class="section-h2" style="margin-top: 1rem;">Hire engineers for your AI stack.</h2>
+      <h2 class="section-h2" style="margin-top: 1rem;">Hire engineers for the work you need done.</h2>
       <div class="roles-grid" style="margin-top: 2.5rem;">
         {allRoles.map((role) => (
           <a class="card roles-card" href={href(`/hire/${role.slug}`)}>
@@ -137,7 +137,7 @@ const modelChips = ["Claude", "OpenAI", "Google"];
     <div class="container">
       <p class="eyebrow">// WHAT CHANGES</p>
       <h2 class="section-h2" style="margin-top: 1rem; max-width: 42rem;">
-        Hiring AI talent should feel like reading a benchmark, not decoding a marketplace.
+        Hiring AI talent should be clear before the first call.
       </h2>
       <div class="value-grid" style="margin-top: 2.5rem;">
         {valueProps.map((item) => (
@@ -159,12 +159,12 @@ const modelChips = ["Claude", "OpenAI", "Google"];
           <p class="eyebrow">// CANDIDATE-FIRST LAUNCH</p>
           <h2 class="section-h2" style="margin-top: 1rem;">Phase 1 is for engineers.</h2>
           <p class="launch-body">
-            Engineers apply, complete sandbox tests, earn badges, and increase match priority before employer access opens.
+            Engineers apply, complete practical tests, earn badges, and increase match priority before employer access opens.
             That gives the June employer launch a verified network, not an empty marketplace.
           </p>
         </div>
         <div class="steps-list">
-          {["Apply with your profile", "Take a sandbox test", "Earn badges by stack and model", "Get matched as employer demand opens"].map((step, index) => (
+          {["Apply with your profile", "Take a practical test", "Earn skill and provider badges", "Get matched as employer demand opens"].map((step, index) => (
             <div class="card step-card">
               <span class="mono step-num" style="color: var(--accent);">0{index + 1}</span>
               <span class="step-text">{step}</span>
@@ -182,7 +182,7 @@ const modelChips = ["Claude", "OpenAI", "Google"];
         <p class="eyebrow">// FOR ENGINEERS</p>
         <h2 class="section-h2" style="margin-top: 1rem; font-size: 1.75rem;">Prove the work once. Reuse the signal.</h2>
         <p class="value-body">
-          Apply now, then complete the sandbox flow at app.tenxtalent.ai. More verified badges mean higher match priority.
+          Apply now, then complete the skills assessment at app.tenxtalent.ai. More verified badges mean higher match priority.
         </p>
         <a class="button button-primary" href={href("/apply")} style="margin-top: 1.5rem; display: inline-flex;">Apply as an engineer</a>
       </div>
@@ -190,7 +190,7 @@ const modelChips = ["Claude", "OpenAI", "Google"];
         <p class="eyebrow">// FOR EMPLOYERS</p>
         <h2 class="section-h2" style="margin-top: 1rem; font-size: 1.75rem;">Transparent pricing before the first call.</h2>
         <p class="value-body">
-          Join the waitlist for June 2026. The network opens with 100 AI-verified engineers and published margins.
+          Join the waitlist for June 2026. The network opens with 100 AI-verified engineers and published fees.
         </p>
         <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem;">
           <a class="button button-secondary" href={href("/hire")}>Join employer waitlist</a>

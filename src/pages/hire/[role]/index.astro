@@ -20,7 +20,7 @@ const path = `/hire/${role.slug}`;
 const nzCities = allCities.filter((city) => city.countryCode === "NZ");
 const auCities = allCities.filter((city) => city.countryCode === "AU");
 const title = `Hire ${role.title} by city | tenX`;
-const description = `Hire AI-verified ${role.shortTitle} across New Zealand and Australia. Compare open NZ markets, June 2026 AUS expansion cities, skills, badges, and tenX verification signals.`;
+const description = `Hire AI-verified ${role.shortTitle} across New Zealand and Australia. Compare open NZ markets, June 2026 AUS expansion cities, skills, badges, and practical tenX verification signals.`;
 const breadcrumbs = [
   { name: "Home", path: "/" },
   { name: "Hire", path: "/hire" },
@@ -57,7 +57,7 @@ function cityPath(city: City): string {
         <p class="eyebrow">Programmatic city hiring</p>
         <h1 class="mt-4 text-5xl font-medium leading-tight md:text-6xl">Hire {role.title} — New Zealand and Australia cities</h1>
         <p class="mt-6 text-xl leading-8 text-[var(--muted)]">
-          {role.summary} tenX keeps the city pages focused on verified AI delivery evidence, market salary guidance, and local candidate availability so employers can compare where to source {role.shortTitle}.
+          {role.summary} tenX keeps these city pages focused on practical proof, salary guidance, and local candidate availability so employers can compare where to source {role.shortTitle}.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a class="button button-primary" href={href("/hire")}>All roles</a>
@@ -70,7 +70,7 @@ function cityPath(city: City): string {
         <p class="eyebrow">Role signals</p>
         <h2 class="mt-3 text-2xl font-medium">Filter by skills and tenX badges.</h2>
         <p class="mt-4 leading-7 text-[var(--muted)]">
-          Each city page combines this role profile with local market context, salary multipliers, and employer availability. Use the links below to inspect the best-fit city page before posting a role.
+          Each city page combines this role profile with local market context, salary ranges, and candidate availability. Use the links below to inspect the best-fit city page before posting a role.
         </p>
         <div class="mt-6">
           <h3 class="mono text-sm font-bold text-[var(--text)]">Core skills</h3>

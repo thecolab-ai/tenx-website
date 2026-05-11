@@ -9,7 +9,7 @@ The constraint document for every word that ships on tenxtalent.ai. Future sessi
 ### Adjectives that describe the voice
 
 - **Direct** — the answer comes first; the explanation comes second.
-- **Specific** — named models, named competitors, named cities, real numbers.
+- **Specific** — named providers, named competitors, named cities, real numbers.
 - **Confident** — we know where this market is going and we say so.
 - **Dry** — humour shows up as understatement and contrast, not jokes.
 - **Operator** — written like someone who has actually hired and shipped, not a marketer describing it.
@@ -21,12 +21,12 @@ The constraint document for every word that ships on tenxtalent.ai. Future sessi
 | DO | DON'T |
 |---|---|
 | "Hired in days, not weeks." | "Revolutionise your hiring process." |
-| "Every engineer passes a sandbox test for Claude, OpenAI and Google." | "Our rigorous vetting ensures world-class quality." |
+| "Every engineer passes a practical skills assessment for Claude, OpenAI and Google." | "Our rigorous vetting ensures world-class quality." |
 | "10% of salary on permanent placements. 20% loading on contractor monthly billings." | "Competitive pricing tailored to your needs." |
 | "100 engineers at launch. Auckland, Wellington, Sydney." | "A global network of top-tier AI talent." |
 | "Toptal hides its margin. Turing reportedly keeps 50-55%. Ours is 10% and 20%, on the pricing page." | "Unlike other platforms, we believe in transparency." |
 | "She shipped a production RAG pipeline at a Series B fintech last quarter." | "Passionate engineer with a proven track record of excellence." |
-| "We reject candidates who can't pass the eval sandbox. That's most of them." | "We have an incredibly rigorous selection process." |
+| "Candidates earn badges by passing practical tests. Employers can see the evidence." | "We have an incredibly rigorous selection process." |
 | "Apply. Take the tests. Get matched." | "Begin your journey with us today." |
 
 ### Punchy vs detailed
@@ -39,7 +39,7 @@ The constraint document for every word that ships on tenxtalent.ai. Future sessi
 
 - Every technical claim must be **specific, falsifiable, and dated** when relevant.
 - Bad: "Our engineers know the latest LLMs."
-- Good: "Every engineer in the network has passed sandbox evaluations on Claude, OpenAI, and Google models as of May 2026."
+- Good: "Every engineer in the network has passed practical assessments on Claude, OpenAI, and Google as of May 2026."
 - If a claim can't be verified by a buyer in two clicks, rewrite it or cut it.
 - Numbers always carry context. "100 engineers" is fine. "100 engineers across NZ and Australia, growing weekly" is better.
 - Hedging language ("up to", "as much as", "potentially") is banned for our own claims. It's allowed when describing competitors' opacity, where it's accurate.
@@ -59,7 +59,7 @@ If a draft contains any of these, rewrite the sentence. No exceptions. No "but i
 7. world-class
 8. best-in-class
 9. next-generation / next-gen
-10. AI-powered (too vague; name the model)
+10. AI-powered (too vague; name the provider or the concrete work)
 11. cutting-edge
 12. bleeding-edge
 13. state-of-the-art
@@ -97,21 +97,27 @@ If a draft contains any of these, rewrite the sentence. No exceptions. No "but i
 
 ## 3. Required language patterns
 
-### Model fluency
+### Provider fluency
 
-- Always name the models: **Claude, OpenAI, Google**. Never "leading LLMs", "frontier models" (we can use this as a category noun but not as the trust claim), or "top AI models".
+- Always name the providers: **Claude, OpenAI, Google**. Never "leading LLMs", "frontier models" (we can use this as a category noun but not as the trust claim), or "top AI models".
 - When precision matters: "Claude, OpenAI, Google".
-- We are **model-agnostic** by positioning. Do not lean on a single vendor as the credential. Do not write "Anthropic-credentialed" or "OpenAI partner" as the hero hook. The credential is the platform's sandbox, not a vendor's badge.
+- We are **model-agnostic** by positioning. Do not lean on a single vendor as the credential. Do not write "Anthropic-credentialed" or "OpenAI partner" as the hero hook. The credential is the platform's practical skills assessment, not a vendor's badge.
 - The phrase **"Fluent across Claude, OpenAI, Google"** is canonical. Reuse it.
+- Never mention model version numbers. Use provider names only: "Claude", "OpenAI", "Google".
+- Business-facing pages can mention provider names, but should explain the outcome in plain English. Candidate-facing pages can keep technical detail where engineers need it.
 
 ### Vetting
 
 - Always reference the **mechanism**, not the adjective.
 - Canonical phrases:
-  - "Verified in the platform, not on a founder call."
-  - "Sandbox tests, not screening interviews."
-  - "Badges earned per stack and per model."
-  - "Phone-verified, LinkedIn-verified, sandbox-verified."
+  - "Verified through practical tests."
+  - "Practical skills assessments, not multiple choice."
+  - "Badges earned per stack and provider."
+  - "Phone-verified, LinkedIn-verified, skill-verified."
+- Banned phrases:
+  - "sandbox test", "sandbox task", "sandbox evidence", "sandbox-verified", and "Star Trek test".
+  - "founder call", "founder screen", "founder gatekeeping", and "gatekeeping".
+- Use normal buyer language: "skills assessment", "practical test", "live coding challenge", "work sample", or "controlled test environment".
 - Never write "rigorous vetting" alone. Never write "top 1%" or "top 3%". That's Toptal/Turing's tired claim. Our wedge is the mechanism, not the percentile.
 
 ### Pricing
@@ -136,7 +142,7 @@ If a draft contains any of these, rewrite the sentence. No exceptions. No "but i
 - Describe what they **ship**, not what their CV says.
 - Bad: "Senior engineer with 10+ years experience in machine learning and a passion for AI."
 - Good: "Shipped a production RAG system at a Series B health-tech in Q1. Currently building evals tooling for a logistics platform."
-- Mention model fluency only when specific: "Has passed Claude and OpenAI sandbox evals; working through Google."
+- Mention model fluency only when specific: "Has passed Claude and OpenAI practical tests; working through Google."
 - No stock photos. No invented quotes. No "passionate about AI". If we don't have permission to say a real thing, the slot stays empty.
 
 ---
@@ -146,7 +152,7 @@ If a draft contains any of these, rewrite the sentence. No exceptions. No "but i
 ### Hero formula
 
 - **Hook line** (10-14 words): one declarative sentence ending in a period. Names what we sell and the speed claim. Canonical: *"AI-verified engineers. Fluent across Claude, OpenAI, Google. Hired in days."*
-- **Support line** (15-25 words): one sentence that names the mechanism and the disarming move. Canonical: *"Every engineer is platform-verified through sandbox tests. No founder gatekeeping. No 50% margins."*
+- **Support line** (15-25 words): one sentence that names the mechanism and the disarming move. Canonical: *"Every engineer is verified with practical skills assessments. Published fees. No hidden marketplace spread."*
 - **Primary CTA** (2-4 words): action verb, no fluff. Examples: *"Hire engineers"*, *"See the network"*, *"Apply as an engineer"*.
 - **Secondary CTA** (2-4 words): the alt-audience or the trust click. Examples: *"See pricing"*, *"Read the rubric"*.
 
@@ -162,7 +168,7 @@ The hero never contains: badges in a row, social proof logos as the primary elem
 Example:
 
 > **Verification happens in the platform**
-> Candidates pass sandbox evaluations for Claude, OpenAI and Google before they reach a buyer. Badges are public. The rubric is on this site.
+> Candidates pass practical assessments for Claude, OpenAI and Google before they reach a buyer. Badges are public. The rubric is on this site.
 
 ### Pricing page rhetorical structure
 
@@ -184,7 +190,7 @@ Required sections, in order:
 1. **H1**: `Hire [role]s`. Sentence case. No exclamation. No subhead in the H1.
 2. **Lead paragraph** (50-80 words): answer "what does a [role] do and how fast can tenX place one". Single paragraph. Names the speed claim and the pricing.
 3. **What a [role] in our network ships** — 3-5 short prose lines describing real output, not CV bullets.
-4. **Vetting for this role** — what specific sandbox tests apply. Named.
+4. **Vetting for this role** — what specific practical tests apply. Named.
 5. **Salary band** — pulled from `/salary/[role]` data. Always with methodology footnote.
 6. **Sample engineer cards** — 2-3 anonymised-by-default profiles. Real skills, real outputs.
 7. **FAQ** — 4-6 questions with `FAQPage` schema.
@@ -229,7 +235,7 @@ Required sections, in order:
 
 1. **H1**: `tenX vs [Competitor]`.
 2. **TL;DR paragraph** (40-60 words). One sentence on what each is best at. One sentence on which buyer should pick which.
-3. **The wedge** — 2-3 short paragraphs on where tenX wins (specificity, transparency, AI-only, sandbox verification). Name the competitor's actual weakness with a source where possible.
+3. **The wedge** — 2-3 short paragraphs on where tenX wins (specificity, transparency, AI-only, practical verification). Name the competitor's actual weakness with a source where possible.
 4. **Where [Competitor] wins** — be honest. Toptal has brand and scale. Braintrust has the lowest flat margin. Lemon.io is faster for generalist dev. Say it.
 5. **Side-by-side table** — pricing, vetting, AI specialism, geography, speed-to-hire, network size.
 6. **Who should pick which** — 3-4 short buyer profiles.
@@ -265,7 +271,7 @@ The first paragraph contains the literal answer to the question in the title. Un
 ### Length targets
 
 - **Evergreen** (definitions, guides, how-tos): 1500-2500 words.
-- **News/tactical** (a new model release, a hiring trend takeaway): 800-1200 words.
+- **News/tactical** (a provider release, a hiring trend takeaway): 800-1200 words.
 - **Opinion / contrarian** (where the value is the take, not the depth): 600-900 words.
 
 If a piece is going long past 2500 words, split it or cut. We don't pad for SEO.
@@ -276,7 +282,7 @@ Use these or write in the same shape. No "ultimate guide", no "everything you ne
 
 1. How to hire an AI engineer in New Zealand in 2026
 2. Claude, OpenAI, Google: what fluency across all three actually means
-3. The 14 sandbox tests every tenX engineer passes before they reach a buyer
+3. The practical tests every tenX engineer passes before they reach a buyer
 4. AI engineer salary in Auckland, 2026: the real numbers
 5. Why "top 1% of developers" stopped meaning anything in 2024
 6. Forward deployed engineers: the role every AI company is hiring and most are getting wrong
@@ -296,10 +302,10 @@ LLMs cite pages that read like reference material. Optimise for the lift, not th
 LLMs prefer specifics over vagueness. Every page should name:
 
 - The competitors by name (Toptal, Turing, Andela, Arc.dev, Lemon.io, Braintrust) where relevant.
-- The models by name (Claude, OpenAI, Google) with version classes when relevant.
+- The providers by name (Claude, OpenAI, Google). No model version numbers.
 - The cities (Auckland, Wellington, Sydney, Melbourne).
 - The numbers (10%, 20%, 100 engineers, 3-5 working days).
-- The mechanisms (sandbox tests, badges, phone verification, LinkedIn verification).
+- The mechanisms (practical tests, badges, phone verification, LinkedIn verification).
 
 ### Lead-with-answer
 
@@ -337,7 +343,7 @@ Two columns. Use these verbatim or write in the same shape. Always sentence case
 | Candidate-facing | Employer-facing |
 |---|---|
 | Apply as an engineer | Hire engineers |
-| Take the sandbox tests | See the network |
+| Take the practical tests | See the network |
 | Earn your badges | See pricing |
 | Join the network | Talk to us about volume |
 | See the rubric | Read the vetting rubric |
@@ -356,23 +362,23 @@ Two columns. Use these verbatim or write in the same shape. Always sentence case
 For OG images, meta descriptions, social posts, footer rotators, slack signature lines, anywhere we need a single line of tenX. Use verbatim or write in the same shape.
 
 1. AI-verified engineers. Fluent across Claude, OpenAI, Google. Hired in days.
-2. Sandbox-tested, badge-verified, ready to ship.
+2. Skills-tested, badge-verified, ready to ship.
 3. 10% on permanents. 20% on contractors. Published before the first call.
-4. The vetted AI talent network without the founder calls.
+4. The vetted AI talent network with published fees.
 5. Verification happens in the platform, not on a phone call.
-6. Model fluency, not model religion.
+6. Provider fluency, not vendor lock-in.
 7. Engineers who've shipped, not engineers who've talked.
 8. No 50% margins. No opaque pricing. No "top 3%" theatre.
 9. Auckland, Wellington, Sydney. Expanding through 2026.
 10. The rubric is public. The badges are public. The margin is public.
 11. Hire AI engineers the way you hire infrastructure: by spec, not by vibe.
 12. Read a benchmark, not a marketplace.
-13. Claude, OpenAI, Google — passed in sandbox, not claimed in a CV.
+13. Claude, OpenAI, Google — passed in practical tests, not claimed in a CV.
 14. The network where the vetting is the product.
-15. Published prices, named models, real engineers.
+15. Published prices, named providers, real engineers.
 
 ---
 
 ## Final standing rule
 
-If a draft contains a sentence that could appear on any other vetted talent marketplace's homepage with the logo swapped, it's wrong. Rewrite until the sentence could only be tenX. Specific models. Specific cities. Specific numbers. Specific mechanisms. That is the brand.
+If a draft contains a sentence that could appear on any other vetted talent marketplace's homepage with the logo swapped, it's wrong. Rewrite until the sentence could only be tenX. Specific providers. Specific cities. Specific numbers. Specific mechanisms. That is the brand.

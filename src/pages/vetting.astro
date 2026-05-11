@@ -81,7 +81,7 @@ const badges = [
 const faqs = [
   {
     question: "Are the tests multiple choice or practical?",
-    answer: "Practical. Every test involves a bounded task in a sandbox environment — building a pipeline, writing a prompt system, designing an eval harness, reviewing generated code. There are no multiple-choice questions. A pass means the engineer completed the task to the required criteria, not that they answered correctly about how to do it."
+    answer: "Practical. Every test involves a bounded task in a controlled environment — building a pipeline, writing a prompt system, designing an eval harness, reviewing generated code. There are no multiple-choice questions. A pass means the engineer completed the task to the required criteria, not that they answered correctly about how to do it."
   },
   {
     question: "How long do the tests take in total?",
@@ -93,11 +93,11 @@ const faqs = [
   },
   {
     question: "Do badges expire?",
-    answer: "Not automatically. Badge validity reflects the state of the sandbox task at the time of passing. If a badge area changes significantly — for instance, a new model version introduces meaningfully different API behaviour — affected badges are flagged for re-verification. Engineers are notified before any badge status changes."
+    answer: "Not automatically. Badge validity reflects the state of the test at the time of passing. If a badge area changes significantly — for instance, a new model version introduces meaningfully different API behaviour — affected badges are flagged for re-verification. Engineers are notified before any badge status changes."
   },
   {
     question: "Is the rubric fully published?",
-    answer: "The pass criteria for each badge are published on this page. The specific test tasks are not published in advance — publishing them would turn verification into memorisation. The rubric describes what the task measures and what passing looks like; the specific prompt or system description used in the sandbox varies per session."
+    answer: "The pass criteria for each badge are published on this page. The specific test tasks are not published in advance — publishing them would turn verification into memorisation. The rubric describes what the task measures and what passing looks like; the specific prompt or system description used in the assessment varies per session."
   },
   {
     question: "Does tenX staff review test submissions?",
@@ -108,7 +108,7 @@ const faqs = [
 
 <BaseLayout
   title="tenX vetting rubric — how AI engineering badges are earned"
-  description="The full tenX badge rubric: what each sandbox test measures, pass criteria, test duration, and retry policy. Published. Falsifiable."
+  description="The full tenX badge rubric: what each practical test measures, pass criteria, test duration, and retry policy. Published. Falsifiable."
   path="/vetting"
   breadcrumbs={[{ name: "Home", path: "/" }, { name: "Vetting rubric", path: "/vetting" }]}
   schema={[
@@ -127,7 +127,7 @@ const faqs = [
       <p class="eyebrow">// VETTING RUBRIC</p>
       <h1 class="mt-4 text-5xl font-medium leading-tight md:text-6xl">The rubric is public.</h1>
       <p class="mt-6 text-xl leading-8 text-[var(--text-secondary)]">
-        Every tenX badge is earned by passing a specific sandbox task. Here is what each test measures, the pass criteria,
+        Every tenX badge is earned by passing a specific practical task. Here is what each test measures, the pass criteria,
         and the retry policy. No surprises on either side.
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
@@ -148,7 +148,7 @@ const faqs = [
       <div>
         <p class="mono text-xs uppercase tracking-widest text-[var(--text-muted)]">Test format</p>
         <p class="mono mt-2 text-4xl font-medium text-[var(--text-primary)]">Practical</p>
-        <p class="mt-1 text-sm text-[var(--text-muted)]">bounded tasks in a sandbox, not multiple choice</p>
+        <p class="mt-1 text-sm text-[var(--text-muted)]">bounded practical tasks, not multiple choice</p>
       </div>
       <div>
         <p class="mono text-xs uppercase tracking-widest text-[var(--text-muted)]">Human in loop</p>
@@ -223,7 +223,7 @@ const faqs = [
           same task, same criteria, same platform.
         </p>
         <p>
-          The specific sandbox tasks are not published in advance. Publishing the tasks would turn verification into memorisation.
+          The specific test tasks are not published in advance. Publishing the tasks would turn verification into memorisation.
           The rubric tells you what matters and what passing looks like. The task is the test.
         </p>
       </div>
@@ -257,8 +257,7 @@ const faqs = [
         <p class="eyebrow">// ENGINEERS</p>
         <h3 class="mt-3 text-2xl font-medium">Apply and take the tests on your own schedule.</h3>
         <p class="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
-          Badges are reusable across future matches. You are not repeating a founder call every time a new employer opens access.
-          The evidence you build now carries forward.
+          Badges are reusable across future matches. The evidence you build now carries forward.
         </p>
         <a href={href('/apply')} class="button button-primary mt-6 inline-block">Apply as an engineer</a>
       </div>
@@ -266,7 +265,7 @@ const faqs = [
         <p class="eyebrow">// EMPLOYERS</p>
         <h3 class="mt-3 text-2xl font-medium">Hire from verified signal.</h3>
         <p class="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
-          The badge stack tells you which sandbox tasks an engineer has passed before the first call.
+          The badge stack tells you which practical tasks an engineer has passed before the first call.
           Basic AI skill is already verified. Spend the interview on domain fit and team context.
         </p>
         <a href={href('/hire')} class="button button-secondary mt-6 inline-block">Hire engineers</a>

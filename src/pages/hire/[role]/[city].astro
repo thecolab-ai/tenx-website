@@ -44,8 +44,8 @@ const contractMonthlyMax = roundToNearestFiveThousand(role.contractMonthlyMax * 
 const permanentRange = formatRange(salaryMin, salaryMax);
 const contractorRange = `${formatRange(contractMonthlyMin, contractMonthlyMax)} / month`;
 const title = `Hire ${role.title} in ${city.name} | tenX`;
-const description = `Hire AI-verified, model-fluent ${role.shortTitle} in ${city.name}. tenX matches ${city.countryCode === "AU" ? "AUD" : "NZD"} ${formatNumber.format(salaryMin)}-${formatNumber.format(salaryMax)} permanent talent with verified ${role.skills.slice(0, 3).join(", ")} skills.`;
-const lead = `${role.summary} ${city.name} adds local context: ${city.marketNote} tenX verifies model fluency, practical shipping evidence, and role-specific strengths before talent reaches an employer shortlist.`;
+const description = `Hire AI-verified ${role.shortTitle} in ${city.name}. tenX matches ${city.countryCode === "AU" ? "AUD" : "NZD"} ${formatNumber.format(salaryMin)}-${formatNumber.format(salaryMax)} permanent talent with verified ${role.skills.slice(0, 3).join(", ")} skills.`;
+const lead = `${role.summary} ${city.name} adds local context: ${city.marketNote} tenX verifies practical AI work, delivery evidence, and role-specific strengths before talent reaches an employer shortlist.`;
 const talentStat = `${city.talentCount} engineers in this discipline in ${city.name}`;
 
 const faqs = [
@@ -61,7 +61,7 @@ const faqs = [
   },
   {
     question: `How does tenX verify ${role.shortTitle} before an introduction?`,
-    answer: `tenX checks practical work samples, model fluency, AI-assisted delivery habits, and platform badges such as ${role.badges.slice(0, 3).join(", ")}. Employers can inspect these signals before moving candidates into interview loops.`
+    answer: `tenX checks practical work samples, AI-assisted delivery habits, and platform badges such as ${role.badges.slice(0, 3).join(", ")}. Employers can inspect these signals before moving candidates into interview loops.`
   }
 ];
 
@@ -121,7 +121,7 @@ const schemaDescription = `${role.summary} tenX connects employers with AI-verif
               <p class="eyebrow">Employer access</p>
               <h2 class="mt-3 text-2xl font-medium">Build a verified shortlist for June 2026.</h2>
               <p class="mt-3 leading-7 text-[var(--muted)]">
-                Post the role context once, then tenX filters for model fluency, delivery evidence, and practical fit before candidates reach your team.
+                Post the role context once, then tenX filters for verified skills, delivery evidence, and practical fit before candidates reach your team.
               </p>
             </div>
             <div class="grid gap-3 sm:grid-cols-2">
@@ -155,7 +155,7 @@ const schemaDescription = `${role.summary} tenX connects employers with AI-verif
       <p class="eyebrow">Contractor</p>
       <p class="mt-3 text-3xl font-medium">{contractorRange}</p>
       <p class="mt-3 text-sm leading-6 text-[var(--muted)]">
-        Monthly contract budget for project delivery, model integration, evaluation, and production support.
+        Monthly contract budget for project delivery, AI integration, evaluation, and production support.
       </p>
     </div>
     <div class="card p-6">
@@ -171,10 +171,10 @@ const schemaDescription = `${role.summary} tenX connects employers with AI-verif
       <h2 class="mt-3 text-3xl font-medium">What {role.shortTitle} ship in {city.name}</h2>
       <div class="prose-tenx">
         <p>
-          tenX candidates for this page are screened for work that has moved beyond demos: product flows, internal workflows, retrieval systems, evaluation loops, observability, and human review controls that make model output usable by real teams.
+          tenX candidates for this page are checked for work that has moved beyond demos: product flows, internal workflows, retrieval systems, evaluation loops, observability, and human review controls that make AI output usable by real teams.
         </p>
         <p>
-          For {city.name} employers, the strongest {role.title} profiles usually combine software engineering fundamentals with current model capability. That means knowing when to use OpenAI, Claude, Google, retrieval, tool calling, or conventional code, and being able to explain the reliability and cost tradeoffs behind each choice.
+          For {city.name} employers, the strongest {role.title} profiles usually combine software engineering fundamentals with current AI capability. That means knowing when to use OpenAI, Claude, Google, retrieval, tool calling, or conventional code, and being able to explain the reliability and cost tradeoffs behind each choice.
         </p>
         <p>
           The hiring process should stay focused on evidence. Use tenX to compare verified badge signals, salary expectations, contract availability, and city-specific context before deciding which engineers should enter a deeper technical conversation.
