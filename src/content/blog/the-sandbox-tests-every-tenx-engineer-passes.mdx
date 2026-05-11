@@ -1,0 +1,111 @@
+---
+title: "The sandbox tests every tenX engineer passes"
+description: "tenX uses nine practical sandbox tests to verify AI engineers before they reach a buyer. Here is what each test measures, what passing looks like, and why the test exists."
+pubDate: 2026-05-11
+author: "tenX editorial"
+faqs:
+  - question: "How many sandbox tests does tenX use to verify engineers?"
+    answer: "Nine. Engineers can earn badges in Claude fluency, GPT fluency, Gemini fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI. Not every role requires all nine — most hiring briefs align with 2–4 badge areas. Engineers with more relevant badges rank higher in matched shortlists."
+  - question: "Are the tenX tests multiple choice or practical tasks?"
+    answer: "Practical tasks, every one of them. Each test involves a bounded task in a sandbox environment — building a pipeline, writing a prompt system, designing an eval harness, reviewing AI-generated code. There are no multiple-choice questions. A pass means the engineer completed the task to the published criteria, not that they answered correctly about how to do it."
+  - question: "What happens if an engineer fails a tenX sandbox test?"
+    answer: "They can retake after a cooldown period specific to that badge: 48 hours for prompt engineering and code-with-AI, 72 hours for the three model fluency tests and MLOps, 96 hours for RAG, agent design, and evals. Attempt counts are visible to employers as data, not as a disqualifier."
+  - question: "Do tenX badges expire?"
+    answer: "Not automatically. If a badge area changes significantly — a new model version introduces materially different API behaviour, for instance — affected badges are flagged for re-verification and engineers are notified. The badge reflects the state of the sandbox at the time of passing and is versioned when test content changes."
+  - question: "Can I see the full rubric before taking the tests?"
+    answer: "The pass criteria for every badge are published at tenxtalent.ai/vetting. The specific sandbox task — the actual prompt, system description, or code reviewed — is not published in advance, because publishing it would turn verification into memorisation. The rubric tells you what matters and what passing looks like. The task is the test."
+---
+
+import { href } from "../../lib/href";
+
+Every engineer in the tenX network has passed at least one self-service sandbox test before they reach a buyer. The tests cover nine areas: Claude fluency, GPT fluency, Gemini fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI. Each is a bounded practical task, not a multiple-choice assessment. A pass means the engineer completed the task to the published criteria. The <a href={href('/vetting')}>full rubric</a> — what each test measures, the pass bar, and the retry policy — is on this site.
+
+## Why bounded tasks, not interviews
+
+Interviews are inconsistent. Two engineers interviewing for the same role may be asked different questions by different people with different implicit bars. The outcome correlates with interview skill as much as engineering skill.
+
+A sandbox task is falsifiable. Either the RAG pipeline ran against the test corpus and chunking decisions were justified by retrieval outcome data, or they were not. Either the eval harness metrics were specific and measurable, or they were not. There is no partial credit for talking confidently about the work.
+
+The tests are also reusable. An engineer who passes Claude fluency and RAG carries that evidence forward to every future match on the platform. They are not repeating a founder call every time a new employer opens access. The badge is the evidence. It travels with the engineer.
+
+For employers, this changes the first conversation. Instead of using the call to discover whether the candidate can actually use the relevant models, the call can focus on domain context, architecture thinking, and team fit. Basic AI skill is already verified before the first meeting.
+
+## The three model fluency tests
+
+The first three badges are specific to each model family. They are not interchangeable. Passing Claude fluency does not imply passing GPT fluency, and vice versa.
+
+**Claude fluency (45–60 min).** The engineer completes API-based tasks using Claude: structured output generation, tool-use patterns, instruction adherence under constraint, long-context handling, and Claude-specific failure modes. Passing means the engineer can operate against Claude's actual API — not describe what it does. Pass criteria: task completed to spec, tool calls correctly structured, output contracts met, failure modes identified and handled. Retake cooldown: 72 hours.
+
+**GPT fluency (45–60 min).** Structured output schema compliance, function-calling routing decisions, parallel tool use, and context window management under GPT-4 and GPT-5 class models. Includes cases where the model produces structurally invalid or semantically incorrect outputs. Pass criteria: schema compliance verified automatically, routing decisions scored by rubric, edge cases handled without prompt collapse. Retake cooldown: 72 hours.
+
+**Gemini fluency (45–60 min).** Multimodal and long-context patterns using Gemini 2.5. Tasks include grounded generation, citation handling, and context-length edge cases that differ materially from GPT and Claude behaviour. Pass criteria: correct multimodal handling, grounding citations present where required, context-length behaviour documented. Retake cooldown: 72 hours.
+
+These tests exist because model fluency is specific. The right way to structure tool calls for Claude is not identical to the right approach for GPT function calling. An engineer who has only ever used one model family and declared general "LLM fluency" is a different hire from one who has passed all three. When employers <a href={href('/network')}>browse the network</a>, the badge stack makes that distinction visible.
+
+## Prompt engineering
+
+**Prompt engineering (30–45 min).** The task is to design durable prompt systems: instruction contracts, output format specifications, few-shot construction, system prompt architecture, and operator controls. The test includes writing a prompt that fails gracefully when the model misreads intent — and one that does not. Pass criteria: the prompt is parseable by a downstream consumer without post-processing, failure handling is explicit, and the output contract is machine-verifiable. Retake cooldown: 48 hours.
+
+This test exists because prompt engineering has two failure modes that interviews rarely surface. The first is a prompt that works on happy-path inputs and breaks silently on edge cases. The second is a prompt whose output requires human interpretation before a downstream system can use it — which defeats the purpose. An engineer who can write a prompt that handles both constraints reliably is solving a different problem from one who writes prompts that look right in a demo.
+
+## RAG
+
+**RAG (75–90 min).** Build a minimal retrieval pipeline from a described specification. Explain chunking decisions — chunk size, overlap, splitting strategy — and the reasoning behind them. Evaluate retrieval quality against a set of test queries. Explain what a bad retrieval result looks like and how you would diagnose it.
+
+The test is not asking whether the engineer can string retrieval library calls together. It asks whether they understand the tradeoffs that determine whether a retrieval system is useful in production.
+
+Pass criteria: pipeline runs against test corpus, chunking decisions are justified by retrieval outcome data rather than defaults, retrieval failures are correctly identified. Retake cooldown: 96 hours.
+
+The 96-hour cooldown reflects what the test actually measures. Getting the pipeline to run is not the bar. The bar is explaining why the chunking decisions produce better retrieval than the alternatives, using data from the test queries. An engineer who cannot articulate that reasoning cannot maintain the system when retrieval quality degrades in production.
+
+## Agent design
+
+**Agent design (75–90 min).** Design a tool-use workflow for a described task. Specify tool boundaries, loop control, failure handling, and the conditions under which the system should escalate to a human rather than continue autonomously.
+
+The test looks for judgment about where agents break down, not optimism about what they can theoretically do.
+
+Pass criteria: tool boundaries are correctly scoped, human escalation criteria are defined and triggered, loop termination conditions handle both success and failure paths. Retake cooldown: 96 hours.
+
+This test exists because agent failure modes are asymmetric. A retrieval system that returns poor results is a quality problem. An agent that continues executing when it should have escalated is a liability problem. The difference between the two outcomes is whether the designer specified escalation conditions in advance. Engineers who have not shipped agents into production tend to underspecify this. The test forces the question.
+
+If you are hiring an engineer to <a href={href('/hire/ai-engineer')}>build production agent workflows</a>, the agent design badge is the most direct signal available short of reviewing prior production work.
+
+## Evals
+
+**Evals (75–90 min).** Given a described production system — a customer-facing Q&A tool or a document classifier — design an eval harness for it. Define what to measure and why. Explain how you would establish a baseline, track regression, and distinguish genuine improvement from prompt overfitting.
+
+Passing means the engineer can make quality measurable, which is the difference between a demo and a maintainable system.
+
+Pass criteria: metrics are specific and measurable, baseline methodology is described, regression detection approach handles prompt changes rather than just model swaps. Retake cooldown: 96 hours.
+
+This is often the test that separates senior engineers from engineers who have shipped working demos. It is straightforward to build something that produces plausible outputs. It is harder to define what "better" means, establish a baseline before making changes, and catch regressions before they reach users. Without an eval harness, every prompt change is an experiment with no control. With one, prompt changes are measurable decisions.
+
+## MLOps
+
+**MLOps (60–75 min).** Deployment, monitoring discipline, inference cost control, and production-grade reliability for model-backed systems. Covers container patterns, latency observability, model versioning under live traffic, and rollback criteria. Engineers are expected to understand the cost structure of inference at scale.
+
+Pass criteria: deployment plan is complete and cost-estimated, monitoring plan includes latency, error rate, and inference cost, rollback criteria are defined. Retake cooldown: 72 hours.
+
+The inference cost component is specific and often where the gap shows. An engineer who can ship a prototype without understanding per-token cost structure is a different hire from one who can design a deployment that stays solvent at production volume. This test asks both questions simultaneously.
+
+## Code-with-AI
+
+**Code-with-AI (45–60 min).** Safe and productive use of AI coding tools — specifically, whether the engineer can integrate AI-generated code without accepting unsafe, untestable, or architecturally inconsistent changes. The test includes reviewing AI-suggested code for correctness, security, and testability, then accepting, rejecting, or modifying with justification.
+
+Pass criteria: at least one unsafe suggestion correctly rejected, at least one correct suggestion accepted with justification, the resulting diff is reviewable by a senior engineer without rework. Retake cooldown: 48 hours.
+
+This test exists because the failure mode is not obvious. Engineers using AI coding tools rarely produce code that is obviously wrong. The failure mode is code that looks correct, passes basic tests, and only becomes a problem when a senior engineer tries to extend or debug it — because the original author accepted AI-generated patterns without understanding them. The test requires the engineer to distinguish between the two categories in real time, under a realistic task description.
+
+## What the badge stack tells an employer
+
+The nine tests are structured so that an employer can read a badge stack and understand what the engineer has actually done, not inferred from a CV or claimed in a conversation. A candidate with Claude fluency, RAG, and evals badges has passed specific tasks in three areas that directly correspond to building a maintainable production AI system. A candidate who has also passed agent design and MLOps has gone further into production operations and agent system design.
+
+Attempt counts are visible to employers as data. An engineer who passed RAG on the first attempt tells a different story from one who passed on the third. Neither is disqualified by default. The information is available because it is useful.
+
+The rubric is public. The pass criteria are specific. The retry policy is per badge. There are no surprises on either side.
+
+If you are an engineer, <a href={href('/apply')}>apply and take the tests on your own schedule.</a> More relevant badges increase your match priority when employers hire from the network.
+
+If you are hiring, the badge stack is visible before the first call. The <a href={href('/vetting')}>full rubric</a> is on this site. You can read it, decide whether the bar fits your role, and browse <a href={href('/network')}>verified engineers</a> by badge area before starting a search.
+
+---
