@@ -1,6 +1,6 @@
 # tenX Website — Continuous Improvement Queue
 
-Last updated: 2026-05-12 (cycle 2)
+Last updated: 2026-05-12 (cycle 3)
 
 ## Completed
 - [x] Initial Astro scaffold (2026-05-11)
@@ -24,7 +24,7 @@ Last updated: 2026-05-12 (cycle 2)
 - [ ] Schema improvements — add HowTo schema to how-it-works page
 - [ ] /vs/toptal copy refresh — tighten the narrative section below the table, sharper closing CTA
 - [ ] OG images — custom social cards per page (currently using defaults)
-- [ ] Blog: "The 14 sandbox tests every tenX engineer passes" — detailed breakdown of each test task, specific criteria, maps to badge areas; builds authority on the vetting mechanism
+- [x] Blog: "The sandbox tests every tenX engineer passes" — 9 badge areas, full pass criteria, retake policy, FAQPage schema; companion piece to /vetting (2026-05-12)
 - [x] Blog: "Why 'top 1%' stopped meaning anything in AI hiring" — contrarian take on Toptal/Turing's percentile claims vs evidence-based badge verification; links to /vs/toptal and /vs/turing (2026-05-12)
 - [ ] Blog: "Agent engineer vs AI engineer — scope, skills, salary" — follows same format as RAG piece; high search value for emerging role category
 - [x] /vetting page — standalone page detailing the full test rubric with badge areas, pass criteria, and cooldown/retry policy; becomes the primary internal link target from all articles and role hubs (2026-05-12)
@@ -34,3 +34,6 @@ Last updated: 2026-05-12 (cycle 2)
 - [ ] Link /vetting from role hub pages (/hire/[role]) — each role hub should have a "vetting for this role" section that names the specific badges required and links to the relevant /vetting#[badge-slug] anchor
 - [ ] Blog: "The 14 sandbox tests every tenX engineer passes" — deep-dive companion piece to /vetting, follows each badge in detail, explains failure modes seen in the platform; primary internal link from /vetting page; strong GEO target ("how to pass tenX vetting")
 - [ ] /vs pages: add "vetting depth" row to comparison table — shows that tenX publishes a full rubric at /vetting while competitors describe vetting only in marketing language; link the rubric from each /vs page
+- [ ] Fix article pubDate for sandbox-tests article — set to 2026-05-12 so it sorts correctly in blog index (currently shows as 11 May, one day behind)
+- [ ] Link sandbox article from /vetting page — add a "deep dive" reference to the article from the /vetting page intro section
+- [ ] Model fluency chips on homepage — update "claude-3.5-sonnet" chip to "claude-sonnet-4" to match current model naming per COPY_PLAYBOOK (mentions Claude Sonnet 4 and Opus 4)
