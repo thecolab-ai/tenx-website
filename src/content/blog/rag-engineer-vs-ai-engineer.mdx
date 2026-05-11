@@ -1,0 +1,120 @@
+---
+title: "RAG engineer vs AI engineer — what's the difference and which do you need?"
+description: "RAG engineering is a specialisation within AI engineering, not a separate discipline. Here is what each role builds, when to hire a specialist, and how tenX verifies retrieval depth."
+pubDate: 2026-05-11
+author: "tenX editorial"
+faqs:
+  - question: "What is a RAG engineer?"
+    answer: "A RAG engineer builds and operates retrieval-augmented generation systems — pipelines that ground a language model's answers in a specific document corpus. The core work is chunking strategy, embedding model selection, vector store configuration, retrieval quality tuning, answer grounding, and evaluation of the full pipeline. It is a specialisation within AI engineering, not a separate discipline."
+  - question: "How is a RAG engineer different from an AI engineer?"
+    answer: "An AI engineer covers the full stack of production AI work: prompt design, agent systems, evals, model routing, and operational monitoring. A RAG engineer goes deeper on one part of that stack — the retrieval layer. Most AI engineers can implement a basic RAG pipeline. A RAG specialist can diagnose retrieval failure modes, tune re-ranking, evaluate citation accuracy at scale, and build the eval infrastructure to know when quality is degrading."
+  - question: "Which role should I hire — a RAG engineer or an AI engineer?"
+    answer: "If retrieval quality is the core product problem — legal research, medical reference, enterprise knowledge bases, customer support automation — a RAG specialist moves faster. If you need a broader build involving agent systems, model routing, evals infrastructure, and multiple AI features, hire an AI engineer with RAG in their badge set. Most companies in Auckland, Wellington, Sydney, and Melbourne in 2026 need the latter."
+  - question: "Do RAG engineers and AI engineers earn similar salaries in NZ and Australia?"
+    answer: "Yes. RAG specialisation does not command a consistent salary premium over general AI engineering in New Zealand or Australia in 2026. Senior AI engineers with strong RAG skills in Auckland and Wellington earn NZD 140,000–200,000 on permanents. In Sydney and Melbourne, the equivalent range is AUD 150,000–220,000. The main driver of where in the band a candidate lands is depth of production experience, not the specific skill label."
+  - question: "How does tenX verify RAG engineering skills?"
+    answer: "tenX uses sandbox tests reviewed against a rubric. Engineers complete a structured evaluation covering chunking strategy, embedding model selection, retrieval quality assessment, answer grounding, and eval design. Responses are reviewed by someone who has built RAG systems in production — not auto-scored. Engineers who pass earn the RAG badge, which is visible to employers and filters into role searches."
+  - question: "What makes a RAG system fail in production?"
+    answer: "The most common failure modes are: chunk boundaries that split context mid-concept so retrieval returns fragments; embedding models mismatched to the domain vocabulary; retrieval returning plausible-but-wrong passages; and no evaluation layer to detect when answer quality degrades. A RAG engineer's first job is building the eval infrastructure to catch these failures before users do."
+---
+
+import { href } from "../../lib/href";
+
+A RAG engineer is an AI engineer with a deep specialisation in retrieval-augmented generation. The title is not a separate discipline — it describes someone who has invested specifically in chunking strategy, embedding pipelines, retrieval quality, and answer grounding, beyond the generalist AI engineering skill set. Whether you need a specialist or a generalist depends on the scope and complexity of your retrieval problem.
+
+## What RAG engineers actually build
+
+RAG is a technique for grounding a language model's answers in a specific document corpus. Instead of relying on the model's training data, the system retrieves relevant passages from a document store and includes them in the model's context. The model then answers based on what it retrieved, not what it was trained on.
+
+The work of a RAG engineer is everything the technique requires to run reliably in production:
+
+- **Chunking strategy**: how a document corpus is split into retrievable units. Bad chunking splits concepts mid-thought, producing retrieval results that look relevant but lack the context needed to answer correctly. Good chunking is domain-specific: legal documents chunk differently from product manuals, which chunk differently from conversation logs.
+- **Embedding model selection**: choosing and tuning the model that converts text to vectors. The embedding model determines the shape of the semantic space the retrieval system operates in. Domain mismatch — using a general-purpose embedding model for a specialised medical corpus, for example — degrades retrieval quality silently.
+- **Vector store configuration**: the infrastructure layer that stores and queries embeddings. This includes index type, distance metric, dimensionality, and scaling decisions.
+- **Retrieval quality tuning**: adjusting what the retrieval step returns and how it ranks results. This covers re-ranking, hybrid retrieval (combining dense and sparse search), and filtering by metadata. Retrieval quality is the lever with the most impact on final answer quality.
+- **Answer grounding**: ensuring the model's output is based on what was retrieved, not interpolated from training data. This includes prompt structure, citation formatting, and instruction design for the generation step.
+- **Pipeline evaluation**: building the eval infrastructure to measure whether the system is working. A RAG eval must measure retrieval quality (did we get the right passages?), grounding quality (did the model use them?), and answer quality (is the final output correct and complete?) — as three distinct stages, not one.
+
+A RAG engineer's output is not a model. It is a retrieval system that meets a quality bar that can be measured.
+
+## How RAG engineering fits inside AI engineering
+
+AI engineering covers a broader surface: prompt design, agent systems, model routing, evals infrastructure, and the operational layer that keeps model-based features running. RAG is one component of that surface — a significant one, but still a component.
+
+Every competent AI engineer should be able to implement a RAG pipeline. The question is depth. A generalist AI engineer can build a RAG system that works. A RAG specialist can build one that works at the quality level a production product requires — and can diagnose the specific failure modes that only appear at scale.
+
+The failure modes matter. A RAG system that passes a demo can fail in production for reasons that take real retrieval expertise to find: embedding model drift, chunk boundary problems, retrieval score distributions that collapse under domain shift, latency spikes from un-indexed queries, hallucination at the grounding boundary. These are not LLM problems — they are retrieval engineering problems.
+
+This is why RAG shows up as its own badge in the <a href={href("/network")}>tenX badge catalogue</a>. Model fluency across Claude, GPT, and Gemini is a prerequisite, but RAG depth is tested separately.
+
+## When to hire a RAG specialist vs a broader AI engineer
+
+Most companies building their first AI features do not need a RAG specialist. They need an AI engineer with RAG in their skill set — someone who can build a retrieval pipeline as part of a broader build that also includes a user-facing interface, an evals harness, and operational monitoring.
+
+A RAG specialist makes sense when:
+
+- **Retrieval quality is the core product problem.** Legal research tools, medical reference systems, enterprise knowledge bases, and customer support automation are applications where the question is not "can we build a RAG system" but "can we build one that meets the quality bar users will accept". At that level, retrieval engineering is the bottleneck, and a specialist moves faster.
+- **The corpus is large, specialised, or unstable.** A general-purpose RAG approach breaks down under domain-specific vocabulary, rapidly changing document sets, or corpora with complex internal structure such as tabular data or multi-section contracts. A specialist has the tools to diagnose where the system is failing.
+- **You have a production system that is underperforming.** If you already have a RAG pipeline producing too many hallucinations, too much retrieval noise, or too many unhelpful answers, a RAG specialist can diagnose and fix it faster than a generalist.
+
+A broader AI engineer with strong RAG skills is the right hire when:
+
+- You are building multiple AI features, not one deep retrieval application. Agent systems, model routing, prompt architecture, and evals are all in scope alongside RAG.
+- You need someone to own the full AI layer of a product, not just the retrieval component.
+- The RAG pipeline is bounded — a specific, time-limited build rather than a long-running product problem.
+
+In practice, most companies hiring in Auckland, Wellington, Sydney, and Melbourne in 2026 are building multi-feature AI products where RAG is one component. The right hire is an AI engineer who has a RAG badge in their profile — someone who can build and evaluate retrieval systems as part of a broader skill set.
+
+## What separates good RAG engineering from bad
+
+The gap is almost always measurement.
+
+A weak RAG implementation produces a system that looks like it works until you read it carefully. Answers are plausible. Retrieval returns relevant-looking passages. But the grounding is soft — the model is filling in gaps from training data rather than retrieved content, and the system has no mechanism to detect that.
+
+A strong RAG engineer builds the eval first. Before tuning the retrieval system, they define what correct retrieval looks like. They measure retrieval precision — what proportion of queries return the relevant passage in the top results? Then they measure grounding — what proportion of answers are fully grounded in retrieved text? Then they measure answer quality against a test set with known correct answers.
+
+Without those three measurements, RAG improvement is guesswork. With them, it is engineering.
+
+The specific eval design also separates RAG engineers. A good RAG eval is not just a set of questions with expected answers — it is a structured test that can distinguish retrieval failure from grounding failure from generation failure. An engineer who can design that test has the mental model of a RAG system that production requires.
+
+The failure cases that only appear in production are often the most instructive. A RAG specialist hired to fix an underperforming knowledge base system typically finds: the chunking strategy was set once at launch and never revisited; the embedding model was swapped at some point without re-evaluating retrieval quality; and there is no eval harness, so nobody knows when quality changed. These are not exotic problems. They are what happens when retrieval is treated as infrastructure you set up once rather than a system you measure continuously.
+
+## How tenX verifies RAG skills
+
+tenX runs sandbox tests for RAG engineering, reviewed against a rubric. The evaluation covers:
+
+- **Chunking strategy**: candidates are given a sample corpus and asked to specify and justify a chunking approach for the domain.
+- **Embedding model selection**: candidates choose and explain an embedding model for a defined retrieval task, including why the choice fits and what would cause them to change it.
+- **Retrieval quality assessment**: given a retrieval output set, candidates identify quality problems and specify how they would address them.
+- **Answer grounding evaluation**: candidates review model outputs for grounding quality and identify where the generation step is drifting from retrieved context.
+- **Eval design**: candidates outline the eval structure they would run for the system they have designed — what to measure, how to sample, how to separate retrieval quality from grounding quality.
+
+Engineers who pass earn the RAG badge. That badge is visible to employers on the <a href={href("/hire/llm-engineer")}>tenX LLM engineer hub</a> and filters into search results when employers specify RAG as a required skill.
+
+The test is not auto-scored. Responses are reviewed against a rubric by someone who has built RAG systems in production. This matters because RAG is a domain where plausible-sounding answers are cheap and real understanding shows up in the specifics of the chunking justification, the grounding evaluation, and the eval design.
+
+The RAG badge sits alongside Claude, GPT, and Gemini fluency badges, prompt engineering, agent design, and evals badges in the <a href={href("/network")}>tenX badge catalogue</a>. Employers can filter the network by badge combination — for example, engineers with both RAG and Claude fluency badges — to surface candidates whose verified skill set matches a specific role.
+
+## Salary for RAG-capable engineers in NZ and Australia
+
+As of May 2026, RAG specialisation does not command a consistent salary premium over general AI engineering in New Zealand or Australia. The salary band is the same; the variable is production depth, not the specific skill label.
+
+Senior AI engineers with strong RAG skills in Auckland earn between NZD 160,000 and NZD 200,000 on permanents. Wellington roles, concentrated in fintech, healthtech, and government, typically run NZD 140,000–180,000. In Sydney and Melbourne, the equivalent range is AUD 170,000–220,000, with the top of the band reserved for engineers who can demonstrate production-quality RAG systems with measurable quality metrics — retrieval precision, grounding rates, answer accuracy — rather than candidates who describe the technique correctly in interviews.
+
+Contractor rates for RAG-capable AI engineers run at AUD 130–180 per hour in Sydney and Melbourne, and NZD 110–160 per hour in Auckland. The <a href={href("/hire/llm-engineer")}>tenX LLM engineer hub</a> covers placement for both permanent and contractor engagements. The fee structure is 10% of first-year salary on permanents and 20% loading on contractor monthly billings — published before the first call.
+
+## How to hire the right person
+
+The first step is deciding whether you need a RAG specialist or a broader AI engineer. Most companies need the latter, but being specific about this before you source candidates saves significant time.
+
+If you need RAG depth, structure your assessment around production questions:
+
+- Can the candidate describe a retrieval quality failure mode they have diagnosed in a live system? Not a theoretical failure — a real one, with a specific corpus, a specific symptom, and a specific fix.
+- Can they describe their eval design for a RAG system? Specifically: what do they measure, how do they sample, how do they separate retrieval quality from grounding quality from generation quality?
+- Can they explain why their chosen embedding model fits the domain? And what signal would cause them to switch it?
+
+A candidate who answers these with specifics — corpus type, metrics, tooling, failure modes encountered — has real RAG depth. Generic answers indicate surface familiarity.
+
+For employers who want to skip the sourcing step: the <a href={href("/hire/llm-engineer")}>tenX LLM engineer hub</a> lists AI engineers with sandbox-verified badge profiles. Filter by RAG badge, geography, and availability. The network includes 100 AI-verified engineers across NZ and Australia as of May 2026.
+
+For engineers: the path in is the same as every other skill in the catalogue. <a href={href("/apply")}>Apply to the network</a>, take the RAG sandbox test, and earn the badge. A verified RAG badge on a tenX profile is a specific, reviewable credential — not a self-reported skill claim — and it surfaces in employer searches for exactly this kind of work across Auckland, Wellington, Sydney, Melbourne, and the rest of the network.
