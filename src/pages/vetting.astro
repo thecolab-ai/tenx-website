@@ -1,0 +1,280 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { href } from "../lib/href";
+import { collectionPageSchema, faqPageSchema } from "../lib/seo";
+
+const badges = [
+  {
+    slug: "claude-fluency",
+    label: "Claude fluency",
+    duration: "45–60 min",
+    what: "API-based tasks using Claude: structured output generation, tool-use patterns, instruction adherence under constraint, long-context handling, and Claude-specific failure modes. Passing means the engineer can operate against Claude's actual API — not describe what it does.",
+    passCriteria: "Task completed to spec. Tool calls correctly structured. Output contracts met. Failure modes identified and handled.",
+    retake: "72-hour cooldown after a fail. Attempt count is visible to employers."
+  },
+  {
+    slug: "gpt-fluency",
+    label: "GPT fluency",
+    duration: "45–60 min",
+    what: "Structured output schema compliance, function-calling routing decisions, parallel tool use, and context window management under GPT-class models (GPT-4 and GPT-5 class). Includes handling cases where the model produces structurally invalid or semantically incorrect outputs.",
+    passCriteria: "Schema compliance verified automatically. Routing decisions scored by rubric. Edge cases handled without prompt collapse.",
+    retake: "72-hour cooldown after a fail. Attempt count is visible to employers."
+  },
+  {
+    slug: "gemini-fluency",
+    label: "Gemini fluency",
+    duration: "45–60 min",
+    what: "Multimodal and long-context patterns using Gemini 2.5. Tasks include grounded generation, citation handling, and context-length edge cases that differ materially from GPT and Claude behaviour.",
+    passCriteria: "Correct multimodal handling. Grounding citations present where required. Context-length behaviour documented.",
+    retake: "72-hour cooldown after a fail. Attempt count is visible to employers."
+  },
+  {
+    slug: "prompt-engineering",
+    label: "Prompt engineering",
+    duration: "30–45 min",
+    what: "Design durable prompt systems: instruction contracts, output format specifications, few-shot construction, system prompt architecture, and operator controls. Tasks include writing a prompt that fails gracefully when the model misreads intent — and one that does not.",
+    passCriteria: "Prompt is parseable by a downstream consumer without post-processing. Failure handling is explicit. Output contract is machine-verifiable.",
+    retake: "48-hour cooldown after a fail."
+  },
+  {
+    slug: "rag",
+    label: "RAG",
+    duration: "75–90 min",
+    what: "Build a minimal retrieval pipeline from a described specification. Explain chunking decisions — chunk size, overlap, splitting strategy — and the reasoning behind them. Evaluate retrieval quality against a set of test queries. Explain what a bad retrieval result looks like and how you would diagnose it. The test is not asking whether the engineer can string retrieval library calls together. It asks whether they understand the tradeoffs that determine whether a retrieval system is useful in production.",
+    passCriteria: "Pipeline runs against test corpus. Chunking decisions are justified by retrieval outcome data, not defaults. Retrieval failures are correctly identified.",
+    retake: "96-hour cooldown after a fail."
+  },
+  {
+    slug: "agent-design",
+    label: "Agent design",
+    duration: "75–90 min",
+    what: "Design a tool-use workflow for a described task. Specify tool boundaries, loop control, failure handling, and the conditions under which the system should escalate to a human rather than continue autonomously. The test looks for judgment about where agents break down — not optimism about what they can theoretically do.",
+    passCriteria: "Tool boundaries are correctly scoped. Human escalation criteria are defined and triggered. Loop termination conditions handle both success and failure paths.",
+    retake: "96-hour cooldown after a fail."
+  },
+  {
+    slug: "evals",
+    label: "Evals",
+    duration: "75–90 min",
+    what: "Given a described production system — a customer-facing Q&A tool or a document classifier — design an eval harness for it. Define what to measure and why. Explain how you would establish a baseline, track regression, and distinguish genuine improvement from prompt overfitting. Passing means the engineer can make quality measurable, which is the difference between a demo and a maintainable system.",
+    passCriteria: "Metrics are specific and measurable. Baseline methodology is described. Regression detection approach handles prompt changes, not just model swaps.",
+    retake: "96-hour cooldown after a fail."
+  },
+  {
+    slug: "mlops",
+    label: "MLOps",
+    duration: "60–75 min",
+    what: "Deployment, monitoring discipline, inference cost control, and production-grade reliability for model-backed systems. Covers container patterns, latency observability, model versioning under live traffic, and rollback criteria. Engineers are expected to understand the cost structure of inference at scale.",
+    passCriteria: "Deployment plan is complete and cost-estimated. Monitoring plan includes latency, error rate, and inference cost. Rollback criteria are defined.",
+    retake: "72-hour cooldown after a fail."
+  },
+  {
+    slug: "code-with-ai",
+    label: "Code-with-AI",
+    duration: "45–60 min",
+    what: "Safe and productive use of AI coding tools — specifically, whether the engineer can integrate AI-generated code without accepting unsafe, untestable, or architecturally inconsistent changes. The test includes reviewing AI-suggested code for correctness, security, and testability, then accepting, rejecting, or modifying with justification.",
+    passCriteria: "At least one unsafe suggestion correctly rejected. At least one correct suggestion accepted with justification. Diff is reviewable by a senior engineer without rework.",
+    retake: "48-hour cooldown after a fail."
+  }
+];
+
+const faqs = [
+  {
+    question: "Are the tests multiple choice or practical?",
+    answer: "Practical. Every test involves a bounded task in a sandbox environment — building a pipeline, writing a prompt system, designing an eval harness, reviewing generated code. There are no multiple-choice questions. A pass means the engineer completed the task to the required criteria, not that they answered correctly about how to do it."
+  },
+  {
+    question: "How long do the tests take in total?",
+    answer: "Individual badge tests run 30 to 90 minutes depending on stack area. Engineers take them on their own schedule and do not need to complete all badges before being considered for matches. More relevant badges increase match priority; the minimum viable profile for most engineering roles is 2–3 aligned badges."
+  },
+  {
+    question: "What happens if an engineer fails a test?",
+    answer: "They can retake after the cooldown period shown per badge. Attempt counts are visible to employers as part of the badge record — not as a black mark, but as data. An engineer who passed on the third attempt after two fails is still verified. A high attempt count on a foundational test is information an employer can factor in."
+  },
+  {
+    question: "Do badges expire?",
+    answer: "Not automatically. Badge validity reflects the state of the sandbox task at the time of passing. If a badge area changes significantly — for instance, a new model version introduces meaningfully different API behaviour — affected badges are flagged for re-verification. Engineers are notified before any badge status changes."
+  },
+  {
+    question: "Is the rubric fully published?",
+    answer: "The pass criteria for each badge are published on this page. The specific test tasks are not published in advance — publishing them would turn verification into memorisation. The rubric describes what the task measures and what passing looks like; the specific prompt or system description used in the sandbox varies per session."
+  },
+  {
+    question: "Does tenX staff review test submissions?",
+    answer: "No staff call is in the initial verification path. Tests are evaluated by the platform against defined criteria. Borderline cases where automated scoring is inconclusive are reviewed by a senior tenX engineer, but this is not a discretionary call — it is a second pass of the same rubric. Engineers are notified if a manual review is triggered."
+  }
+];
+---
+
+<BaseLayout
+  title="tenX vetting rubric — how AI engineering badges are earned"
+  description="The full tenX badge rubric: what each sandbox test measures, pass criteria, test duration, and retry policy. Published. Falsifiable."
+  path="/vetting"
+  breadcrumbs={[{ name: "Home", path: "/" }, { name: "Vetting rubric", path: "/vetting" }]}
+  schema={[
+    collectionPageSchema({
+      title: "tenX vetting rubric",
+      description: "What each tenX badge test measures, pass criteria, duration, and retry policy.",
+      path: "/vetting"
+    }),
+    faqPageSchema(faqs)
+  ]}
+>
+
+  <!-- Hero -->
+  <section class="container section">
+    <div class="max-w-3xl">
+      <p class="eyebrow">// VETTING RUBRIC</p>
+      <h1 class="mt-4 text-5xl font-medium leading-tight md:text-6xl">The rubric is public.</h1>
+      <p class="mt-6 text-xl leading-8 text-[var(--text-secondary)]">
+        Every tenX badge is earned by passing a specific sandbox task. Here is what each test measures, the pass criteria,
+        and the retry policy. No surprises on either side.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href={href('/apply')} class="button button-primary">Apply as an engineer</a>
+        <a href={href('/network')} class="button button-secondary">See the network</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick-reference summary strip -->
+  <section class="border-y border-[var(--border-subtle)] bg-[var(--bg-elevated)]">
+    <div class="container grid gap-6 py-10 sm:grid-cols-3">
+      <div>
+        <p class="mono text-xs uppercase tracking-widest text-[var(--text-muted)]">Badge areas</p>
+        <p class="mono mt-2 text-4xl font-medium text-[var(--accent)]">9</p>
+        <p class="mt-1 text-sm text-[var(--text-muted)]">model fluency, stack skills, production patterns</p>
+      </div>
+      <div>
+        <p class="mono text-xs uppercase tracking-widest text-[var(--text-muted)]">Test format</p>
+        <p class="mono mt-2 text-4xl font-medium text-[var(--text-primary)]">Practical</p>
+        <p class="mt-1 text-sm text-[var(--text-muted)]">bounded tasks in a sandbox, not multiple choice</p>
+      </div>
+      <div>
+        <p class="mono text-xs uppercase tracking-widest text-[var(--text-muted)]">Human in loop</p>
+        <p class="mono mt-2 text-4xl font-medium text-[var(--text-primary)]">None</p>
+        <p class="mt-1 text-sm text-[var(--text-muted)]">platform-scored; manual review only for borderline cases</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Badge rubric blocks -->
+  <section class="container section">
+    <div class="max-w-3xl">
+      <p class="eyebrow">// BADGE RUBRIC</p>
+      <h2 class="mt-4 text-4xl font-medium leading-snug">What each test measures</h2>
+      <p class="mt-4 text-base leading-7 text-[var(--text-secondary)]">
+        Pass criteria are specific and falsifiable. Either the task was completed to the required standard or it was not.
+        There is no partial credit for talking confidently about the work.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6">
+      {badges.map((badge, i) => (
+        <article id={badge.slug} class="card p-6 md:p-8">
+          <div class="flex flex-wrap items-baseline justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <span class="mono text-sm text-[var(--accent)]">0{i + 1}</span>
+              <h3 class="text-2xl font-medium">{badge.label}</h3>
+            </div>
+            <span class="mono rounded border border-[var(--border-subtle)] bg-[var(--bg-sunken)] px-3 py-1 text-xs text-[var(--text-muted)]">
+              {badge.duration}
+            </span>
+          </div>
+
+          <div class="mt-5 grid gap-5 md:grid-cols-[1fr_auto]">
+            <div class="grid gap-4">
+              <div>
+                <p class="mono text-xs uppercase tracking-widest text-[var(--text-muted)]">What it measures</p>
+                <p class="mt-2 text-sm leading-7 text-[var(--text-secondary)]">{badge.what}</p>
+              </div>
+              <div>
+                <p class="mono text-xs uppercase tracking-widest text-[var(--text-muted)]">Pass criteria</p>
+                <p class="mt-2 text-sm leading-7 text-[var(--text-secondary)]">{badge.passCriteria}</p>
+              </div>
+            </div>
+            <div class="md:w-56 md:shrink-0">
+              <p class="mono text-xs uppercase tracking-widest text-[var(--text-muted)]">Retry policy</p>
+              <p class="mt-2 text-sm leading-6 text-[var(--text-secondary)]">{badge.retake}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Transparency rationale -->
+  <section class="border-y border-[var(--border-subtle)] bg-[var(--bg-elevated)]">
+    <div class="container grid gap-10 py-16 lg:grid-cols-[0.9fr_1.1fr]">
+      <div>
+        <p class="eyebrow">// WHY PUBLISH THE RUBRIC</p>
+        <h2 class="mt-4 text-4xl font-medium leading-snug">Falsifiable by design.</h2>
+      </div>
+      <div class="prose-tenx max-w-none">
+        <p>
+          Most talent networks describe their vetting in marketing language. "Rigorous process." "Thoroughly screened."
+          None of that tells a buyer what was actually tested, how the pass bar was set, or whether two candidates
+          verified the same way were evaluated against the same criteria.
+        </p>
+        <p>
+          The rubric above is public because a published standard is better than a claimed one. An employer reading it can
+          decide whether the bar is appropriate for their role. An engineer reading it knows what they are preparing for.
+          A candidate who passes the RAG badge can be compared directly to any other candidate who passed the RAG badge —
+          same task, same criteria, same platform.
+        </p>
+        <p>
+          The specific sandbox tasks are not published in advance. Publishing the tasks would turn verification into memorisation.
+          The rubric tells you what matters and what passing looks like. The task is the test.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="container section">
+    <div class="max-w-3xl">
+      <p class="eyebrow">// FAQ</p>
+      <h2 class="mt-4 text-4xl font-medium">Common questions</h2>
+      <div class="mt-8 divide-y divide-[var(--border-subtle)]">
+        {faqs.map((faq) => (
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-medium leading-6 text-[var(--text-primary)] hover:text-[var(--accent)]">
+              {faq.question}
+              <span class="mono shrink-0 text-[var(--text-muted)] group-open:hidden">+</span>
+              <span class="mono hidden shrink-0 text-[var(--accent)] group-open:inline">&#8722;</span>
+            </summary>
+            <p class="mt-4 text-sm leading-7 text-[var(--text-secondary)]">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Dual CTA -->
+  <section class="container pb-24">
+    <div class="card grid gap-6 p-8 md:grid-cols-2 md:p-10">
+      <div>
+        <p class="eyebrow">// ENGINEERS</p>
+        <h3 class="mt-3 text-2xl font-medium">Apply and take the tests on your own schedule.</h3>
+        <p class="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
+          Badges are reusable across future matches. You are not repeating a founder call every time a new employer opens access.
+          The evidence you build now carries forward.
+        </p>
+        <a href={href('/apply')} class="button button-primary mt-6 inline-block">Apply as an engineer</a>
+      </div>
+      <div class="border-t border-[var(--border-subtle)] pt-6 md:border-l md:border-t-0 md:pl-10 md:pt-0">
+        <p class="eyebrow">// EMPLOYERS</p>
+        <h3 class="mt-3 text-2xl font-medium">Hire from verified signal.</h3>
+        <p class="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
+          The badge stack tells you which sandbox tasks an engineer has passed before the first call.
+          Basic AI skill is already verified. Spend the interview on domain fit and team context.
+        </p>
+        <a href={href('/hire')} class="button button-secondary mt-6 inline-block">Hire engineers</a>
+      </div>
+    </div>
+    <p class="mono mt-6 text-xs text-[var(--text-muted)]">
+      // rubric last updated May 2026 — badge criteria are versioned when test content changes materially
+    </p>
+  </section>
+
+</BaseLayout>
