@@ -1,0 +1,108 @@
+---
+title: "What is an LLM engineer?"
+description: "An LLM engineer designs, builds, and operates systems that use large language models in production. The role is distinct from ML research, data science, and general software engineering."
+pubDate: 2026-05-11
+author: "tenX editorial"
+faqs:
+  - question: "What does an LLM engineer do?"
+    answer: "An LLM engineer builds and operates production systems that use large language models — handling prompt design, retrieval layers, output evaluation, API integration, and the operational scaffolding that keeps model-based features reliable and cost-controlled."
+  - question: "Is an LLM engineer the same as an AI engineer?"
+    answer: "Mostly. LLM engineer is the narrower term, referring specifically to engineers who work with language models. AI engineer is broader and can include computer vision, audio, and other modalities. In practice the terms overlap significantly in 2026 hiring."
+  - question: "What models should an LLM engineer know?"
+    answer: "A strong LLM engineer should be fluent across Claude, GPT, and Gemini — understanding their different context windows, pricing, tool use APIs, structured output behaviour, and failure modes. Knowing only one model is a real professional liability in 2026."
+  - question: "How does tenX verify LLM engineers?"
+    answer: "tenX uses self-service platform sandboxes. LLM engineers earn badges for tests passed across Claude fluency, GPT fluency, Gemini fluency, prompt engineering, RAG, agent design, and evals. Badges are visible to employers and increase match priority."
+  - question: "What salary does an LLM engineer earn in New Zealand?"
+    answer: "As of May 2026, senior LLM engineers in New Zealand earn between NZD 140,000 and NZD 200,000 on permanents, depending on depth of production AI experience and model breadth. Auckland commands the top of the band."
+---
+
+import { href } from "../../lib/href";
+
+An LLM engineer designs, builds, and operates software systems that use large language models in production. The role sits between product engineering and machine learning: not a researcher, not a generalist developer, but someone who can turn a model's capabilities into a reliable, measurable feature or workflow. As of 2026, it is one of the most in-demand technical roles in New Zealand and Australia.
+
+## What LLM engineers actually build
+
+The output of an LLM engineer is not a model — it is a system that uses a model. Typical builds include:
+
+- **RAG pipelines**: retrieval-augmented generation systems that ground a language model's answers in a specific corpus. The LLM engineer handles chunking, embedding, retrieval quality, citation, and answer evaluation — not just the prompt.
+- **Agent systems**: multi-step AI workflows where the model selects and uses tools, interprets results, and makes decisions. The engineer controls the tool boundary, the loop logic, failure handling, and human override paths.
+- **Evals harnesses**: infrastructure to measure whether a model-based feature is working. This includes defining quality metrics, sampling outputs, running comparison sets, and flagging regressions when models or prompts change.
+- **Prompt systems**: structured prompt architecture for production use — not single prompts, but versioned, templated, and monitored prompt layers that can be updated without breaking the application.
+- **Model routing layers**: logic that sends requests to different models or configurations based on task type, cost, latency, or quality constraints. A senior LLM engineer can design a routing system across Claude, GPT, and Gemini that degrades gracefully when one provider has an incident.
+- **Code-with-AI tooling**: internal tools that help engineering teams use AI coding assistants safely — reviewing AI-generated diffs, setting review criteria, and keeping the codebase coherent as AI-assisted changes accumulate.
+
+## How LLM engineering differs from ML engineering
+
+Machine learning engineers typically work on model training, fine-tuning, feature engineering, and inference pipelines for custom models. LLM engineering starts one layer up: the frontier model is a given, and the work is about using it well.
+
+This distinction matters for hiring. A skilled ML engineer can retrain a classification model or tune a custom embedding layer. That skill does not automatically translate to production prompt system design, retrieval quality engineering, or agent loop debugging. The tooling is different, the failure modes are different, and the measurement approach is different.
+
+In practice, the best LLM engineers in 2026 often have a software engineering background with strong systems thinking, not necessarily an ML research background. The key competency is understanding the model as a probabilistic component — one that produces useful outputs most of the time but needs guardrails, evals, and review paths to be trusted in production.
+
+## What separates a strong LLM engineer from a middling one
+
+The gap is measurement and production discipline.
+
+A weak hire can get a model to produce impressive-looking output in a demo. A strong hire can answer these questions about that same system in production:
+
+- How do you evaluate whether the output is correct? What is the eval harness, and who reviews the cases it flags?
+- What happens when the model hallucinates? How does the system detect and recover from it?
+- How does cost scale with volume? What are the token counts per call, and at what volume does a model switch or a caching layer become necessary?
+- How will the system behave when the underlying model is updated? Is the prompt system versioned? Is there a regression test that runs on model updates?
+- Can the system explain why it gave a specific answer? Is there an audit trail for regulated domains?
+
+These are not research questions. They are engineering questions about a production system. The answer to each one separates a senior LLM engineer from someone who has built a few demos.
+
+## Model fluency: why knowing one model is not enough
+
+In 2025 and into 2026, the landscape of capable frontier models expanded significantly. Claude (Sonnet and Opus), GPT (4 and 5 class), and Gemini 2.5 are all capable of the same broad task types, but they differ in context window behaviour, tool use APIs, structured output reliability, cost per token, latency profiles, and specific failure modes.
+
+An LLM engineer who only knows one model is making an architectural bet that could be expensive to reverse. When OpenAI changes pricing, Anthropic ships a new capability, or Google offers better performance on a specific use case, a model-agnostic engineer can respond. An engineer who has only worked in one API cannot.
+
+This is why tenX verifies LLM engineers across Claude, GPT, and Gemini through sandbox evaluations. The specific tasks test whether the engineer can use each model's actual capabilities — tool use on Claude, structured outputs on GPT, long-context reasoning on Gemini — not just whether they can call an API.
+
+The phrase "fluent across Claude, GPT, Gemini" is a shorthand for this: the engineer can compare models against the task, explain the tradeoffs, and build systems that are not locked to a single provider.
+
+## The skills a verified LLM engineer has
+
+Based on the tenX badge catalogue and the current <a href={href("/network")}>verified network</a>, the skills that matter most for LLM engineering in 2026 are:
+
+**Model fluency** — Demonstrated ability to use Claude, GPT, and Gemini for production tasks. Not just API calls, but understanding context window limits, grounding behaviour, tool use reliability, and output stability.
+
+**Prompt engineering** — Structured prompt design: system prompts, few-shot examples, chain-of-thought scaffolding, and instruction formatting. This is not creative writing. It is software design for a probabilistic interface.
+
+**RAG** — Retrieval-augmented generation, end to end. Chunking strategy, embedding model selection, retrieval quality tuning, answer grounding, and citation. Including evaluation of retrieval quality, not just impressionistic checking.
+
+**Agent design** — Multi-step AI system design: tool boundaries, step sequencing, loop control, error handling, and graceful degradation. The ability to scope an agent to a specific workflow without building an unconstrained planner.
+
+**Evals** — Evaluation infrastructure: quality metric definition, sampling, LLM-as-judge setups, human review workflows, and regression detection. An engineer who cannot build evals cannot know whether their system is working.
+
+**MLOps for LLMs** — Deployment, monitoring, cost tracking, prompt version management, and model update response. This is the operational layer that keeps a model-based feature running in production.
+
+## Where LLM engineers work
+
+In New Zealand, LLM engineering roles are concentrated in Auckland, with demand growing in Wellington (public sector, finance) and Christchurch (manufacturing and logistics automation). Across Australia, Sydney and Melbourne are the primary markets, with Brisbane growing in resources and logistics AI.
+
+The role appears across sectors: fintech (credit decisioning, compliance automation), healthtech (clinical documentation, coding), SaaS (AI feature development, code-with-AI tooling), govtech (document processing, citizen service automation), and e-commerce (search, recommendations, merchandising automation).
+
+Most roles are full-time permanent or long-term contractor. Short-engagement work exists for bounded builds: an evals harness, a RAG migration, a model routing layer. The <a href={href("/pricing")}>tenX pricing</a> covers both: 10% of first-year salary on permanents, 20% loading on contractor monthly billings.
+
+## How to hire one
+
+If you are hiring an LLM engineer, the clearest first step is to define the production workflow you need them to build. Not "we need AI capabilities" but "we need an engineer who can build and own a retrieval system for our document corpus, including evals, and integrate it into our existing product". That specificity changes everything about sourcing, assessment, and matching.
+
+Verify for production skills, not prompting performance. A candidate who can write a clever prompt in 20 minutes but cannot describe an eval harness, a retrieval quality metric, or a cost model is not ready for a senior LLM engineering role.
+
+Assess model breadth. Ask the candidate to compare Claude and GPT for a specific use case. Ask what they would do differently on Gemini. The answers reveal real fluency versus surface familiarity.
+
+The <a href={href("/hire/llm-engineer")}>tenX LLM engineer hub</a> lists verified engineers with sandbox-earned badges for each skill area. Employers can filter by badge profile, geography, and availability. The network claim is 100 AI-verified engineers across NZ and Australia as of May 2026, growing weekly through the June 2026 employer intake.
+
+## The honest difficulty
+
+LLM engineering is genuinely hard to hire for in 2026. The pool of engineers with real production AI experience — not demos, not hobbyist projects, but shipped systems with evals and real usage — is small. The demand from companies trying to build AI features is growing faster than the supply of people who can build them well.
+
+This is not an argument for lowering the bar. It is an argument for knowing exactly what you need, verifying it properly, and not confusing a candidate who interviewed well with a candidate who can ship.
+
+The verification mechanism matters. A sandbox test that asks an engineer to build a bounded RAG evaluation harness, then reviews the grounding quality, the metric choice, and the failure handling, tells you more than a one-hour technical screen. That is what a badge means: the engineer has done the work in the shape of the work.
+
+For engineers reading this: the way in to this market is the same. <a href={href("/apply")}>Apply</a>, take the sandbox tests, and earn the badges that are relevant to the work you can do and want to do. A verified profile with real badge evidence compounds across opportunities in a way that a resume keyword list does not.
