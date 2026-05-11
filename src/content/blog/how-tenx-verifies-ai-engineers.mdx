@@ -1,0 +1,91 @@
+---
+title: "How tenX verifies AI engineers (without a phone screen)"
+description: "tenX verifies AI engineers through self-service sandbox tests across Claude, GPT, and Gemini. No founder gatekeeping. No warm introductions. Badges earned by evidence."
+pubDate: 2026-05-12
+author: "tenX editorial"
+faqs:
+  - question: "Does tenX do any human screening?"
+    answer: "The initial verification is entirely platform-based: sandbox tests, badge outcomes, and LinkedIn/phone checks. No tenX staff call is in the verification path. Once matched, employers run their own interviews — the badge stack means those conversations can skip basic skill discovery and focus on domain fit, architecture, and team context."
+  - question: "How long do the tests take?"
+    answer: "Each badge test takes 30 to 90 minutes depending on the stack area. Model fluency tests (Claude, GPT, Gemini) sit at the shorter end. RAG, evals, and agent design tests run longer because they involve building and explaining a working system, not just answering questions about one."
+  - question: "Are the badges public?"
+    answer: "Visible to employers browsing the network and to any employer matched to a candidate. Not a public social profile — badges are scoped to the tenX platform and the hiring context. Engineers can see their own badge stack and track what they've passed."
+  - question: "What happens if I fail a test?"
+    answer: "You can retake after a cooldown period. The number of attempts is visible to employers. Retaking is not penalised by default, but a high attempt count on a foundational test is data the employer can factor in. The honest approach: if the attempts are visible, the system stays fair."
+  - question: "Does tenX verify NZ and Australian engineers the same way?"
+    answer: "Yes. Same platform, same sandbox tests, same badge criteria. NZ is live now. Australia opens June 2026, with Sydney and Melbourne first. Geography does not change the verification standard."
+---
+
+import { href } from "../../lib/href";
+
+tenX verifies AI engineers through self-service sandbox tests, not founder calls. Engineers apply, complete bounded tasks in a sandbox environment, and earn badges per stack area — Claude fluency, GPT fluency, Gemini fluency, prompt engineering, RAG, agent design, evals, MLOps, code-with-AI. No one is on the other end of the test. The badge is the evidence. Employers see the badge stack when they browse the network or receive a matched shortlist.
+
+## The problem with founder gatekeeping
+
+Most talent networks put a human in the trust path. A founder or senior reviewer screens candidates before they reach the network. On paper, this sounds like quality control. In practice, it has three failure modes.
+
+First, it does not scale. One person's judgment applied consistently to 100 candidates is a full-time job that does not compound. Expanding the network means either diluting the bar or hiring screeners, which reintroduces consistency problems.
+
+Second, it introduces bias that is hard to detect. A well-rested interviewer on a good day applies a different bar than the same person after four consecutive calls. Warm introductions get softer treatment than cold applications. The mechanism is invisible to candidates and employers alike.
+
+Third, it cannot be verified. When a candidate passes a founder screen, the employer has to decide how much they trust the screener's calibration. Two candidates from the same network may have had completely different conversations and been evaluated on different criteria.
+
+The solution is not to remove human judgment from hiring entirely — that is not what tenX does. The solution is to remove it from the first trust layer, where a repeatable, falsifiable mechanism works better.
+
+## How the platform actually works
+
+Engineers <a href={href('/apply')}>apply to the network</a>, then take sandbox tests on their own schedule. Each test is a bounded task in an isolated environment. The platform records what the engineer completed and whether they passed the criteria for that stack area. A pass earns a badge.
+
+The badge stack is then visible to employers when they browse <a href={href('/network')}>the network</a> or receive a matched shortlist. More badges in relevant stack areas increase match priority. An engineer with Claude fluency, RAG, and evals badges will rank higher for a backend AI role than an engineer who has only passed the Claude fluency test, all else being equal.
+
+There are no warm introductions, no discretionary calls in the verification path, and no variation based on who reviewed a candidate's application. The mechanism is the same for every engineer. Auckland, Wellington, Sydney — same platform, same tests, same bar.
+
+## What the tests actually measure
+
+The tests are structured tasks, not multiple-choice questions. Here is what each major badge area actually requires.
+
+**Model fluency (Claude, GPT, Gemini).** The engineer completes API-based tasks using that model: structured output generation, tool use patterns, instruction adherence under constraint, and handling of model-specific failure modes. For Claude, this includes long-context and tool-calling behaviour. For GPT, structured output schema compliance and routing decisions. For Gemini, multimodal and long-context patterns where relevant. Passing means the engineer can operate against the model's actual API, not just describe what it does.
+
+**RAG.** Build a minimal retrieval pipeline from a described specification. Explain the chunking decisions — chunk size, overlap, splitting strategy — and the reasoning behind them. Evaluate retrieval quality against a set of test queries. Explain what a bad retrieval result looks like and how you would diagnose it. The test is not asking whether the engineer can string LangChain calls together. It is asking whether they understand the tradeoffs that determine whether a retrieval system is useful in production.
+
+**Evals.** Given a described production system — a customer-facing Q&A tool, say, or a document classifier — design an eval harness for it. Define what to measure and why. Explain how you would establish a baseline, track regression, and distinguish genuine improvement from prompt overfitting. Passing this test means the engineer can make quality measurable, which is the difference between a demo and a maintainable system.
+
+**Agent design.** Design a tool-use workflow for a described task. Specify tool boundaries, loop control, failure handling, and the conditions under which the system should escalate to a human rather than continue autonomously. The test is looking for judgment about where agents break down, not optimism about what they can theoretically do.
+
+**MLOps and code-with-AI** cover deployment, monitoring discipline, and the safe use of AI coding tools — specifically, whether the engineer can integrate AI-generated code without accepting unsafe or untestable changes.
+
+## Why badges beat interviews
+
+Interviews are inconsistent by design. Two engineers interviewing for the same role at the same company may be asked different questions, by different people, in different moods, with different implicit bars. One interviewer cares about system design, another about communication, another about cultural fit. The outcome is correlated with interview skill as much as engineering skill.
+
+Badges are falsifiable. Either the engineer completed the RAG pipeline task to the required standard or they did not. There is no partial credit for talking confidently about the work. The task was either done or it was not.
+
+Badges are reusable. An employer can see that an engineer passed the Claude fluency and evals tests six months ago, when they applied. That evidence does not expire with a single interview. It travels with the engineer across future matches on the platform.
+
+Badges are comparable. Two engineers with a Claude fluency badge passed the same tasks. They were not evaluated by different interviewers applying different intuitions. Their verification is on the same substrate. That means an employer comparing two candidates can actually compare them, rather than inferring one was evaluated more rigorously than the other.
+
+## What employers see
+
+When an employer browses the network or receives a matched shortlist, they see the badge stack for each engineer. The platform surfaces higher-evidence candidates first within a given match. The employer does not need to ask "what AI tools do you actually use?" — the answer is already observable.
+
+This changes the pre-interview phase. Instead of using the first call to discover whether the engineer can use the relevant models, the call can focus on domain context, architecture thinking, and team fit. The basic evidence is already in the system.
+
+Employers can also filter by badge stack when reviewing the <a href={href('/network')}>network</a>. A hiring brief for a RAG engineer should match to a shortlist of engineers who have passed the RAG and evals tests, not a general list of engineers who mention retrieval on their profile.
+
+## What the tests do not do
+
+The sandbox tests do not assess culture fit. They do not assess communication style, domain experience — healthtech regulatory context, fintech compliance constraints, govtech procurement realities — or whether the engineer's working pace and collaboration style match the team. Those remain the employer's job.
+
+Tests also do not eliminate false negatives. An engineer who is genuinely strong but performs poorly in a timed sandbox setting will miss the bar. That is a real cost. It is a cost the platform accepts in exchange for the consistency and scalability of the mechanism.
+
+What the tests do remove is false positives: candidates who can speak fluently about AI in an interview without having built anything reliable with it. That category is not small. The gap between "comfortable discussing LLMs" and "can design a measurable, maintainable retrieval system" is significant. The badge requirement means the network contains engineers who have cleared that bar, not engineers who can describe it.
+
+The platform is honest about this. The right mental model is a benchmark, not a guarantee. A benchmark gives you a better starting point than a resume and a conversation.
+
+## If you are an engineer
+
+<a href={href('/apply')}>Apply and take the tests on your own schedule.</a> Your badge stack is portable across future matches. You are not repeating a founder call every time a new employer opens access — the evidence you build now carries forward. More relevant badges mean higher match priority when the employer network opens fully.
+
+## If you are hiring
+
+When you <a href={href('/hire')}>browse the network or join the employer waitlist</a>, you are choosing from a pool ranked by evidence. The first call can focus on the actual hiring decision — domain fit, team context, architecture alignment — because basic AI skill has already been verified. That is what it means to hire AI engineers by spec rather than by vibe.
