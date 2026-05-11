@@ -1,0 +1,112 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { allCities, allRoles, contractRangeFor, readableStatus, salaryRangeFor, type City, type Role } from "../../../lib/data";
+import { collectionPageSchema, jobPostingSchema } from "../../../lib/seo";
+
+export function getStaticPaths() {
+  return allRoles.flatMap((role) =>
+    allCities.map((city) => ({
+      params: { role: role.slug, city: city.slug },
+      props: { role, city }
+    }))
+  );
+}
+
+interface Props {
+  role: Role;
+  city: City;
+}
+
+const { role, city } = Astro.props;
+const title = `Hire ${role.title}s in ${city.name}`;
+const description = `Hire platform-verified ${role.shortTitle} in ${city.name}. ${city.status === "open" ? "NZ launch market open now." : "AUS employer access opens June 2026."}`;
+const path = `/hire/${role.slug}/${city.slug}`;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Hire", path: "/hire" },
+    { name: role.title, path: `/hire/${role.slug}` },
+    { name: city.name, path }
+  ]}
+  schema={[
+    collectionPageSchema({ title, description, path }),
+    jobPostingSchema({
+      title: `${role.title} opportunities in ${city.name}`,
+      description: `${role.summary} tenX verifies candidates through platform sandboxes before matching.`,
+      path,
+      locationName: city.name,
+      country: city.countryCode
+    })
+  ]}
+>
+  <section class="container section">
+    <div class="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-start">
+      <div>
+        <p class="eyebrow">{readableStatus(city)}</p>
+        <h1 class="mt-4 text-5xl font-black leading-tight md:text-6xl">{title}</h1>
+        <p class="mt-6 text-xl leading-8 text-[var(--muted)]">
+          {city.marketNote} tenX shortlists candidates by verified badges, availability, geography, and salary expectation.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a class="button button-primary" href="/hire">Join employer waitlist</a>
+          <a class="button button-secondary" href={`/salary/${role.slug}/${city.slug}`}>View {city.name} salary data</a>
+        </div>
+      </div>
+      <aside class="panel p-6">
+        <p class="eyebrow">Local snapshot</p>
+        <div class="mt-6 grid gap-5">
+          <div>
+            <p class="stat-value">{city.talentCount}</p>
+            <p class="mt-2 text-sm text-[var(--muted)]">launch-network candidates tagged to {city.name}</p>
+          </div>
+          <div>
+            <p class="mono text-2xl font-black">{salaryRangeFor(role, city)}</p>
+            <p class="mt-2 text-sm text-[var(--muted)]">benchmark salary range</p>
+          </div>
+          <div>
+            <p class="mono text-2xl font-black">{contractRangeFor(role, city)}</p>
+            <p class="mt-2 text-sm text-[var(--muted)]">contract benchmark before 20% tenX loading</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="border-y border-[var(--line)] bg-[var(--bg-2)]">
+    <div class="container grid gap-8 py-16 lg:grid-cols-2">
+      <div>
+        <p class="eyebrow">Why this role</p>
+        <h2 class="mt-4 text-4xl font-black">{role.title}s are hired for applied leverage, not AI theatre.</h2>
+      </div>
+      <div class="prose-tenx max-w-none">
+        <p>{role.summary}</p>
+        <p>
+          In {city.name}, tenX uses badge evidence to separate engineers who have shipped useful AI systems from engineers who have only experimented with prompts.
+          The shortlist starts with verified sandboxes across {role.badges.join(", ")}.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section">
+    <div class="grid gap-4 md:grid-cols-3">
+      <a class="card p-6 hover:border-[var(--accent)]" href={`/hire/${role.slug}`}>
+        <p class="eyebrow">Role hub</p>
+        <h3 class="mt-3 text-xl font-black">Hire {role.shortTitle}</h3>
+      </a>
+      <a class="card p-6 hover:border-[var(--accent)]" href="/blog/how-to-hire-an-ai-engineer-in-2026">
+        <p class="eyebrow">Guide</p>
+        <h3 class="mt-3 text-xl font-black">How to hire an AI engineer in 2026</h3>
+      </a>
+      <a class="card p-6 hover:border-[var(--accent)]" href="/blog/what-makes-an-ai-engineer-verified">
+        <p class="eyebrow">Verification</p>
+        <h3 class="mt-3 text-xl font-black">What makes an AI engineer verified?</h3>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

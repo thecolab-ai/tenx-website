@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { allCities, allRoles, contractRangeFor, salaryRangeFor, type City, type Role } from "../../../lib/data";
+import { collectionPageSchema } from "../../../lib/seo";
+
+export function getStaticPaths() {
+  return allRoles.flatMap((role) =>
+    allCities.map((city) => ({
+      params: { role: role.slug, city: city.slug },
+      props: { role, city }
+    }))
+  );
+}
+
+interface Props {
+  role: Role;
+  city: City;
+}
+
+const { role, city } = Astro.props;
+const title = `${role.title} salary in ${city.name}`;
+const description = `${city.name} benchmark salary and contract ranges for ${role.shortTitle}.`;
+const path = `/salary/${role.slug}/${city.slug}`;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Salary", path: `/salary/${role.slug}` },
+    { name: role.title, path: `/salary/${role.slug}` },
+    { name: city.name, path }
+  ]}
+  schema={collectionPageSchema({ title, description, path })}
+>
+  <section class="container section">
+    <div class="max-w-4xl">
+      <p class="eyebrow">{city.status === "open" ? "Open now" : "Opening June 2026"}</p>
+      <h1 class="mt-4 text-5xl font-black leading-tight md:text-6xl">{title}</h1>
+      <p class="mt-6 text-xl leading-8 text-[var(--muted)]">
+        Directional launch benchmark for hiring {role.shortTitle} in {city.name}. Figures are placeholders until monthly live-network updates start.
+      </p>
+    </div>
+  </section>
+
+  <section class="border-y border-[var(--line)] bg-[var(--bg-2)]">
+    <div class="container grid gap-6 py-12 md:grid-cols-3">
+      <div>
+        <p class="stat-value">{salaryRangeFor(role, city)}</p>
+        <p class="mt-2 text-sm text-[var(--muted)]">permanent salary range</p>
+      </div>
+      <div>
+        <p class="stat-value">{contractRangeFor(role, city)}</p>
+        <p class="mt-2 text-sm text-[var(--muted)]">contract benchmark before loading</p>
+      </div>
+      <div>
+        <p class="stat-value">{city.talentCount}</p>
+        <p class="mt-2 text-sm text-[var(--muted)]">launch-network candidates tagged to {city.name}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+    <div>
+      <p class="eyebrow">Market note</p>
+      <h2 class="mt-4 text-4xl font-black">Use verified skill to control salary risk.</h2>
+    </div>
+    <div class="prose-tenx max-w-none">
+      <p>{city.marketNote}</p>
+      <p>
+        The highest-cost mistake is paying senior AI salaries for unverified experimentation. tenX uses sandbox badges to prove relevant capability before the shortlist reaches an employer.
+      </p>
+      <p>
+        Contractor pricing uses the candidate monthly billing benchmark plus the published 20% tenX loading. Permanent pricing uses the accepted first-year salary plus the published 10% placement fee.
+      </p>
+    </div>
+  </section>
+
+  <section class="container pb-16">
+    <div class="grid gap-4 md:grid-cols-3">
+      <a class="card p-6 hover:border-[var(--accent)]" href={`/hire/${role.slug}/${city.slug}`}>
+        <p class="eyebrow">Hiring</p>
+        <h3 class="mt-3 text-xl font-black">Hire {role.shortTitle} in {city.name}</h3>
+      </a>
+      <a class="card p-6 hover:border-[var(--accent)]" href={`/salary/${role.slug}`}>
+        <p class="eyebrow">Benchmark</p>
+        <h3 class="mt-3 text-xl font-black">All {role.title} salary data</h3>
+      </a>
+      <a class="card p-6 hover:border-[var(--accent)]" href="/blog/what-makes-an-ai-engineer-verified">
+        <p class="eyebrow">Verification</p>
+        <h3 class="mt-3 text-xl font-black">What makes an AI engineer verified?</h3>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

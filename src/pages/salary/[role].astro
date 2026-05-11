@@ -1,0 +1,99 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { allCities, allRoles, contractRangeFor, salaryRangeFor, type Role } from "../../lib/data";
+import { collectionPageSchema } from "../../lib/seo";
+
+export function getStaticPaths() {
+  return allRoles.map((role) => ({
+    params: { role: role.slug },
+    props: { role }
+  }));
+}
+
+interface Props {
+  role: Role;
+}
+
+const { role } = Astro.props;
+const title = `${role.title} salary benchmark`;
+const description = `NZ-first salary benchmark for ${role.shortTitle}, with city ranges and contract monthly rates.`;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={`/salary/${role.slug}`}
+  breadcrumbs={[{ name: "Home", path: "/" }, { name: "Salary", path: `/salary/${role.slug}` }, { name: role.title, path: `/salary/${role.slug}` }]}
+  schema={collectionPageSchema({ title, description, path: `/salary/${role.slug}` })}
+>
+  <section class="container section">
+    <div class="max-w-4xl">
+      <p class="eyebrow">Salary benchmark</p>
+      <h1 class="mt-4 text-5xl font-black leading-tight md:text-6xl">{title}</h1>
+      <p class="mt-6 text-xl leading-8 text-[var(--muted)]">
+        Current v1 ranges are directional placeholders for launch planning, updated monthly as the verified network grows.
+      </p>
+    </div>
+  </section>
+
+  <section class="border-y border-[var(--line)] bg-[var(--bg-2)]">
+    <div class="container grid gap-6 py-12 md:grid-cols-3">
+      <div>
+        <p class="stat-value">{salaryRangeFor(role)}</p>
+        <p class="mt-2 text-sm text-[var(--muted)]">NZ permanent benchmark</p>
+      </div>
+      <div>
+        <p class="stat-value">{contractRangeFor(role)}</p>
+        <p class="mt-2 text-sm text-[var(--muted)]">NZ contract benchmark before loading</p>
+      </div>
+      <div>
+        <p class="stat-value">20%</p>
+        <p class="mt-2 text-sm text-[var(--muted)]">tenX contractor loading</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section">
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[760px] border-collapse text-left text-sm">
+        <thead>
+          <tr>
+            <th class="border border-[var(--line)] bg-[var(--surface)] p-4">City</th>
+            <th class="border border-[var(--line)] bg-[var(--surface)] p-4">Status</th>
+            <th class="border border-[var(--line)] bg-[var(--surface)] p-4">Salary range</th>
+            <th class="border border-[var(--line)] bg-[var(--surface)] p-4">Contract benchmark</th>
+          </tr>
+        </thead>
+        <tbody>
+          {allCities.map((city) => (
+            <tr>
+              <td class="border border-[var(--line)] p-4">
+                <a class="font-bold text-[var(--accent)]" href={`/salary/${role.slug}/${city.slug}`}>{city.name}</a>
+              </td>
+              <td class="border border-[var(--line)] p-4">{city.status === "open" ? "Open now" : "Opening June 2026"}</td>
+              <td class="border border-[var(--line)] p-4">{salaryRangeFor(role, city)}</td>
+              <td class="border border-[var(--line)] p-4">{contractRangeFor(role, city)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="container pb-16">
+    <div class="grid gap-4 md:grid-cols-3">
+      <a class="card p-6 hover:border-[var(--accent)]" href={`/hire/${role.slug}`}>
+        <p class="eyebrow">Hiring</p>
+        <h3 class="mt-3 text-xl font-black">Hire {role.shortTitle}</h3>
+      </a>
+      <a class="card p-6 hover:border-[var(--accent)]" href="/pricing">
+        <p class="eyebrow">Pricing</p>
+        <h3 class="mt-3 text-xl font-black">10% permanent, 20% contractor</h3>
+      </a>
+      <a class="card p-6 hover:border-[var(--accent)]" href="/blog/how-to-hire-an-ai-engineer-in-2026">
+        <p class="eyebrow">Guide</p>
+        <h3 class="mt-3 text-xl font-black">How to hire an AI engineer in 2026</h3>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

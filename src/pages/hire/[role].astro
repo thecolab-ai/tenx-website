@@ -1,0 +1,135 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { allCities, allRoles, salaryRangeFor, type City, type Role } from "../../lib/data";
+import { collectionPageSchema, jobPostingSchema } from "../../lib/seo";
+
+export function getStaticPaths() {
+  return allRoles.map((role) => ({
+    params: { role: role.slug },
+    props: { role }
+  }));
+}
+
+interface Props {
+  role: Role;
+}
+
+const { role } = Astro.props;
+const title = `Hire ${role.title}s`;
+const description = `Hire platform-verified ${role.shortTitle} through tenX. Badge evidence across ${role.badges.slice(0, 4).join(", ")}.`;
+const cityLinks: City[] = allCities;
+const schema = [
+  collectionPageSchema({ title, description, path: `/hire/${role.slug}` }),
+  jobPostingSchema({
+    title: `${role.title} opportunities through tenX`,
+    description: role.summary,
+    path: `/hire/${role.slug}`
+  })
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={`/hire/${role.slug}`}
+  breadcrumbs={[{ name: "Home", path: "/" }, { name: "Hire", path: "/hire" }, { name: role.title, path: `/hire/${role.slug}` }]}
+  schema={schema}
+>
+  <section class="container section">
+    <div class="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-start">
+      <div>
+        <p class="eyebrow">Role hub</p>
+        <h1 class="mt-4 text-5xl font-black leading-tight md:text-6xl">{title}</h1>
+        <p class="mt-6 text-xl leading-8 text-[var(--muted)]">{role.summary}</p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a class="button button-primary" href="/hire">Join employer waitlist</a>
+          <a class="button button-secondary" href={`/salary/${role.slug}`}>View salary benchmarks</a>
+        </div>
+      </div>
+      <aside class="panel p-6">
+        <p class="eyebrow">Verified badges</p>
+        <div class="mt-5 flex flex-wrap gap-2">
+          {role.badges.map((badge) => (
+            <span class="rounded border border-[var(--line)] bg-[var(--surface-2)] px-3 py-2 text-sm font-bold">{badge}</span>
+          ))}
+        </div>
+        <p class="mt-6 text-sm leading-6 text-[var(--muted)]">
+          tenX ranks candidates by relevant sandbox evidence. More verified badges mean higher match priority.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="border-y border-[var(--line)] bg-[var(--bg-2)]">
+    <div class="container grid gap-6 py-12 md:grid-cols-3">
+      <div>
+        <p class="stat-value">{salaryRangeFor(role)}</p>
+        <p class="mt-2 text-sm text-[var(--muted)]">NZ benchmark salary range</p>
+      </div>
+      <div>
+        <p class="stat-value">10%</p>
+        <p class="mt-2 text-sm text-[var(--muted)]">permanent placement fee</p>
+      </div>
+      <div>
+        <p class="stat-value">20%</p>
+        <p class="mt-2 text-sm text-[var(--muted)]">contractor loading</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
+    <div>
+      <p class="eyebrow">Skill map</p>
+      <h2 class="mt-4 text-4xl font-black">What verified {role.shortTitle} are tested on</h2>
+      <p class="mt-5 leading-8 text-[var(--muted)]">
+        The sandbox is designed around applied work: model selection, production constraints, failure handling, and the ability to make AI useful inside a real workflow.
+      </p>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2">
+      {role.skills.map((skill) => (
+        <article class="card p-5">
+          <p class="mono text-sm text-[var(--accent)]">skill</p>
+          <h3 class="mt-3 text-xl font-black capitalize">{skill}</h3>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-y border-[var(--line)] bg-[var(--bg-2)]">
+    <div class="container py-16">
+      <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div>
+          <p class="eyebrow">Cities</p>
+          <h2 class="mt-4 text-4xl font-black">Hire {role.shortTitle} by city</h2>
+        </div>
+        <a class="button button-secondary" href="/network">View network breakdown</a>
+      </div>
+      <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {cityLinks.map((city) => (
+          <a class="card p-5 hover:border-[var(--accent)]" href={`/hire/${role.slug}/${city.slug}`}>
+            <p class="text-xl font-black">{city.name}</p>
+            <p class="mt-3 text-sm leading-6 text-[var(--muted)]">{city.marketNote}</p>
+            <p class="mono mt-4 text-sm text-[var(--accent)]">{city.talentCount} launch candidates</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="container section">
+    <div class="grid gap-4 md:grid-cols-3">
+      <a class="card p-6 hover:border-[var(--accent)]" href="/blog/how-to-hire-an-ai-engineer-in-2026">
+        <p class="eyebrow">Guide</p>
+        <h3 class="mt-3 text-xl font-black">How to hire an AI engineer in 2026</h3>
+      </a>
+      <a class="card p-6 hover:border-[var(--accent)]" href="/blog/what-makes-an-ai-engineer-verified">
+        <p class="eyebrow">Verification</p>
+        <h3 class="mt-3 text-xl font-black">What makes an AI engineer verified?</h3>
+      </a>
+      <a class="card p-6 hover:border-[var(--accent)]" href="/pricing">
+        <p class="eyebrow">Pricing</p>
+        <h3 class="mt-3 text-xl font-black">Published fees for permanent and contract hiring</h3>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
