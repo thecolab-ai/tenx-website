@@ -1,0 +1,77 @@
+---
+title: "Why \"top 1%\" stopped meaning anything in AI hiring"
+description: "The top 1% claim works when the skill being measured is stable and the test is consistent. Neither is true for AI engineering in 2026."
+pubDate: 2026-05-12
+author: "tenX editorial"
+faqs:
+  - question: "Why do talent platforms use the top 1% claim?"
+    answer: "It is a positioning shorthand inherited from generalised software hiring, where CV screening at volume needed a simple trust signal. It was always self-reported and never tied to a specific test. In AI engineering it is especially weak because the skill surface changes faster than any fixed percentile can track."
+  - question: "What should a buyer ask instead of what percentile is this candidate?"
+    answer: "Ask what specific sandbox tasks the candidate completed, which model areas they were tested on, and whether the test results are shared with the employer. A badge tied to a named task is more useful than a claimed percentile with no methodology behind it."
+  - question: "Does tenX claim a percentile?"
+    answer: "No. tenX publishes badges per skill area. A candidate either passed the sandbox test or they did not. The badge is the evidence. There is no percentile layer because the evidence does not need one."
+  - question: "Is the top 1% claim false for all platforms?"
+    answer: "It is unfalsifiable for most platforms, which is the problem. If the methodology, acceptance count, and test criteria are not published, the claim cannot be verified. Some networks may reject most applicants. That still does not tell a buyer whether the accepted candidates can do the specific work."
+---
+
+import { href } from "../../lib/href";
+
+The top 1% claim stopped meaning anything in AI hiring because the skill being measured changes faster than any fixed percentile can track, and the claim was never tied to a reproducible test in the first place. A label does not substitute for evidence. In 2026, buyers need to see what the candidate actually did, not how many other candidates were rejected alongside them.
+
+## Where the claim came from
+
+The top 1% framing was borrowed from early freelance and talent marketplace positioning. Toptal made the claim prominent when it was competing against Upwork on quality signal. The logic was: we reject most applicants, therefore the ones we accept are exceptional.
+
+The rejection rate is real at some of these platforms. But rejection rate is not the same as evidence of specific skill. A network can reject 99 out of 100 applicants and still have no structured way to demonstrate that the accepted 1% can run a production eval harness, manage retrieval quality across a chunked corpus, or compare Claude and GPT for a specific routing decision.
+
+The percentile tells you supply-side selectivity. It does not tell you what the candidate can actually ship.
+
+## Why AI engineering breaks the percentile model
+
+Software engineering has been a mature enough discipline that general coding ability — tested against a reasonably stable skill surface — was a defensible claim. The top engineers could be identified through consistent tests because the domain was coherent enough for the tests to be consistent.
+
+AI engineering in 2026 is not that discipline yet.
+
+The models themselves changed the skill surface in the last 18 months. Claude 3.5 Sonnet, GPT-4o, Gemini 2.5 — these are not equivalent to earlier versions. The right way to use tool calling in mid-2024 is not the right way in mid-2026. RAG pipelines that were fine for a 2024 product are now being rebuilt with different chunking strategies, reranking layers, and citation models. Agent design patterns that worked for simple two-step workflows are being rethought for multi-agent systems with proper failure handling.
+
+A percentile claim calibrated against last year's skill surface is not a useful signal for this year's hiring brief. The candidate who passed a vague coding assessment in 2024 has not necessarily kept pace with what production AI engineering actually requires today.
+
+## The mechanism matters more than the label
+
+<a href={href("/vs/toptal")}>Toptal</a> and <a href={href("/vs/turing")}>Turing</a> are built to serve broad markets. That means their vetting processes need to generalise across hundreds of role types. A platform that verifies React developers, Java architects, and product managers cannot build a specific sandbox for production RAG evaluation or Gemini multimodal reasoning. The vetting becomes a proxy — coding challenges, a structured interview, a reference check — rather than a direct test of AI engineering skill.
+
+That is not a criticism. Broad platforms are useful for broad mandates. The problem is when a buyer uses a broad platform for an AI-specific brief and accepts the top 1% label as a substitute for evidence.
+
+tenX does not claim a percentile. It publishes badges per skill area. A <a href={href("/network")}>candidate in the network</a> has either passed the sandbox test for Claude fluency, GPT fluency, RAG, agent design, evals, MLOps, code-with-AI, or prompt engineering — or they have not. The badge is the unit of evidence. It is tied to a specific task, not to how many other candidates the platform happened to turn away.
+
+## What the buyer actually needs to know
+
+When a company hires an AI engineer, the questions that matter are specific:
+
+Can this person compare Claude and GPT against the task rather than default to one vendor? Can they build retrieval with grounding and citations rather than a naive similarity search? Do they know how to define and measure quality for a language system, not just eyeball outputs? Can they use AI coding tools without producing a codebase that becomes unmaintainable in six months?
+
+None of these questions are answered by a percentile. They are answered by showing the work.
+
+The right employer ask is: what did the candidate complete, what criteria were applied, and can I see the result? <a href={href("/how-it-works")}>tenX gives employers access to badge profiles before any call</a>. The first conversation can focus on fit, domain context, and architecture rather than re-verifying skills that the platform already tested.
+
+## Selectivity is still a feature — just not the claim to lead with
+
+None of this means rejection rate is irrelevant. If a network lets anyone in, the verification layer is meaningless. The platform needs to apply a bar.
+
+The point is that the bar should be described in terms of what it tests, not just how many people it excluded. "We reject most applicants" is a process claim. "Every engineer passes a 90-minute sandbox test for Claude fluency, GPT fluency, and RAG before joining the network" is an evidence claim.
+
+Evidence claims are falsifiable. Process claims are not.
+
+tenX started with NZ-first candidate intake for exactly this reason. A smaller, well-tested pool is more useful to a buyer than a large, loosely-vetted one. The <a href={href("/network")}>100 engineers at launch</a> have all gone through the same sandbox. That consistency is the product, not the headcount.
+
+## The hiring decision this creates
+
+If you are hiring an AI engineer and the platform you are using leads with a percentile and a founder call rather than a badge profile and a published test, you are doing two jobs: the platform's sourcing job and your own verification job.
+
+That is avoidable. The <a href={href("/pricing")}>tenX model is 10% on permanents and 20% loading on contractors</a>, both published before the first conversation. The badge system replaces the founder-call bottleneck. The employer launch opens in June 2026.
+
+The verification is platform-based. The evidence is public. The margin is on the pricing page. What the candidate did is the claim — not where they ranked.
+
+---
+
+*See also: <a href={href("/vs/toptal")}>tenX vs Toptal</a> · <a href={href("/vs/turing")}>tenX vs Turing</a> · <a href={href("/network")}>the verified network</a>*
