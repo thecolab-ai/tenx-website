@@ -1,0 +1,6 @@
+<svg width="320" height="120" viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="tenX logo">
+  <rect width="320" height="120" rx="8" fill="#050608"/>
+  <text x="34" y="78" fill="#F6F8FB" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="58" font-weight="900">ten</text>
+  <text x="158" y="78" fill="#42F27D" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="66" font-weight="900">X</text>
+  <path d="M238 38h46M238 58h32M238 78h46" stroke="#42F27D" stroke-width="5" stroke-linecap="square"/>
+</svg>

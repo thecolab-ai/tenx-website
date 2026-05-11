@@ -1,0 +1,33 @@
+{
+  "updated": "May 2026",
+  "totalVerified": 100,
+  "modelFluency": [
+    { "label": "GPT fluency", "count": 84 },
+    { "label": "Claude fluency", "count": 77 },
+    { "label": "Gemini fluency", "count": 49 },
+    { "label": "Multi-model evals", "count": 42 }
+  ],
+  "roleBreakdown": [
+    { "label": "Applied AI engineers", "count": 26 },
+    { "label": "LLM engineers", "count": 22 },
+    { "label": "RAG engineers", "count": 17 },
+    { "label": "MLOps engineers", "count": 12 },
+    { "label": "Forward-deployed engineers", "count": 11 },
+    { "label": "Prompt engineers", "count": 12 }
+  ],
+  "geography": [
+    { "label": "New Zealand", "count": 88 },
+    { "label": "Australia", "count": 12 }
+  ],
+  "badges": [
+    "Claude fluency",
+    "GPT fluency",
+    "Gemini fluency",
+    "Prompt engineering",
+    "RAG",
+    "Agent design",
+    "Evals",
+    "MLOps",
+    "Code-with-AI"
+  ]
+}

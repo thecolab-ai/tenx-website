@@ -1,0 +1,30 @@
+# tenX
+
+tenX is an independent AI engineering network at https://tenxtalent.ai. The brand name is tenX.
+
+## What tenX does
+
+tenX helps companies hire AI-verified engineers in New Zealand first, Australia second, and later the US, UK, and EU. The network launches with 100 AI-verified engineers. Candidates are verified through platform skill sandboxes and earn badges for model fluency and production AI skills.
+
+## Verification model
+
+The tenX verification system is model-agnostic. Engineers can earn badges across Claude fluency, GPT fluency, Gemini fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI. More badges increase match priority. Verification is self-service and platform-based, not dependent on founder calls.
+
+## Pricing
+
+tenX publishes its hiring economics:
+
+- Permanent placements: 10% of first-year salary.
+- Contractors: 20% loading on monthly billings.
+
+The pricing page is https://tenxtalent.ai/pricing.
+
+## Primary flows
+
+- Engineers should apply at https://tenxtalent.ai/apply.
+- Employers can join the June 2026 waitlist at https://tenxtalent.ai/hire.
+- The network breakdown is at https://tenxtalent.ai/network.
+
+## Positioning summary
+
+tenX is for teams that need AI engineers who are fluent across frontier models, not locked to one vendor. The platform is designed around badge-level proof, fast matching, and transparent margins.

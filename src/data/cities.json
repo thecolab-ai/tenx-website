@@ -1,0 +1,57 @@
+[
+  {
+    "slug": "auckland",
+    "name": "Auckland",
+    "country": "New Zealand",
+    "countryCode": "NZ",
+    "currency": "NZD",
+    "status": "open",
+    "salaryMultiplier": 1.05,
+    "talentCount": 42,
+    "marketNote": "Largest launch-market pool, strongest demand across product AI and enterprise automation."
+  },
+  {
+    "slug": "wellington",
+    "name": "Wellington",
+    "country": "New Zealand",
+    "countryCode": "NZ",
+    "currency": "NZD",
+    "status": "open",
+    "salaryMultiplier": 1,
+    "talentCount": 28,
+    "marketNote": "Strong public-sector, platform, data, and regulated-industry engineering base."
+  },
+  {
+    "slug": "christchurch",
+    "name": "Christchurch",
+    "country": "New Zealand",
+    "countryCode": "NZ",
+    "currency": "NZD",
+    "status": "open",
+    "salaryMultiplier": 0.92,
+    "talentCount": 18,
+    "marketNote": "Growing applied AI and hardware-adjacent engineering pool with lower salary pressure."
+  },
+  {
+    "slug": "sydney",
+    "name": "Sydney",
+    "country": "Australia",
+    "countryCode": "AU",
+    "currency": "AUD",
+    "status": "opening-june-2026",
+    "salaryMultiplier": 1.12,
+    "talentCount": 8,
+    "marketNote": "AUS expansion market for finance, SaaS, and enterprise AI teams. Employer access opens June 2026."
+  },
+  {
+    "slug": "melbourne",
+    "name": "Melbourne",
+    "country": "Australia",
+    "countryCode": "AU",
+    "currency": "AUD",
+    "status": "opening-june-2026",
+    "salaryMultiplier": 1.06,
+    "talentCount": 4,
+    "marketNote": "AUS expansion market with early candidate intake live. Employer access opens June 2026."
+  }
+]

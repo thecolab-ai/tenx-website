@@ -1,0 +1,52 @@
+[
+  {
+    "slug": "toptal",
+    "name": "Toptal",
+    "headline": "tenX vs Toptal for AI engineering",
+    "positioning": "Toptal is a broad premium freelance network. tenX is narrower: AI-verified engineers with published fees and badge-level model fluency.",
+    "pricingModel": "Toptal publishes a platform subscription and deposit, but role-specific rates and margin are not separated on the invoice.",
+    "marginNote": "Third-party reviews commonly describe Toptal markup as opaque and sometimes estimate it near 50%. Treat those estimates as market commentary, not a published Toptal number.",
+    "sourceLabel": "Toptal FAQ and 2026 third-party pricing reviews",
+    "sourceUrl": "https://www.toptal.com/faq"
+  },
+  {
+    "slug": "turing",
+    "name": "Turing",
+    "headline": "tenX vs Turing for AI engineering",
+    "positioning": "Turing emphasizes global AI matching. tenX emphasizes platform-verified AI skills, NZ-first availability, and visible economics.",
+    "pricingModel": "Turing pricing is generally quote-based with platform margin embedded in the billed rate.",
+    "marginNote": "Independent 2026 comparisons report rumours of 50-55% service margin. tenX publishes 20% contractor loading and 10% permanent placement fees.",
+    "sourceLabel": "South 2026 Turing pricing breakdown",
+    "sourceUrl": "https://www.hireinsouth.com/post/turing-cost-breakdown"
+  },
+  {
+    "slug": "andela",
+    "name": "Andela",
+    "headline": "tenX vs Andela for AI engineering",
+    "positioning": "Andela offers a large global technical network. tenX is a smaller AI-native network tuned for verified model fluency in NZ and AUS.",
+    "pricingModel": "Andela uses custom quotes and monthly or hourly engagement structures that vary by seniority and scope.",
+    "marginNote": "Public pricing ranges exist in market datasets, but margin visibility is limited compared with tenX published fees.",
+    "sourceLabel": "Andela site and 2026 marketplace pricing summaries",
+    "sourceUrl": "https://andela.com/"
+  },
+  {
+    "slug": "arc-dev",
+    "name": "Arc.dev",
+    "headline": "tenX vs Arc.dev for AI engineering",
+    "positioning": "Arc.dev is a large remote developer marketplace. tenX is more focused: model-fluent AI engineers with sandbox badges and transparent fees.",
+    "pricingModel": "Arc.dev lists broad freelance ranges and commonly references percentage-based full-time hiring fees.",
+    "marginNote": "Arc.dev can be fast for general remote hiring; tenX is built for AI-specific verification and published economics.",
+    "sourceLabel": "Arc.dev role pages and 2026 pricing summaries",
+    "sourceUrl": "https://arc.dev/hire-developers/mobile-app-programming"
+  },
+  {
+    "slug": "lemon-io",
+    "name": "Lemon.io",
+    "headline": "tenX vs Lemon.io for AI engineering",
+    "positioning": "Lemon.io is a curated developer network. tenX is narrower and more AI-specific, with model fluency badges and published hiring margins.",
+    "pricingModel": "Lemon.io contractor pricing is usually presented as an all-in hourly rate, with platform margin included rather than itemised.",
+    "marginNote": "tenX publishes the platform economics directly: 20% contractor loading and 10% permanent placement fees.",
+    "sourceLabel": "Lemon.io 2026 role-rate pages",
+    "sourceUrl": "https://lemon.io/dev-job/llm-developer-jobs/"
+  }
+]

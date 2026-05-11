@@ -1,0 +1,29 @@
+---
+const navItems = [
+  { href: "/how-it-works", label: "How it works" },
+  { href: "/network", label: "Network" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/blog", label: "Blog" }
+];
+---
+
+<header class="border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--bg)_92%,transparent)] sticky top-0 z-40 backdrop-blur">
+  <div class="container flex min-h-16 items-center justify-between gap-4 py-3">
+    <a href="/" class="mono text-2xl font-black leading-none" aria-label="tenX home">
+      ten<span class="text-[var(--accent)]">X</span>
+    </a>
+    <nav class="hidden items-center gap-6 text-sm text-[var(--muted)] md:flex" aria-label="Primary navigation">
+      {navItems.map((item) => <a class="hover:text-[var(--text)]" href={item.href}>{item.label}</a>)}
+    </nav>
+    <div class="flex items-center gap-2">
+      <button class="button button-secondary min-h-10 px-3 text-sm" type="button" data-theme-toggle aria-label="Toggle light and dark mode">
+        Theme
+      </button>
+      <a class="button button-secondary hidden min-h-10 px-3 text-sm sm:inline-flex" href="/hire">Hire</a>
+      <a class="button button-primary min-h-10 px-3 text-sm" href="/apply">Apply</a>
+    </div>
+  </div>
+  <nav class="container flex gap-4 overflow-x-auto pb-3 text-sm text-[var(--muted)] md:hidden" aria-label="Mobile navigation">
+    {navItems.map((item) => <a class="shrink-0 hover:text-[var(--text)]" href={item.href}>{item.label}</a>)}
+  </nav>
+</header>
