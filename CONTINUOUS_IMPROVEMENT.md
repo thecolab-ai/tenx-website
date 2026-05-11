@@ -15,7 +15,7 @@ Last updated: 2026-05-11
 - [x] Blog: "RAG engineer vs AI engineer" — definitional piece, links to role hubs (2026-05-11)
 
 ## Next (priority order)
-- [ ] Blog: "How tenX verifies AI engineers (without a phone screen)" — explains mechanism, key trust signal
+- [x] Blog: "How tenX verifies AI engineers (without a phone screen)" — explains mechanism, key trust signal (2026-05-12)
 - [ ] /hire/[industry] industry hub pages — fintech, healthtech, saas, govtech (4 pages + role variants)
 - [ ] Salary guide pages /salary/[role]/[city] — target "LLM engineer salary NZ" queries
 - [ ] Apply page copy tightening — hero rewrite, sharper value props
@@ -26,3 +26,6 @@ Last updated: 2026-05-11
 - [ ] /vs/toptal copy refresh — tighten the narrative section below the table, sharper closing CTA
 - [ ] Blog: "Agent engineer vs AI engineer — scope, skills, salary" — follows same format as RAG piece
 - [ ] OG images — custom social cards per page (currently using defaults)
+- [ ] Blog: "The 14 sandbox tests every tenX engineer passes" — detailed breakdown of each test task, specific criteria, maps to badge areas; builds authority on the vetting mechanism
+- [ ] /vetting page — standalone page detailing the full test rubric with badge areas, pass criteria, and cooldown/retry policy; internal link target from multiple articles and role hubs
+- [ ] Blog: "Why 'top 1%' stopped meaning anything in AI hiring" — contrarian take on Toptal/Turing's percentile claims vs evidence-based badge verification; links to /vs/toptal and /vs/turing
