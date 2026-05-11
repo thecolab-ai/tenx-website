@@ -1,0 +1,157 @@
+---
+title: "How to hire an AI engineer in 2026"
+description: "The direct hiring playbook: define the AI engineering job, verify model fluency with sandbox evidence, publish the budget, and compress the process."
+pubDate: 2026-05-11
+author: "tenX editorial"
+faqs:
+  - question: "What is the fastest way to hire an AI engineer in 2026?"
+    answer: "Define the exact AI workflow, test for production skill in a sandbox, publish the compensation range, and shortlist from verified model-fluent engineers instead of broad software profiles."
+  - question: "Which model should an AI engineer know?"
+    answer: "A strong AI engineer should be able to work across Claude, GPT, and Gemini, then explain which model is best for a specific workflow, cost profile, context window, and risk level."
+  - question: "Should we hire a permanent AI engineer or a contractor?"
+    answer: "Hire permanent when AI becomes core product or platform capability. Use a contractor when the scope is a bounded build, evaluation harness, migration, or proof-to-production bridge."
+  - question: "How does tenX verify AI engineers?"
+    answer: "tenX uses self-service platform sandboxes. Engineers earn badges for tests passed across model fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI."
+---
+
+The fastest way to hire an AI engineer in 2026 is to stop treating the role like a normal software hire with a few AI keywords attached. Define the business workflow, decide which production AI skills matter, verify those skills in a sandbox, publish the budget, and run a short process with engineers who already have evidence. That is the playbook.
+
+The failure mode is familiar. A team writes a generic "AI engineer" job description, asks for Python, LLMs, LangChain, agents, RAG, and MLOps, then screens candidates through resume pattern matching. The shortlist contains smart people, but the process does not answer the real question: can this engineer turn frontier-model capability into a reliable product or operating workflow?
+
+AI engineering is not one job. It is a cluster of roles that sit between product engineering, machine learning, data engineering, platform work, and operations. The right hire depends on whether you need a product surface, a retrieval layer, an evaluation harness, a model operations path, an automation system, or a forward-deployed engineer who can translate messy domain work into shipped software.
+
+This guide is written for founders, CTOs, heads of product, and engineering leaders who need a practical process. It assumes you want useful signal fast. It also assumes you are hiring in a market where strong engineers can use Claude, GPT, Gemini, and specialist tooling already, so "has used ChatGPT" is not a meaningful bar.
+
+## Start with the workflow, not the title
+
+The first question is not "Do we need an AI engineer?" The first question is "Which workflow should change because modern models exist?"
+
+Good hiring briefs describe a before and after state. For example: customer support agents spend nine minutes reading account history before replying; the target workflow gives them a grounded case summary, policy citations, and a draft response in thirty seconds. Or: analysts manually classify inbound documents; the target workflow extracts fields, flags uncertainty, and sends low-confidence cases to review. Or: engineers lose time on repetitive migration work; the target workflow lets an AI coding system propose changes, run tests, and surface the diffs that need review.
+
+Once the workflow is clear, the role becomes easier to name. A product AI engineer can own the end-user experience. A RAG engineer can own retrieval quality. An LLM engineer can own model orchestration, tool calls, and output contracts. An MLOps engineer can own deployment, observability, cost control, and reliability. A forward-deployed engineer can own the messy last mile between the customer's real process and the system that should exist.
+
+If the title still feels fuzzy, write the first ninety days instead. The first thirty days should include architecture discovery, evaluation design, and a small working slice. The next thirty days should harden retrieval, prompt systems, tool calls, integration, or monitoring. The next thirty days should expose the workflow to real users and measure outcomes. A candidate who can explain that plan in their own words is already giving you stronger signal than a list of frameworks.
+
+## Separate demo skill from production skill
+
+Most AI demos are cheap. Production AI is expensive in all the places the demo hides: data quality, permission boundaries, latency, hallucination risk, fallbacks, human review, observability, cost, versioning, and product trust.
+
+The interview process needs to test for those constraints. Ask how the engineer would evaluate answer quality. Ask how they would log model inputs and outputs without leaking sensitive data. Ask how they would compare Claude, GPT, and Gemini for a given task. Ask when they would use retrieval instead of fine-tuning. Ask how they would detect drift. Ask which failures deserve a hard stop and which deserve a soft warning.
+
+The best candidates will not pretend the model is magic. They will talk about contracts, test sets, golden examples, routing, structured outputs, confidence thresholds, review queues, and operational metrics. They will ask who is accountable when the system is wrong. They will care about the product surface around the model, not just the prompt.
+
+This is why tenX uses platform verification rather than founder calls as the trust layer. A sandbox can ask an engineer to improve a retrieval answer, build an eval harness, compare model outputs, repair an agent loop, or ship a code-with-AI task under constraints. That evidence is more useful than a conversation about whether they are "good at AI".
+
+## Require model fluency, not vendor loyalty
+
+In 2026, a serious AI engineer should be model-fluent. That does not mean they know every model release in detail. It means they can choose between model families, explain tradeoffs, and design systems that avoid unnecessary lock-in.
+
+Claude, GPT, and Gemini can all be the right choice depending on the job. One may be better for long-context reasoning in a given workflow. Another may be stronger for tool use, structured outputs, latency, price, ecosystem support, or a specific deployment requirement. The engineer should be able to compare models using actual task results, not brand preference.
+
+Model-agnostic engineering also changes architecture. A brittle system hides model assumptions everywhere: prompt shape, output format, retry logic, evaluation data, observability, and user messaging. A better system isolates model-specific behavior behind adapters, uses explicit output contracts, and measures quality across realistic examples. That does not mean switching models every week. It means the team has leverage when quality, cost, or policy changes.
+
+The hiring implication is simple: ask candidates to reason across models. Give them a task and ask what they would test on Claude, GPT, and Gemini. Ask which evaluation results would change their mind. Ask how they would control context size, cost, and latency. If the candidate cannot move beyond "I prefer this model", the role is probably too broad for them.
+
+## Use sandbox evidence before interviews
+
+The standard hiring process wastes interview time discovering whether a candidate can do the work at all. For AI roles, that waste is worse because resumes are noisy. Many engineers have experimented with models. Fewer have shipped model-backed systems with evaluation, review, observability, and product constraints.
+
+Sandbox verification moves basic proof earlier. A good sandbox is not a trivia test. It should look like a compressed version of the work: build a retrieval pipeline, improve an answer with citations, write an evaluation set, route between models, create a tool-calling workflow, instrument failure cases, or use AI coding tools to make a bounded change safely.
+
+The output should be inspectable. Did the engineer preserve the contract? Did they measure quality? Did they manage edge cases? Did they choose a reasonable model? Did they make the code understandable? Did they identify risks? Did they ship something that could be extended by another engineer?
+
+This is the core reason [tenX verification](/network) is badge-based. Engineers earn badges for tests passed across Claude fluency, GPT fluency, Gemini fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI. More relevant badges increase match priority. The process scales because the platform carries the initial trust signal.
+
+## Write the role as outcomes and constraints
+
+A strong AI engineering job description is short on adjectives and long on constraints. It should include the workflow, users, model surface, data sources, reliability requirements, integration environment, budget range, and expected hiring shape.
+
+Use this structure:
+
+1. Business workflow: what should become faster, cheaper, safer, or more scalable?
+2. System surface: internal tool, customer feature, agent workflow, retrieval service, evaluation harness, platform layer, or automation pipeline.
+3. Model expectations: Claude, GPT, Gemini, open models, or vendor-neutral comparison.
+4. Data and integration: documents, CRM, tickets, codebase, warehouse, product database, identity system, or third-party APIs.
+5. Risk profile: low-risk drafting, human-in-the-loop decisions, regulated output, customer-visible actions, or automated execution.
+6. Success metrics: time saved, accuracy, adoption, deflection, revenue lift, lower cycle time, or reduced review cost.
+7. Compensation and engagement: permanent, contractor, fractional, or proof-to-production scope.
+
+This structure forces clarity. It also helps the candidate self-select. A RAG specialist should see whether retrieval quality is the centre of gravity. A forward-deployed engineer should see whether the problem requires stakeholder work. An MLOps engineer should see whether the platform is mature enough to justify their time.
+
+## Budget with the market, then remove margin surprises
+
+AI engineers are expensive because the work is close to leverage. In New Zealand, senior AI engineering salary ranges often sit above ordinary product engineering ranges once the role includes production ownership. The exact number depends on seniority, city, product risk, and whether you need a specialist or an applied generalist.
+
+The wrong move is hiding the budget. It slows the process and attracts mismatched candidates. Publish the range internally before sourcing, then decide what flexibility exists for exceptional evidence. If you are hiring through a network, understand the network economics before you start.
+
+tenX publishes [pricing](/pricing) for this reason. Permanent placements are 10% of first-year salary. Contractors carry a 20% loading on monthly billings. That is deliberately simple. The buyer should know the economics before a call, not after a shortlist appears.
+
+Contractors are useful when the scope is bounded: a RAG rebuild, an evaluation harness, a model migration, a prototype-to-production pass, a workflow automation, or a specialist review. Permanent hires are better when AI capability becomes part of the product or platform strategy. The process should be honest about which situation you are in.
+
+## Compress the hiring loop
+
+A good AI engineering hiring process can run in days, not months, if the trust signal is front-loaded. The loop should look like this:
+
+1. Write the workflow brief and compensation range.
+2. Filter candidates by verified badges and relevant work.
+3. Run one technical conversation focused on the actual system.
+4. Run one fit and operating conversation with the hiring manager.
+5. Make a decision or request a paid working session for ambiguous cases.
+
+Do not add five interviews because the category feels new. Add signal only where the decision is genuinely uncertain. If the sandbox proves RAG skill, do not rerun a generic RAG interview. Use the interview to test system judgement, tradeoffs, collaboration, and risk ownership.
+
+The strongest candidates will often have multiple paths available. A slow process communicates that the company does not know what it wants. A tight process communicates seriousness and makes compensation discussions cleaner.
+
+## Ask better interview questions
+
+Bad questions ask candidates to define RAG or explain what an embedding is. Good questions reveal whether they can reason under constraints.
+
+Ask: "We have 120,000 policy documents, many out of date, and support agents need citations. What would you build first?" A strong candidate will ask about document ownership, freshness, permissions, query patterns, evaluation examples, citation requirements, and failure handling.
+
+Ask: "The model gives correct answers in testing but users do not trust it. What do you change?" A strong candidate will talk about UX, citations, confidence, review, visible reasoning boundaries, and escalation paths.
+
+Ask: "Claude performs better on quality, GPT is cheaper for part of the workflow, and Gemini has a useful context advantage. How do you design the system?" A strong candidate will talk about routing, evals, adapters, latency, fallbacks, and cost monitoring.
+
+Ask: "An AI coding tool produced a large diff. What do you review first?" A strong candidate will talk about tests, generated assumptions, security-sensitive code, behaviour changes, and the blast radius of the change.
+
+The goal is not to find a candidate who knows one magic answer. The goal is to find someone who turns ambiguity into a working system with measurable guardrails.
+
+## Watch for red flags
+
+The biggest red flag is overconfidence without evaluation. If a candidate claims a workflow is solved because they wrote a prompt, keep digging. If they cannot explain how they measure quality, they are not ready to own production AI.
+
+Other red flags include vendor absolutism, inability to discuss cost, no plan for human review, no concern for data boundaries, excessive framework name-dropping, and treating agents as a substitute for product design. A candidate can be junior and still be thoughtful. A candidate can be senior and still be dangerous if they skip the basics.
+
+There is also a category of engineer who is excellent at demos but weak at handover. AI systems need to be maintained by teams. Look for candidates who write clear code, document assumptions, isolate model-specific behaviour, and design tests another engineer can extend.
+
+## How tenX fits the process
+
+tenX is designed to remove the softest part of AI hiring: unverified claims. Engineers [apply](/apply), complete sandboxes, earn badges, and enter the network with a clearer skill profile. Employers join the June 2026 waitlist and hire from a pool that has already produced platform evidence.
+
+The launch network starts with [100 AI-verified engineers](/network). New Zealand is first. Australia follows. The positioning is intentionally model-agnostic because the best engineer for your workflow may need Claude, GPT, Gemini, or more than one. The trust hook is not a vendor credential. It is multi-vendor fluency, sandbox evidence, and published margins.
+
+For employers, this means less time spent decoding resumes and more time spent discussing the actual system. For candidates, it means skill proof can compound. Passing more tests increases match priority, which is better than repeating the same introductory call for every opportunity.
+
+## The short version
+
+To hire an AI engineer in 2026, define the workflow, verify production skill, require model fluency, publish the economics, and compress the interview loop. Do not hire from AI enthusiasm. Hire from evidence.
+
+If you are an engineer, [apply to tenX](/apply) and take a sandbox test. If you are hiring, [join the employer waitlist](/hire) and use the [pricing page](/pricing) to model the economics before the network opens in June 2026.
+
+## FAQ
+
+### What is the fastest way to hire an AI engineer in 2026?
+
+Define the exact workflow, verify production skill in a sandbox, publish the budget, and shortlist from engineers who already have model and stack evidence.
+
+### Which model should an AI engineer know?
+
+The best answer is not one model. Strong AI engineers can compare Claude, GPT, and Gemini against the task, then choose based on quality, latency, cost, context, tooling, and risk.
+
+### Should we hire permanent or contract?
+
+Hire permanent when AI capability is core to your product or platform. Hire contractors for bounded builds, migrations, evaluation harnesses, and proof-to-production work.
+
+### What does verified mean?
+
+Verified means the engineer passed platform sandboxes and earned badges for specific AI engineering skills. In tenX, those badges include model fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI.
