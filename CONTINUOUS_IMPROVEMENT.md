@@ -6,10 +6,16 @@ Last updated: 2026-05-11
 - [x] Initial Astro scaffold (2026-05-11)
 - [x] Dynamic /hire/[role]/[city] pages — 40 pages, 8 roles × 5 cities (2026-05-11)
 - [x] Role hub pages /hire/[role]/ — 8 pages (2026-05-11)
+- [x] Blog: "What is an LLM Engineer?" (2026-05-11)
+- [x] Blog: "How to hire an AI engineer in 2026" (2026-05-11)
+- [x] Blog: "Toptal vs Turing vs tenX for AI engineering" (2026-05-11)
+- [x] Blog: "What makes an AI engineer verified?" (2026-05-11)
+- [x] /vs/[competitor] pages — toptal, turing, andela, arc-dev, lemon-io (5 pages live, 2026-05-11)
+- [x] Blog: "AI hiring in New Zealand in 2026" (2026-05-11)
 
 ## Next (priority order)
-- [ ] /vs/[competitor] comparison pages — recruit.net, seek, hiredarwin, StackOverflow Jobs (4 pages)
-- [ ] Blog articles — "What is an LLM Engineer?", "AI hiring in NZ 2026", "RAG engineer vs AI engineer" (3 articles, 1500+ words each)
+- [ ] Blog: "RAG engineer vs AI engineer" — definitional piece, links to role hubs, high search value
+- [ ] Blog: "How tenX verifies AI engineers (without a phone screen)" — explains mechanism, key trust signal
 - [ ] /hire/[industry] industry hub pages — fintech, healthtech, saas, govtech (4 pages + role variants)
 - [ ] Salary guide pages /salary/[role]/[city] — target "LLM engineer salary NZ" queries
 - [ ] Apply page copy tightening — hero rewrite, sharper value props
