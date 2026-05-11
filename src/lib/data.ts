@@ -1,5 +1,6 @@
 import cities from "../data/cities.json";
 import competitors from "../data/competitors.json";
+import industries from "../data/industries.json";
 import roles from "../data/roles.json";
 
 export type Role = (typeof roles)[number];
@@ -7,10 +8,12 @@ export type City = (typeof cities)[number];
 export type Competitor = (typeof competitors)[number] & {
   aiVerification: string;
 };
+export type Industry = (typeof industries)[number];
 
 export const allRoles = roles;
 export const allCities = cities;
 export const allCompetitors = competitors;
+export const allIndustries = industries;
 
 export function getRole(slug: string): Role {
   const role = allRoles.find((item) => item.slug === slug);
@@ -34,6 +37,14 @@ export function getCompetitor(slug: string): Competitor {
     throw new Error(`Unknown competitor: ${slug}`);
   }
   return competitor;
+}
+
+export function getIndustry(slug: string): Industry {
+  const industry = allIndustries.find((item) => item.slug === slug);
+  if (!industry) {
+    throw new Error(`Unknown industry: ${slug}`);
+  }
+  return industry;
 }
 
 export function formatMoney(amount: number, currency = "NZD"): string {

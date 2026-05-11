@@ -1,0 +1,158 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { href } from "../../../lib/href";
+import { collectionPageSchema } from "../../../lib/seo";
+import { allIndustries, getRole, type Industry, type Role } from "../../../lib/data";
+
+type Props = {
+  industry: Industry;
+};
+
+export function getStaticPaths() {
+  return allIndustries.map((industry) => ({
+    params: { industry: industry.slug },
+    props: { industry }
+  }));
+}
+
+const { industry } = Astro.props;
+const path = `/hire/${industry.slug}`;
+const title = `Hire AI engineers for ${industry.title} | tenX`;
+const description = `Hire AI-verified engineers for ${industry.shortTitle}. tenX maps ${industry.useCases.slice(0, 3).join(", ")} work to sandbox badges, role fit, and shortlists across Claude, GPT, and Gemini.`;
+const heroIndustry = industry.slug === "saas" ? "SaaS" : industry.slug;
+const roles = industry.relevantRoles.map((roleSlug) => getRole(roleSlug));
+const breadcrumbs = [
+  { name: "Home", path: "/" },
+  { name: "Hire", path: "/hire" },
+  { name: industry.title, path }
+];
+
+function rolePath(role: Role): string {
+  return `/hire/${role.slug}`;
+}
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  breadcrumbs={breadcrumbs}
+  schema={collectionPageSchema({
+    title,
+    description,
+    path
+  })}
+>
+  <section class="container py-12 md:py-16">
+    <nav class="mono flex flex-wrap items-center gap-2 text-xs text-[var(--text-muted)]" aria-label="Breadcrumb">
+      <a class="hover:text-[var(--text-primary)]" href={href("/")}>Home</a>
+      <span>/</span>
+      <a class="hover:text-[var(--text-primary)]" href={href("/hire")}>Hire</a>
+      <span>/</span>
+      <span class="text-[var(--text-secondary)]">{industry.title}</span>
+    </nav>
+
+    <div class="mt-8 grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+      <div>
+        <p class="eyebrow">Industry hiring</p>
+        <h1 class="mt-4 text-5xl font-medium leading-tight md:text-6xl">Hire AI-verified engineers for {heroIndustry}.</h1>
+        <p class="mt-6 text-xl leading-8 text-[var(--text-secondary)]">
+          {industry.summary} tenX filters for sandbox evidence, model fluency, and role fit before engineers reach an employer shortlist.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a class="button button-primary" href={href("/hire")}>Join waitlist</a>
+          <a class="button button-secondary" href={href("/apply")}>Apply as an engineer</a>
+        </div>
+      </div>
+
+      <aside class="panel p-6 md:p-8">
+        <p class="eyebrow">Use cases</p>
+        <h2 class="mt-3 text-2xl font-medium">Screen for the work, not the label.</h2>
+        <p class="mt-4 leading-7 text-[var(--text-secondary)]">
+          These are the common {industry.title} projects where role fit and badge evidence matter before the first interview.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          {industry.useCases.map((useCase) => (
+            <span class="model-chip">{useCase}</span>
+          ))}
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="container grid gap-6 pb-12 md:grid-cols-3 md:pb-16">
+    <div class="card p-6">
+      <p class="eyebrow">Use cases</p>
+      <p class="stat-value mt-3">{industry.useCases.length}</p>
+      <p class="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
+        Work areas to check before matching engineers to {industry.shortTitle}.
+      </p>
+    </div>
+    <div class="card p-6">
+      <p class="eyebrow">Role hubs</p>
+      <p class="stat-value mt-3">{roles.length}</p>
+      <p class="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
+        Specialist paths for buyers who need to drill into the role profile.
+      </p>
+    </div>
+    <div class="card p-6">
+      <p class="eyebrow">Badge signals</p>
+      <p class="stat-value mt-3">{industry.relevantBadges.length}</p>
+      <p class="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
+        Sandbox signals to inspect before a candidate reaches interview.
+      </p>
+    </div>
+  </section>
+
+  <section class="container grid gap-8 pb-12 lg:grid-cols-[0.95fr_1.05fr] md:pb-16">
+    <div class="panel p-6 md:p-8">
+      <p class="eyebrow">Relevant roles</p>
+      <h2 class="mt-3 text-3xl font-medium">Start with the engineer profile.</h2>
+      <p class="mt-4 leading-7 text-[var(--text-secondary)]">
+        {industry.title} hiring usually crosses product, data, infrastructure, and workflow engineering. These role hubs break the work into clearer hiring specs.
+      </p>
+    </div>
+
+    <div class="grid gap-4">
+      {roles.map((role) => (
+        <a class="card card-interactive block p-6" href={href(rolePath(role))}>
+          <div class="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <p class="eyebrow">Role hub</p>
+              <h3 class="mt-2 text-2xl font-medium">{role.title}</h3>
+            </div>
+            <span class="badge">{role.slug}</span>
+          </div>
+          <p class="mt-4 leading-7 text-[var(--text-secondary)]">{role.summary}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="container grid gap-8 pb-16 lg:grid-cols-[1.05fr_0.95fr] lg:pb-24">
+    <div class="panel p-6 md:p-8">
+      <p class="eyebrow">Badge fit</p>
+      <h2 class="mt-3 text-3xl font-medium">Signals to check for {industry.title} work.</h2>
+      <p class="mt-4 leading-7 text-[var(--text-secondary)]">
+        Badges are earned in sandbox tests. For {industry.shortTitle}, these signals are the fastest way to separate demo fluency from engineers who can ship with Claude, GPT, Gemini, retrieval, evals, and production controls.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        {industry.relevantBadges.map((badge) => (
+          <span class="badge">{badge}</span>
+        ))}
+      </div>
+    </div>
+
+    <aside class="card p-6 md:p-8">
+      <p class="eyebrow">Next steps</p>
+      <h2 class="mt-3 text-2xl font-medium">Match engineers to the vertical before the call.</h2>
+      <p class="mt-4 leading-7 text-[var(--text-secondary)]">
+        Join the employer waitlist for {industry.shortTitle}, or send engineers into the candidate application flow so they can earn relevant badges.
+      </p>
+      <div class="mt-6 grid gap-3 sm:grid-cols-2">
+        <a class="button button-primary" href={href("/hire")}>Join waitlist</a>
+        <a class="button button-secondary" href={href("/apply")}>Apply as an engineer</a>
+      </div>
+    </aside>
+  </section>
+</BaseLayout>
