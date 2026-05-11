@@ -4,7 +4,9 @@ import roles from "../data/roles.json";
 
 export type Role = (typeof roles)[number];
 export type City = (typeof cities)[number];
-export type Competitor = (typeof competitors)[number];
+export type Competitor = (typeof competitors)[number] & {
+  aiVerification: string;
+};
 
 export const allRoles = roles;
 export const allCities = cities;
