@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { href } from "../../../lib/href";
 import { faqPageSchema, jobPostingSchema } from "../../../lib/seo";
 import { allCities, allRoles, type City, type Role } from "../../../lib/data";
 
@@ -92,11 +93,11 @@ const schemaDescription = `${role.summary} tenX connects employers with AI-verif
 >
   <section class="container py-12 md:py-16">
     <nav class="mono flex flex-wrap items-center gap-2 text-xs text-[var(--faint)]" aria-label="Breadcrumb">
-      <a class="hover:text-[var(--text)]" href="/">Home</a>
+      <a class="hover:text-[var(--text)]" href={href("/")}>Home</a>
       <span>/</span>
-      <a class="hover:text-[var(--text)]" href="/hire">Hire</a>
+      <a class="hover:text-[var(--text)]" href={href("/hire")}>Hire</a>
       <span>/</span>
-      <a class="hover:text-[var(--text)]" href={roleHubPath}>{role.title}</a>
+      <a class="hover:text-[var(--text)]" href={href(roleHubPath)}>{role.title}</a>
       <span>/</span>
       <span class="text-[var(--muted)]">{city.name}</span>
     </nav>
@@ -107,9 +108,9 @@ const schemaDescription = `${role.summary} tenX connects employers with AI-verif
         <h1 class="mt-4 text-5xl font-black leading-tight md:text-6xl">Hire {role.title} in {city.name}</h1>
         <p class="mt-6 text-xl leading-8 text-[var(--muted)]">{lead}</p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <a class="button button-secondary" href="/how-it-works">How verification works</a>
-          <a class="button button-secondary" href="/network">Explore the network</a>
-          <a class="button button-secondary" href="/pricing">Pricing</a>
+          <a class="button button-secondary" href={href("/how-it-works")}>How verification works</a>
+          <a class="button button-secondary" href={href("/network")}>Explore the network</a>
+          <a class="button button-secondary" href={href("/pricing")}>Pricing</a>
         </div>
       </div>
 
@@ -124,8 +125,8 @@ const schemaDescription = `${role.summary} tenX connects employers with AI-verif
               </p>
             </div>
             <div class="grid gap-3 sm:grid-cols-2">
-              <a class="button button-primary" href="/hire">Post a role</a>
-              <a class="button button-secondary" href="/hire">See all {role.shortTitle}</a>
+              <a class="button button-primary" href={href("/hire")}>Post a role</a>
+              <a class="button button-secondary" href={href("/hire")}>See all {role.shortTitle}</a>
             </div>
           </div>
         ) : (
@@ -135,7 +136,7 @@ const schemaDescription = `${role.summary} tenX connects employers with AI-verif
             <p class="leading-7 text-[var(--muted)]">
               Candidates are applying now for the {city.name} launch pool. Employer access opens June 2026, with early demand expected across {role.skills.slice(0, 3).join(", ")} work.
             </p>
-            <a class="button button-secondary" href="/apply">Candidate intake is open</a>
+            <a class="button button-secondary" href={href("/apply")}>Candidate intake is open</a>
           </div>
         )}
       </aside>
@@ -223,10 +224,10 @@ const schemaDescription = `${role.summary} tenX connects employers with AI-verif
         Review how tenX verifies candidates, browse the network, check published pricing, or send engineers to the candidate application flow if they should join the launch pool.
       </p>
       <div class="mt-6 grid gap-3">
-        <a class="button button-secondary" href="/how-it-works">How it works</a>
-        <a class="button button-secondary" href="/network">Network</a>
-        <a class="button button-secondary" href="/pricing">Pricing</a>
-        <a class="button button-secondary" href="/apply">Apply as an engineer</a>
+        <a class="button button-secondary" href={href("/how-it-works")}>How it works</a>
+        <a class="button button-secondary" href={href("/network")}>Network</a>
+        <a class="button button-secondary" href={href("/pricing")}>Pricing</a>
+        <a class="button button-secondary" href={href("/apply")}>Apply as an engineer</a>
       </div>
     </aside>
   </section>

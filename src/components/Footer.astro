@@ -1,31 +1,33 @@
 ---
+import { href } from "../lib/href";
+
 const year = new Date().getUTCFullYear();
 const groups = [
   {
     title: "Platform",
     links: [
-      { href: "/apply", label: "Apply as an engineer" },
-      { href: "/hire", label: "Hire engineers" },
-      { href: "/network", label: "Network" },
-      { href: "/pricing", label: "Pricing" }
+      { path: "/apply", label: "Apply as an engineer" },
+      { path: "/hire", label: "Hire engineers" },
+      { path: "/network", label: "Network" },
+      { path: "/pricing", label: "Pricing" }
     ]
   },
   {
     title: "Resources",
     links: [
-      { href: "/how-it-works", label: "How it works" },
-      { href: "/faq", label: "FAQ" },
-      { href: "/blog", label: "Blog" },
-      { href: "/llms.txt", label: "llms.txt" }
+      { path: "/how-it-works", label: "How it works" },
+      { path: "/faq", label: "FAQ" },
+      { path: "/blog", label: "Blog" },
+      { path: "/llms.txt", label: "llms.txt" }
     ]
   },
   {
     title: "Programmatic",
     links: [
-      { href: "/hire/llm-engineer", label: "Hire LLM engineers" },
-      { href: "/hire/ai-engineer/auckland", label: "AI engineers in Auckland" },
-      { href: "/salary/ai-engineer", label: "AI engineer salary" },
-      { href: "/vs/toptal", label: "tenX vs Toptal" }
+      { path: "/hire/llm-engineer", label: "Hire LLM engineers" },
+      { path: "/hire/ai-engineer/auckland", label: "AI engineers in Auckland" },
+      { path: "/salary/ai-engineer", label: "AI engineer salary" },
+      { path: "/vs/toptal", label: "tenX vs Toptal" }
     ]
   }
 ];
@@ -34,7 +36,7 @@ const groups = [
 <footer class="border-t border-[var(--line)] bg-[var(--bg-2)]">
   <div class="container grid gap-10 py-12 lg:grid-cols-[1.2fr_2fr]">
     <div>
-      <a href="/" class="mono text-2xl font-black leading-none" aria-label="tenX home">
+      <a href={href("/")} class="mono text-2xl font-black leading-none" aria-label="tenX home">
         ten<span class="text-[var(--accent)]">X</span>
       </a>
       <p class="mt-4 max-w-md text-sm leading-6 text-[var(--muted)]">
@@ -49,7 +51,7 @@ const groups = [
           <h2 class="mono text-sm font-bold text-[var(--text)]">{group.title}</h2>
           <ul class="mt-4 grid gap-3 text-sm text-[var(--muted)]">
             {group.links.map((link) => (
-              <li><a class="hover:text-[var(--text)]" href={link.href}>{link.label}</a></li>
+              <li><a class="hover:text-[var(--text)]" href={href(link.path)}>{link.label}</a></li>
             ))}
           </ul>
         </div>

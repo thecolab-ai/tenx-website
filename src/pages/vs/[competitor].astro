@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { allCompetitors, type Competitor } from "../../lib/data";
+import { href } from "../../lib/href";
 import { collectionPageSchema } from "../../lib/seo";
 
 export function getStaticPaths() {
@@ -40,8 +41,8 @@ const rows = [
       <h1 class="mt-4 text-5xl font-black leading-tight md:text-6xl">{title}</h1>
       <p class="mt-6 text-xl leading-8 text-[var(--muted)]">{competitor.positioning}</p>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-        <a class="button button-primary" href="/pricing">View tenX pricing</a>
-        <a class="button button-secondary" href="/hire">Join employer waitlist</a>
+        <a class="button button-primary" href={href("/pricing")}>View tenX pricing</a>
+        <a class="button button-secondary" href={href("/hire")}>Join employer waitlist</a>
       </div>
     </div>
   </section>
@@ -94,15 +95,15 @@ const rows = [
 
   <section class="container pb-16">
     <div class="grid gap-4 md:grid-cols-3">
-      <a class="card p-6 hover:border-[var(--accent)]" href="/network">
+      <a class="card p-6 hover:border-[var(--accent)]" href={href("/network")}>
         <p class="eyebrow">Network</p>
         <h3 class="mt-3 text-xl font-black">See the 100-engineer launch network</h3>
       </a>
-      <a class="card p-6 hover:border-[var(--accent)]" href="/blog/toptal-vs-turing-vs-tenx-for-ai-engineering">
+      <a class="card p-6 hover:border-[var(--accent)]" href={href("/blog/toptal-vs-turing-vs-tenx-for-ai-engineering")}>
         <p class="eyebrow">Article</p>
         <h3 class="mt-3 text-xl font-black">Toptal vs Turing vs tenX</h3>
       </a>
-      <a class="card p-6 hover:border-[var(--accent)]" href="/blog/what-makes-an-ai-engineer-verified">
+      <a class="card p-6 hover:border-[var(--accent)]" href={href("/blog/what-makes-an-ai-engineer-verified")}>
         <p class="eyebrow">Verification</p>
         <h3 class="mt-3 text-xl font-black">What verified means</h3>
       </a>

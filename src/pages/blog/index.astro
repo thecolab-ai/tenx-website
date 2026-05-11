@@ -1,6 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { href } from "../../lib/href";
 import { collectionPageSchema } from "../../lib/seo";
 
 const unsortedPosts: CollectionEntry<"blog">[] = await getCollection("blog");
@@ -31,7 +32,7 @@ const posts = unsortedPosts.sort(
     </div>
     <div class="mt-10 grid gap-4">
       {posts.map((post) => (
-        <a class="card p-6 hover:border-[var(--accent)]" href={`/blog/${post.id}`}>
+        <a class="card p-6 hover:border-[var(--accent)]" href={href(`/blog/${post.id}`)}>
           <p class="mono text-sm text-[var(--accent)]">
             {post.data.pubDate.toLocaleDateString("en-NZ", { day: "numeric", month: "long", year: "numeric" })}
           </p>

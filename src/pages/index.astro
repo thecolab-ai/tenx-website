@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { href } from "../lib/href";
 import { collectionPageSchema } from "../lib/seo";
 
 const stats = [
@@ -57,8 +58,8 @@ const valueProps = [
         Every engineer is platform-verified through skill sandboxes. No founder gatekeeping. No 50% margins.
       </p>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-        <a class="button button-primary" href="/apply">Apply as an engineer</a>
-        <a class="button button-secondary" href="/hire">Hire engineers</a>
+        <a class="button button-primary" href={href("/apply")}>Apply as an engineer</a>
+        <a class="button button-secondary" href={href("/hire")}>Hire engineers</a>
       </div>
       <p class="mono mt-5 text-sm text-[var(--faint)]">
         Candidate intake is open now. Employer access opens in June 2026.
@@ -143,7 +144,7 @@ const valueProps = [
         <p class="mt-4 leading-7 text-[var(--muted)]">
           Apply now, then complete the sandbox flow at app.tenxtalent.ai. More verified badges mean higher match priority.
         </p>
-        <a class="button button-primary mt-6" href="/apply">Apply as an engineer</a>
+        <a class="button button-primary mt-6" href={href("/apply")}>Apply as an engineer</a>
       </div>
       <div class="panel p-8">
         <p class="eyebrow">For employers</p>
@@ -152,8 +153,8 @@ const valueProps = [
           Join the waitlist for June 2026. The network opens with 100 AI-verified engineers and published margins.
         </p>
         <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-          <a class="button button-secondary" href="/hire">Join employer waitlist</a>
-          <a class="button button-secondary" href="/pricing">View pricing</a>
+          <a class="button button-secondary" href={href("/hire")}>Join employer waitlist</a>
+          <a class="button button-secondary" href={href("/pricing")}>View pricing</a>
         </div>
       </div>
     </div>

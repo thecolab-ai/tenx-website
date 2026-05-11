@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { allCities, allRoles, contractRangeFor, salaryRangeFor, type City, type Role } from "../../../lib/data";
+import { href } from "../../../lib/href";
 import { collectionPageSchema } from "../../../lib/seo";
 
 export function getStaticPaths() {
@@ -80,15 +81,15 @@ const path = `/salary/${role.slug}/${city.slug}`;
 
   <section class="container pb-16">
     <div class="grid gap-4 md:grid-cols-3">
-      <a class="card p-6 hover:border-[var(--accent)]" href={`/hire/${role.slug}/${city.slug}`}>
+      <a class="card p-6 hover:border-[var(--accent)]" href={href(`/hire/${role.slug}/${city.slug}`)}>
         <p class="eyebrow">Hiring</p>
         <h3 class="mt-3 text-xl font-black">Hire {role.shortTitle} in {city.name}</h3>
       </a>
-      <a class="card p-6 hover:border-[var(--accent)]" href={`/salary/${role.slug}`}>
+      <a class="card p-6 hover:border-[var(--accent)]" href={href(`/salary/${role.slug}`)}>
         <p class="eyebrow">Benchmark</p>
         <h3 class="mt-3 text-xl font-black">All {role.title} salary data</h3>
       </a>
-      <a class="card p-6 hover:border-[var(--accent)]" href="/blog/what-makes-an-ai-engineer-verified">
+      <a class="card p-6 hover:border-[var(--accent)]" href={href("/blog/what-makes-an-ai-engineer-verified")}>
         <p class="eyebrow">Verification</p>
         <h3 class="mt-3 text-xl font-black">What makes an AI engineer verified?</h3>
       </a>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { href } from "../../lib/href";
 ---
 
 <BaseLayout
@@ -16,8 +17,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         Your request is logged. Use the pricing and network pages to benchmark the model before the first employer wave opens.
       </p>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-        <a class="button button-primary" href="/pricing">View pricing</a>
-        <a class="button button-secondary" href="/network">View network</a>
+        <a class="button button-primary" href={href("/pricing")}>View pricing</a>
+        <a class="button button-secondary" href={href("/network")}>View network</a>
       </div>
     </div>
   </section>
