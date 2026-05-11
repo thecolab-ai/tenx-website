@@ -1,6 +1,6 @@
 # tenX Website — Continuous Improvement Queue
 
-Last updated: 2026-05-12 (cycle 5)
+Last updated: 2026-05-11 (cycle 6)
 
 ## Completed
 - [x] Initial Astro scaffold (2026-05-11)
@@ -39,7 +39,7 @@ Last updated: 2026-05-12 (cycle 5)
 - [x] Model fluency chips on homepage — updated the chips to provider-level names per COPY_PLAYBOOK
 
 ## New ideas (added 2026-05-12, cycle 5)
-- [ ] /hire/[industry] pages missing from nav — add industry hubs to the Hire dropdown so fintech/healthtech/saas/govtech are discoverable
+- [x] /hire/[industry] pages missing from nav — Hire dropdown added to header with 8 role hubs + 4 industry hubs; mobile uses a details expander (2026-05-11, cycle 6)
 - [ ] Internal link from apply page to /vetting — candidates should be able to see the test rubric before applying; add a "See what we test for" link near the feature cards
 - [ ] Blog: "The forward-deployed engineer — what the role actually is and why every AI company is hiring one" — definitional piece, strong search value, links to /hire/forward-deployed-engineer
 
@@ -47,3 +47,8 @@ Last updated: 2026-05-12 (cycle 5)
 - [ ] Blog: "The forward-deployed engineer — what the role actually is and why every AI company is hiring one" — follows same definitional format as RAG and agent pieces; strong search value; links to /hire/forward-deployed-engineer
 - [ ] Add agent-engineer to roles.json and generate /hire/agent-engineer role hub and city pages — the agent engineer article now needs a role hub to link into; adds 5+ more programmatic pages
 - [ ] /salary/[role] pages (non-noindex) — start with ai-engineer and llm-engineer since real data ranges exist in roles.json; these are the highest-traffic salary queries for NZ/AUS
+
+## New ideas (added 2026-05-11, cycle 6)
+- [ ] Internal link from apply page to /vetting — "See what we test for" link below the feature cards sends candidates to the rubric before they apply; small copy addition, high trust signal
+- [ ] /hire/[role] pages: add "vetting for this role" block — each role hub currently lacks a section linking to the specific /vetting#[badge-slug] anchors; adds depth and internal link equity
+- [ ] /salary/[role] pages (non-noindex) — start with ai-engineer and llm-engineer since real salary band data exists in roles.json; highest-traffic NZ/AUS salary queries and the pages are already templated
