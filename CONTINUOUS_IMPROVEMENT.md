@@ -36,4 +36,4 @@ Last updated: 2026-05-12 (cycle 3)
 - [ ] /vs pages: add "vetting depth" row to comparison table — shows that tenX publishes a full rubric at /vetting while competitors describe vetting only in marketing language; link the rubric from each /vs page
 - [ ] Fix article pubDate for sandbox-tests article — set to 2026-05-12 so it sorts correctly in blog index (currently shows as 11 May, one day behind)
 - [ ] Link sandbox article from /vetting page — add a "deep dive" reference to the article from the /vetting page intro section
-- [ ] Model fluency chips on homepage — update "claude-3.5-sonnet" chip to "claude-sonnet-4" to match current model naming per COPY_PLAYBOOK (mentions Claude Sonnet 4 and Opus 4)
+- [x] Model fluency chips on homepage — updated the chip to "claude-sonnet-4" to match current model naming per COPY_PLAYBOOK (mentions Claude Sonnet 4 and Opus 4)

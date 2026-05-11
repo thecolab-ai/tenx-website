@@ -340,7 +340,7 @@ font-size: 12px;
 color: var(--text-secondary);
 
 prefix: 2px circle in accent green (status dot)
-content: "claude-3.5-sonnet" / "gpt-4o" / "gemini-2.5-pro"
+content: "claude-sonnet-4" / "gpt-4o" / "gemini-2.5-pro"
 ```
 
 **Badges** (status, role tags): mono, 11px, uppercase, letter-spacing 0.06em, padded 2px 6px, border-radius 4px. Variants by tint of background (subtle), text colour drives meaning.
