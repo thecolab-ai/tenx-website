@@ -30,6 +30,14 @@ const breadcrumbs = [
 function cityPath(city: City): string {
   return `/hire/${role.slug}/${city.slug}`;
 }
+
+function badgeSlug(name: string): string {
+  if (name === "code-with-AI") {
+    return "code-with-ai";
+  }
+
+  return name.toLowerCase().replace(/\s+/g, "-");
+}
 ---
 
 <BaseLayout
@@ -124,6 +132,30 @@ function cityPath(city: City): string {
             <p class="mono mt-4 text-sm text-[var(--faint)]">{city.talentCount} engineers in this discipline</p>
           </a>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-[var(--line)]">
+    <div class="container py-12 lg:py-16">
+      <div class="panel p-6 md:p-8">
+        <div class="grid gap-8 lg:grid-cols-[1fr_2fr]">
+          <div>
+            <p class="eyebrow">VETTING</p>
+            <h2 class="mt-4 text-3xl font-medium">What tenX tests for {role.title}.</h2>
+            <p class="mt-4 leading-7 text-[var(--muted)]">
+              Every {role.title} in the network has passed practical skill assessments in these areas.
+            </p>
+            <a class="button button-secondary mt-6 inline-flex" href={href("/vetting")}>See full rubric →</a>
+          </div>
+          <div class="card flex flex-wrap content-start gap-3 p-5">
+            {role.badges.map((badge) => (
+              <a href={href(`/vetting#${badgeSlug(badge)}`)} class="rounded border border-[var(--accent)] bg-[color-mix(in_srgb,var(--accent)_12%,transparent)] px-4 py-2 text-sm font-bold text-[var(--text)] transition-colors hover:bg-[color-mix(in_srgb,var(--accent)_20%,transparent)]">
+                {badge}
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </section>
