@@ -1,0 +1,121 @@
+---
+title: "Agent engineer vs AI engineer — scope, skills, and salary in 2026"
+description: "Agent engineers specialise in the design, reliability, and evaluation of autonomous multi-step AI systems. Here is how the role differs from broader AI engineering, when to hire a specialist, and what the work actually involves."
+pubDate: 2026-05-11
+author: "tenX editorial"
+faqs:
+  - question: "What is an agent engineer?"
+    answer: "An agent engineer designs and operates autonomous AI systems where a language model selects tools, interprets results, and takes multi-step actions with minimal human intervention per cycle. The core work is tool design, loop control, failure recovery, human override paths, and the evaluation infrastructure to know when the agent is going off track. It is a specialisation within AI engineering, not a separate discipline."
+  - question: "How is an agent engineer different from an AI engineer?"
+    answer: "An AI engineer covers the full stack of production AI work: prompt design, retrieval, model routing, evals, and operational monitoring. An agent engineer goes deeper on autonomous system behaviour — the multi-step loop, tool use, failure modes, and the evaluation of systems where the state space is too large for simple input-output testing. Most AI engineers can implement a basic agentic workflow. An agent specialist can diagnose loop failures, design tool schemas that reduce hallucinated calls, and build evals for systems with branching paths."
+  - question: "When should I hire an agent engineer vs a general AI engineer?"
+    answer: "If your product is a multi-step autonomous system — code review, research synthesis, workflow orchestration, customer-facing agents — and reliability and traceability are the core product problem, a specialist moves faster. If you are building a range of AI features where agents are one component alongside RAG, evals, and product integration, hire a broad AI engineer with an agent design badge. Most companies in Auckland, Wellington, Sydney, and Melbourne in 2026 need the latter."
+  - question: "What salary does an agent engineer earn in New Zealand and Australia?"
+    answer: "As of May 2026, senior AI engineers with strong agent design skills in Auckland earn between NZD 160,000 and NZD 210,000 on permanents. Wellington roles run NZD 140,000–190,000. In Sydney and Melbourne, the range is AUD 170,000–230,000, with the top of the band reserved for engineers who can demonstrate production agent systems with measurable reliability and audit trails. The agent specialisation does not consistently command a premium over broad AI engineering; depth of production experience is the main salary driver."
+  - question: "How does tenX verify agent engineering skills?"
+    answer: "tenX uses sandbox evaluations reviewed against a rubric. The agent design test covers tool schema design, loop control logic, failure recovery, output validation, and eval design for branching systems. Engineers who pass earn the agent design badge, which is visible to employers and filters into role searches."
+  - question: "What are the most common failure modes in production agent systems?"
+    answer: "The most common failures are: tools with schemas that allow too many interpretations, causing the model to call the wrong tool or hallucinate arguments; loops with no budget or circuit-breaker, leading to runaway task sequences; no human override path for irreversible actions; and evaluation based only on final output, missing intermediate steps where the system went wrong. An agent engineer's first job is usually building the observability layer that makes these failures visible."
+---
+
+import { href } from "../../lib/href";
+
+An agent engineer is an AI engineer who specialises in autonomous multi-step systems — the category of AI builds where a language model selects tools, interprets their results, and takes further actions with limited human intervention per cycle. The specialisation is not a different discipline from AI engineering; it is a depth investment in the part of the AI stack that is hardest to evaluate, hardest to make reliable, and fastest-growing in 2026. Whether you need an agent specialist or a broader AI engineer depends on the scope and reliability requirements of your autonomous system.
+
+## What agent engineers actually build
+
+The output of an agent engineer is not a model and not a single prompt — it is a system that can act. The agent itself may be simple or complex, but the engineering work is always the same category: designing something that takes actions you cannot fully enumerate in advance.
+
+The work covers:
+
+- **Tool design**: the interface between the model and the external world. Every tool an agent can call has a schema — a description, an argument definition, an expected return format. The schema is the engineering artifact that most shapes agent reliability. A schema that is too permissive lets the model hallucinate arguments. A schema that is too strict breaks on edge cases. Getting tool schemas right requires understanding both the model's interpretation behaviour and the downstream system's constraints.
+- **Loop control**: the logic that decides when an agent continues, when it stops, and when it escalates. A loop without a budget or a circuit-breaker runs until it fails expensively. An agent engineer designs the budget (step count, token count, wall-clock time, cost), the termination conditions, and the escalation paths — what happens when the agent is stuck, when it produces a low-confidence result, or when an action is irreversible.
+- **Failure recovery**: the handling of tool errors, unexpected outputs, and model refusals inside a running loop. A production agent fails regularly — API timeouts, malformed returns, edge inputs — and must handle them gracefully. This means retry logic, fallback strategies, partial-result handling, and state management across a loop that can span many steps.
+- **Human override paths**: the mechanism for a human to review, correct, or halt an agent action before it executes. The engineering question is where the override sits, how it is triggered, and how it is surfaced to the right person at the right time. An agent that cannot be interrupted is a production liability.
+- **Observability**: the logging and tracing infrastructure that makes an agent's reasoning visible. Unlike a request-response API where debugging starts with the input and output, a multi-step agent requires step-by-step traces — what the model decided at each step, what tool it called, what the tool returned, how it interpreted the result. Without this, production failures are invisible.
+- **Evaluation**: measuring whether the agent is working. Agent evals are qualitatively different from model or prompt evals. The output of a single agent run is a sequence of actions, not a single answer, and the same correct outcome can be reached via different paths. A good agent eval must assess intermediate steps, not just final results, and must cover the failure modes that matter — loop failures, tool misuse, escalation timing — not just success cases.
+
+An agent engineer's output is a system that acts reliably on the kinds of inputs it will encounter in production, fails gracefully on the ones it cannot handle, and can be observed and corrected when its behaviour drifts.
+
+## How agent engineering fits inside AI engineering
+
+AI engineering covers model fluency, prompt architecture, retrieval systems, evals infrastructure, and operational monitoring. Agent design is one layer of that surface — the layer concerned with autonomous multi-step behaviour. The rest of the surface is still required. An agent engineer needs Claude, OpenAI, and Google fluency (different models behave differently in agentic loops), prompt engineering depth (tool descriptions are a form of prompt), and evals expertise (agent evals are harder to design than single-output evals, not easier).
+
+What separates an agent specialist from a generalist AI engineer is the depth of investment in the specific failure modes of autonomous systems. Every AI engineer can build a basic agentic workflow — call a tool, interpret the result, call the next tool. What the generalist does not typically have is the mental model of what breaks when the loop runs for thirty steps on an input that is slightly outside the training distribution, or the tooling to observe and diagnose that failure, or the eval structure that would have caught it before it reached production.
+
+This is why agent design appears as its own badge in the <a href={href("/network")}>tenX badge catalogue</a>. Model fluency is a prerequisite, but autonomous system depth is tested separately — because the failure modes are different and the evaluation is harder.
+
+## When to hire an agent specialist vs a broader AI engineer
+
+Most companies in 2026 building their first agentic feature do not need an agent specialist. They need a capable AI engineer who has built agent systems as part of a broader portfolio. The specialist is the right hire when the agent itself is the product problem — when reliability, traceability, and oversight of an autonomous system are the core engineering challenge, not one component among many.
+
+Hire an agent specialist when:
+
+- **The agent is customer-facing and must operate reliably at scale.** Customer support agents, research synthesis tools, code review systems — any agent where a failure is visible to a user and a runaway loop is costly in dollars or reputation. At that level, the agent's reliability is the product, and a specialist moves faster.
+- **The system involves irreversible actions.** Agents that send emails, execute code, make API calls with side effects, or modify state need careful override paths and audit logs. An engineer with production experience in irreversible agent actions has built these before.
+- **You already have an agent in production that is underperforming.** Runaway loops, hallucinated tool calls, poor escalation timing, and invisible failures are common in first-generation production agents. A specialist can diagnose these faster than a generalist because they have seen the failure modes before.
+- **The loop is long and the state space is complex.** A two-step agent is a prompt. A twenty-step agent with branching paths, external tool calls, and partial-result handling is a systems engineering problem. Complexity scales faster than intuition suggests.
+
+A broader AI engineer with an agent design badge is the right hire when:
+
+- You are building multiple AI features, of which agents are one. RAG, evals, model routing, and product integration are all in scope alongside agent workflows.
+- The agent is bounded — a specific, time-limited capability within a larger product, not the product itself.
+- You need someone to own the full AI layer, not just the autonomous system component.
+
+In practice, most companies hiring in Auckland, Wellington, Sydney, and Melbourne in 2026 are at the stage where the broader AI engineer is the right hire. The agent specialist becomes valuable when a team has already built and shipped agents and is hitting reliability and observability limits that generalist experience cannot solve quickly.
+
+## What separates good agent engineering from bad
+
+The gap is almost always observability and the loop contract.
+
+A weak agent implementation produces a system that works in demos. Tool calls succeed, the loop terminates, the output looks plausible. What it lacks is the infrastructure to know when it stops working — and when an agent system fails silently in production, it fails in ways that are harder to trace than a straightforward API call.
+
+Strong agent engineering starts with the loop contract: a precise definition of what the agent is allowed to do, how long it may run, what constitutes a successful termination, and when it must escalate. This contract is written before the implementation, not discovered by running the agent and observing what it does. Writing the contract forces the engineer to answer the questions that production will ask: what happens when a tool returns a malformed result? What happens when the model calls a tool with an argument that is syntactically valid but semantically wrong? What happens when the task is ambiguous?
+
+After the loop contract comes the observability infrastructure. Every step in the loop is logged — the model's reasoning, the tool it called, the arguments it passed, the result it received, the next decision it made. This trace is the primary debugging artifact for a production agent. Without it, a failure twenty steps deep in a long-running agent is nearly impossible to diagnose.
+
+After observability comes evaluation. A strong agent eval covers:
+
+- **Step-level correctness**: at each step in the loop, did the agent do the right thing? This requires a test set with annotated correct paths — not just correct final outputs.
+- **Failure mode coverage**: does the eval include cases where the agent should escalate, where it should terminate early, where a tool call should fail? A test set that only covers success paths cannot catch the failure modes that matter most in production.
+- **Regression detection**: when the underlying model is updated or the prompt changes, does agent behaviour change in ways that matter? This requires a baseline trace for a representative set of inputs and a mechanism to compare against it.
+
+The specific failure cases that appear in production are the most instructive. An agent specialist hired to stabilise an underperforming system typically finds: the tool schemas were written to be permissive to avoid build friction and now produce a high rate of hallucinated arguments; the loop has no budget and occasionally runs for hundreds of steps before hitting a platform limit; and there is no step-level logging, so failures are only visible in the final output, if at all. These are standard first-generation production agent problems. They are solved by the loop contract, the observability layer, and the eval harness — in that order.
+
+## How tenX verifies agent design skills
+
+tenX runs sandbox evaluations for agent design, reviewed against a rubric. The test covers:
+
+- **Tool schema design**: candidates are given a task specification and asked to design the tool schemas an agent would use, including argument definitions, type constraints, and descriptions. The evaluation looks for schemas that constrain the model appropriately and would be interpretable given how current models read tool descriptions.
+- **Loop control logic**: candidates are given a scenario with specified edge cases — a tool that sometimes returns empty results, an input category where the model should escalate — and asked to specify the loop control logic. The evaluation looks for a budget, termination conditions, and escalation paths.
+- **Failure recovery**: candidates specify how their agent handles tool errors, malformed results, and model refusals. The evaluation looks for concrete recovery strategies, not generic fallback language.
+- **Output validation**: candidates define the validation logic for agent outputs, including intermediate steps and final results.
+- **Eval design for agentic systems**: candidates outline the eval structure they would build for the system they have specified — test set composition, step-level annotations, failure mode coverage, and regression detection approach.
+
+Engineers who pass earn the agent design badge. That badge is visible to employers on the <a href={href("/hire/ai-engineer")}>tenX AI engineer hub</a> and filters into searches when employers specify agent design as a required skill. The evaluation is reviewed against the rubric by someone who has built agent systems in production. Plausible-sounding answers about agent patterns are common; real depth shows up in the specifics of the tool schema design, the failure recovery logic, and the eval structure.
+
+The agent design badge sits alongside Claude, OpenAI, and Google fluency badges, RAG, evals, prompt engineering, and MLOps badges in the <a href={href("/network")}>tenX badge catalogue</a>. Employers can filter the network by badge combination — for example, engineers with both agent design and Claude fluency badges, or agent design plus evals — to surface candidates whose verified skill set matches the specific role.
+
+## Salary for agent-capable engineers in NZ and Australia
+
+As of May 2026, agent design specialisation does not command a consistent salary premium over broad AI engineering in New Zealand or Australia. The salary band is driven by production depth, not the specific skill label.
+
+Senior AI engineers with strong agent design credentials in Auckland earn between NZD 160,000 and NZD 210,000 on permanents. The top of that range goes to engineers who can demonstrate production agent systems with observable traces, step-level evals, and documented reliability improvements — not engineers who describe the architecture pattern correctly. Wellington roles, concentrated in fintech, healthtech, and government digital, typically run NZD 140,000–190,000. In Sydney and Melbourne, the equivalent range is AUD 170,000–230,000.
+
+Contractor rates for agent-capable AI engineers run AUD 130–185 per hour in Sydney and Melbourne, and NZD 110–165 per hour in Auckland. The <a href={href("/hire/ai-engineer")}>tenX AI engineer hub</a> covers placement for both permanent and contractor engagements. The fee structure is 10% of first-year salary on permanents and 20% loading on contractor monthly billings — published before the first call.
+
+## How to hire the right person
+
+Start by deciding whether you need an agent specialist or a broader AI engineer with agent depth. Most hiring teams in 2026 need the latter, but being specific about this before sourcing saves significant time.
+
+If you need agent depth, structure your assessment around production questions:
+
+- Can the candidate describe an agent failure mode they diagnosed in a live system? Not a theoretical failure — a real one, with a specific tool schema, a specific symptom, and a specific fix.
+- Can they describe the loop contract for a system they built? Specifically: what was the budget, what were the termination conditions, what constituted an escalation trigger, and how was that contract enforced?
+- Can they walk through the eval structure for a production agent? What did they test at step level, what failure modes did they include in the test set, and how did they detect regressions?
+
+A candidate who answers these with specifics — concrete tool schemas, real failure modes, actual eval structures — has production agent depth. Generic answers about agentic patterns indicate familiarity with the concept, not engineering experience with the problem.
+
+For employers who want to skip the sourcing step: the <a href={href("/hire/ai-engineer")}>tenX AI engineer hub</a> lists AI engineers with sandbox-verified badge profiles. Filter by agent design badge, geography, and availability. The network includes 100 AI-verified engineers across NZ and Australia as of May 2026.
+
+For engineers: the path in is the same as every other badge in the catalogue. <a href={href("/apply")}>Apply to the network</a>, take the agent design sandbox test, and earn the badge. A verified agent design badge on a tenX profile is a specific, reviewable credential — not a self-reported skill claim — and it surfaces in employer searches for exactly this kind of work across Auckland, Wellington, Sydney, Melbourne, and the rest of the network.
