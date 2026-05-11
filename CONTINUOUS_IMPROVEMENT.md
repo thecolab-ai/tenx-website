@@ -1,6 +1,6 @@
 # tenX Website — Continuous Improvement Queue
 
-Last updated: 2026-05-11 (cycle 4)
+Last updated: 2026-05-12 (cycle 5)
 
 ## Completed
 - [x] Initial Astro scaffold (2026-05-11)
@@ -17,7 +17,7 @@ Last updated: 2026-05-11 (cycle 4)
 ## Next (priority order)
 - [x] Blog: "How tenX verifies AI engineers (without a phone screen)" — explains mechanism, key trust signal (2026-05-12)
 - [ ] /hire/[industry] industry hub pages — fintech, healthtech, saas, govtech (4 pages + role variants)
-- [ ] Apply page copy tightening — hero rewrite, sharper value props
+- [x] Apply page copy tightening — feature cards now eyebrow/title/body per STYLE_GUIDE §2; sub-hero tightened (2026-05-12)
 - [ ] Internal linking audit — surface /hire/[role]/[city] links from homepage and network page
 - [ ] /hire/[role]/[city] pages for expanded roles: agent-engineer, data-engineer (add to roles.json first)
 - [ ] /network page enhancements — add badge filter UI
@@ -37,6 +37,11 @@ Last updated: 2026-05-11 (cycle 4)
 - [ ] Fix article pubDate for sandbox-tests article — set to 2026-05-12 so it sorts correctly in blog index (currently shows as 11 May, one day behind)
 - [ ] Link sandbox article from /vetting page — add a "deep dive" reference to the article from the /vetting page intro section
 - [x] Model fluency chips on homepage — updated the chips to provider-level names per COPY_PLAYBOOK
+
+## New ideas (added 2026-05-12, cycle 5)
+- [ ] /hire/[industry] pages missing from nav — add industry hubs to the Hire dropdown so fintech/healthtech/saas/govtech are discoverable
+- [ ] Internal link from apply page to /vetting — candidates should be able to see the test rubric before applying; add a "See what we test for" link near the feature cards
+- [ ] Blog: "The forward-deployed engineer — what the role actually is and why every AI company is hiring one" — definitional piece, strong search value, links to /hire/forward-deployed-engineer
 
 ## New ideas (added 2026-05-11, cycle 4)
 - [ ] Blog: "The forward-deployed engineer — what the role actually is and why every AI company is hiring one" — follows same definitional format as RAG and agent pieces; strong search value; links to /hire/forward-deployed-engineer
