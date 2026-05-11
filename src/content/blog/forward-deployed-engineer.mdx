@@ -1,0 +1,118 @@
+---
+title: "The forward-deployed engineer — what the role actually is and why every AI company is hiring one"
+description: "Forward-deployed engineers sit at the customer boundary and translate operational problems into shipped AI workflows, integrations, and working code. Here is what the role actually involves, how it differs from a solutions engineer, and what the AI skill stack looks like in 2026."
+pubDate: 2026-05-12
+author: "tenX editorial"
+faqs:
+  - question: "What is a forward-deployed engineer?"
+    answer: "A forward-deployed engineer (FDE) is a technical engineer who works directly with customers to understand operational problems and translate them into deployed code — AI workflows, integrations, automations, and custom builds. Unlike a solutions engineer who demos and advises, an FDE ships. They are embedded close to the customer, write code, and own the integration from problem definition through to production deployment."
+  - question: "How is a forward-deployed engineer different from a solutions engineer?"
+    answer: "A solutions engineer's primary output is a deal — demos, proposals, and technical pre-sales support. A forward-deployed engineer's primary output is shipped code. FDEs are post-sale and hands-on; they sit inside the customer's operational environment, map the actual workflow, and write the integration or automation that makes the product work in that specific context. The distinction matters when hiring: solutions engineering is a communication and pre-sales skill; forward deployment is a code-shipping skill."
+  - question: "Why are AI companies hiring forward-deployed engineers in 2026?"
+    answer: "AI products — agent workflows, LLM pipelines, automation systems — do not configure themselves into a customer's environment. Every deployment hits a different data format, a different legacy system, a different internal workflow that was never documented. The FDE handles that translation layer: mapping the mess, writing the integration, and shipping something that runs in production. The more complex the AI product, the more necessary the FDE."
+  - question: "What technical skills does a forward-deployed engineer need in 2026?"
+    answer: "The core AI skill stack for an FDE includes prompt engineering (adapting the product to specific customer contexts), agent design (building automation workflows with tool use and loop control), code-with-AI fluency (using AI tooling to prototype and iterate fast), and OpenAI or Claude API fluency for direct integration work. Beyond the AI layer, FDEs need integration competency — working with APIs, webhooks, data pipelines, and whatever legacy systems the customer already operates."
+  - question: "What does a forward-deployed engineer earn in New Zealand and Australia?"
+    answer: "As of May 2026, forward-deployed engineers in New Zealand earn NZD 150,000–235,000 on permanent placements. In Australia, the equivalent range is roughly AUD 165,000–260,000, with Sydney and Melbourne at the high end. Contractor rates for FDE work in NZ run NZD 19,000–33,000 per month. The premium over a standard backend engineer reflects the combination of technical depth and the commercial fluency required to operate independently at the customer boundary."
+  - question: "How does tenX verify forward-deployed engineer skills?"
+    answer: "tenX tests FDE candidates across four dimensions: prompt engineering (adapting prompts to a specified customer scenario), agent design (designing a workflow with tool use, loop control, and escalation paths), integration scoping (given a customer system description, identify the integration points and data flow), and stakeholder communication (written articulation of a technical approach to a non-technical audience). Engineers who pass earn the relevant badges — agent design, code-with-AI, prompt engineering — visible to employers on the tenX network."
+---
+
+import { href } from "../../lib/href";
+
+A forward-deployed engineer (FDE) sits at the boundary between an AI product and the customer's operational reality. The deliverable is not a demo or a recommendation — it is shipped code: a workflow that runs, an integration that connects, an automation that replaces the manual step that was blocking adoption. The role exists because AI products do not deploy themselves into messy environments, and the gap between "product capability" and "running in the customer's specific stack" is almost always an engineering problem, not a configuration problem.
+
+## What a forward-deployed engineer actually delivers
+
+The FDE's output is working software, scoped fast and deployed into a real environment. A typical engagement produces three concrete artifacts: a workflow map, a working integration or automation, and an operational runbook short enough for a non-engineer to follow.
+
+**Workflow mapping**: the customer has an operational process — a document review step, an intake triage, a multi-step approval — that the AI product is supposed to improve. The FDE maps the current process: where the data lives, where the handoffs happen, and what the exceptions are. This is not requirements gathering in the project management sense. It is engineering reconnaissance conducted close enough to the customer to surface the legacy constraints, undocumented workarounds, and data format variations that will break a generic integration in week one.
+
+**Integration and build**: given the workflow map, the FDE writes the code that connects the product to the customer's data sources, handles the edge cases specific to that customer's environment, and produces output that fits into the existing downstream process. For AI products this typically includes prompt customisation for the customer's domain, agent workflow design for multi-step automations, and glue code that bridges the product's generic capability and the customer's specific context.
+
+**Rapid prototyping and iteration**: FDEs do not work in long delivery cycles. The model is: build something that runs, get it in front of the customer's operational team, iterate on the feedback, and ship. An FDE who takes three months to deliver a workflow that could have shipped in three weeks is not adding FDE value — they are blocking it. The speed of the prototype cycle is the differentiating output.
+
+**Documentation and handoff**: when the integration is stable, the FDE documents it — enough for the customer's team to operate it and for the product's customer success team to support it. Not a full engineering specification. Enough to run it without the FDE in the room.
+
+## Why the role exists now
+
+AI products require deployment work that is too technical for success managers and too customer-specific for core engineering teams.
+
+A language model integration is not a standard SaaS configuration. Every customer has different data formats, different internal systems, different legacy API surfaces, and different process constraints. Getting an agent workflow or LLM pipeline running reliably in a specific customer environment means writing code that is specific to that environment — and doing it fast enough that the customer sees value before they lose confidence in the product.
+
+The FDE role was formalised at companies like Palantir — where it became a distinct career track for engineers who worked inside customer environments to make complex software operational — and has since spread into the AI product companies facing the same structural problem: technically sophisticated products that do not self-install into varied operational environments.
+
+As AI products have moved from single-API integrations to complex agent workflows and multi-step automations, the deployment gap has widened. A customer trying to run an agent automation against their internal data warehouse, their CRM, and their approval process is not going to get it working by reading documentation. The operational mess the FDE absorbs has grown with the complexity of the products being deployed.
+
+In 2026, most AI companies with an enterprise or mid-market customer base are hiring FDEs or discovering that they need to. The work was previously absorbed by core engineering teams as customer-specific builds, which degraded product velocity, or by solutions engineers staying engaged post-sale, which degraded pre-sales capacity.
+
+## How an FDE differs from a solutions engineer or implementation manager
+
+A solutions engineer (SE) owns the pre-sales technical layer — demos, proofs of concept, technical objection handling, and the architecture review that closes the deal. Their output is a signed contract. When the contract is signed, the SE moves to the next deal.
+
+An implementation manager or customer success manager owns the post-sale relationship, coordinates onboarding, and manages escalations. Their output is customer health. They are typically not engineers and do not write code.
+
+The FDE fills the gap: post-sale, technical, code-shipping. The FDE works on the customer problem after the sale is closed and before the integration is stable enough for standard operations. In companies that have not hired an FDE, this gap is usually covered by backend engineers doing customer-specific builds — which pulls them off core product work — or by the SE staying engaged in a hybrid role, which does not scale.
+
+The distinction matters when evaluating candidates. A solutions engineer who has "done some FDE work" has probably built proofs of concept and answered technical questions. That is different from having shipped and handed off production integrations in multiple enterprise environments. Ask for specifics: what did you build, what was the customer's stack, what went wrong in the first version, how did you fix it.
+
+Where these roles legitimately blur: some companies use "FDE" to mean a technical SE, particularly at pre-scale stage where the same person does demos and early deployments. If the job description involves deal-closing responsibilities alongside shipping integrations, read it as a hybrid SE role. The signal for a pure FDE role is: does this person own customer-specific deployments from mapping through to production, with no pre-sales quota?
+
+## The AI skill stack for a forward-deployed engineer
+
+The FDE role at an AI company in 2026 requires a specific technical stack that is distinct from both standard backend engineering and research or ML work.
+
+**Prompt engineering**: FDEs customise AI product behaviour for specific customer contexts. That means writing and iterating prompts that adapt the product's generic capability to a specific domain, a specific data format, or a specific output requirement. The skill is not writing prompts — it is diagnosing why a prompt produces the wrong output in a customer's context and fixing it under time pressure. Prompt engineering at FDE level means working with real customer data, real failure cases, and real constraints on what the output must look like.
+
+**Agent design**: when the AI product involves multi-step automation — and most do in 2026 — the FDE needs to design workflows with tool calls, intermediate state handling, and reliable outputs. This includes loop control (what are the termination conditions for this automation?), tool schema design (what does the agent call, with what arguments, against what APIs?), and failure handling (what happens when a tool call fails in this customer's environment?). Agent design at FDE level means building workflows that run on customer infrastructure, not controlled demo environments.
+
+**Code-with-AI fluency**: FDEs prototype fast. Code-with-AI fluency — using Claude, OpenAI, and Copilot-adjacent tooling to accelerate development, debug integrations, and adapt patterns to specific contexts — is what makes FDE-speed possible. An FDE who writes integration code without AI assistance is doing the work at the wrong pace for the role.
+
+**OpenAI and Claude API fluency**: most customer integrations involve direct API calls to OpenAI or Anthropic's models. FDEs need to know the capabilities and constraints of these APIs — function calling, structured outputs, context window management, token limits — because the integration code depends on them. OpenAI fluency is the most common specification in 2026; Claude fluency is increasingly required for enterprises running on Claude models via Amazon Bedrock or Anthropic's direct API.
+
+**Stakeholder communication**: the FDE operates in front of the customer's operational team, not in a back-office engineering environment. The communication skill that matters is technical writing and the ability to run a working session with non-engineers — translating what is being built into terms the customer's team can act on. An FDE who ships excellent code but cannot get the customer's team to adopt and operate it has not completed the job.
+
+## When to hire an FDE vs a backend AI engineer
+
+Hire an FDE when:
+
+- Your backend engineers are doing customer-specific integration builds and it is degrading their core product velocity.
+- Deals are closing but stalling in deployment because there is no one available to ship the customer-specific integration.
+- You have multiple enterprise customers in simultaneous deployment and the coordination overhead is as large as the engineering overhead.
+- Your product involves agent workflows or multi-step automations that require workflow mapping and configuration before they run in a specific customer environment.
+
+Hire a backend AI engineer instead when:
+
+- The integration work is standardised — the same connector, the same configuration pattern, low variation across customers.
+- The primary work is building or improving the core product, not deploying it into specific customer environments.
+- You have no enterprise or mid-market customer base yet and the deployment problem has not surfaced.
+
+The FDE hire makes sense when customer-specific deployment work is large enough and varied enough to warrant a dedicated engineering function. For most AI companies past their first ten enterprise customers, that threshold has typically been crossed. The signal is the presence of a backlog of customer-specific builds sitting with the core engineering team, or a sales cycle that is consistently clearing discovery but stalling post-close.
+
+## Salary in New Zealand and Australia
+
+As of May 2026, forward-deployed engineers in New Zealand earn NZD 150,000–235,000 on permanent placements. The lower end applies to engineers with strong technical skills but limited customer-facing deployment experience. The upper end goes to FDEs with a demonstrable track record of shipping integrations in enterprise environments, agent workflow expertise, and the independent commercial judgement to operate at the customer boundary without hand-holding from a sales team.
+
+Contractor rates for FDE work in NZ run NZD 19,000–33,000 per month. Monthly contractor rates reflect the combination of technical depth, deployment speed, and the operational judgement the FDE must exercise independently inside a customer environment.
+
+In Australia, the equivalent ranges are roughly 10% higher in AUD — approximately AUD 165,000–260,000 on permanents. Sydney and Melbourne command the top of that band, driven by the complexity of enterprise environments in fintech, logistics, and healthtech where most of the FDE demand is concentrated.
+
+The salary differential over a standard backend engineer reflects the combination of technical scope and the commercial layer the FDE operates on. It is not a premium for doing standard engineering work in a customer-facing context — it compensates for the combination of technical depth, deployment speed, and independent operation that the role requires.
+
+## How tenX verifies FDE skills
+
+The FDE skill set is harder to verify than a pure engineering role because it combines technical depth with deployment speed and communication clarity. A candidate who can describe agent workflows but has never shipped one in a customer environment will not perform at FDE level.
+
+tenX tests FDE candidates across four dimensions, each reviewed against a rubric by an engineer who has shipped customer deployments:
+
+**Prompt engineering**: candidates are given a customer scenario — a specified domain, example inputs, and an outcome requirement — and asked to design and iterate a prompt that produces the right output. The evaluation looks for diagnostic reasoning and targeted iteration, not prompt writing by feel.
+
+**Agent design**: candidates specify a workflow for a described customer automation — tool schemas, loop control logic, escalation conditions, and failure handling. The evaluation uses the same rubric as the agent design badge test: specificity of tool schema design, concreteness of termination conditions, and practical failure recovery strategies.
+
+**Integration scoping**: candidates are given a description of a customer's technical environment — systems in use, data formats, APIs available — and asked to identify the integration points, specify the data flow, and flag the likely edge cases. The evaluation looks for technical accuracy and the ability to identify the constraints that will determine whether a deployment succeeds or fails.
+
+**Stakeholder communication**: candidates write a brief technical explanation of an integration approach addressed to a non-technical operations manager. The evaluation looks for clarity, accuracy, and the absence of unnecessary jargon.
+
+Engineers who pass earn the relevant badges — agent design, code-with-AI, prompt engineering, and OpenAI fluency — which are visible to employers on the <a href={href("/network")}>tenX network</a> and filter into searches when FDE-specific skills are specified.
+
+The <a href={href("/hire/forward-deployed-engineer")}>tenX forward-deployed engineer hub</a> lists FDE-verified engineers across Auckland, Wellington, Sydney, and Melbourne. Placement fees are 10% of first-year salary on permanent placements and 20% loading on contractor monthly billings — published before any call. The evaluation rubric behind each badge is available at <a href={href("/vetting")}>tenX vetting</a>.
