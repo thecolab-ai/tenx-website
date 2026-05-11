@@ -1,55 +1,129 @@
 @import "tailwindcss";
 
+/* ─── Design Tokens ─────────────────────────────────────────────────── */
+
 :root {
   color-scheme: dark;
-  --bg: #050608;
-  --bg-2: #0a0d11;
-  --surface: #0f141b;
-  --surface-2: #151b23;
-  --text: #f6f8fb;
-  --muted: #aeb7c4;
-  --faint: #6f7a88;
-  --line: #27313d;
-  --accent: #42f27d;
-  --accent-ink: #06100a;
-  --danger: #ff6b6b;
-  --shadow: 0 24px 70px rgb(0 0 0 / 0.32);
+
+  /* Backgrounds */
+  --bg-base:     #0A0A0A;
+  --bg-elevated: #111111;
+  --bg-sunken:   #050505;
+
+  /* Text */
+  --text-primary:   #EDEDED;
+  --text-secondary: #A1A1A1;
+  --text-muted:     #6B6B6B;
+  --text-disabled:  #3F3F3F;
+
+  /* Borders */
+  --border-subtle:  #1F1F1F;
+  --border-default: #2A2A2A;
+  --border-strong:  #3F3F3F;
+
+  /* Accent — signal green */
+  --accent:       #7CFF6B;
+  --accent-hover: #94FF85;
+  --accent-muted: #1F3A1B;
+  --accent-ink:   #0A0A0A;
+
+  /* Status */
+  --success: #7CFF6B;
+  --warning: #F5A524;
+  --danger:  #FF6B6B;
+
+  /* Border radius */
+  --radius-sm:   4px;
+  --radius-md:   6px;
+  --radius-lg:   8px;
+  --radius-xl:   12px;
+  --radius-full: 9999px;
+
+  /* Shadows — minimal */
+  --shadow-focus:   0 0 0 2px var(--bg-base), 0 0 0 4px var(--accent);
+  --shadow-overlay: 0 8px 32px rgba(0,0,0,0.5);
+
+  /* Container widths */
+  --container-prose:   680px;
+  --container-narrow:  880px;
+  --container-default: 1200px;
+  --container-wide:    1360px;
 }
 
-:root[data-theme="light"] {
+[data-theme="light"] {
   color-scheme: light;
-  --bg: #f7f8fa;
-  --bg-2: #ffffff;
-  --surface: #ffffff;
-  --surface-2: #eef2f6;
-  --text: #0b0f14;
-  --muted: #4e5967;
-  --faint: #727d8b;
-  --line: #dbe2ea;
-  --accent: #008f46;
-  --accent-ink: #ffffff;
-  --shadow: 0 24px 70px rgb(15 23 42 / 0.12);
+
+  --bg-base:     #FAFAFA;
+  --bg-elevated: #FFFFFF;
+  --bg-sunken:   #F2F2F2;
+
+  --text-primary:   #0A0A0A;
+  --text-secondary: #525252;
+  --text-muted:     #8A8A8A;
+  --text-disabled:  #C4C4C4;
+
+  --border-subtle:  #E8E8E8;
+  --border-default: #D4D4D4;
+  --border-strong:  #A1A1A1;
+
+  --accent:       #137333;
+  --accent-hover: #0E5A26;
+  --accent-muted: #E6F4E8;
+  --accent-ink:   #FFFFFF;
+
+  --success: #137333;
+  --warning: #B45309;
+  --danger:  #DC2626;
+
+  --shadow-focus:   0 0 0 2px var(--bg-base), 0 0 0 4px var(--accent);
+  --shadow-overlay: 0 8px 32px rgba(0,0,0,0.12);
 }
+
+/* ─── Tailwind v4 theme mapping ─────────────────────────────────────── */
+
+@theme {
+  --color-bg-base:     var(--bg-base);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-bg-sunken:   var(--bg-sunken);
+
+  --color-text-primary:   var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted:     var(--text-muted);
+  --color-text-disabled:  var(--text-disabled);
+
+  --color-border-subtle:  var(--border-subtle);
+  --color-border-default: var(--border-default);
+  --color-border-strong:  var(--border-strong);
+
+  --color-accent:       var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-muted: var(--accent-muted);
+  --color-accent-ink:   var(--accent-ink);
+
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+  --color-success: var(--success);
+
+  --font-display: "Inter Display", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+/* ─── Base layer ────────────────────────────────────────────────────── */
 
 @layer base {
   html {
-    background: var(--bg);
-    color: var(--text);
-    font-family:
-      Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      sans-serif;
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-feature-settings: "cv11", "ss01";
     letter-spacing: 0;
     scroll-behavior: smooth;
   }
 
   body {
     min-height: 100vh;
-    background:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px),
-      var(--bg);
-    background-size: 72px 72px;
-    background-position: center top;
+    background: var(--bg-base);
   }
 
   a {
@@ -68,113 +142,306 @@
     background: var(--accent);
     color: var(--accent-ink);
   }
+
+  /* Heading defaults */
+  h1, h2, h3, h4, h5 {
+    font-family: "Inter Display", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11", "ss03";
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
 }
 
+/* ─── Type scale utility classes ────────────────────────────────────── */
+
 @layer components {
+
+  /* Display — hero only */
+  .type-display {
+    font-family: "Inter Display", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11", "ss03";
+    font-size: 4.5rem; /* 72px */
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  @media (max-width: 767px) {
+    .type-display {
+      font-size: 2.75rem; /* 44px */
+    }
+  }
+
+  /* H1 */
+  .type-h1 {
+    font-family: "Inter Display", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11", "ss03";
+    font-size: 3.5rem; /* 56px */
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+  }
+
+  @media (max-width: 767px) {
+    .type-h1 {
+      font-size: 2.25rem; /* 36px */
+    }
+  }
+
+  /* H2 */
+  .type-h2 {
+    font-family: "Inter Display", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11", "ss03";
+    font-size: 2.5rem; /* 40px */
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  @media (max-width: 767px) {
+    .type-h2 {
+      font-size: 1.75rem; /* 28px */
+    }
+  }
+
+  /* H3 */
+  .type-h3 {
+    font-family: "Inter Display", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11", "ss03";
+    font-size: 1.75rem; /* 28px */
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+
+  @media (max-width: 767px) {
+    .type-h3 {
+      font-size: 1.375rem; /* 22px */
+    }
+  }
+
+  /* H4 */
+  .type-h4 {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  /* H5 */
+  .type-h5 {
+    font-size: 1rem; /* 16px */
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* Body sizes */
+  .type-body-lg {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.55;
+  }
+
+  .type-body {
+    font-size: 1rem; /* 16px */
+    line-height: 1.6;
+  }
+
+  .type-body-sm {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.55;
+  }
+
+  .type-caption {
+    font-size: 0.8125rem; /* 13px */
+    line-height: 1.45;
+  }
+
+  .type-micro {
+    font-size: 0.75rem; /* 12px */
+    line-height: 1.4;
+  }
+
+  /* ─── Layout ─────────────────────────────────────── */
+
   .site-shell {
     min-height: 100vh;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    background: var(--bg-base);
   }
 
   .container {
     margin-inline: auto;
-    max-width: 1180px;
-    padding-inline: 1rem;
+    max-width: var(--container-default);
+    padding-inline: 1.5rem;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .container {
-      padding-inline: 1.5rem;
+      padding-inline: 4rem;
     }
   }
 
+  .container-prose {
+    margin-inline: auto;
+    max-width: var(--container-prose);
+    padding-inline: 1.5rem;
+  }
+
+  .container-narrow {
+    margin-inline: auto;
+    max-width: var(--container-narrow);
+    padding-inline: 1.5rem;
+  }
+
+  /* Section spacing — 128px desktop / 80px mobile */
   .section {
-    padding-block: 4rem;
+    padding-block: 5rem; /* 80px mobile */
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .section {
-      padding-block: 6rem;
+      padding-block: 8rem; /* 128px desktop */
     }
   }
+
+  /* ─── Eyebrow ────────────────────────────────────── */
 
   .eyebrow {
-    color: var(--accent);
-    font-family:
-      "SFMono-Regular", Consolas, "Liberation Mono", Menlo, ui-monospace, monospace;
-    font-size: 0.78rem;
-    font-weight: 700;
+    color: var(--text-muted);
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.75rem; /* 12px micro */
+    font-weight: 400;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
   }
 
+  /* ─── Mono util ──────────────────────────────────── */
+
   .mono {
-    font-family:
-      "SFMono-Regular", Consolas, "Liberation Mono", Menlo, ui-monospace, monospace;
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   }
 
-  .muted {
-    color: var(--muted);
-  }
-
-  .faint {
-    color: var(--faint);
-  }
-
-  .panel {
-    background: color-mix(in srgb, var(--surface) 94%, transparent);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-  }
-
-  .card {
-    background: color-mix(in srgb, var(--surface) 90%, transparent);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-  }
+  /* ─── Buttons ────────────────────────────────────── */
 
   .button {
     align-items: center;
     border: 1px solid transparent;
-    border-radius: 8px;
+    border-radius: var(--radius-md); /* 6px — no pills */
     display: inline-flex;
-    font-weight: 700;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
     gap: 0.5rem;
     justify-content: center;
-    min-height: 2.75rem;
-    padding: 0.75rem 1rem;
-    transition:
-      background 160ms ease,
-      border-color 160ms ease,
-      color 160ms ease,
-      transform 160ms ease;
+    letter-spacing: -0.01em;
+    padding: 10px 18px;
+    transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
   }
 
   .button:hover {
-    transform: translateY(-1px);
+    transform: none; /* no lift */
   }
 
+  .button:active {
+    transform: translateY(0.5px);
+  }
+
+  .button:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+  }
+
+  /* Primary — accent fill, dark ink. One per viewport */
   .button-primary {
     background: var(--accent);
+    border-color: var(--accent);
     color: var(--accent-ink);
   }
 
-  .button-secondary {
-    background: color-mix(in srgb, var(--surface-2) 90%, transparent);
-    border-color: var(--line);
-    color: var(--text);
+  .button-primary:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
   }
+
+  /* Secondary — bordered, transparent */
+  .button-secondary {
+    background: transparent;
+    border-color: var(--border-default);
+    color: var(--text-primary);
+  }
+
+  .button-secondary:hover {
+    background: var(--bg-elevated);
+    border-color: var(--border-strong);
+  }
+
+  /* Ghost — text-only */
+  .button-ghost {
+    background: transparent;
+    border-color: transparent;
+    color: var(--text-secondary);
+  }
+
+  .button-ghost:hover {
+    color: var(--text-primary);
+  }
+
+  /* ─── Cards ──────────────────────────────────────── */
+
+  .card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg); /* 8px */
+    padding: 24px;
+  }
+
+  .card-interactive:hover {
+    border-color: var(--border-default);
+  }
+
+  /* Panel — legacy alias, same as card */
+  .panel {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+  }
+
+  /* ─── Inputs ─────────────────────────────────────── */
 
   .input,
   .select,
   .textarea {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    color: var(--text);
-    min-height: 2.85rem;
-    padding: 0.8rem 0.9rem;
+    background: var(--bg-sunken);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: 0.9375rem; /* 15px */
+    min-height: 2.5rem;
+    padding: 10px 14px;
+    transition: border-color 120ms;
     width: 100%;
+  }
+
+  .input::placeholder,
+  .textarea::placeholder {
+    color: var(--text-muted);
+  }
+
+  .input:hover,
+  .select:hover,
+  .textarea:hover {
+    border-color: var(--border-strong);
+  }
+
+  .input:focus,
+  .select:focus,
+  .textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(124,255,107,0.15);
+  }
+
+  [data-theme="light"] .input:focus,
+  [data-theme="light"] .select:focus,
+  [data-theme="light"] .textarea:focus {
+    box-shadow: 0 0 0 3px rgba(19,115,51,0.15);
   }
 
   .textarea {
@@ -183,36 +450,83 @@
   }
 
   .label {
-    color: var(--muted);
+    color: var(--text-primary);
     display: grid;
-    font-size: 0.92rem;
+    font-size: 0.875rem;
+    font-weight: 500;
     gap: 0.45rem;
   }
 
+  /* ─── Stat blocks ────────────────────────────────── */
+
   .stat-value {
-    color: var(--text);
-    font-family:
-      "SFMono-Regular", Consolas, "Liberation Mono", Menlo, ui-monospace, monospace;
-    font-size: clamp(1.75rem, 4vw, 3.75rem);
-    font-weight: 800;
+    color: var(--text-primary);
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: clamp(2.5rem, 4vw, 3.5rem); /* h2 size minimum */
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
     line-height: 1;
   }
 
+  /* ─── Model fluency chips (STYLE_GUIDE §2.9) ─────── */
+
+  .model-chip {
+    align-items: center;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm); /* 4px */
+    color: var(--text-secondary);
+    display: inline-flex;
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.75rem; /* 12px */
+    gap: 6px;
+    padding: 4px 8px;
+  }
+
+  .model-chip::before {
+    background: var(--accent);
+    border-radius: var(--radius-full);
+    content: "";
+    display: block;
+    flex-shrink: 0;
+    height: 6px;
+    width: 6px;
+  }
+
+  /* ─── Badge chips ────────────────────────────────── */
+
+  .badge {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.6875rem; /* 11px */
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding: 2px 6px;
+    text-transform: uppercase;
+  }
+
+  /* ─── Prose ──────────────────────────────────────── */
+
   .prose-tenx {
-    color: var(--muted);
-    font-size: 1.05rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
     line-height: 1.8;
   }
 
   .prose-tenx h2,
   .prose-tenx h3 {
-    color: var(--text);
+    color: var(--text-primary);
+    font-weight: 500;
+    letter-spacing: -0.02em;
     line-height: 1.18;
     margin-block: 2.5rem 0.85rem;
   }
 
   .prose-tenx h2 {
-    font-size: clamp(1.65rem, 3vw, 2.35rem);
+    font-size: clamp(1.65rem, 3vw, 2.5rem);
   }
 
   .prose-tenx h3 {
@@ -245,14 +559,48 @@
 
   .prose-tenx th,
   .prose-tenx td {
-    border: 1px solid var(--line);
+    border: 1px solid var(--border-subtle);
     padding: 0.85rem;
     text-align: left;
     vertical-align: top;
   }
 
   .prose-tenx th {
-    background: var(--surface-2);
-    color: var(--text);
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  /* Blockquote / pull-quote */
+  .prose-tenx blockquote {
+    border-left: 2px solid var(--accent);
+    color: var(--text-primary);
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    margin-block: 2rem;
+    padding-left: 1.25rem;
+  }
+
+  /* Inline code */
+  .prose-tenx code {
+    background: var(--bg-elevated);
+    border-radius: 3px;
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.92em;
+    padding: 1px 5px;
+  }
+
+  /* Code blocks */
+  .prose-tenx pre {
+    background: var(--bg-sunken);
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+    padding: 1.25rem;
+  }
+
+  .prose-tenx pre code {
+    background: none;
+    border-radius: 0;
+    font-size: 0.875rem;
+    padding: 0;
   }
 }

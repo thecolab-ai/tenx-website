@@ -9,23 +9,79 @@ const navItems = [
 ];
 ---
 
-<header class="border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--bg)_92%,transparent)] sticky top-0 z-40 backdrop-blur">
-  <div class="container flex min-h-16 items-center justify-between gap-4 py-3">
-    <a href={href("/")} class="mono text-2xl font-black leading-none" aria-label="tenX home">
-      ten<span class="text-[var(--accent)]">X</span>
+<header class="header-sticky">
+  <div class="container flex h-16 items-center justify-between gap-4">
+    <!-- Logo — wordmark only, X in accent green -->
+    <a href={href("/")} aria-label="tenX home" class="logo-wordmark">
+      ten<span class="logo-x">X</span>
     </a>
-    <nav class="hidden items-center gap-6 text-sm text-[var(--muted)] md:flex" aria-label="Primary navigation">
-      {navItems.map((item) => <a class="hover:text-[var(--text)]" href={href(item.path)}>{item.label}</a>)}
+
+    <!-- Desktop nav — body-sm weight 500, text-secondary → text-primary on hover -->
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary navigation">
+      {navItems.map((item) => (
+        <a href={href(item.path)} class="nav-link">{item.label}</a>
+      ))}
     </nav>
+
+    <!-- CTA buttons — theme toggle removed from header, moved to footer -->
     <div class="flex items-center gap-2">
-      <button class="button button-secondary min-h-10 px-3 text-sm" type="button" data-theme-toggle aria-label="Toggle light and dark mode">
-        Theme
-      </button>
-      <a class="button button-secondary hidden min-h-10 px-3 text-sm sm:inline-flex" href={href("/hire")}>Hire</a>
-      <a class="button button-primary min-h-10 px-3 text-sm" href={href("/apply")}>Apply</a>
+      <a class="button button-secondary" href={href("/hire")} id="hire-btn" style="min-height: 40px; padding: 8px 14px; font-size: 0.875rem; display: none;">Hire</a>
+      <a class="button button-primary" href={href("/apply")} style="min-height: 40px; padding: 8px 14px; font-size: 0.875rem;">Apply</a>
     </div>
   </div>
-  <nav class="container flex gap-4 overflow-x-auto pb-3 text-sm text-[var(--muted)] md:hidden" aria-label="Mobile navigation">
-    {navItems.map((item) => <a class="shrink-0 hover:text-[var(--text)]" href={href(item.path)}>{item.label}</a>)}
+
+  <!-- Mobile nav -->
+  <nav class="container flex gap-5 overflow-x-auto pb-3 pt-0 md:hidden" aria-label="Mobile navigation">
+    {navItems.map((item) => (
+      <a href={href(item.path)} class="nav-link" style="white-space: nowrap; flex-shrink: 0;">{item.label}</a>
+    ))}
   </nav>
 </header>
+
+<style>
+  .header-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(10,10,10,0.7);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  [data-theme="light"] .header-sticky {
+    background: rgba(250,250,250,0.8);
+  }
+
+  .logo-wordmark {
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  .logo-x {
+    color: var(--accent);
+  }
+
+  .nav-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 120ms;
+  }
+
+  .nav-link:hover {
+    color: var(--text-primary);
+  }
+
+  @media (min-width: 640px) {
+    #hire-btn {
+      display: inline-flex !important;
+    }
+  }
+</style>

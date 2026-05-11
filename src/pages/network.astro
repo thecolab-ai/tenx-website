@@ -18,14 +18,14 @@ import { collectionPageSchema } from "../lib/seo";
   <section class="container section">
     <div class="max-w-4xl">
       <p class="eyebrow">Network</p>
-      <h1 class="mt-4 text-5xl font-black leading-tight md:text-6xl">100 AI-verified engineers. Here is what they are certified in.</h1>
+      <h1 class="mt-4 text-5xl font-medium leading-tight md:text-6xl">100 AI-verified engineers. Here is what they are certified in.</h1>
       <p class="mt-6 text-xl leading-8 text-[var(--muted)]">
         Placeholder launch-network numbers, updated monthly. NZ is live first; AUS intake is open ahead of employer access in June 2026.
       </p>
     </div>
   </section>
 
-  <section class="border-y border-[var(--line)] bg-[var(--bg-2)]">
+  <section class="border-y border-[var(--line)] bg-[var(--bg-elevated)]">
     <div class="container grid gap-6 py-10 sm:grid-cols-3">
       <div>
         <p class="stat-value">{network.totalVerified}</p>
@@ -52,7 +52,7 @@ import { collectionPageSchema } from "../lib/seo";
               <span class="font-bold">{item.label}</span>
               <span class="mono text-[var(--accent)]">{item.count}</span>
             </div>
-            <div class="mt-2 h-2 rounded bg-[var(--surface-2)]">
+            <div class="mt-2 h-2 rounded bg-[var(--bg-elevated)]">
               <div class="h-2 rounded bg-[var(--accent)]" style={`width: ${item.count}%`}></div>
             </div>
           </div>
@@ -76,7 +76,7 @@ import { collectionPageSchema } from "../lib/seo";
       <p class="eyebrow">Badge catalogue</p>
       <div class="mt-6 flex flex-wrap gap-2">
         {network.badges.map((badge) => (
-          <span class="rounded border border-[var(--line)] bg-[var(--surface-2)] px-3 py-2 text-sm font-bold">{badge}</span>
+          <span class="rounded border border-[var(--line)] bg-[var(--bg-elevated)] px-3 py-2 text-sm font-bold">{badge}</span>
         ))}
       </div>
       <p class="mt-6 text-sm leading-6 text-[var(--muted)]">More badges increase match priority. Badges are earned through sandbox tasks, not manual founder screening.</p>

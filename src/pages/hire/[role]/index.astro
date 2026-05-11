@@ -55,7 +55,7 @@ function cityPath(city: City): string {
     <div class="mt-8 grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
       <div>
         <p class="eyebrow">Programmatic city hiring</p>
-        <h1 class="mt-4 text-5xl font-black leading-tight md:text-6xl">Hire {role.title} — New Zealand and Australia cities</h1>
+        <h1 class="mt-4 text-5xl font-medium leading-tight md:text-6xl">Hire {role.title} — New Zealand and Australia cities</h1>
         <p class="mt-6 text-xl leading-8 text-[var(--muted)]">
           {role.summary} tenX keeps the city pages focused on verified AI delivery evidence, market salary guidance, and local candidate availability so employers can compare where to source {role.shortTitle}.
         </p>
@@ -68,7 +68,7 @@ function cityPath(city: City): string {
 
       <aside class="panel p-6 md:p-8">
         <p class="eyebrow">Role signals</p>
-        <h2 class="mt-3 text-2xl font-black">Filter by skills and tenX badges.</h2>
+        <h2 class="mt-3 text-2xl font-medium">Filter by skills and tenX badges.</h2>
         <p class="mt-4 leading-7 text-[var(--muted)]">
           Each city page combines this role profile with local market context, salary multipliers, and employer availability. Use the links below to inspect the best-fit city page before posting a role.
         </p>
@@ -76,7 +76,7 @@ function cityPath(city: City): string {
           <h3 class="mono text-sm font-bold text-[var(--text)]">Core skills</h3>
           <div class="mt-3 flex flex-wrap gap-3">
             {role.skills.map((skill) => (
-              <span class="rounded-full border border-[var(--line)] bg-[var(--surface-2)] px-4 py-2 text-sm font-bold text-[var(--text)]">{skill}</span>
+              <span class="rounded border border-[var(--line)] bg-[var(--bg-elevated)] px-4 py-2 text-sm font-bold text-[var(--text)]">{skill}</span>
             ))}
           </div>
         </div>
@@ -84,7 +84,7 @@ function cityPath(city: City): string {
           <h3 class="mono text-sm font-bold text-[var(--text)]">Platform badges</h3>
           <div class="mt-3 flex flex-wrap gap-3">
             {role.badges.map((badge) => (
-              <span class="rounded-full border border-[var(--accent)] bg-[color-mix(in_srgb,var(--accent)_12%,transparent)] px-4 py-2 text-sm font-bold text-[var(--text)]">{badge}</span>
+              <span class="rounded border border-[var(--accent)] bg-[color-mix(in_srgb,var(--accent)_12%,transparent)] px-4 py-2 text-sm font-bold text-[var(--text)]">{badge}</span>
             ))}
           </div>
         </div>
@@ -95,13 +95,13 @@ function cityPath(city: City): string {
   <section class="container grid gap-8 pb-16 lg:grid-cols-2 lg:pb-24">
     <div class="panel p-6 md:p-8">
       <p class="eyebrow">Open NZ cities</p>
-      <h2 class="mt-3 text-3xl font-black">Employer access markets</h2>
+      <h2 class="mt-3 text-3xl font-medium">Employer access markets</h2>
       <div class="mt-6 grid gap-4">
         {nzCities.map((city) => (
           <a class="card block p-5 transition hover:border-[var(--accent)]" href={href(cityPath(city))}>
             <div class="flex flex-wrap items-center justify-between gap-3">
-              <h3 class="text-xl font-black">{city.name}</h3>
-              <span class="mono rounded-full border border-[var(--line)] px-3 py-1 text-xs text-[var(--muted)]">Open now</span>
+              <h3 class="text-xl font-medium">{city.name}</h3>
+              <span class="mono rounded border border-[var(--line)] px-3 py-1 text-xs text-[var(--muted)]">Open now</span>
             </div>
             <p class="mt-3 leading-7 text-[var(--muted)]">{city.marketNote}</p>
             <p class="mono mt-4 text-sm text-[var(--faint)]">{city.talentCount} engineers in this discipline</p>
@@ -112,13 +112,13 @@ function cityPath(city: City): string {
 
     <div class="panel p-6 md:p-8">
       <p class="eyebrow">AUS expansion</p>
-      <h2 class="mt-3 text-3xl font-black">Coming-soon cities</h2>
+      <h2 class="mt-3 text-3xl font-medium">Coming-soon cities</h2>
       <div class="mt-6 grid gap-4">
         {auCities.map((city) => (
           <a class="card block p-5 transition hover:border-[var(--accent)]" href={href(cityPath(city))}>
             <div class="flex flex-wrap items-center justify-between gap-3">
-              <h3 class="text-xl font-black">{city.name}</h3>
-              <span class="mono rounded-full border border-[var(--accent)] bg-[color-mix(in_srgb,var(--accent)_12%,transparent)] px-3 py-1 text-xs text-[var(--text)]">June 2026</span>
+              <h3 class="text-xl font-medium">{city.name}</h3>
+              <span class="mono rounded border border-[var(--accent)] bg-[color-mix(in_srgb,var(--accent)_12%,transparent)] px-3 py-1 text-xs text-[var(--text)]">June 2026</span>
             </div>
             <p class="mt-3 leading-7 text-[var(--muted)]">{city.marketNote}</p>
             <p class="mono mt-4 text-sm text-[var(--faint)]">{city.talentCount} engineers in this discipline</p>

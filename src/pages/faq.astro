@@ -64,12 +64,12 @@ const faqs: FaqItem[] = [
   <section class="container section">
     <div class="max-w-3xl">
       <p class="eyebrow">FAQ</p>
-      <h1 class="mt-4 text-5xl font-black leading-tight md:text-6xl">Hiring AI engineers should not require decoding the fine print.</h1>
+      <h1 class="mt-4 text-5xl font-medium leading-tight md:text-6xl">Hiring AI engineers should not require decoding the fine print.</h1>
     </div>
     <div class="mt-10 grid gap-4">
       {faqs.map((faq) => (
         <details class="card p-6">
-          <summary class="cursor-pointer text-xl font-black">{faq.question}</summary>
+          <summary class="cursor-pointer text-xl font-medium">{faq.question}</summary>
           <p class="mt-4 leading-7 text-[var(--muted)]">{faq.answer}</p>
         </details>
       ))}

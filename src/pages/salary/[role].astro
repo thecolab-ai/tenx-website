@@ -30,14 +30,14 @@ const description = `NZ-first salary benchmark for ${role.shortTitle}, with city
   <section class="container section">
     <div class="max-w-4xl">
       <p class="eyebrow">Salary benchmark</p>
-      <h1 class="mt-4 text-5xl font-black leading-tight md:text-6xl">{title}</h1>
+      <h1 class="mt-4 text-5xl font-medium leading-tight md:text-6xl">{title}</h1>
       <p class="mt-6 text-xl leading-8 text-[var(--muted)]">
         Current v1 ranges are directional placeholders for launch planning, updated monthly as the verified network grows.
       </p>
     </div>
   </section>
 
-  <section class="border-y border-[var(--line)] bg-[var(--bg-2)]">
+  <section class="border-y border-[var(--line)] bg-[var(--bg-elevated)]">
     <div class="container grid gap-6 py-12 md:grid-cols-3">
       <div>
         <p class="stat-value">{salaryRangeFor(role)}</p>
@@ -85,15 +85,15 @@ const description = `NZ-first salary benchmark for ${role.shortTitle}, with city
     <div class="grid gap-4 md:grid-cols-3">
       <a class="card p-6 hover:border-[var(--accent)]" href={href(`/hire/${role.slug}`)}>
         <p class="eyebrow">Hiring</p>
-        <h3 class="mt-3 text-xl font-black">Hire {role.shortTitle}</h3>
+        <h3 class="mt-3 text-xl font-medium">Hire {role.shortTitle}</h3>
       </a>
       <a class="card p-6 hover:border-[var(--accent)]" href={href("/pricing")}>
         <p class="eyebrow">Pricing</p>
-        <h3 class="mt-3 text-xl font-black">10% permanent, 20% contractor</h3>
+        <h3 class="mt-3 text-xl font-medium">10% permanent, 20% contractor</h3>
       </a>
       <a class="card p-6 hover:border-[var(--accent)]" href={href("/blog/how-to-hire-an-ai-engineer-in-2026")}>
         <p class="eyebrow">Guide</p>
-        <h3 class="mt-3 text-xl font-black">How to hire an AI engineer in 2026</h3>
+        <h3 class="mt-3 text-xl font-medium">How to hire an AI engineer in 2026</h3>
       </a>
     </div>
   </section>

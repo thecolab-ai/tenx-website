@@ -33,29 +33,137 @@ const groups = [
 ];
 ---
 
-<footer class="border-t border-[var(--line)] bg-[var(--bg-2)]">
-  <div class="container grid gap-10 py-12 lg:grid-cols-[1.2fr_2fr]">
+<footer class="footer-root">
+  <div class="container grid gap-10 footer-grid">
+    <!-- Brand column -->
     <div>
-      <a href={href("/")} class="mono text-2xl font-black leading-none" aria-label="tenX home">
-        ten<span class="text-[var(--accent)]">X</span>
+      <a href={href("/")} aria-label="tenX home" class="logo-wordmark">
+        ten<span class="logo-x">X</span>
       </a>
-      <p class="mt-4 max-w-md text-sm leading-6 text-[var(--muted)]">
+      <p class="footer-tagline">
         AI-verified engineers across Claude, GPT, Gemini, RAG, agents, evals, MLOps, and code-with-AI workflows.
         NZ first. AUS next. Published margins.
       </p>
-      <p class="mono mt-6 text-xs text-[var(--faint)]">© {year} tenX. All rights reserved.</p>
+      <p class="footer-copy">© {year} tenX. All rights reserved.</p>
     </div>
+
+    <!-- Link columns -->
     <div class="grid gap-8 sm:grid-cols-3">
       {groups.map((group) => (
         <div>
-          <h2 class="mono text-sm font-bold text-[var(--text)]">{group.title}</h2>
-          <ul class="mt-4 grid gap-3 text-sm text-[var(--muted)]">
+          <!-- Column header: mono micro uppercase, text-muted -->
+          <p class="footer-col-heading">{group.title}</p>
+          <ul class="mt-4 grid gap-3">
             {group.links.map((link) => (
-              <li><a class="hover:text-[var(--text)]" href={href(link.path)}>{link.label}</a></li>
+              <li><a href={href(link.path)} class="footer-link">{link.label}</a></li>
             ))}
           </ul>
         </div>
       ))}
     </div>
   </div>
+
+  <!-- Bottom row: copyright + theme toggle far-right -->
+  <div class="container footer-bottom">
+    <span class="footer-copy">tenxtalent.ai</span>
+    <!-- Theme toggle moved here from header — mono micro label -->
+    <button type="button" data-theme-toggle aria-label="Toggle light and dark mode" class="theme-toggle">
+      dark / light
+    </button>
+  </div>
 </footer>
+
+<style>
+  .footer-root {
+    background: var(--bg-base);
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 80px;
+    padding-bottom: 48px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 1.2fr 2fr;
+    }
+  }
+
+  .logo-wordmark {
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  .logo-x {
+    color: var(--accent);
+  }
+
+  .footer-tagline {
+    margin-top: 1rem;
+    max-width: 28rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .footer-copy {
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 1.5rem;
+  }
+
+  /* Column headers: mono micro uppercase, text-muted */
+  .footer-col-heading {
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* Links: body-sm, text-secondary → text-primary on hover */
+  .footer-link {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 120ms;
+  }
+
+  .footer-link:hover {
+    color: var(--text-primary);
+  }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  /* Theme toggle — mono micro, subtle, far-right */
+  .theme-toggle {
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px 0;
+    transition: color 120ms;
+  }
+
+  .theme-toggle:hover {
+    color: var(--text-secondary);
+  }
+</style>
