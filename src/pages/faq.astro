@@ -1,0 +1,78 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { faqPageSchema, type FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  {
+    question: "What is tenX?",
+    answer: "tenX is an independent AI engineering network for platform-verified engineers fluent across frontier models and production AI workflows."
+  },
+  {
+    question: "Is tenX only for one model vendor?",
+    answer: "No. tenX is model-agnostic. Engineers can verify skill across Claude, GPT, Gemini, prompt engineering, RAG, agents, evals, MLOps, and code-with-AI."
+  },
+  {
+    question: "Who can apply now?",
+    answer: "Candidate intake is open first, with a New Zealand focus and early Australia expansion. Employers join the waitlist for June 2026 access."
+  },
+  {
+    question: "How are engineers verified?",
+    answer: "Engineers complete self-service platform sandboxes and earn badges for tests passed. More badges increase match priority."
+  },
+  {
+    question: "Does Adam personally interview every engineer?",
+    answer: "No. Verification is platform-based and scalable. Founder calls are not the trust mechanism."
+  },
+  {
+    question: "What does it cost to hire permanent talent?",
+    answer: "Permanent placements are priced at 10% of first-year salary."
+  },
+  {
+    question: "What does it cost to hire contractors?",
+    answer: "Contractors carry a 20% loading on monthly billings."
+  },
+  {
+    question: "How many engineers are in the launch network?",
+    answer: "The launch claim is 100 AI-verified engineers, with placeholder breakdowns updated monthly on the network page."
+  },
+  {
+    question: "When does employer access open?",
+    answer: "Employer access opens in June 2026. The first phase is candidate signup and verification."
+  },
+  {
+    question: "Which geographies are supported?",
+    answer: "New Zealand is first, Australia is second, and US, UK, and EU expansion comes later."
+  },
+  {
+    question: "What roles does tenX support?",
+    answer: "The initial role set includes AI engineer, LLM engineer, MLOps engineer, RAG engineer, forward-deployed engineer, Claude developer, prompt engineer, and applied AI engineer."
+  },
+  {
+    question: "Where do candidates take the sandbox tests?",
+    answer: "The application flow links candidates to https://app.tenxtalent.ai/sandbox. That app is separate from this marketing site."
+  }
+];
+---
+
+<BaseLayout
+  title="FAQ"
+  description="Answers about tenX verification, candidate intake, employer waitlist timing, pricing, and model-agnostic AI engineer badges."
+  path="/faq"
+  breadcrumbs={[{ name: "Home", path: "/" }, { name: "FAQ", path: "/faq" }]}
+  schema={faqPageSchema(faqs)}
+>
+  <section class="container section">
+    <div class="max-w-3xl">
+      <p class="eyebrow">FAQ</p>
+      <h1 class="mt-4 text-5xl font-black leading-tight md:text-6xl">Hiring AI engineers should not require decoding the fine print.</h1>
+    </div>
+    <div class="mt-10 grid gap-4">
+      {faqs.map((faq) => (
+        <details class="card p-6">
+          <summary class="cursor-pointer text-xl font-black">{faq.question}</summary>
+          <p class="mt-4 leading-7 text-[var(--muted)]">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

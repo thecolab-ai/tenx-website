@@ -1,0 +1,93 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { collectionPageSchema } from "../lib/seo";
+
+const rows = [
+  ["tenX", "10% of first-year salary", "20% loading on monthly billings", "Published"],
+  ["Toptal", "Quote-based; platform subscription and deposit are public", "All-in hourly rates; margin not itemised", "Opaque"],
+  ["Turing", "Quote-based", "All-in rates; independent reports cite 50-55% rumoured service margin", "Opaque / rumoured"],
+  ["Andela", "Custom quote", "Hourly or monthly quote by seniority and scope", "Limited"],
+  ["Arc.dev", "Percentage-based full-time hiring fees are commonly referenced", "Broad hourly rate bands", "Partial"]
+];
+---
+
+<BaseLayout
+  title="Transparent AI engineering pricing"
+  description="tenX pricing is published: 10% for permanent placements and 20% contractor loading on monthly billings."
+  path="/pricing"
+  breadcrumbs={[{ name: "Home", path: "/" }, { name: "Pricing", path: "/pricing" }]}
+  schema={collectionPageSchema({
+    title: "tenX pricing",
+    description: "Published pricing for permanent and contract AI engineering hiring.",
+    path: "/pricing"
+  })}
+>
+  <section class="container section">
+    <div class="max-w-4xl">
+      <p class="eyebrow">Pricing</p>
+      <h1 class="mt-4 text-5xl font-black leading-tight md:text-6xl">No 50% margins. No hidden spread.</h1>
+      <p class="mt-6 text-xl leading-8 text-[var(--muted)]">
+        tenX publishes the economics before the first call. Permanent placements are 10% of first-year salary.
+        Contractors carry a 20% loading on monthly billings.
+      </p>
+    </div>
+  </section>
+
+  <section class="container grid gap-6 pb-16 md:grid-cols-2">
+    <article class="panel p-8">
+      <p class="eyebrow">Permanent</p>
+      <p class="stat-value mt-5">10%</p>
+      <h2 class="mt-5 text-3xl font-black">of first-year salary</h2>
+      <p class="mt-4 leading-7 text-[var(--muted)]">
+        One placement fee when you hire. Simple enough to model before you speak to anyone.
+      </p>
+    </article>
+    <article class="panel p-8">
+      <p class="eyebrow">Contractor</p>
+      <p class="stat-value mt-5">20%</p>
+      <h2 class="mt-5 text-3xl font-black">loading on monthly billings</h2>
+      <p class="mt-4 leading-7 text-[var(--muted)]">
+        The contractor rate and tenX loading are visible. No hidden platform spread inside a blended number.
+      </p>
+    </article>
+  </section>
+
+  <section class="border-y border-[var(--line)] bg-[var(--bg-2)]">
+    <div class="container py-16">
+      <div class="max-w-3xl">
+        <p class="eyebrow">Comparison</p>
+        <h2 class="mt-4 text-4xl font-black">The disarming move is publishing the margin.</h2>
+        <p class="mt-5 leading-8 text-[var(--muted)]">
+          Competitor pricing changes and should be confirmed directly. The point is visibility: tenX tells you the margin.
+          Several global networks require quote flows or embed platform economics inside hourly rates.
+        </p>
+      </div>
+      <div class="mt-8 overflow-x-auto">
+        <table class="w-full min-w-[760px] border-collapse text-left text-sm">
+          <thead>
+            <tr>
+              <th class="border border-[var(--line)] bg-[var(--surface)] p-4">Network</th>
+              <th class="border border-[var(--line)] bg-[var(--surface)] p-4">Permanent</th>
+              <th class="border border-[var(--line)] bg-[var(--surface)] p-4">Contract</th>
+              <th class="border border-[var(--line)] bg-[var(--surface)] p-4">Margin visibility</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr>
+                {row.map((cell) => <td class="border border-[var(--line)] p-4 align-top">{cell}</td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-5 text-sm leading-6 text-[var(--faint)]">
+        Sources for competitor context: <a class="text-[var(--accent)] underline" href="https://www.toptal.com/faq">Toptal FAQ</a>,
+        <a class="text-[var(--accent)] underline" href="https://www.hireinsouth.com/post/turing-cost-breakdown">South on Turing pricing</a>,
+        <a class="text-[var(--accent)] underline" href="https://andela.com/">Andela</a>, and
+        <a class="text-[var(--accent)] underline" href="https://arc.dev/hire-developers/mobile-app-programming">Arc.dev role pages</a>.
+        Rumoured margins are labelled as rumoured, not official disclosures.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

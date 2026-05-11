@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { collectionPageSchema } from "../lib/seo";
+---
+
+<BaseLayout
+  title="About tenX"
+  description="tenX is an independent AI engineering network founded by Adam Holt in New Zealand."
+  path="/about"
+  breadcrumbs={[{ name: "Home", path: "/" }, { name: "About", path: "/about" }]}
+  schema={collectionPageSchema({
+    title: "About tenX",
+    description: "Founder and company context for tenX.",
+    path: "/about"
+  })}
+>
+  <section class="container section">
+    <div class="max-w-3xl">
+      <p class="eyebrow">About</p>
+      <h1 class="mt-4 text-5xl font-black leading-tight md:text-6xl">Built in New Zealand for the AI engineering market that actually exists now.</h1>
+      <div class="prose-tenx mt-8">
+        <p>
+          tenX is an independent AI engineering network founded by Adam Holt. Adam has built and led engineering teams in New Zealand and has worked at the edge of product, automation, and AI adoption as the frontier-model stack moved from demos into operating systems.
+        </p>
+        <p>
+          The premise is direct: AI hiring needs evidence that maps to the work. A resume saying "AI" is too soft. A platform badge earned in a sandbox is stronger. A candidate who can compare Claude, GPT, and Gemini is more useful than one trained to worship a single vendor.
+        </p>
+        <p>
+          tenX starts with candidates, then opens employer access in June 2026. The launch network is NZ-first, with AUS expansion next.
+        </p>
+      </div>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a class="button button-primary" href="/apply">Apply as an engineer</a>
+        <a class="button button-secondary" href="/network">View network</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Application received"
+  description="Your tenX application has been received. Next step: complete a sandbox test."
+  path="/apply/success"
+  breadcrumbs={[{ name: "Home", path: "/" }, { name: "Apply", path: "/apply" }, { name: "Success", path: "/apply/success" }]}
+>
+  <section class="container section">
+    <div class="panel max-w-3xl p-8 md:p-10">
+      <p class="eyebrow">Application received</p>
+      <h1 class="mt-4 text-5xl font-black leading-tight">Next: take a sandbox test.</h1>
+      <p class="mt-5 text-xl leading-8 text-[var(--muted)]">
+        Your profile is in the candidate intake queue. The next signal is badge evidence from a platform sandbox.
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a class="button button-primary" href="https://app.tenxtalent.ai/sandbox">Open sandbox</a>
+        <a class="button button-secondary" href="/network">See badge breakdown</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,78 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { jobPostingSchema } from "../../lib/seo";
+
+const skills = [
+  "Claude fluency",
+  "GPT fluency",
+  "Gemini fluency",
+  "Prompt engineering",
+  "RAG",
+  "Agent design",
+  "Evals",
+  "MLOps",
+  "Code-with-AI"
+];
+---
+
+<BaseLayout
+  title="Apply as an AI engineer"
+  description="Apply to join the tenX AI-verified engineering network. Candidate intake is open now for NZ and early AUS engineers."
+  path="/apply"
+  breadcrumbs={[{ name: "Home", path: "/" }, { name: "Apply", path: "/apply" }]}
+  schema={jobPostingSchema({
+    title: "AI-verified engineer network application",
+    description: "Apply to join the tenX network and verify AI engineering skills through model and stack sandboxes.",
+    path: "/apply"
+  })}
+>
+  <section class="container grid gap-10 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:py-24">
+    <div>
+      <p class="eyebrow">Candidate intake open</p>
+      <h1 class="mt-4 text-5xl font-black leading-tight md:text-6xl">Apply once. Verify in the sandbox. Get prioritised by proof.</h1>
+      <p class="mt-6 text-xl leading-8 text-[var(--muted)]">
+        tenX is building the NZ-first network of AI-verified engineers. The first employer wave opens in June 2026.
+      </p>
+      <div class="mt-8 grid gap-3">
+        {["Platform skill tests", "Badges across Claude, GPT, Gemini, RAG, agents, evals, MLOps", "Higher match priority for stronger evidence"].map((item) => (
+          <div class="card p-4 font-bold">{item}</div>
+        ))}
+      </div>
+    </div>
+
+    <form class="panel grid gap-5 p-6 md:p-8" method="post" action="/api/apply">
+      <input type="hidden" name="source" value="tenx-website-apply" />
+      <label class="label">
+        Full name
+        <input class="input" name="name" autocomplete="name" required />
+      </label>
+      <label class="label">
+        Email
+        <input class="input" name="email" type="email" autocomplete="email" required />
+      </label>
+      <label class="label">
+        LinkedIn URL
+        <input class="input" name="linkedin" type="url" inputmode="url" placeholder="https://www.linkedin.com/in/..." required />
+      </label>
+      <label class="label">
+        NZ phone
+        <input class="input" name="phone" type="tel" autocomplete="tel" placeholder="+64 ..." required />
+      </label>
+      <label class="label">
+        Current role
+        <input class="input" name="current_role" placeholder="Senior software engineer, ML engineer, founder..." required />
+      </label>
+      <label class="label">
+        Primary AI skill
+        <select class="select" name="primary_ai_skill" required>
+          <option value="">Select one</option>
+          {skills.map((skill) => <option value={skill}>{skill}</option>)}
+        </select>
+      </label>
+      <button class="button button-primary" type="submit">Apply as an engineer</button>
+      <p class="text-sm leading-6 text-[var(--faint)]">
+        Next step after applying: take a sandbox test at app.tenxtalent.ai. The form endpoint is stubbed for Adam to wire.
+      </p>
+    </form>
+  </section>
+</BaseLayout>

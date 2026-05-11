@@ -1,0 +1,73 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { collectionPageSchema } from "../../lib/seo";
+import roles from "../../data/roles.json";
+---
+
+<BaseLayout
+  title="Hire AI-verified engineers"
+  description="Join the tenX employer waitlist. Network opens to employers in June 2026 with 100 AI-verified engineers."
+  path="/hire"
+  breadcrumbs={[{ name: "Home", path: "/" }, { name: "Hire", path: "/hire" }]}
+  schema={collectionPageSchema({
+    title: "Hire AI-verified engineers",
+    description: "Employer waitlist for tenX AI-verified engineers.",
+    path: "/hire"
+  })}
+>
+  <section class="container grid gap-10 py-16 lg:grid-cols-[0.95fr_1.05fr] lg:py-24">
+    <div>
+      <p class="eyebrow">Employer waitlist</p>
+      <h1 class="mt-4 text-5xl font-black leading-tight md:text-6xl">AI-verified engineers ready in days.</h1>
+      <p class="mt-6 text-xl leading-8 text-[var(--muted)]">
+        Network opening to employers in June 2026. Join the waitlist now and get early access to 100 verified engineers across AI product, LLM, RAG, MLOps, and forward-deployed roles.
+      </p>
+      <div class="mt-8 grid gap-3 sm:grid-cols-2">
+        <div class="card p-5">
+          <p class="stat-value">10%</p>
+          <p class="mt-2 text-sm text-[var(--muted)]">permanent placements</p>
+        </div>
+        <div class="card p-5">
+          <p class="stat-value">20%</p>
+          <p class="mt-2 text-sm text-[var(--muted)]">contractor loading</p>
+        </div>
+      </div>
+    </div>
+
+    <form class="panel grid gap-5 p-6 md:p-8" method="post" action="/api/hire">
+      <input type="hidden" name="source" value="tenx-website-hire" />
+      <label class="label">
+        Work email
+        <input class="input" name="email" type="email" autocomplete="email" required />
+      </label>
+      <label class="label">
+        Company
+        <input class="input" name="company" autocomplete="organization" required />
+      </label>
+      <label class="label">
+        Hiring need
+        <select class="select" name="role" required>
+          <option value="">Select role</option>
+          {roles.map((role) => <option value={role.slug}>{role.title}</option>)}
+        </select>
+      </label>
+      <label class="label">
+        Target start
+        <select class="select" name="target_start" required>
+          <option>June 2026</option>
+          <option>July 2026</option>
+          <option>Q3 2026</option>
+          <option>Exploring only</option>
+        </select>
+      </label>
+      <label class="label">
+        Notes
+        <textarea class="textarea" name="notes" placeholder="Stack, model vendors, location, budget, contract or permanent..."></textarea>
+      </label>
+      <button class="button button-primary" type="submit">Join employer waitlist</button>
+      <p class="text-sm leading-6 text-[var(--faint)]">
+        Soft-gated for launch: candidates first, employers in June 2026.
+      </p>
+    </form>
+  </section>
+</BaseLayout>

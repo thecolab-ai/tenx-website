@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import network from "../data/network.json";
+import { collectionPageSchema } from "../lib/seo";
+---
+
+<BaseLayout
+  title="100 AI-verified engineers"
+  description="The tenX launch network: 100 AI-verified engineers with badges across Claude, GPT, Gemini, RAG, agents, evals, MLOps, and code-with-AI."
+  path="/network"
+  breadcrumbs={[{ name: "Home", path: "/" }, { name: "Network", path: "/network" }]}
+  schema={collectionPageSchema({
+    title: "tenX verified AI engineering network",
+    description: "Badge and geography breakdown for the tenX launch network.",
+    path: "/network"
+  })}
+>
+  <section class="container section">
+    <div class="max-w-4xl">
+      <p class="eyebrow">Network</p>
+      <h1 class="mt-4 text-5xl font-black leading-tight md:text-6xl">100 AI-verified engineers. Here is what they are certified in.</h1>
+      <p class="mt-6 text-xl leading-8 text-[var(--muted)]">
+        Placeholder launch-network numbers, updated monthly. NZ is live first; AUS intake is open ahead of employer access in June 2026.
+      </p>
+    </div>
+  </section>
+
+  <section class="border-y border-[var(--line)] bg-[var(--bg-2)]">
+    <div class="container grid gap-6 py-10 sm:grid-cols-3">
+      <div>
+        <p class="stat-value">{network.totalVerified}</p>
+        <p class="mt-2 text-sm text-[var(--muted)]">verified engineers</p>
+      </div>
+      <div>
+        <p class="stat-value">{network.geography[0].count}</p>
+        <p class="mt-2 text-sm text-[var(--muted)]">New Zealand engineers</p>
+      </div>
+      <div>
+        <p class="stat-value">{network.geography[1].count}</p>
+        <p class="mt-2 text-sm text-[var(--muted)]">Australia engineers</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section grid gap-8 lg:grid-cols-3">
+    <div class="panel p-6">
+      <p class="eyebrow">Model fluency</p>
+      <div class="mt-6 grid gap-4">
+        {network.modelFluency.map((item) => (
+          <div>
+            <div class="flex justify-between gap-4 text-sm">
+              <span class="font-bold">{item.label}</span>
+              <span class="mono text-[var(--accent)]">{item.count}</span>
+            </div>
+            <div class="mt-2 h-2 rounded bg-[var(--surface-2)]">
+              <div class="h-2 rounded bg-[var(--accent)]" style={`width: ${item.count}%`}></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="panel p-6">
+      <p class="eyebrow">Role breakdown</p>
+      <div class="mt-6 grid gap-4">
+        {network.roleBreakdown.map((item) => (
+          <div class="flex items-center justify-between border-b border-[var(--line)] pb-3">
+            <span class="font-bold">{item.label}</span>
+            <span class="mono text-[var(--accent)]">{item.count}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="panel p-6">
+      <p class="eyebrow">Badge catalogue</p>
+      <div class="mt-6 flex flex-wrap gap-2">
+        {network.badges.map((badge) => (
+          <span class="rounded border border-[var(--line)] bg-[var(--surface-2)] px-3 py-2 text-sm font-bold">{badge}</span>
+        ))}
+      </div>
+      <p class="mt-6 text-sm leading-6 text-[var(--muted)]">More badges increase match priority. Badges are earned through sandbox tasks, not manual founder screening.</p>
+    </div>
+  </section>
+</BaseLayout>
