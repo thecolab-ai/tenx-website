@@ -1,13 +1,13 @@
 ---
 title: "How tenX verifies AI engineers (without a phone screen)"
-description: "tenX verifies AI engineers through self-service sandbox tests across Claude, GPT, and Gemini. No founder gatekeeping. No warm introductions. Badges earned by evidence."
+description: "tenX verifies AI engineers through self-service sandbox tests across Claude, OpenAI, and Google. No founder gatekeeping. No warm introductions. Badges earned by evidence."
 pubDate: 2026-05-12
 author: "tenX editorial"
 faqs:
   - question: "Does tenX do any human screening?"
     answer: "The initial verification is entirely platform-based: sandbox tests, badge outcomes, and LinkedIn/phone checks. No tenX staff call is in the verification path. Once matched, employers run their own interviews — the badge stack means those conversations can skip basic skill discovery and focus on domain fit, architecture, and team context."
   - question: "How long do the tests take?"
-    answer: "Each badge test takes 30 to 90 minutes depending on the stack area. Model fluency tests (Claude, GPT, Gemini) sit at the shorter end. RAG, evals, and agent design tests run longer because they involve building and explaining a working system, not just answering questions about one."
+    answer: "Each badge test takes 30 to 90 minutes depending on the stack area. Model fluency tests (Claude, OpenAI, Google) sit at the shorter end. RAG, evals, and agent design tests run longer because they involve building and explaining a working system, not just answering questions about one."
   - question: "Are the badges public?"
     answer: "Visible to employers browsing the network and to any employer matched to a candidate. Not a public social profile — badges are scoped to the tenX platform and the hiring context. Engineers can see their own badge stack and track what they've passed."
   - question: "What happens if I fail a test?"
@@ -18,7 +18,7 @@ faqs:
 
 import { href } from "../../lib/href";
 
-tenX verifies AI engineers through self-service sandbox tests, not founder calls. Engineers apply, complete bounded tasks in a sandbox environment, and earn badges per stack area — Claude fluency, GPT fluency, Gemini fluency, prompt engineering, RAG, agent design, evals, MLOps, code-with-AI. No one is on the other end of the test. The badge is the evidence. Employers see the badge stack when they browse the network or receive a matched shortlist.
+tenX verifies AI engineers through self-service sandbox tests, not founder calls. Engineers apply, complete bounded tasks in a sandbox environment, and earn badges per stack area — Claude fluency, OpenAI fluency, Google fluency, prompt engineering, RAG, agent design, evals, MLOps, code-with-AI. No one is on the other end of the test. The badge is the evidence. Employers see the badge stack when they browse the network or receive a matched shortlist.
 
 ## The problem with founder gatekeeping
 
@@ -44,7 +44,7 @@ There are no warm introductions, no discretionary calls in the verification path
 
 The tests are structured tasks, not multiple-choice questions. Here is what each major badge area actually requires.
 
-**Model fluency (Claude, GPT, Gemini).** The engineer completes API-based tasks using that model: structured output generation, tool use patterns, instruction adherence under constraint, and handling of model-specific failure modes. For Claude, this includes long-context and tool-calling behaviour. For GPT, structured output schema compliance and routing decisions. For Gemini, multimodal and long-context patterns where relevant. Passing means the engineer can operate against the model's actual API, not just describe what it does.
+**Model fluency (Claude, OpenAI, Google).** The engineer completes API-based tasks using that model: structured output generation, tool use patterns, instruction adherence under constraint, and handling of model-specific failure modes. For Claude, this includes long-context and tool-calling behaviour. For OpenAI, structured output schema compliance and routing decisions. For Google, multimodal and long-context patterns where relevant. Passing means the engineer can operate against the model's actual API, not just describe what it does.
 
 **RAG.** Build a minimal retrieval pipeline from a described specification. Explain the chunking decisions — chunk size, overlap, splitting strategy — and the reasoning behind them. Evaluate retrieval quality against a set of test queries. Explain what a bad retrieval result looks like and how you would diagnose it. The test is not asking whether the engineer can string LangChain calls together. It is asking whether they understand the tradeoffs that determine whether a retrieval system is useful in production.
 

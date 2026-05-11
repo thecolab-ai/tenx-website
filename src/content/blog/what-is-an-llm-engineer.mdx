@@ -9,9 +9,9 @@ faqs:
   - question: "Is an LLM engineer the same as an AI engineer?"
     answer: "Mostly. LLM engineer is the narrower term, referring specifically to engineers who work with language models. AI engineer is broader and can include computer vision, audio, and other modalities. In practice the terms overlap significantly in 2026 hiring."
   - question: "What models should an LLM engineer know?"
-    answer: "A strong LLM engineer should be fluent across Claude, GPT, and Gemini — understanding their different context windows, pricing, tool use APIs, structured output behaviour, and failure modes. Knowing only one model is a real professional liability in 2026."
+    answer: "A strong LLM engineer should be fluent across Claude, OpenAI, and Google — understanding their different context windows, pricing, tool use APIs, structured output behaviour, and failure modes. Knowing only one model is a real professional liability in 2026."
   - question: "How does tenX verify LLM engineers?"
-    answer: "tenX uses self-service platform sandboxes. LLM engineers earn badges for tests passed across Claude fluency, GPT fluency, Gemini fluency, prompt engineering, RAG, agent design, and evals. Badges are visible to employers and increase match priority."
+    answer: "tenX uses self-service platform sandboxes. LLM engineers earn badges for tests passed across Claude fluency, OpenAI fluency, Google fluency, prompt engineering, RAG, agent design, and evals. Badges are visible to employers and increase match priority."
   - question: "What salary does an LLM engineer earn in New Zealand?"
     answer: "As of May 2026, senior LLM engineers in New Zealand earn between NZD 140,000 and NZD 200,000 on permanents, depending on depth of production AI experience and model breadth. Auckland commands the top of the band."
 ---
@@ -28,7 +28,7 @@ The output of an LLM engineer is not a model — it is a system that uses a mode
 - **Agent systems**: multi-step AI workflows where the model selects and uses tools, interprets results, and makes decisions. The engineer controls the tool boundary, the loop logic, failure handling, and human override paths.
 - **Evals harnesses**: infrastructure to measure whether a model-based feature is working. This includes defining quality metrics, sampling outputs, running comparison sets, and flagging regressions when models or prompts change.
 - **Prompt systems**: structured prompt architecture for production use — not single prompts, but versioned, templated, and monitored prompt layers that can be updated without breaking the application.
-- **Model routing layers**: logic that sends requests to different models or configurations based on task type, cost, latency, or quality constraints. A senior LLM engineer can design a routing system across Claude, GPT, and Gemini that degrades gracefully when one provider has an incident.
+- **Model routing layers**: logic that sends requests to different models or configurations based on task type, cost, latency, or quality constraints. A senior LLM engineer can design a routing system across Claude, OpenAI, and Google that degrades gracefully when one provider has an incident.
 - **Code-with-AI tooling**: internal tools that help engineering teams use AI coding assistants safely — reviewing AI-generated diffs, setting review criteria, and keeping the codebase coherent as AI-assisted changes accumulate.
 
 ## How LLM engineering differs from ML engineering
@@ -55,19 +55,19 @@ These are not research questions. They are engineering questions about a product
 
 ## Model fluency: why knowing one model is not enough
 
-In 2025 and into 2026, the landscape of capable frontier models expanded significantly. Claude (Sonnet and Opus), GPT (4 and 5 class), and Gemini 2.5 are all capable of the same broad task types, but they differ in context window behaviour, tool use APIs, structured output reliability, cost per token, latency profiles, and specific failure modes.
+In 2025 and into 2026, the landscape of capable frontier models expanded significantly. Claude, OpenAI, and Google models are all capable of the same broad task types, but they differ in context window behaviour, tool use APIs, structured output reliability, cost per token, latency profiles, and specific failure modes.
 
 An LLM engineer who only knows one model is making an architectural bet that could be expensive to reverse. When OpenAI changes pricing, Anthropic ships a new capability, or Google offers better performance on a specific use case, a model-agnostic engineer can respond. An engineer who has only worked in one API cannot.
 
-This is why tenX verifies LLM engineers across Claude, GPT, and Gemini through sandbox evaluations. The specific tasks test whether the engineer can use each model's actual capabilities — tool use on Claude, structured outputs on GPT, long-context reasoning on Gemini — not just whether they can call an API.
+This is why tenX verifies LLM engineers across Claude, OpenAI, and Google through sandbox evaluations. The specific tasks test whether the engineer can use each model's actual capabilities — tool use on Claude, structured outputs on OpenAI, long-context reasoning on Google — not just whether they can call an API.
 
-The phrase "fluent across Claude, GPT, Gemini" is a shorthand for this: the engineer can compare models against the task, explain the tradeoffs, and build systems that are not locked to a single provider.
+The phrase "fluent across Claude, OpenAI, Google" is a shorthand for this: the engineer can compare models against the task, explain the tradeoffs, and build systems that are not locked to a single provider.
 
 ## The skills a verified LLM engineer has
 
 Based on the tenX badge catalogue and the current <a href={href("/network")}>verified network</a>, the skills that matter most for LLM engineering in 2026 are:
 
-**Model fluency** — Demonstrated ability to use Claude, GPT, and Gemini for production tasks. Not just API calls, but understanding context window limits, grounding behaviour, tool use reliability, and output stability.
+**Model fluency** — Demonstrated ability to use Claude, OpenAI, and Google for production tasks. Not just API calls, but understanding context window limits, grounding behaviour, tool use reliability, and output stability.
 
 **Prompt engineering** — Structured prompt design: system prompts, few-shot examples, chain-of-thought scaffolding, and instruction formatting. This is not creative writing. It is software design for a probabilistic interface.
 
@@ -93,7 +93,7 @@ If you are hiring an LLM engineer, the clearest first step is to define the prod
 
 Verify for production skills, not prompting performance. A candidate who can write a clever prompt in 20 minutes but cannot describe an eval harness, a retrieval quality metric, or a cost model is not ready for a senior LLM engineering role.
 
-Assess model breadth. Ask the candidate to compare Claude and GPT for a specific use case. Ask what they would do differently on Gemini. The answers reveal real fluency versus surface familiarity.
+Assess model breadth. Ask the candidate to compare Claude and OpenAI for a specific use case. Ask what they would do differently on Google. The answers reveal real fluency versus surface familiarity.
 
 The <a href={href("/hire/llm-engineer")}>tenX LLM engineer hub</a> lists verified engineers with sandbox-earned badges for each skill area. Employers can filter by badge profile, geography, and availability. The network claim is 100 AI-verified engineers across NZ and Australia as of May 2026, growing weekly through the June 2026 employer intake.
 

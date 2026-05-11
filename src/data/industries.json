@@ -6,7 +6,7 @@
     "summary": "Fintech AI engineers ship systems for payments, risk, credit, compliance review, and document-heavy operations. The work needs evals, audit trails, latency controls, and model choices that stand up to regulators and finance teams.",
     "useCases": ["payment automation", "fraud detection", "regulatory AI", "credit scoring", "document extraction"],
     "relevantRoles": ["llm-engineer", "ai-engineer", "mlops-engineer"],
-    "relevantBadges": ["evals", "GPT fluency", "Claude fluency", "RAG"]
+    "relevantBadges": ["evals", "OpenAI fluency", "Claude fluency", "RAG"]
   },
   {
     "slug": "healthtech",
@@ -15,7 +15,7 @@
     "summary": "Healthtech AI engineers build clinical-adjacent workflows for intake, coding, summarisation, prior authorisation, and patient operations. The work needs privacy-aware data handling, human review, and evals that catch unsafe output before release.",
     "useCases": ["clinical summarisation", "prior authorisation", "medical coding", "patient intake", "privacy-aware RAG"],
     "relevantRoles": ["llm-engineer", "ai-engineer", "rag-engineer", "mlops-engineer"],
-    "relevantBadges": ["evals", "RAG", "Claude fluency", "GPT fluency", "MLOps"]
+    "relevantBadges": ["evals", "RAG", "Claude fluency", "OpenAI fluency", "MLOps"]
   },
   {
     "slug": "saas",
@@ -24,7 +24,7 @@
     "summary": "SaaS AI engineers turn product usage, support tickets, docs, and account data into model-backed workflows customers can use inside the product. The work needs clean integration, evals, permission boundaries, and cost control per tenant.",
     "useCases": ["support automation", "product copilot", "usage analytics", "sales workflow automation", "customer data RAG"],
     "relevantRoles": ["applied-ai-engineer", "ai-engineer", "llm-engineer", "forward-deployed-engineer"],
-    "relevantBadges": ["code-with-AI", "agent design", "GPT fluency", "Claude fluency", "evals"]
+    "relevantBadges": ["code-with-AI", "agent design", "OpenAI fluency", "Claude fluency", "evals"]
   },
   {
     "slug": "govtech",
@@ -33,6 +33,6 @@
     "summary": "Govtech AI engineers work on case management, citizen service, policy search, document workflows, and legacy system integration. The work needs accessible UX, human review, procurement-safe architecture, and audit trails for public-sector teams.",
     "useCases": ["policy search", "case triage", "citizen service workflows", "legacy integration", "document review"],
     "relevantRoles": ["forward-deployed-engineer", "rag-engineer", "ai-engineer", "mlops-engineer"],
-    "relevantBadges": ["RAG", "evals", "Gemini fluency", "Claude fluency", "MLOps"]
+    "relevantBadges": ["RAG", "evals", "Google fluency", "Claude fluency", "MLOps"]
   }
 ]

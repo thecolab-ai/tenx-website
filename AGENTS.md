@@ -25,7 +25,7 @@ If a task crosses both (e.g. "write 5 new role hub pages"), Claude drafts the co
 - **Brand name:** tenX (not "10x", not "tenxtalent" — the domain is the URL, not the name).
 - **Domain:** tenxtalent.ai (live). Site currently deploys to `https://thecolab-ai.github.io/tenx-website/` until DNS is wired.
 - **Independent brand.** No mention of TheColab on the site. No cross-linking, no "by TheColab" framing.
-- **Model-agnostic positioning.** Hero is "AI-verified engineers. Fluent across Claude, GPT, Gemini. Hired in days." Never lead with "Anthropic-credentialed".
+- **Model-agnostic positioning.** Hero is "AI-verified engineers. Fluent across Claude, OpenAI, Google. Hired in days." Never lead with "Anthropic-credentialed".
 - **Pricing published:** 10% perm / 20% contractor loading. Always specific numbers.
 - **Candidate-first launch.** Primary CTA: "Apply as an engineer" → /apply. Secondary: "Hire engineers" → /hire (waitlist soft-gate).
 - **Network claim at launch:** 100 AI-verified engineers.

@@ -18,7 +18,7 @@ export function getStaticPaths() {
 const { industry } = Astro.props;
 const path = `/hire/${industry.slug}`;
 const title = `Hire AI engineers for ${industry.title} | tenX`;
-const description = `Hire AI-verified engineers for ${industry.shortTitle}. tenX maps ${industry.useCases.slice(0, 3).join(", ")} work to sandbox badges, role fit, and shortlists across Claude, GPT, and Gemini.`;
+const description = `Hire AI-verified engineers for ${industry.shortTitle}. tenX maps ${industry.useCases.slice(0, 3).join(", ")} work to sandbox badges, role fit, and shortlists across Claude, OpenAI, and Google.`;
 const heroIndustry = industry.slug === "saas" ? "SaaS" : industry.slug;
 const roles = industry.relevantRoles.map((roleSlug) => getRole(roleSlug));
 const breadcrumbs = [
@@ -134,7 +134,7 @@ function rolePath(role: Role): string {
       <p class="eyebrow">Badge fit</p>
       <h2 class="mt-3 text-3xl font-medium">Signals to check for {industry.title} work.</h2>
       <p class="mt-4 leading-7 text-[var(--text-secondary)]">
-        Badges are earned in sandbox tests. For {industry.shortTitle}, these signals are the fastest way to separate demo fluency from engineers who can ship with Claude, GPT, Gemini, retrieval, evals, and production controls.
+        Badges are earned in sandbox tests. For {industry.shortTitle}, these signals are the fastest way to separate demo fluency from engineers who can ship with Claude, OpenAI, Google, retrieval, evals, and production controls.
       </p>
       <div class="mt-6 flex flex-wrap gap-3">
         {industry.relevantBadges.map((badge) => (

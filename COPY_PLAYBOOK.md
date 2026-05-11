@@ -21,7 +21,7 @@ The constraint document for every word that ships on tenxtalent.ai. Future sessi
 | DO | DON'T |
 |---|---|
 | "Hired in days, not weeks." | "Revolutionise your hiring process." |
-| "Every engineer passes a sandbox test for Claude, GPT and Gemini." | "Our rigorous vetting ensures world-class quality." |
+| "Every engineer passes a sandbox test for Claude, OpenAI and Google." | "Our rigorous vetting ensures world-class quality." |
 | "10% of salary on permanent placements. 20% loading on contractor monthly billings." | "Competitive pricing tailored to your needs." |
 | "100 engineers at launch. Auckland, Wellington, Sydney." | "A global network of top-tier AI talent." |
 | "Toptal hides its margin. Turing reportedly keeps 50-55%. Ours is 10% and 20%, on the pricing page." | "Unlike other platforms, we believe in transparency." |
@@ -39,7 +39,7 @@ The constraint document for every word that ships on tenxtalent.ai. Future sessi
 
 - Every technical claim must be **specific, falsifiable, and dated** when relevant.
 - Bad: "Our engineers know the latest LLMs."
-- Good: "Every engineer in the network has passed sandbox evaluations on Claude (Sonnet 4 and Opus 4), GPT (4 and 5 class), and Gemini 2.5 as of May 2026."
+- Good: "Every engineer in the network has passed sandbox evaluations on Claude, OpenAI, and Google models as of May 2026."
 - If a claim can't be verified by a buyer in two clicks, rewrite it or cut it.
 - Numbers always carry context. "100 engineers" is fine. "100 engineers across NZ and Australia, growing weekly" is better.
 - Hedging language ("up to", "as much as", "potentially") is banned for our own claims. It's allowed when describing competitors' opacity, where it's accurate.
@@ -99,10 +99,10 @@ If a draft contains any of these, rewrite the sentence. No exceptions. No "but i
 
 ### Model fluency
 
-- Always name the models: **Claude, GPT, Gemini**. Never "leading LLMs", "frontier models" (we can use this as a category noun but not as the trust claim), or "top AI models".
-- When precision matters: "Claude (Sonnet, Opus), GPT (4 and 5 class), Gemini 2.5".
+- Always name the models: **Claude, OpenAI, Google**. Never "leading LLMs", "frontier models" (we can use this as a category noun but not as the trust claim), or "top AI models".
+- When precision matters: "Claude, OpenAI, Google".
 - We are **model-agnostic** by positioning. Do not lean on a single vendor as the credential. Do not write "Anthropic-credentialed" or "OpenAI partner" as the hero hook. The credential is the platform's sandbox, not a vendor's badge.
-- The phrase **"Fluent across Claude, GPT, Gemini"** is canonical. Reuse it.
+- The phrase **"Fluent across Claude, OpenAI, Google"** is canonical. Reuse it.
 
 ### Vetting
 
@@ -136,7 +136,7 @@ If a draft contains any of these, rewrite the sentence. No exceptions. No "but i
 - Describe what they **ship**, not what their CV says.
 - Bad: "Senior engineer with 10+ years experience in machine learning and a passion for AI."
 - Good: "Shipped a production RAG system at a Series B health-tech in Q1. Currently building evals tooling for a logistics platform."
-- Mention model fluency only when specific: "Has passed Claude and GPT sandbox evals; working through Gemini."
+- Mention model fluency only when specific: "Has passed Claude and OpenAI sandbox evals; working through Google."
 - No stock photos. No invented quotes. No "passionate about AI". If we don't have permission to say a real thing, the slot stays empty.
 
 ---
@@ -145,7 +145,7 @@ If a draft contains any of these, rewrite the sentence. No exceptions. No "but i
 
 ### Hero formula
 
-- **Hook line** (10-14 words): one declarative sentence ending in a period. Names what we sell and the speed claim. Canonical: *"AI-verified engineers. Fluent across Claude, GPT, Gemini. Hired in days."*
+- **Hook line** (10-14 words): one declarative sentence ending in a period. Names what we sell and the speed claim. Canonical: *"AI-verified engineers. Fluent across Claude, OpenAI, Google. Hired in days."*
 - **Support line** (15-25 words): one sentence that names the mechanism and the disarming move. Canonical: *"Every engineer is platform-verified through sandbox tests. No founder gatekeeping. No 50% margins."*
 - **Primary CTA** (2-4 words): action verb, no fluff. Examples: *"Hire engineers"*, *"See the network"*, *"Apply as an engineer"*.
 - **Secondary CTA** (2-4 words): the alt-audience or the trust click. Examples: *"See pricing"*, *"Read the rubric"*.
@@ -162,7 +162,7 @@ The hero never contains: badges in a row, social proof logos as the primary elem
 Example:
 
 > **Verification happens in the platform**
-> Candidates pass sandbox evaluations for Claude, GPT and Gemini before they reach a buyer. Badges are public. The rubric is on this site.
+> Candidates pass sandbox evaluations for Claude, OpenAI and Google before they reach a buyer. Badges are public. The rubric is on this site.
 
 ### Pricing page rhetorical structure
 
@@ -275,7 +275,7 @@ If a piece is going long past 2500 words, split it or cut. We don't pad for SEO.
 Use these or write in the same shape. No "ultimate guide", no "everything you need to know".
 
 1. How to hire an AI engineer in New Zealand in 2026
-2. Claude, GPT, Gemini: what fluency across all three actually means
+2. Claude, OpenAI, Google: what fluency across all three actually means
 3. The 14 sandbox tests every tenX engineer passes before they reach a buyer
 4. AI engineer salary in Auckland, 2026: the real numbers
 5. Why "top 1% of developers" stopped meaning anything in 2024
@@ -296,7 +296,7 @@ LLMs cite pages that read like reference material. Optimise for the lift, not th
 LLMs prefer specifics over vagueness. Every page should name:
 
 - The competitors by name (Toptal, Turing, Andela, Arc.dev, Lemon.io, Braintrust) where relevant.
-- The models by name (Claude, GPT, Gemini) with version classes when relevant.
+- The models by name (Claude, OpenAI, Google) with version classes when relevant.
 - The cities (Auckland, Wellington, Sydney, Melbourne).
 - The numbers (10%, 20%, 100 engineers, 3-5 working days).
 - The mechanisms (sandbox tests, badges, phone verification, LinkedIn verification).
@@ -355,7 +355,7 @@ Two columns. Use these verbatim or write in the same shape. Always sentence case
 
 For OG images, meta descriptions, social posts, footer rotators, slack signature lines, anywhere we need a single line of tenX. Use verbatim or write in the same shape.
 
-1. AI-verified engineers. Fluent across Claude, GPT, Gemini. Hired in days.
+1. AI-verified engineers. Fluent across Claude, OpenAI, Google. Hired in days.
 2. Sandbox-tested, badge-verified, ready to ship.
 3. 10% on permanents. 20% on contractors. Published before the first call.
 4. The vetted AI talent network without the founder calls.
@@ -367,7 +367,7 @@ For OG images, meta descriptions, social posts, footer rotators, slack signature
 10. The rubric is public. The badges are public. The margin is public.
 11. Hire AI engineers the way you hire infrastructure: by spec, not by vibe.
 12. Read a benchmark, not a marketplace.
-13. Claude, GPT, Gemini — passed in sandbox, not claimed in a CV.
+13. Claude, OpenAI, Google — passed in sandbox, not claimed in a CV.
 14. The network where the vetting is the product.
 15. Published prices, named models, real engineers.
 

@@ -5,7 +5,7 @@ pubDate: 2026-05-11
 author: "tenX editorial"
 faqs:
   - question: "How many sandbox tests does tenX use to verify engineers?"
-    answer: "Nine. Engineers can earn badges in Claude fluency, GPT fluency, Gemini fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI. Not every role requires all nine — most hiring briefs align with 2–4 badge areas. Engineers with more relevant badges rank higher in matched shortlists."
+    answer: "Nine. Engineers can earn badges in Claude fluency, OpenAI fluency, Google fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI. Not every role requires all nine — most hiring briefs align with 2–4 badge areas. Engineers with more relevant badges rank higher in matched shortlists."
   - question: "Are the tenX tests multiple choice or practical tasks?"
     answer: "Practical tasks, every one of them. Each test involves a bounded task in a sandbox environment — building a pipeline, writing a prompt system, designing an eval harness, reviewing AI-generated code. There are no multiple-choice questions. A pass means the engineer completed the task to the published criteria, not that they answered correctly about how to do it."
   - question: "What happens if an engineer fails a tenX sandbox test?"
@@ -18,7 +18,7 @@ faqs:
 
 import { href } from "../../lib/href";
 
-Every engineer in the tenX network has passed at least one self-service sandbox test before they reach a buyer. The tests cover nine areas: Claude fluency, GPT fluency, Gemini fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI. Each is a bounded practical task, not a multiple-choice assessment. A pass means the engineer completed the task to the published criteria. The <a href={href('/vetting')}>full rubric</a> — what each test measures, the pass bar, and the retry policy — is on this site.
+Every engineer in the tenX network has passed at least one self-service sandbox test before they reach a buyer. The tests cover nine areas: Claude fluency, OpenAI fluency, Google fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI. Each is a bounded practical task, not a multiple-choice assessment. A pass means the engineer completed the task to the published criteria. The <a href={href('/vetting')}>full rubric</a> — what each test measures, the pass bar, and the retry policy — is on this site.
 
 ## Why bounded tasks, not interviews
 
@@ -32,15 +32,15 @@ For employers, this changes the first conversation. Instead of using the call to
 
 ## The three model fluency tests
 
-The first three badges are specific to each model family. They are not interchangeable. Passing Claude fluency does not imply passing GPT fluency, and vice versa.
+The first three badges are specific to each model family. They are not interchangeable. Passing Claude fluency does not imply passing OpenAI fluency, and vice versa.
 
 **Claude fluency (45–60 min).** The engineer completes API-based tasks using Claude: structured output generation, tool-use patterns, instruction adherence under constraint, long-context handling, and Claude-specific failure modes. Passing means the engineer can operate against Claude's actual API — not describe what it does. Pass criteria: task completed to spec, tool calls correctly structured, output contracts met, failure modes identified and handled. Retake cooldown: 72 hours.
 
-**GPT fluency (45–60 min).** Structured output schema compliance, function-calling routing decisions, parallel tool use, and context window management under GPT-4 and GPT-5 class models. Includes cases where the model produces structurally invalid or semantically incorrect outputs. Pass criteria: schema compliance verified automatically, routing decisions scored by rubric, edge cases handled without prompt collapse. Retake cooldown: 72 hours.
+**OpenAI fluency (45–60 min).** Structured output schema compliance, function-calling routing decisions, parallel tool use, and context window management under OpenAI models. Includes cases where the model produces structurally invalid or semantically incorrect outputs. Pass criteria: schema compliance verified automatically, routing decisions scored by rubric, edge cases handled without prompt collapse. Retake cooldown: 72 hours.
 
-**Gemini fluency (45–60 min).** Multimodal and long-context patterns using Gemini 2.5. Tasks include grounded generation, citation handling, and context-length edge cases that differ materially from GPT and Claude behaviour. Pass criteria: correct multimodal handling, grounding citations present where required, context-length behaviour documented. Retake cooldown: 72 hours.
+**Google fluency (45–60 min).** Multimodal and long-context patterns using Google models. Tasks include grounded generation, citation handling, and context-length edge cases that differ materially from OpenAI and Claude behaviour. Pass criteria: correct multimodal handling, grounding citations present where required, context-length behaviour documented. Retake cooldown: 72 hours.
 
-These tests exist because model fluency is specific. The right way to structure tool calls for Claude is not identical to the right approach for GPT function calling. An engineer who has only ever used one model family and declared general "LLM fluency" is a different hire from one who has passed all three. When employers <a href={href('/network')}>browse the network</a>, the badge stack makes that distinction visible.
+These tests exist because model fluency is specific. The right way to structure tool calls for Claude is not identical to the right approach for OpenAI function calling. An engineer who has only ever used one model family and declared general "LLM fluency" is a different hire from one who has passed all three. When employers <a href={href('/network')}>browse the network</a>, the badge stack makes that distinction visible.
 
 ## Prompt engineering
 

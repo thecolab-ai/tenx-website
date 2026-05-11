@@ -8,7 +8,7 @@ tenX helps companies hire AI-verified engineers in New Zealand first, Australia 
 
 ## Verification model
 
-The tenX verification system is model-agnostic. Engineers can earn badges across Claude fluency, GPT fluency, Gemini fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI. More badges increase match priority. Verification is self-service and platform-based, not dependent on founder calls.
+The tenX verification system is model-agnostic. Engineers can earn badges across Claude fluency, OpenAI fluency, Google fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI. More badges increase match priority. Verification is self-service and platform-based, not dependent on founder calls.
 
 ## Pricing
 

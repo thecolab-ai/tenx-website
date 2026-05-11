@@ -7,7 +7,7 @@ faqs:
   - question: "What is the fastest way to hire an AI engineer in 2026?"
     answer: "Define the exact AI workflow, test for production skill in a sandbox, publish the compensation range, and shortlist from verified model-fluent engineers instead of broad software profiles."
   - question: "Which model should an AI engineer know?"
-    answer: "A strong AI engineer should be able to work across Claude, GPT, and Gemini, then explain which model is best for a specific workflow, cost profile, context window, and risk level."
+    answer: "A strong AI engineer should be able to work across Claude, OpenAI, and Google, then explain which model is best for a specific workflow, cost profile, context window, and risk level."
   - question: "Should we hire a permanent AI engineer or a contractor?"
     answer: "Hire permanent when AI becomes core product or platform capability. Use a contractor when the scope is a bounded build, evaluation harness, migration, or proof-to-production bridge."
   - question: "How does tenX verify AI engineers?"
@@ -22,7 +22,7 @@ The failure mode is familiar. A team writes a generic "AI engineer" job descript
 
 AI engineering is not one job. It is a cluster of roles that sit between product engineering, machine learning, data engineering, platform work, and operations. The right hire depends on whether you need a product surface, a retrieval layer, an evaluation harness, a model operations path, an automation system, or a forward-deployed engineer who can translate messy domain work into shipped software.
 
-This guide is written for founders, CTOs, heads of product, and engineering leaders who need a practical process. It assumes you want useful signal fast. It also assumes you are hiring in a market where strong engineers can use Claude, GPT, Gemini, and specialist tooling already, so "has used ChatGPT" is not a meaningful bar.
+This guide is written for founders, CTOs, heads of product, and engineering leaders who need a practical process. It assumes you want useful signal fast. It also assumes you are hiring in a market where strong engineers can use Claude, OpenAI, Google, and specialist tooling already, so "has used OpenAI tools" is not a meaningful bar.
 
 ## Start with the workflow, not the title
 
@@ -38,7 +38,7 @@ If the title still feels fuzzy, write the first ninety days instead. The first t
 
 Most AI demos are cheap. Production AI is expensive in all the places the demo hides: data quality, permission boundaries, latency, hallucination risk, fallbacks, human review, observability, cost, versioning, and product trust.
 
-The interview process needs to test for those constraints. Ask how the engineer would evaluate answer quality. Ask how they would log model inputs and outputs without leaking sensitive data. Ask how they would compare Claude, GPT, and Gemini for a given task. Ask when they would use retrieval instead of fine-tuning. Ask how they would detect drift. Ask which failures deserve a hard stop and which deserve a soft warning.
+The interview process needs to test for those constraints. Ask how the engineer would evaluate answer quality. Ask how they would log model inputs and outputs without leaking sensitive data. Ask how they would compare Claude, OpenAI, and Google for a given task. Ask when they would use retrieval instead of fine-tuning. Ask how they would detect drift. Ask which failures deserve a hard stop and which deserve a soft warning.
 
 The best candidates will not pretend the model is magic. They will talk about contracts, test sets, golden examples, routing, structured outputs, confidence thresholds, review queues, and operational metrics. They will ask who is accountable when the system is wrong. They will care about the product surface around the model, not just the prompt.
 
@@ -48,11 +48,11 @@ This is why tenX uses platform verification rather than founder calls as the tru
 
 In 2026, a serious AI engineer should be model-fluent. That does not mean they know every model release in detail. It means they can choose between model families, explain tradeoffs, and design systems that avoid unnecessary lock-in.
 
-Claude, GPT, and Gemini can all be the right choice depending on the job. One may be better for long-context reasoning in a given workflow. Another may be stronger for tool use, structured outputs, latency, price, ecosystem support, or a specific deployment requirement. The engineer should be able to compare models using actual task results, not brand preference.
+Claude, OpenAI, and Google can all be the right choice depending on the job. One may be better for long-context reasoning in a given workflow. Another may be stronger for tool use, structured outputs, latency, price, ecosystem support, or a specific deployment requirement. The engineer should be able to compare models using actual task results, not brand preference.
 
 Model-agnostic engineering also changes architecture. A brittle system hides model assumptions everywhere: prompt shape, output format, retry logic, evaluation data, observability, and user messaging. A better system isolates model-specific behavior behind adapters, uses explicit output contracts, and measures quality across realistic examples. That does not mean switching models every week. It means the team has leverage when quality, cost, or policy changes.
 
-The hiring implication is simple: ask candidates to reason across models. Give them a task and ask what they would test on Claude, GPT, and Gemini. Ask which evaluation results would change their mind. Ask how they would control context size, cost, and latency. If the candidate cannot move beyond "I prefer this model", the role is probably too broad for them.
+The hiring implication is simple: ask candidates to reason across models. Give them a task and ask what they would test on Claude, OpenAI, and Google. Ask which evaluation results would change their mind. Ask how they would control context size, cost, and latency. If the candidate cannot move beyond "I prefer this model", the role is probably too broad for them.
 
 ## Use sandbox evidence before interviews
 
@@ -62,7 +62,7 @@ Sandbox verification moves basic proof earlier. A good sandbox is not a trivia t
 
 The output should be inspectable. Did the engineer preserve the contract? Did they measure quality? Did they manage edge cases? Did they choose a reasonable model? Did they make the code understandable? Did they identify risks? Did they ship something that could be extended by another engineer?
 
-This is the core reason <a href={href("/network")}>tenX verification</a> is badge-based. Engineers earn badges for tests passed across Claude fluency, GPT fluency, Gemini fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI. More relevant badges increase match priority. The process scales because the platform carries the initial trust signal.
+This is the core reason <a href={href("/network")}>tenX verification</a> is badge-based. Engineers earn badges for tests passed across Claude fluency, OpenAI fluency, Google fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI. More relevant badges increase match priority. The process scales because the platform carries the initial trust signal.
 
 ## Write the role as outcomes and constraints
 
@@ -72,7 +72,7 @@ Use this structure:
 
 1. Business workflow: what should become faster, cheaper, safer, or more scalable?
 2. System surface: internal tool, customer feature, agent workflow, retrieval service, evaluation harness, platform layer, or automation pipeline.
-3. Model expectations: Claude, GPT, Gemini, open models, or vendor-neutral comparison.
+3. Model expectations: Claude, OpenAI, Google, open models, or vendor-neutral comparison.
 4. Data and integration: documents, CRM, tickets, codebase, warehouse, product database, identity system, or third-party APIs.
 5. Risk profile: low-risk drafting, human-in-the-loop decisions, regulated output, customer-visible actions, or automated execution.
 6. Success metrics: time saved, accuracy, adoption, deflection, revenue lift, lower cycle time, or reduced review cost.
@@ -112,7 +112,7 @@ Ask: "We have 120,000 policy documents, many out of date, and support agents nee
 
 Ask: "The model gives correct answers in testing but users do not trust it. What do you change?" A strong candidate will talk about UX, citations, confidence, review, visible reasoning boundaries, and escalation paths.
 
-Ask: "Claude performs better on quality, GPT is cheaper for part of the workflow, and Gemini has a useful context advantage. How do you design the system?" A strong candidate will talk about routing, evals, adapters, latency, fallbacks, and cost monitoring.
+Ask: "Claude performs better on quality, OpenAI is cheaper for part of the workflow, and Google has a useful context advantage. How do you design the system?" A strong candidate will talk about routing, evals, adapters, latency, fallbacks, and cost monitoring.
 
 Ask: "An AI coding tool produced a large diff. What do you review first?" A strong candidate will talk about tests, generated assumptions, security-sensitive code, behaviour changes, and the blast radius of the change.
 
@@ -130,7 +130,7 @@ There is also a category of engineer who is excellent at demos but weak at hando
 
 tenX is designed to remove the softest part of AI hiring: unverified claims. Engineers <a href={href("/apply")}>apply</a>, complete sandboxes, earn badges, and enter the network with a clearer skill profile. Employers join the June 2026 waitlist and hire from a pool that has already produced platform evidence.
 
-The launch network starts with <a href={href("/network")}>100 AI-verified engineers</a>. New Zealand is first. Australia follows. The positioning is intentionally model-agnostic because the best engineer for your workflow may need Claude, GPT, Gemini, or more than one. The trust hook is not a vendor credential. It is multi-vendor fluency, sandbox evidence, and published margins.
+The launch network starts with <a href={href("/network")}>100 AI-verified engineers</a>. New Zealand is first. Australia follows. The positioning is intentionally model-agnostic because the best engineer for your workflow may need Claude, OpenAI, Google, or more than one. The trust hook is not a vendor credential. It is multi-vendor fluency, sandbox evidence, and published margins.
 
 For employers, this means less time spent decoding resumes and more time spent discussing the actual system. For candidates, it means skill proof can compound. Passing more tests increases match priority, which is better than repeating the same introductory call for every opportunity.
 
@@ -148,7 +148,7 @@ Define the exact workflow, verify production skill in a sandbox, publish the bud
 
 ### Which model should an AI engineer know?
 
-The best answer is not one model. Strong AI engineers can compare Claude, GPT, and Gemini against the task, then choose based on quality, latency, cost, context, tooling, and risk.
+The best answer is not one model. Strong AI engineers can compare Claude, OpenAI, and Google against the task, then choose based on quality, latency, cost, context, tooling, and risk.
 
 ### Should we hire permanent or contract?
 

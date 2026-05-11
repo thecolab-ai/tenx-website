@@ -1,7 +1,7 @@
 export const SITE_URL = "https://tenxtalent.ai";
 export const SITE_NAME = "tenX";
 export const DEFAULT_DESCRIPTION =
-  "tenX is the AI-verified engineering network for teams hiring model-fluent builders across Claude, GPT, Gemini, RAG, agents, evals, and MLOps.";
+  "tenX is the AI-verified engineering network for teams hiring model-fluent builders across Claude, OpenAI, Google, RAG, agents, evals, and MLOps.";
 
 export type SchemaObject = Record<string, unknown>;
 

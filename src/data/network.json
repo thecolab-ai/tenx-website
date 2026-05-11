@@ -2,9 +2,9 @@
   "updated": "May 2026",
   "totalVerified": 100,
   "modelFluency": [
-    { "label": "GPT fluency", "count": 84 },
+    { "label": "OpenAI fluency", "count": 84 },
     { "label": "Claude fluency", "count": 77 },
-    { "label": "Gemini fluency", "count": 49 },
+    { "label": "Google fluency", "count": 49 },
     { "label": "Multi-model evals", "count": 42 }
   ],
   "roleBreakdown": [
@@ -21,8 +21,8 @@
   ],
   "badges": [
     "Claude fluency",
-    "GPT fluency",
-    "Gemini fluency",
+    "OpenAI fluency",
+    "Google fluency",
     "Prompt engineering",
     "RAG",
     "Agent design",

@@ -340,7 +340,7 @@ font-size: 12px;
 color: var(--text-secondary);
 
 prefix: 2px circle in accent green (status dot)
-content: "claude-sonnet-4" / "gpt-4o" / "gemini-2.5-pro"
+content: "Claude" / "OpenAI" / "Google"
 ```
 
 **Badges** (status, role tags): mono, 11px, uppercase, letter-spacing 0.06em, padded 2px 6px, border-radius 4px. Variants by tint of background (subtle), text colour drives meaning.
@@ -358,7 +358,7 @@ Left-aligned, never centred. Centred heroes are SaaS templates.
 ```
 [mono micro eyebrow]   // AI-VERIFIED ENGINEERING TALENT
 [display h1]           AI-verified engineers.
-                       Fluent across Claude, GPT, Gemini.
+                       Fluent across Claude, OpenAI, Google.
                        Hired in days.
 [body-lg, --text-secondary, max 60ch]  Supporting line — one sentence, no marketing fluff.
 [CTA row]              [Primary: Hire an engineer] [Secondary: Apply to the network →]
@@ -377,7 +377,7 @@ Numbered steps, 01 / 02 / 03 / 04 in mono micro accent green, h3 title, body-sm 
 
 The honest version of "trusted by". Three formats, in priority order:
 
-1. **Real engineer profiles** — anonymised cards: "Senior backend, ex-Stripe, fluent in Claude + GPT, available 20hr/wk". Mono labels for stack, body for narrative. Rotate 6–9 of these. Updates from real network state.
+1. **Real engineer profiles** — anonymised cards: "Senior backend, ex-Stripe, fluent in Claude + OpenAI, available 20hr/wk". Mono labels for stack, body for narrative. Rotate 6–9 of these. Updates from real network state.
 2. **Stat block** — vetted count, countries, average time-to-hire, % offered through us.
 3. **Logo strip** — only if we have real client logos. If we don't, kill the section. No placeholder logos, ever.
 
