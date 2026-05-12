@@ -84,12 +84,27 @@ const graph = [
       <Footer />
     </div>
     <script is:inline>
-      const toggle = document.querySelector("[data-theme-toggle]");
-      toggle?.addEventListener("click", () => {
-        const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
-        document.documentElement.dataset.theme = next;
-        localStorage.setItem("tenx-theme", next);
+      const toggles = document.querySelectorAll("[data-theme-toggle]");
+      const syncThemeToggles = () => {
+        const isLight = document.documentElement.dataset.theme === "light";
+        toggles.forEach((toggle) => {
+          toggle.setAttribute("aria-pressed", String(isLight));
+          toggle.dataset.themeState = isLight ? "light" : "dark";
+          const label = toggle.querySelector("[data-theme-toggle-label]");
+          if (label) label.textContent = isLight ? "Dark" : "Light";
+        });
+      };
+
+      toggles.forEach((toggle) => {
+        toggle.addEventListener("click", () => {
+          const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+          document.documentElement.dataset.theme = next;
+          localStorage.setItem("tenx-theme", next);
+          syncThemeToggles();
+        });
       });
+
+      syncThemeToggles();
     </script>
   </body>
 </html>
