@@ -31,8 +31,8 @@ const valueProps = [
   },
   {
     eyebrow: "// 02 — AI TOOLS",
-    title: "Engineers who choose the right tool",
-    body: "Claude, OpenAI, and Google all behave differently. tenX highlights engineers who can compare options and ship reliable work."
+    title: "Ship faster. Choose the right tool.",
+    body: "Claude, OpenAI, and Google all behave differently. tenX connects you with engineers who compare options and deliver production-ready work."
   },
   {
     eyebrow: "// 03 — PRICING",
@@ -45,8 +45,8 @@ const modelChips = ["Claude", "OpenAI", "Google"];
 ---
 
 <BaseLayout
-  title="AI-verified engineers. Fluent across Claude, OpenAI, Google."
-  description="tenX is the NZ-first AI engineering network. Verified engineers, published fees, and hiring in days."
+  title="Ship faster with AI-verified engineers. Fluent across Claude, OpenAI, Google."
+  description="tenX multiplies your team's output. AI-verified engineers across Claude, OpenAI, Google. Published fees. Hired in days."
   path="/"
   schema={collectionPageSchema({
     title: "tenX AI engineering network",
@@ -54,27 +54,26 @@ const modelChips = ["Claude", "OpenAI", "Google"];
     path: "/"
   })}
 >
-  <!-- HERO — dense type on flat background, no illustration -->
+  <!-- HERO — dense type, flat background, left-aligned, no illustration -->
   <section class="hero-section">
     <div class="container">
-      <p class="eyebrow">// AI-VERIFIED ENGINEERING TALENT</p>
+      <p class="eyebrow hero-eyebrow">// AI-VERIFIED ENGINEERING TALENT</p>
 
       <h1 class="hero-h1">
-        AI-verified engineers.<br />
-        Fluent across Claude, OpenAI, Google.<br />
-        Hired in days.
+        10x your team's output.<br />
+        <span class="hero-h1-secondary">Verified engineers, fluent across Claude, OpenAI, Google.</span>
       </h1>
 
       <p class="hero-subline">
-        Every engineer is verified with practical skills assessments. Published fees. No hidden marketplace spread.
+        Amplify what your best people do. Every engineer passes practical skills assessments before they reach you. Published fees. Hired in days.
       </p>
 
       <div class="hero-cta-row">
-        <a class="button button-primary" href={href("/apply")}>Apply as an engineer</a>
-        <a class="button button-secondary" href={href("/hire")}>Hire engineers &rarr;</a>
+        <a class="button button-primary hero-cta-primary" href={href("/hire")}>Hire engineers</a>
+        <a class="button button-secondary" href={href("/apply")}>Apply as an engineer &rarr;</a>
       </div>
 
-      <p class="hero-trust">// 10% perm &middot; 20% contractor &middot; pricing on page</p>
+      <p class="hero-trust">// 10% perm &middot; 20% contractor &middot; <a href={href("/pricing")} class="hero-trust-link">pricing on page</a></p>
 
       <div class="hero-chips">
         {modelChips.map((chip) => (
@@ -84,7 +83,7 @@ const modelChips = ["Claude", "OpenAI", "Google"];
     </div>
   </section>
 
-  <!-- STATS — 128px below hero, per section rhythm -->
+  <!-- STATS — clean horizontal rule with numbers -->
   <section class="section section-border">
     <div class="container">
       <div class="stats-grid">
@@ -98,8 +97,27 @@ const modelChips = ["Claude", "OpenAI", "Google"];
     </div>
   </section>
 
-  <!-- BADGE MATRIX — moved below hero -->
-  <section class="section">
+  <!-- VALUE PROPS — what changes when you hire through tenX -->
+  <section class="section section-border-top">
+    <div class="container">
+      <p class="eyebrow">// WHAT CHANGES</p>
+      <h2 class="section-h2" style="margin-top: 1rem; max-width: 36rem;">
+        Ship faster. Know what you're paying before the first call.
+      </h2>
+      <div class="value-grid" style="margin-top: 2.5rem;">
+        {valueProps.map((item) => (
+          <article class="card">
+            <p class="eyebrow">{item.eyebrow}</p>
+            <h3 class="value-title">{item.title}</h3>
+            <p class="value-body">{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BADGE MATRIX -->
+  <section class="section section-border-top">
     <div class="container">
       <p class="eyebrow">// VERIFICATION MATRIX</p>
       <h2 class="section-h2" style="margin-top: 1rem;">Badges earned for practical AI work.</h2>
@@ -118,7 +136,7 @@ const modelChips = ["Claude", "OpenAI", "Google"];
   <section class="section section-border-top">
     <div class="container">
       <p class="eyebrow">// HIRE BY ROLE</p>
-      <h2 class="section-h2" style="margin-top: 1rem;">Hire engineers for the work you need done.</h2>
+      <h2 class="section-h2" style="margin-top: 1rem;">Get the output you need, not just a hire.</h2>
       <div class="roles-grid" style="margin-top: 2.5rem;">
         {allRoles.map((role) => (
           <a class="card roles-card" href={href(`/hire/${role.slug}`)}>
@@ -127,25 +145,6 @@ const modelChips = ["Claude", "OpenAI", "Google"];
             <p class="value-body">{role.summary}</p>
             <p class="roles-link">&rarr; Hire {role.shortTitle}</p>
           </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- VALUE PROPS -->
-  <section class="section section-border-top">
-    <div class="container">
-      <p class="eyebrow">// WHAT CHANGES</p>
-      <h2 class="section-h2" style="margin-top: 1rem; max-width: 42rem;">
-        Hiring AI talent should be clear before the first call.
-      </h2>
-      <div class="value-grid" style="margin-top: 2.5rem;">
-        {valueProps.map((item) => (
-          <article class="card">
-            <p class="eyebrow">{item.eyebrow}</p>
-            <h3 class="value-title">{item.title}</h3>
-            <p class="value-body">{item.body}</p>
-          </article>
         ))}
       </div>
     </div>
@@ -202,69 +201,128 @@ const modelChips = ["Claude", "OpenAI", "Google"];
 </BaseLayout>
 
 <style>
-  /* Hero — flat background, 128px top padding desktop */
+  /* ── Hero ────────────────────────────────────────── */
+
   .hero-section {
     padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-bottom: 5.5rem;
     background: var(--bg-base);
+    border-bottom: 1px solid var(--border-subtle);
   }
 
   @media (min-width: 1024px) {
     .hero-section {
-      padding-top: 8rem;
-      padding-bottom: 8rem;
+      padding-top: 9rem;
+      padding-bottom: 9rem;
     }
   }
 
-  /* Display H1 — weight 500, not bold */
+  /* Pulsing status dot — subtle, stops on reduced-motion */
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .hero-eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: dot-pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-eyebrow::before {
+      animation: none;
+    }
+  }
+
+  @keyframes dot-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.35; }
+  }
+
+  /* Display H1 — weight 500, not bold, tight tracking */
   .hero-h1 {
     font-family: "Inter Display", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
     font-feature-settings: "ss01", "cv11", "ss03";
-    font-size: 2.75rem;
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
     font-weight: 500;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-    margin-top: 1.25rem;
+    letter-spacing: -0.03em;
+    line-height: 1.04;
+    margin-top: 1.5rem;
     color: var(--text-primary);
     max-width: 22ch;
   }
 
-  @media (min-width: 1024px) {
-    .hero-h1 {
-      font-size: 4.5rem;
-    }
+  /* Second line — secondary colour, slightly smaller, same tracking */
+  .hero-h1-secondary {
+    color: var(--text-secondary);
+    font-size: 0.78em;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+    display: block;
+    margin-top: 0.3em;
   }
 
   .hero-subline {
-    font-size: 1.125rem;
-    line-height: 1.55;
+    font-size: 1.0625rem;
+    line-height: 1.6;
     color: var(--text-secondary);
-    margin-top: 1.5rem;
-    max-width: 60ch;
+    margin-top: 1.75rem;
+    max-width: 56ch;
+  }
+
+  @media (min-width: 768px) {
+    .hero-subline {
+      font-size: 1.125rem;
+    }
   }
 
   .hero-cta-row {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-top: 2rem;
+    margin-top: 2.25rem;
+  }
+
+  .hero-cta-primary {
+    min-height: 44px;
+    padding: 11px 22px;
+    font-size: 0.9375rem;
   }
 
   .hero-trust {
     font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
     font-size: 0.75rem;
     color: var(--text-muted);
-    margin-top: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero-trust-link {
+    color: var(--text-muted);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    transition: color 120ms;
+  }
+
+  .hero-trust-link:hover {
+    color: var(--text-secondary);
   }
 
   .hero-chips {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-top: 1.5rem;
+    margin-top: 1.75rem;
   }
 
-  /* Section borders */
+  /* ── Section borders ──────────────────────────────── */
+
   .section-border {
     border-top: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
@@ -274,7 +332,8 @@ const modelChips = ["Claude", "OpenAI", "Google"];
     border-top: 1px solid var(--border-subtle);
   }
 
-  /* Stats */
+  /* ── Stats ────────────────────────────────────────── */
+
   .stats-grid {
     display: grid;
     gap: 2rem;
@@ -292,7 +351,8 @@ const modelChips = ["Claude", "OpenAI", "Google"];
     flex-direction: column;
   }
 
-  /* Badge grid */
+  /* ── Badge grid ───────────────────────────────────── */
+
   .badge-grid {
     display: grid;
     gap: 0.75rem;
@@ -318,7 +378,8 @@ const modelChips = ["Claude", "OpenAI", "Google"];
     margin-top: 0.75rem;
   }
 
-  /* Section headings — weight 500 */
+  /* ── Section headings — weight 500 ───────────────── */
+
   .section-h2 {
     font-family: "Inter Display", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
     font-feature-settings: "ss01", "cv11", "ss03";
@@ -335,7 +396,38 @@ const modelChips = ["Claude", "OpenAI", "Google"];
     }
   }
 
-  /* Roles browse grid */
+  /* ── Value props grid ─────────────────────────────── */
+
+  .value-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .value-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .value-title {
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-top: 0.75rem;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  .value-body {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin-top: 0.75rem;
+  }
+
+  /* ── Roles browse grid ────────────────────────────── */
+
   .roles-grid {
     display: grid;
     gap: 1rem;
@@ -358,6 +450,11 @@ const modelChips = ["Claude", "OpenAI", "Google"];
     display: flex;
     flex-direction: column;
     text-decoration: none;
+    transition: border-color 120ms;
+  }
+
+  .roles-card:hover {
+    border-color: var(--border-default);
   }
 
   .roles-link {
@@ -368,35 +465,8 @@ const modelChips = ["Claude", "OpenAI", "Google"];
     padding-top: 1rem;
   }
 
-  /* Value props */
-  .value-grid {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr;
-  }
+  /* ── Launch section ───────────────────────────────── */
 
-  @media (min-width: 768px) {
-    .value-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .value-title {
-    font-size: 1.0625rem;
-    font-weight: 500;
-    color: var(--text-primary);
-    margin-top: 0.75rem;
-    letter-spacing: -0.01em;
-  }
-
-  .value-body {
-    font-size: 0.9375rem;
-    line-height: 1.65;
-    color: var(--text-secondary);
-    margin-top: 0.75rem;
-  }
-
-  /* Launch section */
   .launch-grid {
     display: grid;
     gap: 2rem;
@@ -443,7 +513,8 @@ const modelChips = ["Claude", "OpenAI", "Google"];
     color: var(--text-primary);
   }
 
-  /* Dual CTA */
+  /* ── Dual CTA ─────────────────────────────────────── */
+
   .cta-grid {
     display: grid;
     gap: 1rem;
