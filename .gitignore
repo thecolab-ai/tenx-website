@@ -144,3 +144,6 @@ vite.config.ts.timestamp-*
 
 # Astro generated files
 .astro/
+
+# Design handoff bundle — not for production
+.design-handoff/

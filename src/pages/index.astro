@@ -2,528 +2,613 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { href } from "../lib/href";
 import { collectionPageSchema } from "../lib/seo";
-import { allRoles } from "../lib/data";
-
-const stats = [
-  { value: "100", label: "AI-VERIFIED ENGINEERS AT LAUNCH" },
-  { value: "10%", label: "PERMANENT PLACEMENT FEE" },
-  { value: "20%", label: "CONTRACTOR LOADING" },
-  { value: "June", label: "EMPLOYER ACCESS OPENS" }
-];
 
 const badges = [
-  "Claude fluency",
-  "OpenAI fluency",
-  "Google fluency",
-  "Prompt design",
-  "RAG",
-  "Agent design",
-  "Evals",
-  "MLOps",
-  "Code-with-AI"
+  { code: "RAG",    name: "RAG",            desc: "Retrieval, reranking, grounded answers.",          count: 38 },
+  { code: "CLAUDE", name: "Claude fluency", desc: "Tool-use suite, long-context, system prompts.",    count: 77 },
+  { code: "OPENAI", name: "OpenAI fluency", desc: "Function-calling, structured output, streaming.",  count: 84 },
+  { code: "GOOGLE", name: "Google fluency", desc: "Gemini, Vertex, structured output, grounding.",    count: 49 },
+  { code: "AGENT",  name: "Agent loops",    desc: "Plans, retries, sub-tasks, deterministic eval.",   count: 31 },
+  { code: "EVALS",  name: "Evals",          desc: "Harnesses, golden sets, regression guards.",       count: 42 },
+  { code: "MLOPS",  name: "MLOps",          desc: "Cold-start, autoscale, drift, observability.",     count: 26 },
+  { code: "CODE",   name: "Code-with-AI",   desc: "Diff review, codegen pipelines, repo grounding.",  count: 35 },
+  { code: "RERANK", name: "Reranker",       desc: "Latency-bound rerank, hybrid search, BM25+vec.",   count: 19 },
 ];
 
-const valueProps = [
-  {
-    eyebrow: "// 01 — VETTING",
-    title: "Verification happens in the platform",
-    body: "Engineers earn badges through practical skills assessments. Employers see what they passed, what it proves, and where they fit."
-  },
-  {
-    eyebrow: "// 02 — AI TOOLS",
-    title: "Ship faster. Choose the right tool.",
-    body: "Claude, OpenAI, and Google all behave differently. tenX connects you with engineers who compare options and deliver production-ready work."
-  },
-  {
-    eyebrow: "// 03 — PRICING",
-    title: "Published fees from day one",
-    body: "Permanent placements are 10% of first-year salary. Contractors carry a 20% loading on monthly billings. No hidden spread."
-  }
+const steps = [
+  { num: "01", title: "Brief",     body: "30-minute call. We translate the outcome into a rubric your team can sign off.",    tag: "Day 0" },
+  { num: "02", title: "Shortlist", body: "Three or four matched multipliers, each with the evals you'd score them against.", tag: "Day 2" },
+  { num: "03", title: "Trial",     body: "Two-week scoped trial, eval gate at the end. No fee if we don't clear it.",        tag: "Week 1" },
+  { num: "04", title: "Ship",      body: "Multiplier in seat. Public eval cadence, fortnightly check-in. Replace anytime.",  tag: "Week 3+" },
 ];
 
-const modelChips = ["Claude", "OpenAI", "Google"];
+const tickerItems = [
+  { v: "6 stages",      l: "screening · public" },
+  { v: "v2.4",          l: "rubric · versioned" },
+  { v: "openai",        l: "fluency · claimed" },
+  { v: "claude",        l: "fluency · claimed" },
+  { v: "google",        l: "fluency · claimed" },
+  { v: "10%",           l: "perm placement fee" },
+  { v: "20%",           l: "contractor loading" },
+  { v: "June",          l: "employer access" },
+  { v: "AKL · WLG · SYD", l: "live regions" },
+  { v: "cohort 02",     l: "screening open" },
+];
+
+const journeyStages = [
+  { label: "ship-log received",   when: "00:00:12" },
+  { label: "skills extracted",    when: "00:02:48" },
+  { label: "eval harness running",when: "00:11:47" },
+  { label: "council review",      when: "00:48:09" },
+  { label: "craft interview",     when: "02:11:00" },
+  { label: "matched to brief",    when: "08:14:22" },
+];
 ---
 
 <BaseLayout
-  title="Ship faster with AI-verified engineers. Fluent across Claude, OpenAI, Google."
-  description="tenX multiplies your team's output. AI-verified engineers across Claude, OpenAI, Google. Published fees. Hired in days."
+  title="Buy the multiplier. Not the seat. — tenX"
+  description="tenX gives your team direct access to the outputs a 10x operator produces. AI-verified multipliers screened across a public rubric. 10% perm, 20% contractor. Opens June 2026."
   path="/"
   schema={collectionPageSchema({
-    title: "tenX AI engineering network",
-    description: "AI-verified engineers across Claude, OpenAI, Google, RAG, agents, evals, MLOps, and code-with-AI.",
+    title: "tenX — the AI multiplier network",
+    description: "AI-verified multipliers across Claude, OpenAI, Google. Public rubric. Published fees. Hired in days.",
     path: "/"
   })}
 >
-  <!-- HERO — dense type, flat background, left-aligned, no illustration -->
+
+  <!-- ══ HERO ══════════════════════════════════════════════ -->
   <section class="hero-section">
     <div class="container">
-      <p class="eyebrow hero-eyebrow">// AI-VERIFIED ENGINEERING TALENT</p>
-
-      <h1 class="hero-h1">
-        10x your team's output.<br />
-        <span class="hero-h1-secondary">Verified engineers, fluent across Claude, OpenAI, Google.</span>
-      </h1>
-
-      <p class="hero-subline">
-        Amplify what your best people do. Every engineer passes practical skills assessments before they reach you. Published fees. Hired in days.
-      </p>
-
-      <div class="hero-cta-row">
-        <a class="button button-primary hero-cta-primary" href={href("/hire")}>Hire engineers</a>
-        <a class="button button-secondary" href={href("/apply")}>Apply as an engineer &rarr;</a>
+      <div class="hero-pre">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span class="hero-pre-text">tenX &middot; the AI multiplier network &middot; cohort 02 screening</span>
       </div>
-
-      <p class="hero-trust">// 10% perm &middot; 20% contractor &middot; <a href={href("/pricing")} class="hero-trust-link">pricing on page</a></p>
-
-      <div class="hero-chips">
-        {modelChips.map((chip) => (
-          <span class="model-chip">{chip}</span>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS — clean horizontal rule with numbers -->
-  <section class="section section-border">
-    <div class="container">
-      <div class="stats-grid">
-        {stats.map((stat) => (
-          <div class="stat-block">
-            <p class="eyebrow">{stat.label}</p>
-            <p class="stat-value" style="margin-top: 0.5rem;">{stat.value}</p>
+      <div class="hero-grid">
+        <!-- Left: Headline + CTAs -->
+        <div class="hero-left">
+          <h1 class="hero-h1">
+            <span class="h1-row">Buy the</span>
+            <span class="h1-row">multiplier.</span>
+            <span class="h1-row">Not the<span class="h1-x"> seat</span>.</span>
+          </h1>
+          <p class="hero-sub">
+            tenX gives your team direct access to the outputs a 10x operator produces —
+            shipped features, decisions made, hours back. Every multiplier walks the same
+            six-stage screening you'll read before you buy.
+          </p>
+          <div class="hero-cta-row">
+            <a class="button button-primary hero-cta-primary" href={href("/hire")}>
+              Buy access
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <a class="button button-secondary" href={href("/network")}>See what gets shipped</a>
           </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- VALUE PROPS — what changes when you hire through tenX -->
-  <section class="section section-border-top">
-    <div class="container">
-      <p class="eyebrow">// WHAT CHANGES</p>
-      <h2 class="section-h2" style="margin-top: 1rem; max-width: 36rem;">
-        Ship faster. Know what you're paying before the first call.
-      </h2>
-      <div class="value-grid" style="margin-top: 2.5rem;">
-        {valueProps.map((item) => (
-          <article class="card">
-            <p class="eyebrow">{item.eyebrow}</p>
-            <h3 class="value-title">{item.title}</h3>
-            <p class="value-body">{item.body}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- BADGE MATRIX -->
-  <section class="section section-border-top">
-    <div class="container">
-      <p class="eyebrow">// VERIFICATION MATRIX</p>
-      <h2 class="section-h2" style="margin-top: 1rem;">Badges earned for practical AI work.</h2>
-      <div class="badge-grid" style="margin-top: 2.5rem;">
-        {badges.map((badge, index) => (
-          <div class="card">
-            <p class="eyebrow">badge.{String(index + 1).padStart(2, "0")}</p>
-            <p class="badge-label">{badge}</p>
+          <div class="hero-meta">
+            <span class="hm-item"><span class="hm-k">Screening</span><span class="hm-v">6 stages &middot; public rubric</span></span>
+            <span class="hm-item"><span class="hm-k">Perm fee</span><span class="hm-v">10%</span></span>
+            <span class="hm-item"><span class="hm-k">Contractor</span><span class="hm-v">20% loading</span></span>
+            <span class="hm-item"><span class="hm-k">Opens</span><span class="hm-v">June 2026</span></span>
           </div>
-        ))}
+        </div>
+
+        <!-- Right: Screening journey panel -->
+        <div class="hero-right">
+          <div class="journey" id="journey-panel" aria-label="Live screening journey simulation">
+            <div class="journey-head">
+              <span class="mac-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span><span class="head-id">applicant &middot; ENG-pending</span> &middot; cohort 02 screening</span>
+              <span class="pulse-dot" aria-hidden="true"></span>
+            </div>
+            <div class="journey-stages" id="journey-stages">
+              {journeyStages.map((s, i) => (
+                <div class={`journey-stage js-${i < 2 ? 'done' : i === 2 ? 'active' : 'future'}`} data-idx={i}>
+                  <span class="j-marker"></span>
+                  <span class="j-label">{String(i + 1).padStart(2, "0")} &middot; {s.label}</span>
+                  <span class="j-when">{s.when}</span>
+                </div>
+              ))}
+            </div>
+            <div class="journey-detail" id="journey-detail">
+              <div class="journey-detail-row">
+                <span class="dk">// case 12/14</span>
+                <span class="dv">rag &middot; grounding 0.91</span>
+                <span class="db">PASS</span>
+              </div>
+              <div class="journey-detail-row">
+                <span class="dk">// case 13/14</span>
+                <span class="dv">agent &middot; tool-use loop</span>
+                <span class="db dim">RUN</span>
+              </div>
+              <div class="journey-progress" aria-hidden="true">
+                <span class="jp-fill" id="journey-progress-fill" style="width: 86%"></span>
+              </div>
+            </div>
+            <div class="journey-foot">
+              <span>// rubric &middot; public &middot; v2.4</span>
+              <span><span class="jf-stage" id="journey-stage-label">stage 3</span> of {journeyStages.length}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ROLES BROWSE -->
-  <section class="section section-border-top">
+  <!-- ══ TICKER ════════════════════════════════════════════ -->
+  <div class="ticker-rail" aria-hidden="true">
+    <div class="ticker-track">
+      {[...tickerItems, ...tickerItems].map((it) => (
+        <span class="ticker-item">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="v">{it.v}</span>
+          <span>&middot; {it.l}</span>
+        </span>
+      ))}
+    </div>
+  </div>
+
+  <!-- ══ THESIS BENTO ═══════════════════════════════════════ -->
+  <section class="section section-divider">
     <div class="container">
-      <p class="eyebrow">// HIRE BY ROLE</p>
-      <h2 class="section-h2" style="margin-top: 1rem;">Get the output you need, not just a hire.</h2>
-      <div class="roles-grid" style="margin-top: 2.5rem;">
-        {allRoles.map((role) => (
-          <a class="card roles-card" href={href(`/hire/${role.slug}`)}>
-            <p class="eyebrow">{role.slug}</p>
-            <h3 class="value-title">{role.title}</h3>
-            <p class="value-body">{role.summary}</p>
-            <p class="roles-link">&rarr; Hire {role.shortTitle}</p>
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" style="color: var(--accent);">// 01 &middot; the thesis</p>
+          <h2 class="thesis-h2">Stop buying headcount. Start buying throughput.</h2>
+        </div>
+        <p class="sh-right">
+          Every multiplier in the network publishes their score against a public,
+          versioned rubric. You see what they ship, what they were graded on, and
+          what they moved — not the seat, the output.
+        </p>
+      </div>
+
+      <div class="bento">
+        <!-- Screening stages — tall left cell -->
+        <div class="bento-cell span-2 row-2">
+          <p class="eyebrow">// screening</p>
+          <div class="big-num" style="margin-top: 12px;">6</div>
+          <p class="big-num-label">stages &middot; public &middot; rubric-led</p>
+          <p style="font-size: 14px; line-height: 1.55; color: var(--text-secondary); margin-top: 20px;">
+            Ship-log, skills extract, eval harness, council review, craft interview,
+            match. Each stage has a written rubric, an artefact, and a public score —
+            applicants and employers read the same receipt.
+          </p>
+        </div>
+        <!-- Cohort ratio -->
+        <div class="bento-cell span-2">
+          <p class="eyebrow">// cohort intake</p>
+          <div class="big-num paper" style="margin-top: 12px;">1<sup>:24</sup></div>
+          <p class="big-num-label">applicants &middot; clearing the harness</p>
+        </div>
+        <!-- Perm fee -->
+        <div class="bento-cell span-2">
+          <p class="eyebrow">// permanent fee</p>
+          <div class="big-num" style="margin-top: 12px;">10<sup>%</sup></div>
+          <p class="big-num-label">flat &middot; no retainer &middot; published</p>
+        </div>
+        <!-- Fluency bars -->
+        <div class="bento-cell span-3">
+          <p class="eyebrow">// model fluency</p>
+          <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 2px;">
+            <div class="bar-row">
+              <span class="bar-label">OpenAI</span>
+              <span class="bar-track"><span class="bar-fill" style="width: 84%"></span></span>
+              <span class="bar-pct">84%</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Claude</span>
+              <span class="bar-track"><span class="bar-fill" style="width: 77%"></span></span>
+              <span class="bar-pct">77%</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Google</span>
+              <span class="bar-track"><span class="bar-fill" style="width: 49%"></span></span>
+              <span class="bar-pct">49%</span>
+            </div>
+          </div>
+        </div>
+        <!-- Pull quote -->
+        <div class="bento-cell span-3">
+          <p class="eyebrow">// pull quote</p>
+          <p class="pull-quote" style="margin-top: 16px;">
+            "Reading a tenX profile is like reading a test report.
+            We hired off the rubric, not the interview."
+          </p>
+          <p class="pull-cite">— Director of Engineering &middot; Series B, Auckland</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BADGE CATALOGUE ════════════════════════════════════ -->
+  <section class="section section-divider">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" style="color: var(--accent);">// 02 &middot; the rubric</p>
+          <h2 class="thesis-h2">Nine badges. Each one a public eval.</h2>
+        </div>
+        <p class="sh-right">
+          Every badge has a written rubric, a held-out eval set, and a versioned
+          score. Engineers earn badges; they don't claim them.
+        </p>
+      </div>
+      <div class="badge-grid-9">
+        {badges.map((b) => (
+          <a class="badge-cell" href={href("/vetting")}>
+            <div>
+              <p class="bc-name">{b.name}</p>
+              <p class="bc-desc">{b.desc}</p>
+            </div>
+            <div class="bc-meta">
+              <span>// {b.code.toLowerCase()}</span>
+              <span class="bc-count">{b.count} earned</span>
+            </div>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- CANDIDATE-FIRST LAUNCH -->
-  <section class="section section-border">
+  <!-- ══ PROCESS ════════════════════════════════════════════ -->
+  <section class="section section-divider tight">
     <div class="container">
-      <div class="launch-grid">
+      <div class="section-head">
         <div>
-          <p class="eyebrow">// CANDIDATE-FIRST LAUNCH</p>
-          <h2 class="section-h2" style="margin-top: 1rem;">Phase 1 is for engineers.</h2>
-          <p class="launch-body">
-            Engineers apply, complete practical tests, earn badges, and increase match priority before employer access opens.
-            That gives the June employer launch a verified network, not an empty marketplace.
+          <p class="eyebrow" style="color: var(--accent);">// 03 &middot; how it works</p>
+          <h2 class="thesis-h2">
+            Brief on Monday. Multiplier on Wednesday.
+            <em class="h2-dim"> Or the trial is free.</em>
+          </h2>
+        </div>
+        <p class="sh-right">
+          We sign the rubric before we send the shortlist. Trial gates on the
+          same rubric we'd grade a permanent against.
+        </p>
+      </div>
+      <div class="steps-grid">
+        {steps.map((s) => (
+          <div class="step-item">
+            <p class="step-num">// {s.num}</p>
+            <p class="step-title">{s.title}</p>
+            <p class="step-body">{s.body}</p>
+            <p class="step-tag">{s.tag}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ DUAL CTA ═══════════════════════════════════════════ -->
+  <section class="section section-divider tight">
+    <div class="container">
+      <div class="cta-split">
+        <div class="cta-left">
+          <h2 class="thesis-h2">
+            Buyer access opens <span style="color: var(--accent);">June 2026</span>.
+          </h2>
+          <p class="cta-body">
+            We're taking briefs now. Hold a seat for your first piece of throughput —
+            no fee, no retainer, no lock-in.
           </p>
         </div>
-        <div class="steps-list">
-          {["Apply with your profile", "Take a practical test", "Earn skill and provider badges", "Get matched as employer demand opens"].map((step, index) => (
-            <div class="card step-card">
-              <span class="mono step-num" style="color: var(--accent);">0{index + 1}</span>
-              <span class="step-text">{step}</span>
-            </div>
-          ))}
+        <div class="cta-right">
+          <a class="button button-primary" href={href("/hire")}>
+            Hold a seat
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+          <a class="button button-secondary" href={href("/apply")}>Join as a multiplier</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DUAL CTA -->
-  <section class="section">
-    <div class="container cta-grid">
-      <div class="panel" style="padding: 2rem;">
-        <p class="eyebrow">// FOR ENGINEERS</p>
-        <h2 class="section-h2" style="margin-top: 1rem; font-size: 1.75rem;">Prove the work once. Reuse the signal.</h2>
-        <p class="value-body">
-          Apply now, then complete the skills assessment at app.tenxtalent.ai. More verified badges mean higher match priority.
-        </p>
-        <a class="button button-primary" href={href("/apply")} style="margin-top: 1.5rem; display: inline-flex;">Apply as an engineer</a>
-      </div>
-      <div class="panel" style="padding: 2rem;">
-        <p class="eyebrow">// FOR EMPLOYERS</p>
-        <h2 class="section-h2" style="margin-top: 1rem; font-size: 1.75rem;">Transparent pricing before the first call.</h2>
-        <p class="value-body">
-          Join the waitlist for June 2026. The network opens with 100 AI-verified engineers and published fees.
-        </p>
-        <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a class="button button-secondary" href={href("/hire")}>Join employer waitlist</a>
-          <a class="button button-secondary" href={href("/pricing")}>View pricing</a>
-        </div>
-      </div>
-    </div>
-  </section>
 </BaseLayout>
 
+<!-- Journey panel animation script -->
+<script>
+  const STAGES = [
+    {
+      detail: [
+        { k: "// parsing",    v: "2 repos · 11 commits",  b: "OK",    dim: false },
+        { k: "// references", v: "4 contacts queued",      b: "OK",    dim: false },
+      ],
+      progress: 1,
+    },
+    {
+      detail: [
+        { k: "// claimed",    v: "rag · agent · claude",   b: "PARSED", dim: false },
+        { k: "// rubric",     v: "3 badges queued",         b: "QUEUED", dim: true },
+      ],
+      progress: 1,
+    },
+    {
+      detail: [
+        { k: "// case 12/14", v: "rag · grounding 0.91",   b: "PASS", dim: false },
+        { k: "// case 13/14", v: "agent · tool-use loop",  b: "RUN",  dim: true },
+      ],
+      progress: 0.86,
+    },
+    {
+      detail: [
+        { k: "// sign-off",   v: "retrieval · agent · 2/3",b: "PEND", dim: true },
+        { k: "// rubric",     v: "public · v2.4 · versioned",b: "OK", dim: false },
+      ],
+      progress: 0.66,
+    },
+    {
+      detail: [
+        { k: "// scheduled",  v: "45m · founding engineer", b: "BOOK", dim: true },
+        { k: "// topic",      v: "agent loop · retries",    b: "OK",   dim: false },
+      ],
+      progress: 0.5,
+    },
+    {
+      detail: [
+        { k: "// brief #042", v: "Series-B fintech · AKL",  b: "MATCH", dim: false },
+        { k: "// trial gate", v: "rubric signed both sides", b: "OK",   dim: false },
+      ],
+      progress: 1,
+    },
+  ];
+
+  let active = 2;
+
+  function updateJourney() {
+    const stageEls = document.querySelectorAll("#journey-stages .journey-stage");
+    stageEls.forEach((el, i) => {
+      el.className = "journey-stage " + (i < active ? "js-done" : i === active ? "js-active" : "");
+    });
+
+    const stage = STAGES[active];
+    const rows = document.querySelectorAll("#journey-detail .journey-detail-row");
+    stage.detail.forEach((d, i) => {
+      if (!rows[i]) return;
+      const kEl = rows[i].querySelector(".dk");
+      const vEl = rows[i].querySelector(".dv");
+      const bEl = rows[i].querySelector(".db");
+      if (kEl) kEl.textContent = d.k;
+      if (vEl) vEl.textContent = d.v;
+      if (bEl) {
+        bEl.textContent = d.b;
+        bEl.className = "db" + (d.dim ? " dim" : "");
+      }
+    });
+
+    const fill = document.getElementById("journey-progress-fill");
+    if (fill) {
+      fill.style.width = "0%";
+      setTimeout(() => {
+        if (fill) fill.style.width = (stage.progress * 100) + "%";
+      }, 50);
+    }
+
+    const stageLabel = document.getElementById("journey-stage-label");
+    if (stageLabel) stageLabel.textContent = "stage " + (active + 1);
+  }
+
+  // Advance every 4.2 seconds
+  function advance() {
+    active = (active + 1) % STAGES.length;
+    updateJourney();
+  }
+
+  updateJourney();
+  const interval = setInterval(advance, 4200);
+
+  // Clean up on navigation (Astro view transitions)
+  document.addEventListener("astro:before-swap", () => clearInterval(interval));
+</script>
+
 <style>
-  /* ── Hero ────────────────────────────────────────── */
+  /* ── Hero section ────────────────────────────────── */
 
   .hero-section {
-    padding-top: 5rem;
-    padding-bottom: 5.5rem;
-    background: var(--bg-base);
-    border-bottom: 1px solid var(--border-subtle);
+    padding: 96px 0 56px;
+    overflow: hidden;
+    position: relative;
   }
 
   @media (min-width: 1024px) {
-    .hero-section {
-      padding-top: 9rem;
-      padding-bottom: 9rem;
-    }
+    .hero-section { padding: 144px 0 88px; }
   }
 
-  /* Pulsing status dot — subtle, stops on reduced-motion */
-  .hero-eyebrow {
-    display: inline-flex;
+  /* Pre-title row */
+  .hero-pre {
+    display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 10px;
+    color: var(--text-muted);
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
   }
 
-  .hero-eyebrow::before {
-    content: "";
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    animation: dot-pulse 2s ease-in-out infinite;
-    flex-shrink: 0;
+  .hero-pre-text { transform: translateY(1px); }
+
+  /* Two-column grid */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .hero-eyebrow::before {
-      animation: none;
+  @media (min-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+      gap: 64px;
+      align-items: end;
     }
   }
 
-  @keyframes dot-pulse {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0.35; }
-  }
-
-  /* Display H1 — weight 500, not bold, tight tracking */
+  /* Display H1 */
   .hero-h1 {
     font-family: "Inter Display", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
     font-feature-settings: "ss01", "cv11", "ss03";
-    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
     font-weight: 500;
-    letter-spacing: -0.03em;
-    line-height: 1.04;
-    margin-top: 1.5rem;
+    font-size: clamp(44px, 8.2vw, 108px);
+    letter-spacing: -0.035em;
+    line-height: 0.94;
     color: var(--text-primary);
-    max-width: 22ch;
+    margin: 0;
+    text-wrap: balance;
   }
 
-  /* Second line — secondary colour, slightly smaller, same tracking */
-  .hero-h1-secondary {
-    color: var(--text-secondary);
-    font-size: 0.78em;
-    letter-spacing: -0.02em;
-    line-height: 1.12;
-    display: block;
-    margin-top: 0.3em;
+  .h1-row { display: block; }
+
+  .h1-x {
+    color: var(--accent);
+    font-weight: 600;
+    display: inline-block;
   }
 
-  .hero-subline {
-    font-size: 1.0625rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    margin-top: 1.75rem;
+  /* Sub copy */
+  .hero-sub {
+    margin-top: 32px;
     max-width: 56ch;
+    font-size: clamp(16px, 1.5vw, 20px);
+    line-height: 1.5;
+    color: var(--text-secondary);
   }
 
-  @media (min-width: 768px) {
-    .hero-subline {
-      font-size: 1.125rem;
-    }
-  }
-
+  /* CTA row */
   .hero-cta-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 2.25rem;
+    gap: 12px;
+    margin-top: 36px;
   }
 
   .hero-cta-primary {
-    min-height: 44px;
-    padding: 11px 22px;
-    font-size: 0.9375rem;
+    height: 48px;
+    padding: 0 22px;
+    font-size: 15px;
   }
 
-  .hero-trust {
-    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    margin-top: 1.5rem;
+  .button-secondary {
+    height: 48px;
+    padding: 0 22px;
+    font-size: 15px;
   }
 
-  .hero-trust-link {
-    color: var(--text-muted);
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
-    transition: color 120ms;
-  }
-
-  .hero-trust-link:hover {
-    color: var(--text-secondary);
-  }
-
-  .hero-chips {
+  /* Meta strip */
+  .hero-meta {
+    margin-top: 28px;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1.75rem;
+    gap: 14px 24px;
+    align-items: center;
   }
 
-  /* ── Section borders ──────────────────────────────── */
-
-  .section-border {
-    border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
+  .hm-item {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
   }
 
-  .section-border-top {
-    border-top: 1px solid var(--border-subtle);
+  .hm-k {
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
-  /* ── Stats ────────────────────────────────────────── */
-
-  .stats-grid {
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: 1024px) {
-    .stats-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  .stat-block {
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* ── Badge grid ───────────────────────────────────── */
-
-  .badge-grid {
-    display: grid;
-    gap: 0.75rem;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: 640px) {
-    .badge-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .badge-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  .badge-label {
-    font-size: 0.9375rem;
-    font-weight: 500;
+  .hm-v {
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 13px;
     color: var(--text-primary);
-    margin-top: 0.75rem;
+    font-weight: 500;
   }
 
-  /* ── Section headings — weight 500 ───────────────── */
+  /* ── Thesis section ──────────────────────────────── */
 
-  .section-h2 {
+  .thesis-h2 {
     font-family: "Inter Display", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
     font-feature-settings: "ss01", "cv11", "ss03";
-    font-size: 1.75rem;
     font-weight: 500;
+    font-size: clamp(26px, 4vw, 52px);
     letter-spacing: -0.02em;
-    line-height: 1.15;
+    line-height: 1.08;
     color: var(--text-primary);
+    margin-top: 10px;
+    text-wrap: balance;
   }
 
-  @media (min-width: 1024px) {
-    .section-h2 {
-      font-size: 2.5rem;
-    }
-  }
-
-  /* ── Value props grid ─────────────────────────────── */
-
-  .value-grid {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr;
-  }
-
-  @media (min-width: 768px) {
-    .value-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .value-title {
-    font-size: 1.0625rem;
-    font-weight: 500;
-    color: var(--text-primary);
-    margin-top: 0.75rem;
-    letter-spacing: -0.01em;
-    line-height: 1.3;
-  }
-
-  .value-body {
-    font-size: 0.9375rem;
-    line-height: 1.65;
+  .h2-dim {
+    font-style: normal;
     color: var(--text-secondary);
-    margin-top: 0.75rem;
   }
 
-  /* ── Roles browse grid ────────────────────────────── */
-
-  .roles-grid {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr;
-  }
-
-  @media (min-width: 640px) {
-    .roles-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
+  .section.tight { padding-block: 64px; }
 
   @media (min-width: 1024px) {
-    .roles-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
+    .section.tight { padding-block: 88px; }
   }
 
-  .roles-card {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    transition: border-color 120ms;
-  }
+  /* ── CTA strip ───────────────────────────────────── */
 
-  .roles-card:hover {
-    border-color: var(--border-default);
-  }
-
-  .roles-link {
-    color: var(--accent);
-    font-size: 0.875rem;
-    font-weight: 500;
-    margin-top: auto;
-    padding-top: 1rem;
-  }
-
-  /* ── Launch section ───────────────────────────────── */
-
-  .launch-grid {
+  .cta-split {
     display: grid;
-    gap: 2rem;
     grid-template-columns: 1fr;
-  }
-
-  @media (min-width: 1024px) {
-    .launch-grid {
-      grid-template-columns: 0.8fr 1.2fr;
-      align-items: start;
-    }
-  }
-
-  .launch-body {
-    margin-top: 1.25rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    max-width: 40ch;
-    font-size: 0.9375rem;
-  }
-
-  .steps-list {
-    display: grid;
-    gap: 0.75rem;
-  }
-
-  .step-card {
-    display: flex;
+    gap: 32px;
     align-items: center;
-    gap: 1rem;
-    padding: 1.25rem !important;
   }
 
-  .step-num {
-    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 0.875rem;
-    flex-shrink: 0;
-    width: 2rem;
-  }
-
-  .step-text {
-    font-size: 0.9375rem;
-    font-weight: 500;
-    color: var(--text-primary);
-  }
-
-  /* ── Dual CTA ─────────────────────────────────────── */
-
-  .cta-grid {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr;
-  }
-
-  @media (min-width: 768px) {
-    .cta-grid {
-      grid-template-columns: repeat(2, 1fr);
+  @media (min-width: 900px) {
+    .cta-split {
+      grid-template-columns: 1.5fr 1fr;
+      gap: 64px;
     }
+  }
+
+  .cta-body {
+    margin-top: 16px;
+    font-size: clamp(16px, 1.4vw, 18px);
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+
+  .cta-right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+  }
+
+  /* ── Light mode overrides (critical for readability) ── */
+
+  [data-theme="light"] .hero-section {
+    background: var(--bg-base);
+  }
+
+  [data-theme="light"] .bento-cell {
+    background: var(--bg-elevated);
+    border-color: var(--border-subtle);
+  }
+
+  [data-theme="light"] .badge-cell {
+    background: var(--bg-base);
+  }
+
+  [data-theme="light"] .badge-cell:hover {
+    background: var(--bg-elevated);
+  }
+
+  [data-theme="light"] .step-item {
+    background: var(--bg-base);
+  }
+
+  [data-theme="light"] .journey {
+    background: var(--bg-elevated);
+  }
+
+  [data-theme="light"] .journey-detail {
+    background: var(--bg-sunken);
   }
 </style>
