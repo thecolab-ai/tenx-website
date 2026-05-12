@@ -13,7 +13,7 @@ faqs:
   - question: "Do RAG engineers and AI engineers earn similar salaries in NZ and Australia?"
     answer: "Yes. RAG specialisation does not command a consistent salary premium over general AI engineering in New Zealand or Australia in 2026. Senior AI engineers with strong RAG skills in Auckland and Wellington earn NZD 140,000–200,000 on permanents. In Sydney and Melbourne, the equivalent range is AUD 150,000–220,000. The main driver of where in the band a candidate lands is depth of production experience, not the specific skill label."
   - question: "How does tenX verify RAG engineering skills?"
-    answer: "tenX uses practical tests reviewed against a rubric. Engineers complete a structured evaluation covering chunking strategy, embedding model selection, retrieval quality assessment, answer grounding, and eval design. Responses are reviewed by someone who has built RAG systems in production — not auto-scored. Engineers who pass earn the RAG badge, which is visible to employers and filters into role searches."
+    answer: "tenX uses sandbox tests reviewed against defined pass criteria. Engineers complete a structured evaluation covering chunking strategy, embedding model selection, retrieval quality assessment, answer grounding, and eval design. Responses are reviewed by someone who has built RAG systems in production — not auto-scored. Engineers who pass earn the RAG badge, which is visible to employers and filters into role searches."
   - question: "What makes a RAG system fail in production?"
     answer: "The most common failure modes are: chunk boundaries that split context mid-concept so retrieval returns fragments; embedding models mismatched to the domain vocabulary; retrieval returning plausible-but-wrong passages; and no evaluation layer to detect when answer quality degrades. A RAG engineer's first job is building the eval infrastructure to catch these failures before users do."
 ---
@@ -81,7 +81,7 @@ The failure cases that only appear in production are often the most instructive.
 
 ## How tenX verifies RAG skills
 
-tenX runs practical tests for RAG engineering, reviewed against a rubric. The evaluation covers:
+tenX runs sandbox tests for RAG engineering, reviewed against defined pass criteria. The evaluation covers:
 
 - **Chunking strategy**: candidates are given a sample corpus and asked to specify and justify a chunking approach for the domain.
 - **Embedding model selection**: candidates choose and explain an embedding model for a defined retrieval task, including why the choice fits and what would cause them to change it.
@@ -91,7 +91,7 @@ tenX runs practical tests for RAG engineering, reviewed against a rubric. The ev
 
 Engineers who pass earn the RAG badge. That badge is visible to employers on the <a href={href("/hire/llm-engineer")}>tenX LLM engineer hub</a> and filters into search results when employers specify RAG as a required skill.
 
-The test is not auto-scored. Responses are reviewed against a rubric by someone who has built RAG systems in production. This matters because RAG is a domain where plausible-sounding answers are cheap and real understanding shows up in the specifics of the chunking justification, the grounding evaluation, and the eval design.
+The test is not auto-scored. Responses are reviewed against defined pass criteria by someone who has built RAG systems in production. This matters because RAG is a domain where plausible-sounding answers are cheap and real understanding shows up in the specifics of the chunking justification, the grounding evaluation, and the eval design.
 
 The RAG badge sits alongside Claude, OpenAI, and Google fluency badges, prompt engineering, agent design, and evals badges in the <a href={href("/network")}>tenX badge catalogue</a>. Employers can filter the network by badge combination — for example, engineers with both RAG and Claude fluency badges — to surface candidates whose verified skill set matches a specific role.
 

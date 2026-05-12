@@ -12,13 +12,13 @@ faqs:
     answer: "They can retake after a cooldown period specific to that badge: 48 hours for prompt engineering and code-with-AI, 72 hours for the three model fluency tests and MLOps, 96 hours for RAG, agent design, and evals. Attempt counts are visible to employers as data, not as a disqualifier."
   - question: "Do tenX badges expire?"
     answer: "Not automatically. If a badge area changes significantly — a new model version introduces materially different API behaviour, for instance — affected badges are flagged for re-verification and engineers are notified. The badge reflects the state of the assessment at the time of passing and is versioned when test content changes."
-  - question: "Can I see the full rubric before taking the tests?"
-    answer: "The pass criteria for every badge are published at tenxtalent.ai/vetting. The specific practical task — the actual prompt, system description, or code reviewed — is not published in advance, because publishing it would turn verification into memorisation. The rubric tells you what matters and what passing looks like. The task is the test."
+  - question: "Can I see the full pass criteria before taking the tests?"
+    answer: "The pass criteria for every badge are published at tenxtalent.ai/vetting. The specific practical task — the actual prompt, system description, or code reviewed — is not published in advance, because publishing it would turn verification into memorisation. The criteria tell you what matters and what passing looks like. The task is the test."
 ---
 
 import { href } from "../../lib/href";
 
-Every engineer in the tenX network has passed at least one self-service practical test before they reach a buyer. The tests cover nine areas: Claude fluency, OpenAI fluency, Google fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI. Each is a bounded practical task, not a multiple-choice assessment. A pass means the engineer completed the task to the published criteria. The <a href={href('/vetting')}>full rubric</a> — what each test measures, the pass bar, and the retry policy — is on this site.
+Every engineer in the tenX network has passed at least one self-service practical test before they reach a buyer. The tests cover nine areas: Claude fluency, OpenAI fluency, Google fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI. Each is a bounded practical task, not a multiple-choice assessment. A pass means the engineer completed the task to the published criteria. The <a href={href('/vetting')}>full pass criteria</a> — what each test measures, the pass bar, and the retry policy — is on this site.
 
 ## Why bounded tasks, not interviews
 
@@ -36,7 +36,7 @@ The first three badges are specific to each model family. They are not interchan
 
 **Claude fluency (45–60 min).** The engineer completes API-based tasks using Claude: structured output generation, tool-use patterns, instruction adherence under constraint, long-context handling, and Claude-specific failure modes. Passing means the engineer can operate against Claude's actual API — not describe what it does. Pass criteria: task completed to spec, tool calls correctly structured, output contracts met, failure modes identified and handled. Retake cooldown: 72 hours.
 
-**OpenAI fluency (45–60 min).** Structured output schema compliance, function-calling routing decisions, parallel tool use, and context window management under OpenAI models. Includes cases where the model produces structurally invalid or semantically incorrect outputs. Pass criteria: schema compliance verified automatically, routing decisions scored by rubric, edge cases handled without prompt collapse. Retake cooldown: 72 hours.
+**OpenAI fluency (45–60 min).** Structured output schema compliance, function-calling routing decisions, parallel tool use, and context window management under OpenAI models. Includes cases where the model produces structurally invalid or semantically incorrect outputs. Pass criteria: schema compliance verified automatically, routing decisions scored against defined criteria, edge cases handled without prompt collapse. Retake cooldown: 72 hours.
 
 **Google fluency (45–60 min).** Multimodal and long-context patterns using Google models. Tasks include grounded generation, citation handling, and context-length edge cases that differ materially from OpenAI and Claude behaviour. Pass criteria: correct multimodal handling, grounding citations present where required, context-length behaviour documented. Retake cooldown: 72 hours.
 
@@ -102,10 +102,10 @@ The nine tests are structured so that an employer can read a badge stack and und
 
 Attempt counts are visible to employers as data. An engineer who passed RAG on the first attempt tells a different story from one who passed on the third. Neither is disqualified by default. The information is available because it is useful.
 
-The rubric is public. The pass criteria are specific. The retry policy is per badge. There are no surprises on either side.
+The pass criteria are public. The pass bar is specific. The retry policy is per badge. There are no surprises on either side.
 
-If you are an engineer, <a href={href('/apply')}>apply and take the tests on your own schedule.</a> More relevant badges increase your match priority when employers hire from the network.
+If you are a candidate, <a href={href('/apply')}>apply and take the tests on your own schedule.</a> More relevant badges increase your match priority when employers hire from the network.
 
-If you are hiring, the badge stack is visible before the first call. The <a href={href('/vetting')}>full rubric</a> is on this site. You can read it, decide whether the bar fits your role, and browse <a href={href('/network')}>verified engineers</a> by badge area before starting a search.
+If you are hiring, the badge stack is visible before the first call. The <a href={href('/vetting')}>full pass criteria</a> are on this site. You can read them, decide whether the bar fits your role, and browse <a href={href('/network')}>the network</a> by badge area before starting a search.
 
 ---
