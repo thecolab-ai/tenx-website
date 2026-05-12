@@ -8,7 +8,7 @@ const badges = [
     slug: "claude-fluency",
     label: "Claude fluency",
     duration: "45–60 min",
-    what: "API-based tasks using Claude: structured output generation, tool-use patterns, instruction adherence under constraint, long-context handling, and Claude-specific failure modes. Passing means the engineer can operate against Claude's actual API — not describe what it does.",
+    what: "API-based tasks using Claude: structured output generation, tool-use patterns, instruction adherence under constraint, long-context handling, and Claude-specific failure modes. Passing means the engineer can operate against Claude's actual API, not describe what it does.",
     passCriteria: "Task completed to spec. Tool calls correctly structured. Output contracts met. Failure modes identified and handled.",
     retake: "72-hour cooldown after a fail. Attempt count is visible to employers."
   },
@@ -32,7 +32,7 @@ const badges = [
     slug: "prompt-engineering",
     label: "Prompt engineering",
     duration: "30–45 min",
-    what: "Design durable prompt systems: instruction contracts, output format specifications, few-shot construction, system prompt architecture, and operator controls. Tasks include writing a prompt that fails gracefully when the model misreads intent — and one that does not.",
+    what: "Design durable prompt systems: instruction contracts, output format specifications, few-shot construction, system prompt architecture, and operator controls. Tasks include writing a prompt that fails gracefully when the model misreads intent, and one that does not.",
     passCriteria: "Prompt is parseable by a downstream consumer without post-processing. Failure handling is explicit. Output contract is machine-verifiable.",
     retake: "48-hour cooldown after a fail."
   },
@@ -40,7 +40,7 @@ const badges = [
     slug: "rag",
     label: "RAG",
     duration: "75–90 min",
-    what: "Build a minimal retrieval pipeline from a described specification. Explain chunking decisions — chunk size, overlap, splitting strategy — and the reasoning behind them. Evaluate retrieval quality against a set of test queries. Explain what a bad retrieval result looks like and how you would diagnose it. The test is not asking whether the engineer can string retrieval library calls together. It asks whether they understand the tradeoffs that determine whether a retrieval system is useful in production.",
+    what: "Build a minimal retrieval pipeline from a described specification. Explain chunking decisions: chunk size, overlap, splitting strategy, and the reasoning behind them. Evaluate retrieval quality against a set of test queries. Explain what a bad retrieval result looks like and how you would diagnose it. The test is not asking whether the engineer can string retrieval library calls together. It asks whether they understand the tradeoffs that determine whether a retrieval system is useful in production.",
     passCriteria: "Pipeline runs against test corpus. Chunking decisions are justified by retrieval outcome data, not defaults. Retrieval failures are correctly identified.",
     retake: "96-hour cooldown after a fail."
   },
@@ -48,7 +48,7 @@ const badges = [
     slug: "agent-design",
     label: "Agent design",
     duration: "75–90 min",
-    what: "Design a tool-use workflow for a described task. Specify tool boundaries, loop control, failure handling, and the conditions under which the system should escalate to a human rather than continue autonomously. The test looks for judgment about where agents break down — not optimism about what they can theoretically do.",
+    what: "Design a tool-use workflow for a described task. Specify tool boundaries, loop control, failure handling, and the conditions under which the system should escalate to a human rather than continue autonomously. The test looks for judgment about where agents break down, not optimism about what they can theoretically do.",
     passCriteria: "Tool boundaries are correctly scoped. Human escalation criteria are defined and triggered. Loop termination conditions handle both success and failure paths.",
     retake: "96-hour cooldown after a fail."
   },
@@ -56,7 +56,7 @@ const badges = [
     slug: "evals",
     label: "Evals",
     duration: "75–90 min",
-    what: "Given a described production system — a customer-facing Q&A tool or a document classifier — design an eval harness for it. Define what to measure and why. Explain how you would establish a baseline, track regression, and distinguish genuine improvement from prompt overfitting. Passing means the engineer can make quality measurable, which is the difference between a demo and a maintainable system.",
+    what: "Given a described production system, such as a customer-facing Q&A tool or a document classifier, design an eval harness for it. Define what to measure and why. Explain how you would establish a baseline, track regression, and distinguish genuine improvement from prompt overfitting. Passing means the engineer can make quality measurable, which is the difference between a demo and a maintainable system.",
     passCriteria: "Metrics are specific and measurable. Baseline methodology is described. Regression detection approach handles prompt changes, not just model swaps.",
     retake: "96-hour cooldown after a fail."
   },
@@ -72,7 +72,7 @@ const badges = [
     slug: "code-with-ai",
     label: "Code-with-AI",
     duration: "45–60 min",
-    what: "Safe and productive use of AI coding tools — specifically, whether the engineer can integrate AI-generated code without accepting unsafe, untestable, or architecturally inconsistent changes. The test includes reviewing AI-suggested code for correctness, security, and testability, then accepting, rejecting, or modifying with justification.",
+    what: "Safe and productive use of AI coding tools, specifically whether the engineer can integrate AI-generated code without accepting unsafe, untestable, or architecturally inconsistent changes. The test includes reviewing AI-suggested code for correctness, security, and testability, then accepting, rejecting, or modifying with justification.",
     passCriteria: "At least one unsafe suggestion correctly rejected. At least one correct suggestion accepted with justification. Diff is reviewable by a senior engineer without rework.",
     retake: "48-hour cooldown after a fail."
   }
@@ -81,7 +81,7 @@ const badges = [
 const faqs = [
   {
     question: "Are the tests multiple choice or practical?",
-    answer: "Practical. Every test involves a bounded task in a controlled environment — building a pipeline, writing a prompt system, designing an eval harness, reviewing generated code. There are no multiple-choice questions. A pass means the engineer completed the task to the required criteria, not that they answered correctly about how to do it."
+    answer: "Practical. Every test involves a bounded task in a controlled environment: building a pipeline, writing a prompt system, designing an eval harness, or reviewing generated code. There are no multiple-choice questions. A pass means the engineer completed the task to the required criteria, not that they answered correctly about how to do it."
   },
   {
     question: "How long do the tests take in total?",
@@ -89,25 +89,25 @@ const faqs = [
   },
   {
     question: "What happens if an engineer fails a test?",
-    answer: "They can retake after the cooldown period shown per badge. Attempt counts are visible to employers as part of the badge record — not as a black mark, but as data. An engineer who passed on the third attempt after two fails is still verified. A high attempt count on a foundational test is information an employer can factor in."
+    answer: "They can retake after the cooldown period shown per badge. Attempt counts are visible to employers as part of the badge record, not as a black mark, but as data. An engineer who passed on the third attempt after two fails is still verified. A high attempt count on a foundational test is information an employer can factor in."
   },
   {
     question: "Do badges expire?",
-    answer: "Not automatically. Badge validity reflects the state of the test at the time of passing. If a badge area changes significantly — for instance, a new model version introduces meaningfully different API behaviour — affected badges are flagged for re-verification. Engineers are notified before any badge status changes."
+    answer: "Not automatically. Badge validity reflects the state of the test at the time of passing. If a badge area changes significantly, for instance a new model version introduces meaningfully different API behaviour, affected badges are flagged for re-verification. Engineers are notified before any badge status changes."
   },
   {
     question: "Are the pass criteria fully published?",
-    answer: "The pass criteria for each badge are published on this page. The specific test tasks are not published in advance — publishing them would turn verification into memorisation. The criteria describe what the task measures and what passing looks like; the specific prompt or system description used in the sandbox varies per session."
+    answer: "The pass criteria for each badge are published on this page. The specific test tasks are not published in advance, because publishing them would turn verification into memorisation. The criteria describe what the task measures and what passing looks like; the specific prompt or system description used in the sandbox varies per session."
   },
   {
     question: "Does tenX staff review test submissions?",
-    answer: "No staff call is in the initial verification path. Tests are evaluated by the platform against defined criteria. Borderline cases where automated scoring is inconclusive are reviewed by a senior tenX engineer, but this is not a discretionary call — it is a second pass against the same criteria. Candidates are notified if a manual review is triggered."
+    answer: "No staff call is in the initial verification path. Tests are evaluated by the platform against defined criteria. Borderline cases where automated scoring is inconclusive are reviewed by a senior tenX engineer, but this is not a discretionary call. It is a second pass against the same criteria. Candidates are notified if a manual review is triggered."
   }
 ];
 ---
 
 <BaseLayout
-  title="tenX vetting criteria — how AI engineering badges are earned"
+  title="tenX vetting criteria: how AI engineering badges are earned"
   description="The full tenX badge criteria: what each sandbox test measures, pass criteria, test duration, and retry policy. Published. Falsifiable."
   path="/vetting"
   breadcrumbs={[{ name: "Home", path: "/" }, { name: "Vetting criteria", path: "/vetting" }]}
@@ -219,7 +219,7 @@ const faqs = [
         <p>
           The criteria above are public because a published standard is better than a claimed one. An employer reading it can
           decide whether the bar is appropriate for their role. A candidate reading it knows what they are preparing for.
-          A candidate who passes the RAG badge can be compared directly to any other candidate who passed the RAG badge —
+          A candidate who passes the RAG badge can be compared directly to any other candidate who passed the RAG badge:
           same task, same pass bar, same platform.
         </p>
         <p>
@@ -272,7 +272,7 @@ const faqs = [
       </div>
     </div>
     <p class="mono mt-6 text-xs text-[var(--text-muted)]">
-      // criteria last updated May 2026 — badge criteria are versioned when test content changes materially
+      // criteria last updated May 2026 - badge criteria are versioned when test content changes materially
     </p>
   </section>
 
