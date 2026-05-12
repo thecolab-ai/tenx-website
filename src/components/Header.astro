@@ -52,12 +52,8 @@ const navItems = [
       </div>
     </nav>
 
-    <!-- Theme control + CTA buttons -->
+    <!-- CTA buttons -->
     <div class="flex items-center gap-2">
-      <button type="button" data-theme-toggle aria-label="Switch color theme" class="theme-toggle-nav">
-        <span class="theme-toggle-mark" aria-hidden="true"></span>
-        <span data-theme-toggle-label>Light</span>
-      </button>
       <a class="button button-secondary" href={href("/hire")} id="hire-btn" style="min-height: 40px; padding: 8px 14px; font-size: 0.875rem; display: none;">Hire</a>
       <a class="button button-primary" href={href("/apply")} style="min-height: 40px; padding: 8px 14px; font-size: 0.875rem;">Apply</a>
     </div>
@@ -243,52 +239,6 @@ const navItems = [
   .hire-link:focus-visible {
     outline: none;
     box-shadow: 0 0 0 2px var(--bg-base), 0 0 0 4px var(--accent);
-  }
-
-  /* ── Theme toggle ───────────────────────────────── */
-  .theme-toggle-nav {
-    align-items: center;
-    background: var(--toggle-bg);
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-md);
-    color: var(--text-secondary);
-    cursor: pointer;
-    display: inline-flex;
-    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 11px;
-    gap: 7px;
-    letter-spacing: 0.08em;
-    min-height: 40px;
-    padding: 8px 10px;
-    text-transform: uppercase;
-    transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
-  }
-
-  .theme-toggle-nav:hover {
-    background: var(--hover-subtle);
-    border-color: var(--border-strong);
-    color: var(--text-primary);
-  }
-
-  .theme-toggle-nav:focus-visible {
-    outline: none;
-    box-shadow: var(--shadow-focus);
-  }
-
-  .theme-toggle-mark {
-    background: var(--accent);
-    border-radius: var(--radius-full);
-    box-shadow: 0 0 0 3px var(--accent-muted);
-    display: block;
-    flex-shrink: 0;
-    height: 7px;
-    width: 7px;
-  }
-
-  @media (max-width: 340px) {
-    .theme-toggle-nav {
-      padding-inline: 8px;
-    }
   }
 
   /* ── Mobile hire section ────────────────────────── */

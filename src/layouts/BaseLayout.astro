@@ -50,9 +50,7 @@ const graph = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script is:inline>
-      const storedTheme = localStorage.getItem("tenx-theme");
-      const preferredTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-      document.documentElement.dataset.theme = storedTheme || preferredTheme;
+      document.documentElement.dataset.theme = "dark";
     </script>
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
@@ -83,28 +81,5 @@ const graph = [
       </main>
       <Footer />
     </div>
-    <script is:inline>
-      const toggles = document.querySelectorAll("[data-theme-toggle]");
-      const syncThemeToggles = () => {
-        const isLight = document.documentElement.dataset.theme === "light";
-        toggles.forEach((toggle) => {
-          toggle.setAttribute("aria-pressed", String(isLight));
-          toggle.dataset.themeState = isLight ? "light" : "dark";
-          const label = toggle.querySelector("[data-theme-toggle-label]");
-          if (label) label.textContent = isLight ? "Dark" : "Light";
-        });
-      };
-
-      toggles.forEach((toggle) => {
-        toggle.addEventListener("click", () => {
-          const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
-          document.documentElement.dataset.theme = next;
-          localStorage.setItem("tenx-theme", next);
-          syncThemeToggles();
-        });
-      });
-
-      syncThemeToggles();
-    </script>
   </body>
 </html>
