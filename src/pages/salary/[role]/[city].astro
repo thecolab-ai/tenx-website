@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import TenX from "../../../components/TenX.astro";
 import { allCities, allRoles, contractRangeFor, salaryRangeFor, type City, type Role } from "../../../lib/data";
 import { href } from "../../../lib/href";
 import { collectionPageSchema } from "../../../lib/seo";
@@ -71,10 +72,10 @@ const path = `/salary/${role.slug}/${city.slug}`;
     <div class="prose-tenx max-w-none">
       <p>{city.marketNote}</p>
       <p>
-        The highest-cost mistake is paying senior AI salaries for unverified experimentation. tenX uses practical test badges to prove relevant capability before the shortlist reaches an employer.
+        The highest-cost mistake is paying senior AI salaries for unverified experimentation. <TenX /> uses practical test badges to prove relevant capability before the shortlist reaches an employer.
       </p>
       <p>
-        Contractor pricing uses the candidate monthly billing benchmark plus the published 20% tenX loading. Permanent pricing uses the accepted first-year salary plus the published 10% placement fee.
+        Contractor pricing uses the candidate monthly billing benchmark plus the published 20% <TenX /> loading. Permanent pricing uses the accepted first-year salary plus the published 10% placement fee.
       </p>
     </div>
   </section>

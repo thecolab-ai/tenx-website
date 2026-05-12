@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BrandText from "../components/BrandText.astro";
+import TenX from "../components/TenX.astro";
 import { collectionPageSchema } from "../lib/seo";
 
 const candidateSteps = [
@@ -33,7 +35,7 @@ const employerSteps = [
       <p class="eyebrow">Process</p>
       <h1 class="mt-4 text-5xl font-medium leading-tight md:text-6xl">Verification first. Matching second.</h1>
       <p class="mt-6 text-xl leading-8 text-[var(--muted)]">
-        tenX starts with candidates because the network needs verified supply before employer demand opens.
+        <TenX /> starts with candidates because the network needs verified supply before employer demand opens.
         The platform tests practical AI work across provider tools, engineering skills, and production patterns.
       </p>
     </div>
@@ -49,7 +51,7 @@ const employerSteps = [
             <article class="card p-6">
               <p class="mono text-sm text-[var(--accent)]">0{index + 1}</p>
               <h3 class="mt-3 text-2xl font-medium">{title}</h3>
-              <p class="mt-3 leading-7 text-[var(--muted)]">{body}</p>
+              <p class="mt-3 leading-7 text-[var(--muted)]"><BrandText text={body} /></p>
             </article>
           ))}
         </div>
@@ -62,7 +64,7 @@ const employerSteps = [
             <article class="card p-6">
               <p class="mono text-sm text-[var(--accent)]">0{index + 1}</p>
               <h3 class="mt-3 text-2xl font-medium">{title}</h3>
-              <p class="mt-3 leading-7 text-[var(--muted)]">{body}</p>
+              <p class="mt-3 leading-7 text-[var(--muted)]"><BrandText text={body} /></p>
             </article>
           ))}
         </div>
@@ -78,7 +80,7 @@ const employerSteps = [
       </div>
       <div class="prose-tenx max-w-none">
         <p>
-          A tenX badge means the engineer passed a practical platform task in a controlled environment. Tests are stack and provider specific:
+          A <TenX /> badge means the engineer passed a practical platform task in a controlled environment. Tests are stack and provider specific:
           Claude fluency, OpenAI fluency, Google fluency, prompt engineering, RAG, agent design, evals, MLOps, and code-with-AI.
         </p>
         <p>

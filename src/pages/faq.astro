@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BrandText from "../components/BrandText.astro";
 import { faqPageSchema, type FaqItem } from "../lib/seo";
 
 const faqs: FaqItem[] = [
@@ -69,8 +70,8 @@ const faqs: FaqItem[] = [
     <div class="mt-10 grid gap-4">
       {faqs.map((faq) => (
         <details class="card p-6">
-          <summary class="cursor-pointer text-xl font-medium">{faq.question}</summary>
-          <p class="mt-4 leading-7 text-[var(--muted)]">{faq.answer}</p>
+          <summary class="cursor-pointer text-xl font-medium"><BrandText text={faq.question} /></summary>
+          <p class="mt-4 leading-7 text-[var(--muted)]"><BrandText text={faq.answer} /></p>
         </details>
       ))}
     </div>

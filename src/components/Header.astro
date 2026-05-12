@@ -2,6 +2,7 @@
 import { href } from "../lib/href";
 import rolesData from "../data/roles.json";
 import industriesData from "../data/industries.json";
+import TenX from "./TenX.astro";
 
 const navItems = [
   { path: "/how-it-works", label: "How it works" },
@@ -13,9 +14,9 @@ const navItems = [
 
 <header class="header-sticky">
   <div class="container flex h-16 items-center justify-between gap-4">
-    <!-- Logo — wordmark only, X in accent green -->
+    <!-- Logo — wordmark only, x in accent green -->
     <a href={href("/")} aria-label="tenX home" class="logo-wordmark">
-      ten<span class="logo-x">X</span>
+      <TenX />
     </a>
 
     <!-- Desktop nav -->
@@ -114,10 +115,6 @@ const navItems = [
     letter-spacing: -0.02em;
     line-height: 1;
     text-decoration: none;
-  }
-
-  .logo-x {
-    color: var(--accent);
   }
 
   .nav-link {

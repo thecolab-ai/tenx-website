@@ -117,6 +117,18 @@
     text-decoration: none;
   }
 
+  .tenx-wordmark {
+    white-space: nowrap;
+  }
+
+  .tenx-sup {
+    color: #42F27D;
+    font-size: 0.68em;
+    font-weight: inherit;
+    line-height: 0;
+    vertical-align: super;
+  }
+
   button,
   input,
   textarea,

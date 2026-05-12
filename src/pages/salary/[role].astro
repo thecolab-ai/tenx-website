@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import TenX from "../../components/TenX.astro";
 import { allCities, allRoles, contractRangeFor, salaryRangeFor, type Role } from "../../lib/data";
 import { href } from "../../lib/href";
 import { collectionPageSchema } from "../../lib/seo";
@@ -49,7 +50,7 @@ const description = `NZ-first salary benchmark for ${role.shortTitle}, with city
       </div>
       <div>
         <p class="stat-value">20%</p>
-        <p class="mt-2 text-sm text-[var(--muted)]">tenX contractor loading</p>
+        <p class="mt-2 text-sm text-[var(--muted)]"><TenX /> contractor loading</p>
       </div>
     </div>
   </section>

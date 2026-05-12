@@ -1,0 +1,17 @@
+---
+import TenX from "./TenX.astro";
+
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+const parts = text.split("tenX");
+---
+
+{parts.map((part, index) => (
+  <>
+    {part}
+    {index < parts.length - 1 && <TenX />}
+  </>
+))}

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import TenX from "../components/TenX.astro";
 import { href } from "../lib/href";
 import { collectionPageSchema } from "../lib/seo";
 
@@ -61,7 +62,7 @@ const journeyStages = [
     <div class="container">
       <div class="hero-pre">
         <span class="pulse-dot" aria-hidden="true"></span>
-        <span class="hero-pre-text">tenX &middot; the AI multiplier network &middot; cohort 02 screening</span>
+        <span class="hero-pre-text"><TenX /> &middot; the AI multiplier network &middot; cohort 02 screening</span>
       </div>
       <div class="hero-grid">
         <!-- Left: Headline + CTAs -->
@@ -72,7 +73,7 @@ const journeyStages = [
             <span class="h1-row">Not the<span class="h1-x">seat</span>.</span>
           </h1>
           <p class="hero-sub">
-            tenX gives your team direct access to the outputs a 10x operator produces:
+            <TenX /> gives your team direct access to the outputs a 10x operator produces:
             shipped features, decisions made, hours back. Every multiplier walks the same
             six-stage screening you'll read before you buy.
           </p>
@@ -212,7 +213,7 @@ const journeyStages = [
         <div class="bento-cell span-3">
           <p class="eyebrow">// pull quote</p>
           <p class="pull-quote" style="margin-top: 16px;">
-            "Reading a tenX profile is like reading a test report.
+            "Reading a <TenX /> profile is like reading a test report.
             We hired off the rubric, not the interview."
           </p>
           <p class="pull-cite">- Director of Engineering &middot; Series B, Auckland</p>

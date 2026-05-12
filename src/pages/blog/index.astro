@@ -1,6 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import BrandText from "../../components/BrandText.astro";
 import { href } from "../../lib/href";
 import { collectionPageSchema } from "../../lib/seo";
 
@@ -36,8 +37,8 @@ const posts = unsortedPosts.sort(
           <p class="mono text-sm text-[var(--accent)]">
             {post.data.pubDate.toLocaleDateString("en-NZ", { day: "numeric", month: "long", year: "numeric" })}
           </p>
-          <h2 class="mt-3 text-3xl font-medium">{post.data.title}</h2>
-          <p class="mt-4 max-w-3xl leading-7 text-[var(--muted)]">{post.data.description}</p>
+          <h2 class="mt-3 text-3xl font-medium"><BrandText text={post.data.title} /></h2>
+          <p class="mt-4 max-w-3xl leading-7 text-[var(--muted)]"><BrandText text={post.data.description} /></p>
         </a>
       ))}
     </div>

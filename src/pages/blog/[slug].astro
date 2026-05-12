@@ -1,6 +1,7 @@
 ---
 import { getCollection, render, type CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import BrandText from "../../components/BrandText.astro";
 import { articleSchema, faqPageSchema } from "../../lib/seo";
 
 export async function getStaticPaths() {
@@ -41,8 +42,8 @@ const schemas = [
   <article class="container section">
     <header class="max-w-4xl">
       <p class="eyebrow">Article</p>
-      <h1 class="mt-4 text-5xl font-medium leading-tight md:text-6xl">{post.data.title}</h1>
-      <p class="mt-6 text-xl leading-8 text-[var(--muted)]">{post.data.description}</p>
+      <h1 class="mt-4 text-5xl font-medium leading-tight md:text-6xl"><BrandText text={post.data.title} /></h1>
+      <p class="mt-6 text-xl leading-8 text-[var(--muted)]"><BrandText text={post.data.description} /></p>
       <p class="mono mt-5 text-sm text-[var(--faint)]">
         {post.data.pubDate.toLocaleDateString("en-NZ", { day: "numeric", month: "long", year: "numeric" })}
       </p>

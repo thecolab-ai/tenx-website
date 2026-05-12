@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BrandText from "../components/BrandText.astro";
+import TenX from "../components/TenX.astro";
 import { href } from "../lib/href";
 import { collectionPageSchema, faqPageSchema } from "../lib/seo";
 
@@ -127,7 +129,7 @@ const faqs = [
       <p class="eyebrow">// VETTING CRITERIA</p>
       <h1 class="mt-4 text-5xl font-medium leading-tight md:text-6xl">The pass criteria are public.</h1>
       <p class="mt-6 text-xl leading-8 text-[var(--text-secondary)]">
-        Every tenX badge is earned by passing a specific practical task. Here is what each test measures, the pass criteria,
+        Every <TenX /> badge is earned by passing a specific practical task. Here is what each test measures, the pass criteria,
         and the retry policy. No surprises on either side.
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
@@ -239,11 +241,11 @@ const faqs = [
         {faqs.map((faq) => (
           <details class="group py-5">
             <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-medium leading-6 text-[var(--text-primary)] hover:text-[var(--accent)]">
-              {faq.question}
+              <BrandText text={faq.question} />
               <span class="mono shrink-0 text-[var(--text-muted)] group-open:hidden">+</span>
               <span class="mono hidden shrink-0 text-[var(--accent)] group-open:inline">&#8722;</span>
             </summary>
-            <p class="mt-4 text-sm leading-7 text-[var(--text-secondary)]">{faq.answer}</p>
+            <p class="mt-4 text-sm leading-7 text-[var(--text-secondary)]"><BrandText text={faq.answer} /></p>
           </details>
         ))}
       </div>

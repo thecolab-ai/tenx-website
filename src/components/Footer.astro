@@ -1,5 +1,7 @@
 ---
 import { href } from "../lib/href";
+import BrandText from "./BrandText.astro";
+import TenX from "./TenX.astro";
 
 const year = new Date().getUTCFullYear();
 const groups = [
@@ -39,13 +41,13 @@ const groups = [
     <!-- Brand column -->
     <div>
       <a href={href("/")} aria-label="tenX home" class="logo-wordmark">
-        ten<span class="logo-x">X</span>
+        <TenX />
       </a>
       <p class="footer-tagline">
         AI-verified engineers across Claude, OpenAI, Google, RAG, agents, evals, MLOps, and code-with-AI workflows.
         NZ first. AUS next. Published margins.
       </p>
-      <p class="footer-copy">© {year} tenX. All rights reserved.</p>
+      <p class="footer-copy">© {year} <TenX />. All rights reserved.</p>
     </div>
 
     <!-- Link columns -->
@@ -56,7 +58,7 @@ const groups = [
           <p class="footer-col-heading">{group.title}</p>
           <ul class="mt-4 grid gap-3">
             {group.links.map((link) => (
-              <li><a href={href(link.path)} class="footer-link">{link.label}</a></li>
+              <li><a href={href(link.path)} class="footer-link"><BrandText text={link.label} /></a></li>
             ))}
           </ul>
         </div>
@@ -100,10 +102,6 @@ const groups = [
     letter-spacing: -0.02em;
     line-height: 1;
     text-decoration: none;
-  }
-
-  .logo-x {
-    color: var(--accent);
   }
 
   .footer-tagline {
