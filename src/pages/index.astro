@@ -137,7 +137,7 @@ const journeyStages = [
   </section>
 
   <!-- ══ TICKER ════════════════════════════════════════════ -->
-  <div class="ticker-rail" aria-hidden="true">
+  <div class="ticker-rail ticker-rail--navy" aria-hidden="true">
     <div class="ticker-track">
       {[...tickerItems, ...tickerItems].map((it) => (
         <span class="ticker-item">
@@ -150,11 +150,11 @@ const journeyStages = [
   </div>
 
   <!-- ══ THESIS BENTO ═══════════════════════════════════════ -->
-  <section class="section section-divider">
+  <section class="section section-divider section--warm">
     <div class="container">
       <div class="section-head">
         <div>
-          <p class="eyebrow" style="color: var(--accent);">// 01 &middot; the thesis</p>
+          <p class="eyebrow" style="color: var(--accent-coral);">// 01 &middot; the thesis</p>
           <h2 class="thesis-h2">Stop buying headcount. Start buying throughput.</h2>
         </div>
         <p class="sh-right">
@@ -227,7 +227,7 @@ const journeyStages = [
     <div class="container">
       <div class="section-head">
         <div>
-          <p class="eyebrow" style="color: var(--accent);">// 02 &middot; the rubric</p>
+          <p class="eyebrow" style="color: var(--accent-coral);">// 02 &middot; the rubric</p>
           <h2 class="thesis-h2">Nine badges. Each one a public eval.</h2>
         </div>
         <p class="sh-right">
@@ -253,11 +253,11 @@ const journeyStages = [
   </section>
 
   <!-- ══ PROCESS ════════════════════════════════════════════ -->
-  <section class="section section-divider tight">
+  <section class="section section-divider tight section--navy">
     <div class="container">
       <div class="section-head">
         <div>
-          <p class="eyebrow" style="color: var(--accent);">// 03 &middot; how it works</p>
+          <p class="eyebrow" style="color: var(--accent-coral);">// 03 &middot; how it works</p>
           <h2 class="thesis-h2">
             Brief on Monday. Multiplier on Wednesday.
             <em class="h2-dim"> Or the trial is free.</em>
@@ -282,12 +282,12 @@ const journeyStages = [
   </section>
 
   <!-- ══ DUAL CTA ═══════════════════════════════════════════ -->
-  <section class="section section-divider tight">
+  <section class="section section-divider tight section--coral">
     <div class="container">
       <div class="cta-split">
         <div class="cta-left">
           <h2 class="thesis-h2">
-            Buyer access opens <span style="color: var(--accent);">June 2026</span>.
+            Buyer access opens <span style="color: var(--accent-coral);">June 2026</span>.
           </h2>
           <p class="cta-body">
             We're taking briefs now. Hold a seat for your first piece of throughput,
@@ -447,14 +447,14 @@ const journeyStages = [
     }
   }
 
-  /* Display H1 */
+  /* Display H1 — Fraunces Black, Tracksuit big-type energy */
   .hero-h1 {
-    font-family: "Inter Display", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    font-feature-settings: "ss01", "cv11", "ss03";
-    font-weight: 500;
-    font-size: clamp(44px, 8.2vw, 108px);
-    letter-spacing: -0.035em;
-    line-height: 0.94;
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 900;
+    font-variation-settings: "SOFT" 0, "WONK" 0;
+    font-size: clamp(48px, 9vw, 116px);
+    letter-spacing: -0.03em;
+    line-height: 0.92;
     color: var(--text-primary);
     margin: 0;
     text-wrap: balance;
@@ -463,8 +463,7 @@ const journeyStages = [
   .h1-row { display: block; }
 
   .h1-x {
-    color: var(--accent);
-    font-weight: 600;
+    color: var(--accent-coral);
     display: inline-block;
     margin-left: 0.08em;
   }
@@ -472,9 +471,11 @@ const journeyStages = [
   /* Sub copy */
   .hero-sub {
     margin-top: 32px;
-    max-width: 56ch;
-    font-size: clamp(16px, 1.5vw, 20px);
-    line-height: 1.5;
+    max-width: 52ch;
+    font-family: "Outfit", system-ui, sans-serif;
+    font-size: clamp(17px, 1.5vw, 21px);
+    font-weight: 400;
+    line-height: 1.55;
     color: var(--text-secondary);
   }
 
@@ -487,15 +488,16 @@ const journeyStages = [
   }
 
   .hero-cta-primary {
-    height: 48px;
-    padding: 0 22px;
-    font-size: 15px;
+    height: 52px;
+    padding: 0 28px;
+    font-size: 16px;
+    font-weight: 600;
   }
 
   .button-secondary {
-    height: 48px;
-    padding: 0 22px;
-    font-size: 15px;
+    height: 52px;
+    padding: 0 28px;
+    font-size: 16px;
   }
 
   /* Meta strip */
@@ -531,12 +533,11 @@ const journeyStages = [
   /* ── Thesis section ──────────────────────────────── */
 
   .thesis-h2 {
-    font-family: "Inter Display", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    font-feature-settings: "ss01", "cv11", "ss03";
-    font-weight: 500;
-    font-size: clamp(26px, 4vw, 52px);
-    letter-spacing: -0.02em;
-    line-height: 1.08;
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 800;
+    font-size: clamp(28px, 4vw, 56px);
+    letter-spacing: -0.025em;
+    line-height: 1.05;
     color: var(--text-primary);
     margin-top: 10px;
     text-wrap: balance;
@@ -551,6 +552,25 @@ const journeyStages = [
 
   @media (min-width: 1024px) {
     .section.tight { padding-block: 88px; }
+  }
+
+  /* ── Section colour blocks (Tracksuit rhythm) ────── */
+  .section--warm {
+    background: var(--bg-warm);
+  }
+
+  .section--navy {
+    background: var(--bg-navy);
+  }
+
+  .section--coral {
+    background: var(--bg-coral-dim);
+  }
+
+  .ticker-rail--navy {
+    background: var(--bg-navy) !important;
+    border-top-color: rgba(255,255,255,0.06) !important;
+    border-bottom-color: rgba(255,255,255,0.06) !important;
   }
 
   /* ── CTA strip ───────────────────────────────────── */
