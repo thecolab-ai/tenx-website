@@ -1,0 +1,183 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { collectionPageSchema } from "../../lib/seo";
+
+const metrics = [
+  { label: "Launch engineers", value: "100", note: "NZ and Australia" },
+  { label: "Employer access", value: "June", note: "first wave opens in 2026" },
+  { label: "Shortlist mode", value: "Preview", note: "sample profiles for buyer review" },
+  { label: "Fee model", value: "10/20", note: "perm percent / contractor loading" }
+];
+
+const roles = [
+  { title: "Senior AI engineer", market: "Auckland", status: "preview segment", score: 92 },
+  { title: "RAG engineer", market: "Wellington", status: "preview segment", score: 88 },
+  { title: "Forward deployed engineer", market: "Sydney", status: "preview segment", score: 84 }
+];
+
+const shortlist = [
+  {
+    id: "AKL-RAG-042",
+    role: "Senior AI engineer",
+    location: "Auckland",
+    badges: ["Claude", "OpenAI", "RAG", "Evals"],
+    evidence: "Shipped retrieval and evals for a fintech support workflow.",
+    availability: "June 2026",
+    match: 94
+  },
+  {
+    id: "WLG-AUT-018",
+    role: "Automation engineer",
+    location: "Wellington",
+    badges: ["OpenAI", "Agents", "MLOps"],
+    evidence: "Built tool-calling automation for finance operations.",
+    availability: "June 2026",
+    match: 91
+  },
+  {
+    id: "SYD-FDE-031",
+    role: "Forward deployed engineer",
+    location: "Sydney",
+    badges: ["Claude", "Google", "Prompt systems"],
+    evidence: "Scoped customer workflows and production rollout plans.",
+    availability: "July 2026",
+    match: 86
+  }
+];
+
+const activity = [
+  ["13 May 2026", "Role brief received", "Senior AI engineer, Auckland timezone overlap."],
+  ["13 May 2026", "Skills filter applied", "Claude, OpenAI, RAG, evals, production delivery."],
+  ["14 May 2026", "Preview shortlist", "Sample profiles ready for employer review."]
+];
+---
+
+<BaseLayout
+  title="Employer dashboard"
+  description="Employer dashboard preview for tenX shortlists, role briefs, and practical test evidence."
+  path="/employer/dashboard"
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Employer", path: "/hire" },
+    { name: "Dashboard", path: "/employer/dashboard" }
+  ]}
+  schema={collectionPageSchema({
+    title: "Employer dashboard",
+    description: "Employer dashboard preview for tenX shortlists, role briefs, and practical test evidence.",
+    path: "/employer/dashboard"
+  })}
+>
+  <section class="container py-12 md:py-16">
+    <div class="grid gap-8 lg:grid-cols-[0.72fr_0.28fr]">
+      <div>
+        <p class="eyebrow">// Employer dashboard</p>
+        <h1 class="mt-4 type-h1">Shortlists by evidence.</h1>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-[var(--muted)]">
+          Role briefs, badge evidence, availability, and fee context in one view. Verified through practical tests across Claude, OpenAI, Google, RAG, agents, evals, and MLOps.
+        </p>
+      </div>
+
+      <div class="panel grid content-between gap-5 p-5">
+        <div>
+          <p class="eyebrow">// Status</p>
+          <div class="mt-4 flex items-center gap-3">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            <p class="text-lg font-medium">Employer access preview</p>
+          </div>
+        </div>
+        <p class="text-sm leading-6 text-[var(--muted)]">
+          Updated 13 May 2026. Candidate intake is live; employer access opens in June 2026.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {metrics.map((metric) => (
+        <div class="card p-5">
+          <p class="stat-value text-[clamp(2.15rem,4vw,3.15rem)]">{metric.value}</p>
+          <p class="mt-3 text-sm font-medium">{metric.label}</p>
+          <p class="mt-1 text-sm leading-6 text-[var(--muted)]">{metric.note}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="container pb-16">
+    <div class="grid gap-8 lg:grid-cols-[0.68fr_0.32fr]">
+      <div>
+        <div class="mb-4 flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <p class="eyebrow">// Shortlist preview</p>
+            <h2 class="mt-3 type-h3">Profiles ready for review</h2>
+          </div>
+          <p class="mono text-xs uppercase tracking-[0.08em] text-[var(--faint)]">Fee model: 10% / 20%</p>
+        </div>
+
+        <div class="grid gap-3">
+          {shortlist.map((candidate) => (
+            <article class="card p-5">
+              <div class="grid gap-5 md:grid-cols-[1fr_auto]">
+                <div>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <span class="badge">{candidate.id}</span>
+                    <span class="badge">{candidate.location}</span>
+                    <span class="badge">{candidate.availability}</span>
+                  </div>
+                  <h3 class="mt-4 text-xl font-medium">{candidate.role}</h3>
+                  <p class="mt-2 text-sm leading-6 text-[var(--muted)]">{candidate.evidence}</p>
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    {candidate.badges.map((badge) => <span class="model-chip">{badge}</span>)}
+                  </div>
+                </div>
+                <div class="min-w-28 border-t border-[var(--line)] pt-4 md:border-l md:border-t-0 md:pl-5 md:pt-0">
+                  <p class="mono text-3xl font-medium text-[var(--accent)]">{candidate.match}</p>
+                  <p class="mt-1 mono text-[11px] uppercase tracking-[0.08em] text-[var(--faint)]">match score</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <aside class="grid content-start gap-4">
+        <div class="panel p-5">
+          <p class="eyebrow">// Role demand</p>
+          <div class="mt-5 grid gap-2">
+            {roles.map((role) => (
+              <div class="bar-row">
+                <div class="min-w-0 flex-1">
+                  <p class="text-sm font-medium">{role.title}</p>
+                  <p class="text-xs text-[var(--faint)]">{role.market} · {role.status}</p>
+                </div>
+                <div class="bar-track max-w-24">
+                  <span class="bar-fill block" style={`width: ${role.score}%`}></span>
+                </div>
+                <p class="bar-pct">{role.score}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="panel p-5">
+          <p class="eyebrow">// Activity</p>
+          <ol class="mt-5 grid gap-4">
+            {activity.map(([date, title, body]) => (
+              <li class="border-l border-[var(--border-default)] pl-4">
+                <p class="mono text-[11px] uppercase tracking-[0.08em] text-[var(--faint)]">{date}</p>
+                <p class="mt-1 text-sm font-medium">{title}</p>
+                <p class="mt-1 text-sm leading-6 text-[var(--muted)]">{body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <div class="panel p-5">
+          <p class="eyebrow">// Pricing</p>
+          <p class="mt-4 text-sm leading-6 text-[var(--muted)]">
+            10% of salary on permanent placements. 20% loading on contractor monthly billings. Published before the first call.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

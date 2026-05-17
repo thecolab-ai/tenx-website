@@ -66,7 +66,7 @@ const features = [
       </p>
     </div>
 
-    <form class="panel grid gap-5 p-6 md:p-8" method="post" action="/api/apply">
+    <form class="panel grid gap-5 p-6 md:p-8" method="post" action="/api/apply" data-async-form="apply">
       <input type="hidden" name="source" value="tenx-website-apply" />
       <label class="label">
         Full name
@@ -96,9 +96,86 @@ const features = [
         </select>
       </label>
       <button class="button button-primary" type="submit">Apply to the network</button>
+      <p data-form-status class="text-sm leading-6 text-[var(--faint)]" aria-live="polite" hidden></p>
       <p class="text-sm leading-6 text-[var(--faint)]">
-        Next step after applying: take a practical skills assessment at app.tenxtalent.ai. Intake is open now for NZ candidates; AUS opens June 2026.
+        {/* TODO: switch back to https://app.tenxtalent.ai/ once app.tenxtalent.ai DNS is configured. */}
+        Next step after applying: take a practical skills assessment at <a href="https://tenxtalent.ai/" class="underline underline-offset-2 hover:text-[var(--ink)]">tenxtalent.ai</a>. Intake is open now for NZ candidates; AUS opens June 2026.
       </p>
     </form>
   </section>
+
+  <script>
+    type FormResult = {
+      errors?: Array<{ message?: string }>;
+      message?: string;
+      ok?: boolean;
+      redirect?: string;
+    };
+
+    const form = document.querySelector("[data-async-form='apply']");
+
+    if (form instanceof HTMLFormElement) {
+      const status = form.querySelector("[data-form-status]");
+      const submitButton = form.querySelector("button[type='submit']");
+      const initialButtonText = submitButton?.textContent ?? "";
+
+      const setStatus = (message: string, state: "error" | "muted" | "success" = "muted") => {
+        if (!(status instanceof HTMLElement)) return;
+
+        status.hidden = !message;
+        status.textContent = message;
+        status.style.color =
+          state === "error" ? "var(--danger)" : state === "success" ? "var(--success)" : "var(--faint)";
+      };
+
+      const messageFromResult = (result: FormResult) => {
+        if (Array.isArray(result?.errors)) {
+          const errorMessage = result.errors.map((error) => error?.message).filter(Boolean).join(" ");
+          if (errorMessage) return errorMessage;
+        }
+
+        return result?.message || "Could not submit the application. Please email mail@adamholt.co.nz directly.";
+      };
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        let shouldRestore = true;
+        setStatus("Sending application...", "muted");
+
+        if (submitButton instanceof HTMLButtonElement) {
+          submitButton.disabled = true;
+          submitButton.textContent = "Sending...";
+        }
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method || "POST",
+            body: new FormData(form),
+            headers: { Accept: "application/json" }
+          });
+          const result = (await response.json().catch(() => ({}))) as FormResult;
+
+          if (!response.ok || !result?.ok) {
+            setStatus(messageFromResult(result), "error");
+            return;
+          }
+
+          setStatus(result.message || "Application received.", "success");
+
+          if (typeof result.redirect === "string") {
+            shouldRestore = false;
+            window.location.assign(result.redirect);
+          }
+        } catch {
+          setStatus("Could not submit the application. Please email mail@adamholt.co.nz directly.", "error");
+        } finally {
+          if (shouldRestore && submitButton instanceof HTMLButtonElement) {
+            submitButton.disabled = false;
+            submitButton.textContent = initialButtonText;
+          }
+        }
+      });
+    }
+  </script>
 </BaseLayout>

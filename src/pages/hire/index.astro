@@ -34,7 +34,7 @@ import roles from "../../data/roles.json";
       </div>
     </div>
 
-    <form class="panel grid gap-5 p-6 md:p-8" method="post" action="/api/hire">
+    <form class="panel grid gap-5 p-6 md:p-8" method="post" action="/api/hire" data-async-form="hire">
       <input type="hidden" name="source" value="tenx-website-hire" />
       <label class="label">
         Work email
@@ -65,9 +65,85 @@ import roles from "../../data/roles.json";
         <textarea class="textarea" name="notes" placeholder="Role, tools, location, budget, contract or permanent..."></textarea>
       </label>
       <button class="button button-primary" type="submit">Join employer waitlist</button>
+      <p data-form-status class="text-sm leading-6 text-[var(--faint)]" aria-live="polite" hidden></p>
       <p class="text-sm leading-6 text-[var(--faint)]">
         Candidates are applying now. Employer access opens in June 2026.
       </p>
     </form>
   </section>
+
+  <script>
+    type FormResult = {
+      errors?: Array<{ message?: string }>;
+      message?: string;
+      ok?: boolean;
+      redirect?: string;
+    };
+
+    const form = document.querySelector("[data-async-form='hire']");
+
+    if (form instanceof HTMLFormElement) {
+      const status = form.querySelector("[data-form-status]");
+      const submitButton = form.querySelector("button[type='submit']");
+      const initialButtonText = submitButton?.textContent ?? "";
+
+      const setStatus = (message: string, state: "error" | "muted" | "success" = "muted") => {
+        if (!(status instanceof HTMLElement)) return;
+
+        status.hidden = !message;
+        status.textContent = message;
+        status.style.color =
+          state === "error" ? "var(--danger)" : state === "success" ? "var(--success)" : "var(--faint)";
+      };
+
+      const messageFromResult = (result: FormResult) => {
+        if (Array.isArray(result?.errors)) {
+          const errorMessage = result.errors.map((error) => error?.message).filter(Boolean).join(" ");
+          if (errorMessage) return errorMessage;
+        }
+
+        return result?.message || "Could not submit the request. Please email mail@adamholt.co.nz directly.";
+      };
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        let shouldRestore = true;
+        setStatus("Sending request...", "muted");
+
+        if (submitButton instanceof HTMLButtonElement) {
+          submitButton.disabled = true;
+          submitButton.textContent = "Sending...";
+        }
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method || "POST",
+            body: new FormData(form),
+            headers: { Accept: "application/json" }
+          });
+          const result = (await response.json().catch(() => ({}))) as FormResult;
+
+          if (!response.ok || !result?.ok) {
+            setStatus(messageFromResult(result), "error");
+            return;
+          }
+
+          setStatus(result.message || "Employer waitlist request received.", "success");
+
+          if (typeof result.redirect === "string") {
+            shouldRestore = false;
+            window.location.assign(result.redirect);
+          }
+        } catch {
+          setStatus("Could not submit the request. Please email mail@adamholt.co.nz directly.", "error");
+        } finally {
+          if (shouldRestore && submitButton instanceof HTMLButtonElement) {
+            submitButton.disabled = false;
+            submitButton.textContent = initialButtonText;
+          }
+        }
+      });
+    }
+  </script>
 </BaseLayout>
